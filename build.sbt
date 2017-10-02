@@ -33,6 +33,7 @@ lazy val bbpcore = project.in(file("modules/bbp-core"))
 
 lazy val bbpexperiment = project.in(file("modules/bbp-experiment"))
   .enablePlugins(BuildInfoPlugin)
+  .dependsOn(bbpcore)
   .dependsOn(workbench % Test)
   .settings(commonSettings, publishSettings, buildInfoSettings)
   .settings(
@@ -58,7 +59,7 @@ lazy val root = project.in(file("."))
     name := "bbp-schemas",
     moduleName := "bbp-schemas")
   .settings(commonSettings, noPublishSettings)
-  .aggregate(workbench, bbpexperiment, bbpatlas)
+  .aggregate(workbench, bbpcore, bbpexperiment, bbpatlas)
 
 lazy val buildInfoSettings = Seq(
   buildInfoKeys := Seq[BuildInfoKey](
