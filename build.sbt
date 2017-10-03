@@ -1,167 +1,110 @@
-import sbt.Resolver
-import sbtrelease._
-import sbtrelease.ReleaseStateTransformations._
+lazy val commonsVersion   = "0.4.5"
+lazy val scalaTestVersion = "3.0.4"
+lazy val akkaHttpVersion  = "10.0.10"
 
-val commonsVersion = "0.4.3"
-val scalaTestVersion = "3.0.4"
-val akkaHttpVersion = "10.0.9"
+lazy val shaclValidator = "ch.epfl.bluebrain.nexus" %% "shacl-validator" % commonsVersion
+lazy val akkaHttpCore   = "com.typesafe.akka"       %% "akka-http-core"  % akkaHttpVersion
+lazy val scalaTest      = "org.scalatest"           %% "scalatest"       % scalaTestVersion
 
 val baseUri = "http://localhost/v0"
 
-lazy val shaclValidator = nexusDep("shacl-validator", commonsVersion)
+lazy val docs = project
+  .in(file("docs"))
+  .enablePlugins(DocsPackagingPlugin)
+  .settings(common)
+  .settings(name := "bbp-domains-docs",
+            moduleName := "bbp-domains-docs",
+            paradoxTheme := Some(builtinParadoxTheme("generic")),
+            packageName in Docker := "bbp-domains-docs")
 
-lazy val workbench = project.in(file("modules/workbench"))
+lazy val workbench = project
+  .in(file("modules/workbench"))
   .settings(common, noPublish)
-  .settings(
-    name := "bbp-schemas-workbench",
-    moduleName := "bbp-schemas-workbench",
-    libraryDependencies ++= Seq(
-      shaclValidator,
-      "com.typesafe.akka" %% "akka-http-core" % akkaHttpVersion,
-      "org.scalatest" %% "scalatest" % scalaTestVersion
-    ))
+  .settings(name := "bbp-schemas-workbench",
+            moduleName := "bbp-schemas-workbench",
+            libraryDependencies ++= Seq(shaclValidator, akkaHttpCore, scalaTest))
 
-
-lazy val bbpcore = project.in(file("modules/bbp-core"))
+lazy val core = project
+  .in(file("modules/bbp-core"))
   .enablePlugins(BuildInfoPlugin)
   .dependsOn(workbench % Test)
-  .settings(common, publishSettings, buildInfoSettings)
+  .settings(common, buildInfoSettings)
   .settings(
     name := "bbp-core-schemas",
     moduleName := "bbp-core-schemas",
-    libraryDependencies ++= Seq(
-      "org.scalatest" %% "scalatest" % scalaTestVersion % Test))
+    libraryDependencies ++= Seq(scalaTest % Test),
+    buildInfoPackage := "ch.epfl.bluebrain.nexus.bbp.domains.core"
+  )
 
-lazy val docs = project.in(file("docs"))
-  .enablePlugins(ParadoxPlugin)
-  .settings(common, noPublish)
-  .settings(
-    name := "bbp-domains-docs",
-    moduleName := "bbp-domains-docs",
-    paradoxTheme := Some(builtinParadoxTheme("generic")),
-    target in(Compile, paradox) := (resourceManaged in Compile).value / "docs",
-    resourceGenerators in Compile += {
-      (paradox in Compile).map { parent =>
-        (parent ** "*").get
-      }.taskValue
-    })
-
-lazy val bbpexperiment = project.in(file("modules/bbp-experiment"))
+lazy val experiment = project
+  .in(file("modules/bbp-experiment"))
   .enablePlugins(BuildInfoPlugin)
-  .dependsOn(bbpcore)
+  .dependsOn(core)
   .dependsOn(workbench % Test)
-  .settings(common, publishSettings, buildInfoSettings)
+  .settings(common, buildInfoSettings)
   .settings(
     name := "bbp-experiment-schemas",
     moduleName := "bbp-experiment-schemas",
-    libraryDependencies ++= Seq(
-      "org.scalatest" %% "scalatest" % scalaTestVersion % Test))
+    libraryDependencies ++= Seq(scalaTest % Test),
+    buildInfoPackage := "ch.epfl.bluebrain.nexus.bbp.domains.experiment"
+  )
 
-lazy val bbpatlas = project.in(file("modules/bbp-atlas"))
+lazy val atlas = project
+  .in(file("modules/bbp-atlas"))
   .enablePlugins(BuildInfoPlugin)
-  .dependsOn(bbpcore)
+  .dependsOn(core)
   .dependsOn(workbench % Test)
-  .settings(common, publishSettings, buildInfoSettings)
+  .settings(common, buildInfoSettings)
   .settings(
     name := "bbp-atlas-schemas",
     moduleName := "bbp-atlas-schemas",
-    libraryDependencies ++= Seq(
-      "org.scalatest" %% "scalatest" % scalaTestVersion % Test))
+    libraryDependencies ++= Seq(scalaTest % Test),
+    buildInfoPackage := "ch.epfl.bluebrain.nexus.bbp.domains.atlas"
+  )
 
-
-lazy val root = project.in(file("."))
-  .settings(
-    name := "bbp-schemas",
-    moduleName := "bbp-schemas")
+lazy val root = project
+  .in(file("."))
+  .settings(name := "bbp-schemas", moduleName := "bbp-schemas")
   .settings(common, noPublish)
-  .aggregate(workbench, bbpcore, bbpexperiment, bbpatlas, docs)
+  .aggregate(docs, workbench, core, experiment, atlas)
 
 lazy val buildInfoSettings = Seq(
   buildInfoKeys := Seq[BuildInfoKey](
     BuildInfoKey("base" -> baseUri),
-    BuildInfoKey.map(resources.in(Compile)) { case (_, v) =>
-      val resourceBase = resourceDirectory.in(Compile).value.getAbsolutePath
-      val dirsWithJson = (v * "schemas" ** "*.json").get
-      val schemas = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
-      "schemas" -> schemas
+    BuildInfoKey.map(resources.in(Compile)) {
+      case (_, v) =>
+        val resourceBase = resourceDirectory.in(Compile).value.getAbsolutePath
+        val dirsWithJson = (v * "schemas" ** "*.json").get
+        val schemas      = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
+        "schemas" -> schemas
     },
-    BuildInfoKey.map(resources.in(Compile)) { case (_, v) =>
-      val resourceBase = resourceDirectory.in(Compile).value.getAbsolutePath
-      val dirsWithJson = (v * "contexts" ** "*.json").get
-      val contexts = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
-      "contexts" -> contexts
+    BuildInfoKey.map(resources.in(Compile)) {
+      case (_, v) =>
+        val resourceBase = resourceDirectory.in(Compile).value.getAbsolutePath
+        val dirsWithJson = (v * "contexts" ** "*.json").get
+        val contexts     = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
+        "contexts" -> contexts
     },
-    BuildInfoKey.map(resources.in(Test)) { case (_, v) =>
-      val resourceBase = resourceDirectory.in(Test).value.getAbsolutePath
-      val dirsWithJson = (v * "data" ** "*.json").get
-      val data = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
-      "data" -> data
+    BuildInfoKey.map(resources.in(Test)) {
+      case (_, v) =>
+        val resourceBase = resourceDirectory.in(Test).value.getAbsolutePath
+        val dirsWithJson = (v * "data" ** "*.json").get
+        val data         = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
+        "data" -> data
     },
-    BuildInfoKey.map(resources.in(Test)) { case (_, v) =>
-      val resourceBase = resourceDirectory.in(Test).value.getAbsolutePath
-      val dirsWithJson = (v * "invalid" ** "*.json").get
-      val invalid = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
-      "invalid" -> invalid
+    BuildInfoKey.map(resources.in(Test)) {
+      case (_, v) =>
+        val resourceBase = resourceDirectory.in(Test).value.getAbsolutePath
+        val dirsWithJson = (v * "invalid" ** "*.json").get
+        val invalid      = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
+        "invalid" -> invalid
     }
-  ),
-  buildInfoPackage := "ch.epfl.bluebrain.nexus.schema")
+  ))
 
-lazy val common = Seq(
-  scalacOptions in(Compile, console) ~= (_ filterNot (_ == "-Xfatal-warnings")),
-  resolvers += Resolver.bintrayRepo("bogdanromanx", "maven"))
+lazy val common = Seq(scalacOptions in (Compile, console) ~= (_ filterNot (_ == "-Xfatal-warnings")),
+                      resolvers += Resolver.bintrayRepo("bogdanromanx", "maven"))
 
-lazy val noPublish = Seq(
-  publishLocal := {},
-  publish := {})
-
-
-
-lazy val publishSettings = Seq(
-  overrideBuildResolvers := true,
-  publishMavenStyle := true,
-  pomIncludeRepository := Function.const(false),
-  publishTo := {
-    if (isSnapshot.value) Some("Snapshots" at "https://bbpteam.epfl.ch/repository/nexus/content/repositories/snapshots")
-    else Some("Releases" at "https://bbpteam.epfl.ch/repository/nexus/content/repositories/releases")
-  },
-  releaseVersionBump := Version.Bump.Bugfix,
-  releaseVersion := { ver =>
-    sys.env.get("RELEASE_VERSION") // fetch the optional system env var
-      .map(_.trim)
-      .filterNot(_.isEmpty)
-      .map(v => Version(v).getOrElse(versionFormatError)) // parse it into a version or throw
-      .orElse(Version(ver).map(_.withoutQualifier)) // fallback on the current version without a qualifier
-      .map(_.string) // map it to its string representation
-      .getOrElse(versionFormatError) // throw if we couldn't compute the version
-  },
-  releaseNextVersion := { ver =>
-    sys.env.get("NEXT_VERSION") // fetch the optional system env var
-      .map(_.trim)
-      .filterNot(_.isEmpty)
-      .map(v => Version(v).getOrElse(versionFormatError)) // parse it into a version or throw
-      .orElse(Version(ver).map(_.bump(releaseVersionBump.value))) // fallback on the current version bumped accordingly
-      .map(_.asSnapshot.string) // map it to its snapshot version as string
-      .getOrElse(versionFormatError) // throw if we couldn't compute the version
-  },
-  releaseCrossBuild := false,
-  releaseTagName := s"${name.value}-${(version in ThisBuild).value}",
-  releaseTagComment := s"Releasing version ${(version in ThisBuild).value}",
-  releaseCommitMessage := s"Setting new version to ${(version in ThisBuild).value}",
-  releaseProcess := Seq(
-    checkSnapshotDependencies,
-    inquireVersions,
-    runClean,
-    setReleaseVersion,
-    commitReleaseVersion,
-    tagRelease,
-    publishArtifacts,
-    setNextVersion,
-    commitNextVersion,
-    pushChanges)
-)
-
-def nexusDep(name: String, version: String): ModuleID =
-  "ch.epfl.bluebrain.nexus" %% name % version
+lazy val noPublish = Seq(publishLocal := {}, publish := {})
 
 addCommandAlias("review", ";clean;test")
 addCommandAlias("rel", ";release with-defaults skip-tests")

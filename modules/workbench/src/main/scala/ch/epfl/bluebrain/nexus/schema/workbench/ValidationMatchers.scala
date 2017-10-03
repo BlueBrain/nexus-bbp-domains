@@ -10,25 +10,27 @@ import scala.util.{Failure, Success, Try}
 
 trait ValidationMatchers extends Matchers { self: WordSpecLike =>
 
-  def validate: AfterWord = afterWord("validate instances")
+  def validate: AfterWord    = afterWord("validate instances")
   def notValidate: AfterWord = afterWord("NOT validate instances")
 
   implicit def conformantOrNotFromTry(vtry: Try[ValidationReport])(implicit
-    pos: source.Position,
-    schemaRef: SchemaRef,
-    instanceRef: InstanceRef): ConformantOrNot = {
+                                                                   pos: source.Position,
+                                                                   schemaRef: SchemaRef,
+                                                                   instanceRef: InstanceRef): ConformantOrNot = {
     vtry match {
-      case Success(report)            => new ConformantOrNot(report)
+      case Success(report) => new ConformantOrNot(report)
       case Failure(e: ShaclValidatorErr.FailedToLoadShaclSchema) =>
         val message = s"Failed to load schema '${schemaRef.stripped}' into the validator"
         throw new TestFailedException((_: exceptions.StackDepthException) => Some(message), Some(e.cause), pos)
-      case Failure(th)                =>
+      case Failure(th) =>
         val message = "Unexpected failure of the Shacl validator"
         throw new TestFailedException((_: exceptions.StackDepthException) => Some(message), Some(th), pos)
     }
   }
 
-  class ConformantOrNot(report: ValidationReport)(implicit pos: source.Position, schemaRef: SchemaRef, instanceRef: InstanceRef) {
+  class ConformantOrNot(report: ValidationReport)(implicit pos: source.Position,
+                                                  schemaRef: SchemaRef,
+                                                  instanceRef: InstanceRef) {
     def shouldConform: Assertion = {
       if (report.conforms) Succeeded
       else {
@@ -47,8 +49,7 @@ trait ValidationMatchers extends Matchers { self: WordSpecLike =>
       if (report.conforms) {
         val message = s"Instance '${instanceRef.stripped}' conformed to schema '${schemaRef.stripped}'"
         throw new TestFailedException((_: exceptions.StackDepthException) => Some(message), None, pos)
-      }
-      else Succeeded
+      } else Succeeded
     }
   }
 
@@ -57,7 +58,7 @@ trait ValidationMatchers extends Matchers { self: WordSpecLike =>
 
   class LoadedOrNot(ltry: Try[Json])(implicit pos: source.Position) {
     def value: Json = ltry match {
-      case Success(json)                => json
+      case Success(json) => json
       case Failure(wbe: WorkbenchErr) =>
         val message = wbe.message
         throw new TestFailedException((_: exceptions.StackDepthException) => Some(message), Some(wbe), pos)
