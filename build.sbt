@@ -1,3 +1,4 @@
+import sbt.Resolver
 import sbtrelease._
 import sbtrelease.ReleaseStateTransformations._
 
@@ -10,7 +11,7 @@ val baseUri = "http://localhost/v0"
 lazy val shaclValidator = nexusDep("shacl-validator", commonsVersion)
 
 lazy val workbench = project.in(file("modules/workbench"))
-  .settings(commonSettings, noPublishSettings)
+  .settings(common, noPublish)
   .settings(
     name := "bbp-schemas-workbench",
     moduleName := "bbp-schemas-workbench",
@@ -24,18 +25,32 @@ lazy val workbench = project.in(file("modules/workbench"))
 lazy val bbpcore = project.in(file("modules/bbp-core"))
   .enablePlugins(BuildInfoPlugin)
   .dependsOn(workbench % Test)
-  .settings(commonSettings, publishSettings, buildInfoSettings)
+  .settings(common, publishSettings, buildInfoSettings)
   .settings(
     name := "bbp-core-schemas",
     moduleName := "bbp-core-schemas",
     libraryDependencies ++= Seq(
       "org.scalatest" %% "scalatest" % scalaTestVersion % Test))
 
+lazy val docs = project.in(file("docs"))
+  .enablePlugins(ParadoxPlugin)
+  .settings(common, noPublish)
+  .settings(
+    name := "bbp-domains-docs",
+    moduleName := "bbp-domains-docs",
+    paradoxTheme := Some(builtinParadoxTheme("generic")),
+    target in(Compile, paradox) := (resourceManaged in Compile).value / "docs",
+    resourceGenerators in Compile += {
+      (paradox in Compile).map { parent =>
+        (parent ** "*").get
+      }.taskValue
+    })
+
 lazy val bbpexperiment = project.in(file("modules/bbp-experiment"))
   .enablePlugins(BuildInfoPlugin)
   .dependsOn(bbpcore)
   .dependsOn(workbench % Test)
-  .settings(commonSettings, publishSettings, buildInfoSettings)
+  .settings(common, publishSettings, buildInfoSettings)
   .settings(
     name := "bbp-experiment-schemas",
     moduleName := "bbp-experiment-schemas",
@@ -46,7 +61,7 @@ lazy val bbpatlas = project.in(file("modules/bbp-atlas"))
   .enablePlugins(BuildInfoPlugin)
   .dependsOn(bbpcore)
   .dependsOn(workbench % Test)
-  .settings(commonSettings, publishSettings, buildInfoSettings)
+  .settings(common, publishSettings, buildInfoSettings)
   .settings(
     name := "bbp-atlas-schemas",
     moduleName := "bbp-atlas-schemas",
@@ -58,8 +73,8 @@ lazy val root = project.in(file("."))
   .settings(
     name := "bbp-schemas",
     moduleName := "bbp-schemas")
-  .settings(commonSettings, noPublishSettings)
-  .aggregate(workbench, bbpcore, bbpexperiment, bbpatlas)
+  .settings(common, noPublish)
+  .aggregate(workbench, bbpcore, bbpexperiment, bbpatlas, docs)
 
 lazy val buildInfoSettings = Seq(
   buildInfoKeys := Seq[BuildInfoKey](
@@ -91,36 +106,15 @@ lazy val buildInfoSettings = Seq(
   ),
   buildInfoPackage := "ch.epfl.bluebrain.nexus.schema")
 
-lazy val commonSettings = Seq(
-  organization := "ch.epfl.bluebrain.nexus",
-  scalaVersion := "2.12.3",
-  scalacOptions ++= Seq(
-    "-deprecation",
-    "-encoding", "UTF-8",
-    "-feature",
-    "-unchecked",
-    "-Xlint",
-    "-language:existentials",
-    "-language:higherKinds",
-    "-language:implicitConversions",
-    "-language:postfixOps",
-    "-language:existentials",
-    "-language:experimental.macros",
-    "-Xfatal-warnings",
-    "-Yno-adapted-args",
-    "-Ywarn-dead-code",
-    "-Ywarn-numeric-widen",
-    "-Ywarn-value-discard",
-    "-Ywarn-inaccessible",
-    "-Ywarn-unused-import",
-    "-Xfuture",
-    "-Ypartial-unification")
-)
+lazy val common = Seq(
+  scalacOptions in(Compile, console) ~= (_ filterNot (_ == "-Xfatal-warnings")),
+  resolvers += Resolver.bintrayRepo("bogdanromanx", "maven"))
 
-lazy val noPublishSettings = Seq(
+lazy val noPublish = Seq(
   publishLocal := {},
-  publish := {},
-  publishArtifact := false)
+  publish := {})
+
+
 
 lazy val publishSettings = Seq(
   overrideBuildResolvers := true,
