@@ -17,8 +17,8 @@ import org.apache.jena.riot.{Lang, RDFDataMgr}
 
 import scala.collection.JavaConverters._
 
-class ClasspathResolver[F[_]](loader: ResourceLoader[F])
-                             (implicit F: MonadError[F, Throwable]) extends ImportResolver[F] {
+class ClasspathResolver[F[_]](loader: ResourceLoader[F])(implicit F: MonadError[F, Throwable])
+    extends ImportResolver[F] {
 
   private lazy val imports = ResourceFactory.createProperty("http://www.w3.org/2002/07/owl#imports")
 
@@ -55,20 +55,20 @@ class ClasspathResolver[F[_]](loader: ResourceLoader[F])
     }
 
   private val prefix = Pattern.quote(loader.baseUri.toString())
-  private val any = "[a-zA-Z0-9]+"
-  private val num = "[0-9]+"
-  private val dot = "\\."
-  private val regex = s"^$prefix/schemas/$any/$any/$any/v$num$dot$num$dot$num$$".r
+  private val any    = "[a-zA-Z0-9]+"
+  private val num    = "[0-9]+"
+  private val dot    = "\\."
+  private val regex  = s"^$prefix/schemas/$any/$any/$any/v$num$dot$num$dot$num$$".r
 
   private def importsOf(schema: ShaclSchema): F[Set[String]] = {
     val model = ModelFactory.createDefaultModel()
     RDFDataMgr.read(model, new ByteArrayInputStream(schema.value.noSpaces.getBytes), Lang.JSONLD)
-    val nodes = model.listObjectsOfProperty(imports).asScala.toSet
+    val nodes          = model.listObjectsOfProperty(imports).asScala.toSet
     val illegalImports = nodes.filter(!_.isURIResource)
-    val uris = nodes.filter(_.isURIResource)
+    val uris           = nodes.filter(_.isURIResource)
     val missingImports = uris.filterNot(n => n.asResource().getURI.matches(regex.regex))
     if (illegalImports.nonEmpty) F.raiseError(IllegalImportDefinition(illegalImports.map(n => n.toString)))
-    else if(missingImports.nonEmpty) F.raiseError(CouldNotFindImports(missingImports.map(n => n.toString)))
+    else if (missingImports.nonEmpty) F.raiseError(CouldNotFindImports(missingImports.map(n => n.toString)))
     else F.pure(nodes.map(_.asResource().getURI))
   }
 

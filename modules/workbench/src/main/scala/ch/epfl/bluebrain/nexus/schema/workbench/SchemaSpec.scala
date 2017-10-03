@@ -6,14 +6,13 @@ import org.scalatest.WordSpecLike
 
 import scala.util.Try
 
-class SchemaSpec(
-    validator: ShaclValidator[Try],
-    loader: ResourceLoader[Try],
-    base: Uri,
-    schema: Uri,
-    validInstanceUris: List[Uri],
-    invalidInstanceUris: List[Uri])
-  extends WordSpecLike
+class SchemaSpec(validator: ShaclValidator[Try],
+                 loader: ResourceLoader[Try],
+                 base: Uri,
+                 schema: Uri,
+                 validInstanceUris: List[Uri],
+                 invalidInstanceUris: List[Uri])
+    extends WordSpecLike
     with ValidationMatchers {
 
   private implicit val schemaRef: SchemaRef = SchemaRef(base, schema)
@@ -37,7 +36,7 @@ class SchemaSpec(
                 validator(shaclSchema, instance).shouldConform
               }
             }
-        }
+          }
       }
     }
 

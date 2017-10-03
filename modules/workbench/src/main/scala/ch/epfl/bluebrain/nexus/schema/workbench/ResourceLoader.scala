@@ -75,7 +75,7 @@ class ResourceLoader[F[_]](base: Uri, replacements: Map[String, String])(implici
                 case (acc, el) => acc.deepMerge(el)
               }
             }
-        case _                 => F.raiseError(IllegalContextValue(ctx))
+        case _ => F.raiseError(IllegalContextValue(ctx))
       }
     }
 
