@@ -1,10 +1,14 @@
-lazy val commonsVersion   = "0.4.5"
+lazy val commonsVersion = "0.4.5"
 lazy val scalaTestVersion = "3.0.4"
-lazy val akkaHttpVersion  = "10.0.10"
+lazy val akkaHttpVersion = "10.0.10"
+lazy val nexusProvVersion = "0.1.0"
+
 
 lazy val shaclValidator = "ch.epfl.bluebrain.nexus" %% "shacl-validator" % commonsVersion
-lazy val akkaHttpCore   = "com.typesafe.akka"       %% "akka-http-core"  % akkaHttpVersion
-lazy val scalaTest      = "org.scalatest"           %% "scalatest"       % scalaTestVersion
+lazy val akkaHttpCore = "com.typesafe.akka" %% "akka-http-core" % akkaHttpVersion
+lazy val scalaTest = "org.scalatest" %% "scalatest" % scalaTestVersion
+lazy val nexusProv = "ch.epfl.bluebrain.nexus" %% "nexus-prov" % nexusProvVersion
+
 
 val baseUri = "http://localhost/v0"
 
@@ -13,34 +17,48 @@ lazy val docs = project
   .enablePlugins(DocsPackagingPlugin)
   .settings(common)
   .settings(name := "bbp-domains-docs",
-            moduleName := "bbp-domains-docs",
-            paradoxTheme := Some(builtinParadoxTheme("generic")),
-            packageName in Docker := "bbp-domains-docs")
+    moduleName := "bbp-domains-docs",
+    paradoxTheme := Some(builtinParadoxTheme("generic")),
+    packageName in Docker := "bbp-domains-docs")
 
 lazy val workbench = project
   .in(file("modules/workbench"))
   .settings(common, noPublish)
   .settings(name := "bbp-schemas-workbench",
-            moduleName := "bbp-schemas-workbench",
-            libraryDependencies ++= Seq(shaclValidator, akkaHttpCore, scalaTest))
+    moduleName := "bbp-schemas-workbench",
+    libraryDependencies ++= Seq(shaclValidator, akkaHttpCore, scalaTest))
 
 lazy val core = project
   .in(file("modules/bbp-core"))
   .enablePlugins(BuildInfoPlugin)
-  .dependsOn(workbench % Test)
+  .dependsOn(kgschemas, workbench % Test)
   .settings(common, buildInfoSettings)
   .settings(
     name := "bbp-core-schemas",
     moduleName := "bbp-core-schemas",
-    libraryDependencies ++= Seq(scalaTest % Test),
+    libraryDependencies ++= Seq(
+      nexusProv,
+      scalaTest % Test
+    ),
     buildInfoPackage := "ch.epfl.bluebrain.nexus.bbp.domains.core"
   )
+
+
+lazy val kgschemas = project.in(file("modules/kg-schemas"))
+  .enablePlugins(BuildInfoPlugin)
+  .dependsOn(workbench % Test)
+  .settings(common, noPublish)
+  .settings(
+    name := "kg-schemas",
+    moduleName := "kg-schemas",
+    libraryDependencies ++= Seq(
+      "org.scalatest" %% "scalatest" % scalaTestVersion % Test))
+
 
 lazy val experiment = project
   .in(file("modules/bbp-experiment"))
   .enablePlugins(BuildInfoPlugin)
-  .dependsOn(core)
-  .dependsOn(workbench % Test)
+  .dependsOn(core, workbench % Test)
   .settings(common, buildInfoSettings)
   .settings(
     name := "bbp-experiment-schemas",
@@ -52,7 +70,7 @@ lazy val experiment = project
 lazy val atlas = project
   .in(file("modules/bbp-atlas"))
   .enablePlugins(BuildInfoPlugin)
-  .dependsOn(core)
+  .dependsOn(experiment, workbench % Test)
   .dependsOn(workbench % Test)
   .settings(common, buildInfoSettings)
   .settings(
@@ -75,34 +93,34 @@ lazy val buildInfoSettings = Seq(
       case (_, v) =>
         val resourceBase = resourceDirectory.in(Compile).value.getAbsolutePath
         val dirsWithJson = (v * "schemas" ** "*.json").get
-        val schemas      = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
+        val schemas = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
         "schemas" -> schemas
     },
     BuildInfoKey.map(resources.in(Compile)) {
       case (_, v) =>
         val resourceBase = resourceDirectory.in(Compile).value.getAbsolutePath
         val dirsWithJson = (v * "contexts" ** "*.json").get
-        val contexts     = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
+        val contexts = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
         "contexts" -> contexts
     },
     BuildInfoKey.map(resources.in(Test)) {
       case (_, v) =>
         val resourceBase = resourceDirectory.in(Test).value.getAbsolutePath
         val dirsWithJson = (v * "data" ** "*.json").get
-        val data         = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
+        val data = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
         "data" -> data
     },
     BuildInfoKey.map(resources.in(Test)) {
       case (_, v) =>
         val resourceBase = resourceDirectory.in(Test).value.getAbsolutePath
         val dirsWithJson = (v * "invalid" ** "*.json").get
-        val invalid      = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
+        val invalid = dirsWithJson.map(_.getAbsolutePath.substring(resourceBase.length))
         "invalid" -> invalid
     }
   ))
 
-lazy val common = Seq(scalacOptions in (Compile, console) ~= (_ filterNot (_ == "-Xfatal-warnings")),
-                      resolvers += Resolver.bintrayRepo("bogdanromanx", "maven"))
+lazy val common = Seq(scalacOptions in(Compile, console) ~= (_ filterNot (_ == "-Xfatal-warnings")),
+  resolvers += Resolver.bintrayRepo("bogdanromanx", "maven"))
 
 lazy val noPublish = Seq(publishLocal := {}, publish := {})
 
