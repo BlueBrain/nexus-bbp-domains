@@ -1,0 +1,83 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    {
+      "bbpvoc": "https://bbp-nexus.epfl.ch/vocabularies/core/v0.1.0/",
+      "expes": "{{base}}/schemas/bbp/experiment/entity/v0.1.0/shapes/",
+      "quantvs": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
+      "rois": "{{base}}/schemas/bbp/atlas/regionofinterest/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/atlas/sphereofinterest/v0.1.0/shapes/"
+    }
+  ],
+  "import": [
+    "{{base}}/schemas/bbp/atlas/regionofinterest/v0.1.0",
+    "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:SphereOfInterestShape",
+      "@type": "sh:NodeShape",
+      "label": "A region of interest with sphere as a geometric shape.",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "bbpvoc:RegionOfInterest",
+      "and": [
+        {
+          "node": "rois:RegionOfInterestShape"
+        },
+        {
+          "property": [
+            {
+              "path": "bbpvoc:geometry",
+              "description": "The geometric shape of the sphere of interest.",
+              "node": "this:SphereGeometricShapeShape",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "this:SphereGeometricShapeShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of a  sphere geometry.",
+      "targetObjectsOf": "bbpvoc:geometry",
+      "class": "bbpvoc:Sphere",
+      "property": [
+        {
+          "path": "bbpvoc:geometryParameter",
+          "name": "Parameters",
+          "node": "this:SphereGeometryParameterShape",
+          "minCount": 1,
+          "maxCount": 1
+        }
+      ]
+    },
+    {
+      "@id": "this:SphereGeometryParameterShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of sphere geometry parameters.",
+      "targetObjectsOf": "bbpvoc:geometryParameter",
+      "property": [
+        {
+          "path": "bbpvoc:center",
+          "name": "Center",
+          "description": "The sphere center coordinates",
+          "node": "quantvs:QuantitativeValueShape",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "bbpvoc:radius",
+          "name": "Radius",
+          "description": "The sphere radius",
+          "node": "quantvs:QuantitativeValueShape",
+          "minCount": 1,
+          "maxCount": 1
+        }
+      ]
+    }
+  ]
+}

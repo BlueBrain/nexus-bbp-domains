@@ -17,5 +17,8 @@
   },
   "hadProtocol": {
     "@id": "nsg:hadProtocol"
+  },
+  "atlasVersion":{
+    "@id": "nsg:atlasVersion"
   }
 }

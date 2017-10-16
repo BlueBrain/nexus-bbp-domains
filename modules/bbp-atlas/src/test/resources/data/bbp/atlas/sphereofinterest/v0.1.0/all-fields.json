@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    {
+      "@vocab": "https://bbp-nexus.epfl.ch/vocabularies/core/v0.1.0/",
+      "value": "schema:value",
+      "unitCode": "schema:unitCode"
+    }
+  ],
+  "@type": "RegionOfInterest",
+  "description": "Region of interest with sphere as a shape and from a brain atlas",
+  "geometry": {
+    "@type": [
+      "Sphere",
+      "GeometricShape"
+    ],
+    "geometryParameter": {
+      "center": {
+        "value": [
+          "sdsd",
+          10.1,
+          2333
+        ],
+        "unitCode": "http://unit/1"
+      },
+      "radius": {
+        "value": "2",
+        "unitCode": "http://unit/1"
+      },
+      "spatialReferenceSystem": {
+        "@id": "http://refToTheAtlasReferenceSpaceEntity",
+        "@type": [
+          "SpatialReferenceSystem"
+        ]
+      }
+    }
+  },
+  "location": {
+    "brainRegion": {
+      "@id": "http://abrainRegionid/"
+    }
+  }
+}
