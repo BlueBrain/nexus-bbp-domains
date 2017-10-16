@@ -1,0 +1,44 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "scssh": "{{base}}/schemas/nexus/schemaorg/softwareagent/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/core/softwareagent/v0.1.0/shapes/"
+    }
+  ],
+  "imports": [
+    "{{base}}/schemas/nexus/prov/softwareagent/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:SoftwareAgentShape",
+      "@type": "sh:NodeShape",
+      "description": "Running software agent description.",
+      "targetClass": "nsg:SoftwareAgent",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "scssh:SoftwareAgentShape"
+        },
+        {
+          "property": [
+            {
+              "path": "schema:name",
+              "name": "Name",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "schema:version",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

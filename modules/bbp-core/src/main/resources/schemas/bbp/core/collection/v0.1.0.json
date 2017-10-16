@@ -1,0 +1,52 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "provcolsh": "{{base}}/schemas/nexus/prov/collection/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/core/collection/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "imports": [
+    "{{base}}/schemas/nexus/prov/collection/v0.1.0",
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:CollectionShape",
+      "@type": "sh:NodeShape",
+      "label": "A collection shape.",
+      "targetClass": "prov:Collection",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "bbpentsh:EntityShape"
+        },
+        {
+          "node": "provcolsh:CollectionShape"
+        },
+        {
+          "property": [
+            {
+              "path": "schema:size",
+              "name": "Collection Size",
+              "description": "Collection size. The collection can be empty with size 0",
+              "node": "this:SizeShape",
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "this:CollectionSizeShape",
+      "@type": "sh:NodeShape",
+      "targetObjectsOf": "schema:size",
+      "datatype": "xsd:integer",
+      "minInclusive": 0
+    }
+  ]
+}

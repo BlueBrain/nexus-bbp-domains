@@ -1,0 +1,54 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "scosh": "{{base}}/schemas/nexus/schemaorg/organization/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/core/organization/v0.1.0/shapes/"
+    }
+  ],
+  "imports": [
+    "{{base}}/schemas/nexus/schemaorg/organization/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:OrganizationShape",
+      "@type": "sh:NodeShape",
+      "label": "Schema.org organization specification is used as a vocabulary to describe an organization instance.",
+      "targetClass": "schema:Organization",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "scosh:OrganizationShape"
+        },
+        {
+          "property": [
+            {
+              "path": "schema:parentOrganization",
+              "name": "Parent Organization",
+              "node": "this:ParentOrganizationShape"
+            },
+            {
+              "path": "schema:address",
+              "name": "Address",
+              "minCount": 1
+            },
+            {
+              "path": "schema:name",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "this:ParentOrganizationShape",
+      "@type": "sh:NodeShape",
+      "targetObjectsOf": "schema:parentOrganization",
+      "nodeKind": "sh:IRI"
+    }
+  ]
+}

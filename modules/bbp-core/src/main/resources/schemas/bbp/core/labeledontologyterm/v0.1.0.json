@@ -1,0 +1,26 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    {
+      "this": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:LabeledOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "nodeKind": "sh:IRI",
+      "property": [
+        {
+          "path": "rdfs:label",
+          "name": "label",
+          "description": "Human readable label",
+          "datatype": "xsd:string",
+          "minCount": 1
+        }
+      ]
+    }
+  ]
+}

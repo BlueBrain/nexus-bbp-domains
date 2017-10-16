@@ -1,0 +1,45 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "provactsh": "{{base}}/schemas/nexus/prov/activity/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/"
+    }
+  ],
+  "imports": [
+    "{{base}}/schemas/nexus/prov/activity/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:ActivityShape",
+      "@type": "sh:NodeShape",
+      "description": "Activity description.",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "prov:Activity",
+      "and": [
+        {
+          "node": "provactsh:ActivityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:hadProtocol",
+              "class": "nsg:Protocol",
+              "node":"this:HadProtocolValueShape",
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    },{
+      "@id": "this:HadProtocolValueShape",
+      "@type": "sh:NodeShape",
+      "targetObjectsOf": "nsg:hadProtocol",
+      "label": "The value of nsg:hadProtocol should be of type nsg:Protocol.",
+      "class": "nsg:Protocol"
+    }
+  ]
+}
