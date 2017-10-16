@@ -1,0 +1,77 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/v0/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/atlas/parcellationimagedata/v0.1.20/shapes/",
+      "bbpimagestack": "{{base}}/schemas/bbp/atlas/imagestack/v0.1.0/shapes/",
+      "bbpimagevolume": "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.6/shapes/"
+    }
+
+
+
+  ],
+  "import": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0",
+    "{{base}}/schemas/bbp/atlas/imagestack/v0.1.0",
+    "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:ParcellationImageDataShape",
+      "@type": "sh:NodeShape",
+      "description": "Parcellation image data",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "nsg:ParcellationImageData",
+      "and": [
+        {
+          "node": "bbpentity:EntityShape"
+        },
+        {
+          "xone": [
+            {
+              "path": "bbpatlas:imageStack",
+              "node": "bbpimagestack:ImageStackShape",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "bbpatlas:imageVolume",
+              "node": "bbpimagevolume:ImageVolumeShape",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "bbpatlas:imageFromPDF",
+              "node": "bbpatlas:ImageFromPDFShape",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "this:ImageFromPDFShape",
+      "@type": "sh:NodeShape",
+      "property": [
+        {
+          "path": "bbpatlas:pdfName",
+          "name": "PDF name",
+          "datatype": "xsd:string",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "bbpatlas:resource",
+          "name": "Resource",
+          "description": "Resource URL",
+          "datatype": "xsd:anyURI"
+        }
+      ]
+    }
+  ]
+}

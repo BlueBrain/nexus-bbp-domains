@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/v0/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "bbpimgvolsh": "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.6/shapes/",
+      "this": "{{base}}/schemas/bbp/atlas/parcellationvolume/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "import": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0",
+    "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:ParcellationVolumeShape",
+      "@type": "sh:NodeShape",
+      "description": "Parcellation volume",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "nsg:ParcellationVolume",
+      "and": [
+        {
+          "node": "bbpentsh:EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:imageVolume",
+              "name": "Image Volume",
+              "description": "Image volume",
+              "node": "bbpimgvolsh:ImageVolumeShape",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:isRegisteredIn",
+              "class": "nsg:AtlasSpatialReferenceSystem",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

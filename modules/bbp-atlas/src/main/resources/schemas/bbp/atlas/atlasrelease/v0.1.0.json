@@ -1,0 +1,61 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/atlas/atlasrelease/v0.1.0/shapes/"
+    }
+
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:AtlasReleaseShape",
+      "@type": "sh:NodeShape",
+      "description": "Atlas release description.",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "nsg:AtlasRelease",
+      "and": [
+        {
+          "node": "bbpentsh:EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:releaseDate",
+              "name": "Release Date",
+              "description": "atlas release date.",
+              "datatype": "xsd:date",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:templateVolume",
+              "class": "nsg:TemplateVolume"
+            },
+            {
+              "path": "nsg:parcellationVolume",
+              "class": "nsg:ParcellationVolume",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:parcellationOntology",
+              "class": "nsg:ParcellationOntology",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:spatialReferenceSystem",
+              "class": "nsg:AtlasSpatialReferenceSystem",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

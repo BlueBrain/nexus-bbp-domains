@@ -1,0 +1,46 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/atlas/parcellationreconstruction/v0.1.0/shapes/"
+    }
+  ],
+  "imports": [
+    "{{base}}/schemas/bbp/core/activity/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:ParcellationReconstructionShape",
+      "@type": "sh:NodeShape",
+      "label": "Parcellation volume reconstruction activity description.",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "nsg:ParcellationReconstruction",
+      "and": [
+        {
+          "@id": "bbpactsh:ActivityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "prov:used",
+              "description": "Parcellation data",
+              "class": "nsg:ParcellationImageData",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "prov:generated",
+              "class": "nsg:ParcellationVolume",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/v0/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/atlas/parcellationlabel/v0.1.0/shapes/"
+    }
+  ],
+  "import": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:ParcellationLabelsShape",
+      "@type": "sh:NodeShape",
+      "label": "Parcellation labels. TODO: The targeting type definied here needs to correspond to the one of the brain parcellations labels in https://raw.githubusercontent.com/SciCrunch/NIF-Ontology/master/ttl/generated/parcellation.ttl",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "nsg:ParcellationLabel",
+      "and": [
+        {
+          "node": "bbpentsh:EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:atlasVersion",
+              "name": "Atlas Version",
+              "description": "The version of the atlas that defines this parcellation labels.",
+              "datatype": "xsd:string",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

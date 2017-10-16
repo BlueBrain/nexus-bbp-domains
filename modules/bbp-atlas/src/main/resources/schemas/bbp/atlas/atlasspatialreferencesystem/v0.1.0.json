@@ -1,0 +1,71 @@
+{
+
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/v0/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "bbpbboxsh": "{{base}}/schemas/bbp/core/boundingbox/v1.0.0/shapes/",
+      "bbprotmatsh": "{{base}}/schemas/bbp/core/rotationalmatrix/v0.1.0/shapes/",
+      "bbpvect3dsh": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/atlas/atlasspatialreferencesystem/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "import": [
+    "{{base}}/v0/schemas/bbp/core/entity/v0.1.0",
+    "{{base}}/schemas/bbp/core/vector3d/v0.1.0",
+    "{{base}}/schemas/bbp/core/rotationalmatrix/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:AtlasSpatialReferenceSystemShape",
+      "@type": "sh:NodeShape",
+      "label": "Atlas spatial reference system",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "nsg:AtlasSpatialReferenceSystem",
+      "and": [
+        {
+          "@id": "bbpentsh:EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:origin",
+              "name": "Origin",
+              "description": "Origin of the reference system",
+              "node": "bbpvect3dsh:Vector3DShape",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:orientation",
+              "name": "Roatational matrix",
+              "description": "3x3 rotational matrix",
+              "node": "bbprotmatsh:RotationalMatrixShape",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:boundingbox",
+              "name": "Bounding box",
+              "description": "Bounding box of the image data",
+              "node": "bbpbboxsh:BoundingBoxShape",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "schema:unitText",
+              "name": "Unit",
+              "description": "Space dimension unit",
+              "datatype":"xsd:string",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

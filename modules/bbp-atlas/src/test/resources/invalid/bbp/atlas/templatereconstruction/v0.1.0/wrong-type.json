@@ -1,0 +1,24 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "@vocab": "http://www.w3.org/ns/prov#"
+    }
+  ],
+  "@type": "nsg:WrongType",
+  "@id": "{{base}}/schemas/bbp/atlas/templatereconstruction/v0.1.0/2d187739-3d70-4d2e-9760-41d980e895ad",
+  "generated": [
+    {
+      "@type": ["nsg:TemplateVolume","prov:Entity"],
+      "@id": "{{base}}/schemas/bbp/atlas/templatevolume/v0.1.21/38d8f54a-acce-451c-9c8b-eb3e4a440cee"
+    }
+  ],
+  "used": [
+    {
+      "@type": ["nsg:TemplateImageData","prov:Entity"],
+      "@id": "{{base}}/schemas/bbp/atlas/templateimagedata/v0.1.0/345729f8-fafc-463e-a666-c3239e6675a1"
+    }
+  ]
+}

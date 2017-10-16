@@ -1,0 +1,118 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+
+      "bbpentsh": "{{base}}/v0/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "bbpvect3dsh": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
+      "bbprotmatsh": "{{base}}/schemas/bbp/core/rotationalmatrix/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "import": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0",
+    "{{base}}/schemas/bbp/core/rotationalmatrix/v0.1.0"
+
+  ],
+  "shapes": [
+    {
+      "@id": "this:ImageVolumeShape",
+      "@type": "sh:NodeShape",
+      "label": "Image volume",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "nsg:ImageVolume",
+      "and": [
+        {
+          "node": "bbpentsh:EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:imageModality",
+              "name": "Image modality",
+              "description": "Modality of the image stack",
+              "datatype": "xsd:string",
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:voxelType",
+              "name": "Volume type",
+              "description": "Type of the voxel",
+              "datatype": "xsd:string",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:volumeDimension",
+              "name": "Volume Dimension",
+              "description": "Dimension of the 3D volume in voxel",
+              "node": "bbpvect3dsh:Vector3DShape",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:voxelResolution",
+              "name": "Voxel resolution",
+              "description": "Resolution of the voxel",
+              "node": "this:VoxelResolutionShape",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:imageOrigin",
+              "name": "Image Origin",
+              "description": "Origin of the image volume",
+              "node": "bbpvect3dsh:Vector3DShape",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:imageDirection",
+              "name": "Image direction",
+              "description": "Direction of the image volume represented as a rotational matrix",
+              "node": "bbprotmatsh:RotationalMatrixShape",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "this:VoxelResolutionShape",
+      "@type": "sh:NodeShape",
+      "targetObjectsOf": "nsg:voxelResolution",
+      "property": [
+        {
+          "path": "nsg:voxelResolutionValue",
+          "name": "Voxel resolution value",
+          "description": "Voxel resolution value",
+          "node": "bbpvect3dsh:Vector3DShape",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "xone": [
+            {
+              "path": "schema:unitText",
+              "name": "Unit",
+              "datatype": "xsd:string",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "schema:unitCode",
+              "name": "Unit",
+              "datatype": "xsd:anyURI",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

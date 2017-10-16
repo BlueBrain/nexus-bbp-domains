@@ -1,0 +1,88 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
+      "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/atlas/atlasconstruction/v0.1.0/shapes/"
+    }
+  ],
+  "imports": [
+    "{{base}}/schemas/bbp/core/activity/v0.1.0",
+    "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0",
+    "{{base}}/schemas/bbp/experiment/protocol/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:AtlasConstructionShape",
+      "@type": "sh:NodeShape",
+      "label": "Atlas construction activity description.",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "nsg:AtlasConstruction",
+      "and": [
+        {
+          "node": "bbpactsh:ActivityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:brainRegion",
+              "name": "Brain region",
+              "description": "Brain Region of type brain parcellation scheme concept (ILXREPLACE:f0abc840e92a7e2872c8ee89827b6d23) defined in: https://raw.githubusercontent.com/SciCrunch/NIF-Ontology/master/ttl/generated/parcellation.ttl",
+              "node": "bbptlotsh:BrainRegionOntologyTermShape"
+            },
+            {
+              "path": "prov:used",
+              "minCount": 1,
+              "maxCount": 1,
+              "xone": [
+                {
+                  "description": "An empty collection of subject(s) used to construct the atlas. This empty collection is used when the used subjects are not known but their number is.",
+                  "class": "prov:EmptyCollection"
+                },
+                {
+                  "description": "The subjects collection used to construct the atlas. This collection is used when the used subjects are individually known.",
+                  "class": "prov:Collection"
+                }
+              ]
+            },
+            {
+              "path": "prov:generated",
+              "minCount": 3,
+              "maxCount": 3
+            },
+            {
+              "path": "prov:generated",
+              "qualifiedValueShape": {
+                "class": "nsg:ParcellationImageData"
+              },
+              "qualifiedValueShapesDisjoint": true ,
+              "qualifiedMinCount" :1 ,
+              "qualifiedMaxCount": 1
+            },
+            {
+              "path": "prov:generated",
+              "qualifiedValueShape": {
+                "class": "nsg:ParcellationLabel"
+              },
+              "qualifiedValueShapesDisjoint": true ,
+              "qualifiedMinCount" :1 ,
+              "qualifiedMaxCount": 1
+            },
+            {
+              "path": "prov:generated",
+              "qualifiedValueShape": {
+                "class": "nsg:TemplateImageData"
+              },
+              "qualifiedValueShapesDisjoint": true,
+              "qualifiedMaxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

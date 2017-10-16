@@ -1,0 +1,13 @@
+{
+  "@context": {
+    "@vocab": "https://bbp-nexus.epfl.ch/vocabularies/core/v0.1.0/"
+  },
+  "@type": "RegionOfInterest",
+  "name": "Sphere of interest",
+  "description": "Region of interest with sphere as a shape and from a brain atlas",
+  "location": {
+    "brainRegion": {
+      "@id": "http://abrainRegionid/"
+    }
+  }
+}
