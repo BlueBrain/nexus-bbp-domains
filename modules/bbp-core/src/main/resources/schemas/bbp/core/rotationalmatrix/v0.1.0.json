@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpvect3dsh": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/core/rotationalmatrix/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "imports": [
+    "{{base}}/schemas/bbp/core/vector3d/v0.1.0"
+  ],
+  "shape": [
+    {
+      "@id": "this:RotationalMatrixShape",
+      "@type": "sh:NodeShape",
+      "targetClass": "nsg:RotationalMatrix",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "property": [
+        {
+          "path": "nsg:firstRow",
+          "name": "First Row",
+          "description": "The first row in the matrix",
+          "node": "bbpvector3d:Vector3DShape",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:secondRow",
+          "name": "Second Row",
+          "description": "The second row in the matrix",
+          "node": "bbpvect3dsh:Vector3DShape",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:thirdRow",
+          "name": "Third Row",
+          "description": "The third row in the matrix",
+          "node": "bbpvector3d:Vector3DShape",
+          "minCount": 1,
+          "maxCount": 1
+        }
+      ]
+    }
+  ]
+}

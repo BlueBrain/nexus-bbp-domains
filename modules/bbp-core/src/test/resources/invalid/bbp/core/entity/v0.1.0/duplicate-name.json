@@ -1,0 +1,10 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/core/entity/v0.1.0"
+  ],
+  "@type": "nsg:Entity",
+  "name": [
+    "An entity name",
+    "Another entity name"
+  ]
+}

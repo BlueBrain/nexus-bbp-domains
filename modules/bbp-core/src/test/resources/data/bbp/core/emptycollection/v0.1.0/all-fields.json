@@ -1,0 +1,11 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/core/entity/v0.1.0"
+  ],
+  "@type": "prov:EmptyCollection",
+  "@id": "{{base}}/schemas/bbp/core/collection/v0.1.0/0f7084ba-e73a-4291-be40-9fb2c72dc97d",
+  "name": "Empty collection name",
+  "description": "A description",
+  "providerId": "A provider id",
+  "size": 2
+}

@@ -1,0 +1,43 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "scpsh": "{{base}}/schemas/nexus/schemaorg/person/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/core/person/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "imports": [
+    "{{base}}/schemas/nexus/schemaorg/person/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:PersonShape",
+      "@type": "sh:NodeShape",
+      "label": "Schema.org person specification is used as a vocabulary to describe a person.",
+      "targetClass": "nsg:Person",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "scpsh:PersonShape"
+        },
+        {
+          "property": [
+            {
+              "path": "schema:familyName",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "schema:email",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

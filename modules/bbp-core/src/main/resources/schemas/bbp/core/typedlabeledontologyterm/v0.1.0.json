@@ -1,0 +1,86 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    {
+      "bbplotsh": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/"
+    }
+  ],
+  "imports": [
+    "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:SpeciesOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a species",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    },
+    {
+      "@id": "this:SexOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a sex",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    },
+    {
+      "@id": "this:CellOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a cell type",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    },
+    {
+      "@id": "this:BrainRegionOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a brain region",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    },
+    {
+      "@id": "this:StimuliOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a stimuli",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    },
+    {
+      "@id": "this:RoleOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a role",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    },
+    {
+      "@id": "this:LicenseOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a license",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    }
+  ]
+}
