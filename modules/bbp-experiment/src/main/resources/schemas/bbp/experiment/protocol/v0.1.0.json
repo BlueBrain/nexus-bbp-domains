@@ -1,0 +1,134 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/experiment/protocol/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0",
+    "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:ProtocolShape",
+      "@type": "sh:NodeShape",
+      "label": "Protocol shape definition based on protocols.io json schema. The identifier of a protocol should be a valid IRI.",
+      "targetClass": "nsg:Protocol",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "bbpentsh:EntityShape"
+        },
+        {
+          "path": "schema:identifier",
+          "name": "Identifier",
+          "description": "The identifier of protocol such as a DOI, ISBN,...",
+          "node": "this:IdentifierShape",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "schema:datePublished",
+          "name": "date published",
+          "description": "Publishing date of protocol.",
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:materials",
+          "name": "Materials",
+          "description": "Materials used in protocol",
+          "node": "this:MaterialsShape"
+        },
+        {
+          "path": "schema:author",
+          "name": "Author",
+          "description": "Author of the protocol",
+          "class":"nsg:Agent"
+        },
+        {
+          "path": "nsg:vendor",
+          "name": "Vendor",
+          "description": "Name of vendor of protocol",
+          "class":"schema:Organization"
+        },
+        {
+          "path": "nsg:steps",
+          "name": "Steps",
+          "description": "Steps of protocol",
+          "datatype": "xsd:string"
+        },
+        {
+          "path": "nsg:warning",
+          "name": "Warning",
+          "description": "Warning for protocol",
+          "datatype": "xsd:string"
+        }
+      ]
+    },
+    {
+      "@id": "this:MaterialsShape",
+      "@type": "sh:NodeShape",
+      "targetObjectsOf": "nsg:materials",
+      "property": [
+        {
+          "path": "nsg:reagentName",
+          "name": "Reagent name",
+          "description": "Name of reagent/material used",
+          "datatype": "xsd:string",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:reagentMolarWeight",
+          "name": "Reagent molar weight",
+          "description": "Molar weight of reagent",
+          "node": "bbpqsh:QuantitativeValueShape",
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:reagentLinearFormula",
+          "name": "Reagent linear formula",
+          "description": "Linear formula of reagent",
+          "datatype": "xsd:string",
+          "maxCount": 1
+        },
+        {
+          "path": "schema:sku",
+          "name": "Reagent SKU",
+          "description": "Stock keeping unit of reagent/material",
+          "datatype": "xsd:string",
+          "maxCount": 1
+        },
+        {
+          "path": "schema:identifier",
+          "name": "Reagent URL",
+          "description": "URL of reagent/material",
+          "node": "this:IdentifierShape",
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:reagentVendor",
+          "name": "Reagent vendor",
+          "description": "Name of vendor of reagent",
+          "class":"schema:Organization"
+        }
+      ]
+    },
+    {
+      "@id": "this:DatePublishedValueShape",
+      "targetObjectsOf": "schema:datePublished",
+      "datatype": "xsd:dateTime"
+    },
+    {
+      "@id": "this:IdentifierShape",
+      "targetObjectsOf": "schema:identifier",
+      "datatype": "xsd:anyURI"
+    }
+  ]
+}
