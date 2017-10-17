@@ -1,183 +1,64 @@
 {
-  "@context" : {
-    "class" : {
-      "@id" : "sh:class",
-      "@type" : "@id"
-    },
-    "rootClass" : {
-      "@id" : "shext:rootClass",
-      "@type" : "@id"
-    },
-    "path" : {
-      "@id" : "sh:path",
-      "@type" : "@id"
-    },
-    "qualifiedValueShape" : {
-      "@id" : "sh:qualifiedValueShape",
-      "@type" : "@id",
-      "@container" : "@list"
-    },
-    "qualifiedValueShapesDisjoint" : {
-      "@id" : "sh:qualifiedValueShapesDisjoint",
-      "@type" : "xsd:boolean"
-    },
-    "qualifiedMinCount" : {
-      "@id" : "sh:qualifiedMinCount",
-      "@type" : "xsd:integer"
-    },
-    "qualifiedMaxCount" : {
-      "@id" : "sh:qualifiedMaxCount",
-      "@type" : "xsd:integer"
-    },
-    "maxCount" : {
-      "@id" : "sh:maxCount",
-      "@type" : "xsd:integer"
-    },
-    "minCount" : {
-      "@id" : "sh:minCount",
-      "@type" : "xsd:integer"
-    },
-    "minInclusive" :"sh:minInclusive",
-    "maxInclusive" :"sh:maxInclusive",
-    "maxExclusive" :"sh:maxExclusive",
-    "minExclusive" :"sh:minExclusive",
-    "in" : {
-      "@id" : "sh:in",
-      "@container" : "@list"
-    },
-    "imports" : {
-      "@id" : "owl:imports",
-      "@type" : "@id",
-      "@container" : "@set"
-    },
-    "datatype" : {
-      "@id" : "sh:datatype",
-      "@type" : "@id"
-    },
-    "description" : "sh:description",
-    "name" : "sh:name",
-    "nodeKind" : {
-      "@id" : "sh:nodeKind",
-      "@type" : "@id"
-    },
-    "node" : {
-      "@id" : "sh:node",
-      "@type" : "@id"
-    },
-    "property" : {
-      "@id" : "sh:property",
-      "@type" : "@id",
-      "@container" : "@set"
-    },
-    "targetClass" : {
-      "@id" : "sh:targetClass",
-      "@type" : "@id"
-    },
-    "targetObjectsOf" : {
-      "@id" : "sh:targetObjectsOf",
-      "@type" : "@id"
-    },
-    "targetSubjectsOf" : {
-      "@id" : "sh:targetSubjectsOf",
-      "@type" : "@id"
-    },
-    "isDefinedBy" : {
-      "@id" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
-      "@type" : "@id"
-    },
-    "shapes" : {
-      "@reverse" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
-      "@type" : "@id",
-      "@container" : "@set"
-    },
-    "or" : {
-      "@id" : "sh:or",
-      "@type" : "@id",
-      "@container" : "@list"
-    },
-    "and" : {
-      "@id" : "sh:and",
-      "@type" : "@id",
-      "@container" : "@list"
-    },
-    "xone" : {
-      "@id" : "sh:xone",
-      "@type" : "@id",
-      "@container" : "@list"
-    },
-    "not" : {
-      "@id" : "sh:not",
-      "@type" : "@id",
-      "@container" : "@list"
-    },
-    "lessThan": {
-      "@id" : "sh:lessThan",
-      "@type" : "@id"
-    },
-    "hasValue" :"sh:hasValue",
-    "owl" : "http://www.w3.org/2002/07/owl#",
-    "rdf" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs" : "http://www.w3.org/2000/01/rdf-schema#",
-    "xsd" : "http://www.w3.org/2001/XMLSchema#",
-    "sh" : "http://www.w3.org/ns/shacl#",
-    "shext" : "http://www.w3.org/ns/shacl/ext#",
-    "schema" : "http://schema.org/",
-    "prov": "http://www.w3.org/ns/prov#",
-    "bbpexp" : "https://bbp-nexus.epfl.ch/voc/experiment/core/",
-    "bbptlot" : "{{scheme}}://{{host}}/{{prefix}}/schemas/bbp/core/typedlabeledontologyterm/v1.0.0/shapes/",
-    "bbpquantValue" : "{{scheme}}://{{host}}/{{prefix}}/schemas/bbp/core/quantitativevalue/v1.0.0/shapes/",
-    "bbpentity" : "{{scheme}}://{{host}}/{{prefix}}/schemas/bbp/core/entity/v1.0.0/shapes/",
-    "this" : "{{scheme}}://{{host}}/{{prefix}}/schemas/bbp/experiment/trace/v1.0.0/shapes/"
-  },
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+    "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
+    "bbptlotsh" : "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
+    "bbpqsh" : "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
+    "this" : "{{base}}/schemas/bbp/experiment/trace/v0.1.0/shapes/"
+    }
+    ],
   "@type" : "owl:Ontology",
-  "imports" : [ "{{scheme}}://{{host}}/{{prefix}}/schemas/bbp/core/entity/v1.0.0",
-                "{{scheme}}://{{host}}/{{prefix}}/schemas/bbp/core/quantitativevalue/v1.0.0",
-                "{{scheme}}://{{host}}/{{prefix}}/schemas/bbp/core/typedlabeledontologyterm/v1.0.0"],
+  "imports" : [ "{{base}}/schemas/bbp/core/entity/v0.1.0",
+                "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0",
+                "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0"],
   "shapes" : [
     {
       "@id" : "this:TraceShape",
       "@type" : "sh:NodeShape",
-      "description" : "Electrophysiology trace shape definition. A trace should have an IRI as identifier",
-      "targetClass" : "bbpexp:Trace",
+      "label" : "Electrophysiology trace shape definition. A trace should have an IRI as identifier",
+      "targetClass" : "nsg:Trace",
       "nodeKind" : "sh:BlankNodeOrIRI",
       "and":[
         {
-          "node":"bbpentity:EntityShape"
+          "node":"bbpentsh:EntityShape"
         },{
           "property" : [ {
-            "path": "bbpexp:projectName",
+            "path": "nsg:projectName",
             "name": "Project name",
             "description": "Name of the project that the trace was recorded for",
             "datatype": "xsd:string",
             "maxCount": 1
           }, {
-            "path": "bbpexp:sweep",
+            "path": "nsg:sweep",
             "name": "Sweep",
             "description": "Sweep number of trace",
             "datatype": "xsd:integer",
             "minCount": 1,
             "maxCount": 1
           }, {
-            "path": "bbpexp:repetition",
+            "path": "nsg:repetition",
             "name": "Repetition",
             "description": "Repetition number of trace",
             "datatype": "xsd:integer",
             "maxCount": 1
           }, {
-            "path": "bbpexp:channel",
+            "path": "nsg:channel",
             "name": "Channel",
             "description": "Channel number of trace",
             "datatype": "xsd:integer",
             "minCount": 1,
             "maxCount": 1
           }, {
-            "path": "bbpexp:originalFilename",
+            "path": "nsg:originalFileName",
             "name": "Original filename",
             "description": "Original filename of binary",
             "datatype": "xsd:string",
             "maxCount": 1
           }, {
-            "path": "bbpexp:retrievalDate",
+            "path": "nsg:retrievalDate",
             "name": "Retrieval date",
             "description": "Retrieval date of binary",
             "datatype": "xsd:dateTime",
@@ -186,22 +67,23 @@
             "path" : "schema:unitCode",
             "name" : "Data unit",
             "description" : "Unit of measurement of data",
-            "node":"bbptlot:UnitCodeOntologyTermShape",
+            "node":"bbptlotsh:UnitCodeOntologyTermShape",
             "maxCount" : 1
           }, {
-            "path" : "bbpexp:timeStep",
+            "path" : "nsg:timeStep",
             "name" : "Time step",
             "description" : "Time step (inverted sampling frequency) of data",
-            "node" : "bbpquantValue:QuantitativeValueShape",
+            "node" : "bbpqsh:QuantitativeValueShape",
             "maxCount" : 1
           },{
             "path": "prov:qualifiedGeneration",
             "name": "Qualified generation",
             "description": "Qualified trace generation",
-            "class": "bbpexp:TraceGeneration",
+            "class": "nsg:TraceGeneration",
             "minCount": 1,
             "maxCount": 1
-          }]
+          }
+          ]
         }
       ]
     }
