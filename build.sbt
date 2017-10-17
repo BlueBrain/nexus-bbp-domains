@@ -93,6 +93,19 @@ lazy val electrophysiology = project
     buildInfoPackage := "ch.epfl.bluebrain.nexus.bbp.domains.electrophysiology"
   )
 
+lazy val morphology = project
+  .in(file("modules/bbp-morphology"))
+  .enablePlugins(BuildInfoPlugin)
+  .dependsOn(experiment, workbench % Test)
+  .dependsOn(workbench % Test)
+  .settings(common, buildInfoSettings)
+  .settings(
+    name := "bbp-morphology-schemas",
+    moduleName := "bbp-morphology-schemas",
+    libraryDependencies ++= Seq(scalaTest % Test),
+    buildInfoPackage := "ch.epfl.bluebrain.nexus.bbp.domains.morphology"
+  )
+  
 lazy val root = project
   .in(file("."))
   .settings(name := "bbp-schemas", moduleName := "bbp-schemas")
