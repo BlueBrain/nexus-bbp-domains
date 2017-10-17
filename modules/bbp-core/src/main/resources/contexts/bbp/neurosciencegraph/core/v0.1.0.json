@@ -26,5 +26,23 @@
   },
   "channel":{
     "@id": "nsg:channel"
+  },
+  "putativeMType":{
+    "@id": "nsg:putativeMType"
+  },
+  "projectName":{
+    "@id": "nsg:projectName"
+  },
+  "spacialCellName":{
+    "@id": "nsg:spacialCellName"
+  },
+  "reconstructionRequested":{
+    "@id": "nsg:reconstructionRequested"
+  },
+  "reconstructable":{
+    "@id": "nsg:reconstructable"
+  },
+  "labeledCell":{
+    "@id": "nsg:labeledCell"
   }
 }
