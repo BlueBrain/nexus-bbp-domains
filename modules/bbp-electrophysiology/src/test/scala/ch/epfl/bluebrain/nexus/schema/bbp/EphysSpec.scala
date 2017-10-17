@@ -4,7 +4,7 @@ import akka.http.scaladsl.model.Uri
 import akka.http.scaladsl.model.Uri.Path
 import cats.instances.try_._
 import ch.epfl.bluebrain.nexus.commons.shacl.validator.ShaclValidator
-import ch.epfl.bluebrain.nexus.bbp.domains.core.BuildInfo
+import ch.epfl.bluebrain.nexus.bbp.domains.electrophysiology.BuildInfo
 import ch.epfl.bluebrain.nexus.schema.workbench.{ClasspathResolver, ResourceLoader, SchemaSpec}
 import org.scalatest.Suites
 

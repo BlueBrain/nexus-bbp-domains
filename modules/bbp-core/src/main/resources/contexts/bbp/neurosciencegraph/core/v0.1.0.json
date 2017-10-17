@@ -20,5 +20,11 @@
   },
   "atlasVersion":{
     "@id": "nsg:atlasVersion"
+  },
+  "sweep":{
+    "@id": "nsg:sweep"
+  },
+  "channel":{
+    "@id": "nsg:channel"
   }
 }
