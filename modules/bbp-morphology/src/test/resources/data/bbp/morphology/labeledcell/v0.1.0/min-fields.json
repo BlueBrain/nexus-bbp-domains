@@ -1,0 +1,25 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
+  ],
+  "@type": [
+    "prov:Entity",
+    "nsg:LabeledCell"
+  ],
+  "name": "C060600A3",
+  "providerId": "C060600A3",
+  "brainRegion": {
+    "@type": "BrainRegion",
+    "@id": "http://www.hbp.FIXME.org/paxinos_rat_ontology/PRBA:00721",
+    "label": "Primary somatosensory cortex"
+  },
+  "projectName": "Maria Toledo",
+  "spacialCellName": "idA3",
+  "putativeMType": {
+    "@id": "http://www.hbp.FIXME.org/hbp_cell_ontology/HBP_CELL:0000130",
+    "label": "Layer IV nest basket cell"
+  },
+  "reconstructionRequested": true,
+  "reconstructable": true
+}
