@@ -1,0 +1,28 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "this" : "{{base}}/schemas/bbp/experiment/slice/v0.1.0/shapes/"
+    }
+  ],
+
+  "@type" : "owl:Ontology",
+  "imports" : [ "{{base}}/schemas/bbp/core/entity/v0.1.0" ],
+  "shapes" : [
+    {
+      "@id": "this:SliceShape",
+      "@type": "sh:NodeShape",
+      "description": "Slice shape definition. A slice should have an IRI as identifier",
+      "targetClass": "nsg:Slice",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "bbpentsh:EntityShape"
+        }
+      ]
+    }
+  ]
+}
