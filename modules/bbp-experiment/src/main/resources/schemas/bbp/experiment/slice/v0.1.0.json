@@ -15,7 +15,7 @@
     {
       "@id": "this:SliceShape",
       "@type": "sh:NodeShape",
-      "description": "Slice shape definition. A slice should have an IRI as identifier",
+      "label": "Slice shape definition",
       "targetClass": "nsg:Slice",
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
