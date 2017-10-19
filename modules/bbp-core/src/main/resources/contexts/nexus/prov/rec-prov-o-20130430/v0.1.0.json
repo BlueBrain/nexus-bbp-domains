@@ -8,5 +8,8 @@
   },
   "qualifiedGeneration": {
     "@id": "prov:qualifiedGeneration"
+  },
+  "hadMember": {
+    "@id": "prov:hadMember"
   }
 }
