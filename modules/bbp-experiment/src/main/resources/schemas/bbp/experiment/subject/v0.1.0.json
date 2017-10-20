@@ -5,9 +5,8 @@
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v1.0.0/shapes/",
+      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
       "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
-      "bbpentity": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/experiment/subject/v0.1.0/shapes/"
     }
   ],
