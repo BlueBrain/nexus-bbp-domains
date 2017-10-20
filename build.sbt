@@ -14,7 +14,7 @@ lazy val docs = project
 lazy val core = project
   .in(file("modules/bbp-core"))
   .enablePlugins(WorkbenchPlugin)
-  .disablePlugins(ScapegoatSbtPlugin)
+  .disablePlugins(ScapegoatSbtPlugin, DocumentationPlugin)
   .dependsOn(kgschemas)
   .settings(
     common,
@@ -26,7 +26,7 @@ lazy val core = project
 lazy val kgschemas = project
   .in(file("modules/kg-schemas"))
   .enablePlugins(WorkbenchPlugin)
-  .disablePlugins(ScapegoatSbtPlugin)
+  .disablePlugins(ScapegoatSbtPlugin, DocumentationPlugin)
   .settings(
     common,
     noPublish,
@@ -37,7 +37,7 @@ lazy val kgschemas = project
 lazy val experiment = project
   .in(file("modules/bbp-experiment"))
   .enablePlugins(WorkbenchPlugin)
-  .disablePlugins(ScapegoatSbtPlugin)
+  .disablePlugins(ScapegoatSbtPlugin, DocumentationPlugin)
   .dependsOn(core)
   .settings(
     common,
@@ -48,7 +48,7 @@ lazy val experiment = project
 lazy val atlas = project
   .in(file("modules/bbp-atlas"))
   .enablePlugins(WorkbenchPlugin)
-  .disablePlugins(ScapegoatSbtPlugin)
+  .disablePlugins(ScapegoatSbtPlugin, DocumentationPlugin)
   .dependsOn(experiment)
   .settings(
     common,
@@ -59,7 +59,7 @@ lazy val atlas = project
 lazy val electrophysiology = project
   .in(file("modules/bbp-electrophysiology"))
   .enablePlugins(WorkbenchPlugin)
-  .disablePlugins(ScapegoatSbtPlugin)
+  .disablePlugins(ScapegoatSbtPlugin, DocumentationPlugin)
   .dependsOn(experiment)
   .settings(
     common,
@@ -70,7 +70,7 @@ lazy val electrophysiology = project
 lazy val morphology = project
   .in(file("modules/bbp-morphology"))
   .enablePlugins(WorkbenchPlugin)
-  .disablePlugins(ScapegoatSbtPlugin)
+  .disablePlugins(ScapegoatSbtPlugin, DocumentationPlugin)
   .dependsOn(experiment)
   .settings(
     common,
