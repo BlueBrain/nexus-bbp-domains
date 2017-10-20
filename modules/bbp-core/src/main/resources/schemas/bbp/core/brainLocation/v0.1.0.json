@@ -1,0 +1,117 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpvect3dsh": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
+      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/"
+    }
+  ],
+  "imports": [
+    "{{base}}/schemas/bbp/core/vector3d/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:BrainLocationShape",
+      "@type": "sh:NodeShape",
+      "label": "Brain location shape definition",
+      "property": [
+        {
+          "path": "nsg:brainRegion",
+          "name": "Brain region",
+          "description": "Location as brain region",
+          "node": "this:BrainRegionShape",
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:brainLocationCoordinates",
+          "name": "Brain location coordinates",
+          "description": "Brain location coordinates",
+          "node": "this:BrainLocationCoordinatesShape",
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:sliceLocationCoordinates",
+          "name": "Slice location coordinates",
+          "description": "Slice location coordinates",
+          "node": "this:SliceLocationCoordinatesShape",
+          "maxCount": 1
+        }
+      ]
+    },
+    {
+      "@id": "this:BrainRegionShape",
+      "@type": "sh:NodeShape",
+      "label": "Brain region shape definition",
+      "property": [
+        {
+          "path": "nsg:brainRegion",
+          "name": "Brain region",
+          "description": "Brain region",
+          "node": "bbptlotsh:BrainRegionOntologyTermShape",
+          "minCount": 1
+        }
+      ]
+    },
+    {
+      "@id": "this:BrainLocationCoordinatesShape",
+      "@type": "sh:NodeShape",
+      "label": "Brain coordinates shape definition",
+      "and": [
+        {
+          "node": "bbpvect3dsh:Vector3DShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:spatialReferenceSystem",
+              "name": "Spatial Reference System",
+              "class": "nsg:SpatialReferenceSystem",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "this:SliceLocationCoordinatesShape",
+      "@type": "sh:NodeShape",
+      "label": "Slice coordinates shape definition",
+      "property": [
+        {
+          "path": "nsg:valueX",
+          "name": "X value",
+          "description": "Vector value of X",
+          "datatype": "xsd:float",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:valueY",
+          "name": "Y value",
+          "description": "Vector value of Y",
+          "datatype": "xsd:float",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:valueZ",
+          "name": "Z value",
+          "description": "Vector value of Z",
+          "datatype": "xsd:float",
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:spatialReferenceSystem",
+          "name": "Spatial Reference System",
+          "class": "nsg:SpatialReferenceSystem",
+          "maxCount": 1
+        }
+      ]
+    }
+  ]
+}

@@ -33,8 +33,8 @@
   "projectName":{
     "@id": "nsg:projectName"
   },
-  "spacialCellName":{
-    "@id": "nsg:spacialCellName"
+  "spatialCellName":{
+    "@id": "nsg:spatialCellName"
   },
   "reconstructionRequested":{
     "@id": "nsg:reconstructionRequested"
@@ -44,5 +44,20 @@
   },
   "labeledCell":{
     "@id": "nsg:labeledCell"
+  },
+  "brainLocationCoordinates": {
+    "@id": "nsg:brainLocationCoordinates"
+  },
+  "sliceLocationCoordinates": {
+    "@id": "nsg:sliceLocationCoordinates"
+  },
+  "valueX": {
+    "@id": "nsg:valueX"
+  },
+  "valueY": {
+    "@id": "nsg:valueY"
+  },
+  "valueZ ": {
+    "@id": "nsg:valueZ"
   }
 }
