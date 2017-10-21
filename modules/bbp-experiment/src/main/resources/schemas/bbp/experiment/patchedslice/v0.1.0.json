@@ -1,0 +1,56 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "bbptlotsh" : "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
+      "this" : "{{base}}/schemas/bbp/experiment/patchedslice/v0.1.0/shapes/"
+    }
+  ],
+
+  "@type" : "owl:Ontology",
+  "imports" : [ "{{base}}/schemas/bbp/core/entity/v0.1.0",
+                "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0"],
+  "shapes" : [
+    {
+      "@id": "this:PatchedSliceShape",
+      "@type": "sh:NodeShape",
+      "label": "Patched slice shape definition",
+      "targetClass": "nsg:PatchedSlice",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "bbpentsh:EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:brainRegion",
+              "name": "Brain region",
+              "description": "Brain region patched.",
+              "node": "bbptlotsh:BrainRegionOntologyTermShape"
+            },
+            {
+              "path": "dcterms:hasPart",
+              "name": "Patched cell collection",
+              "description": "The collections of patched cells.",
+              "class": "nsg:PatchedCellCollection",
+              "minCount": 1
+            },
+            {
+              "path": "prov:wasRevisionOf",
+              "name": "Slice",
+              "description": "The slice this patchedSlice is a revision of.",
+              "class": "nsg:Slice",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
