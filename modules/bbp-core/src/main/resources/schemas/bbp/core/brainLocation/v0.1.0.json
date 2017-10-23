@@ -128,6 +128,7 @@
           "path": "nsg:spatialReferenceSystem",
           "name": "Spatial Reference System",
           "class": "nsg:SpatialReferenceSystem",
+          "minCount": 1,
           "maxCount": 1
         }
       ]
