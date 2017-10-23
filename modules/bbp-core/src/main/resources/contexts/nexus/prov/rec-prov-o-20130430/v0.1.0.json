@@ -9,6 +9,9 @@
     },
     "qualifiedGeneration": {
       "@id": "prov:qualifiedGeneration"
+    },
+    "wasRevisionOf": {
+      "@id": "prov:wasRevisionOf"
     }
   }
 }
