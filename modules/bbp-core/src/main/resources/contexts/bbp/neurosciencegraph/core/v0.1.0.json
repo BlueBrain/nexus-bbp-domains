@@ -45,6 +45,9 @@
     },
     "labeledCell": {
       "@id": "nsg:labeledCell"
+    },
+    "objectiveMagnification": {
+      "@id": "nsg:objectiveMagnification"
     }
   }
 }
