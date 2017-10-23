@@ -6,11 +6,13 @@
     {
       "bbpvect3dsh": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
       "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
+      "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/"
     }
   ],
   "imports": [
-    "{{base}}/schemas/bbp/core/vector3d/v0.1.0"
+                "{{base}}/schemas/bbp/core/vector3d/v0.1.0",
+                "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0"
   ],
   "@type": "owl:Ontology",
   "shapes": [
@@ -22,44 +24,61 @@
         {
           "path": "nsg:brainRegion",
           "name": "Brain region",
-          "description": "Location as brain region",
-          "node": "this:BrainRegionShape",
-          "maxCount": 1
-        },
-        {
-          "path": "nsg:brainLocationCoordinates",
-          "name": "Brain location coordinates",
-          "description": "Brain location coordinates",
-          "node": "this:BrainLocationCoordinatesShape",
-          "maxCount": 1
-        },
-        {
-          "path": "nsg:sliceLocationCoordinates",
-          "name": "Slice location coordinates",
-          "description": "Slice location coordinates",
-          "node": "this:SliceLocationCoordinatesShape",
-          "maxCount": 1
-        }
-      ]
-    },
-    {
-      "@id": "this:BrainRegionShape",
-      "@type": "sh:NodeShape",
-      "label": "Brain region shape definition",
-      "property": [
-        {
-          "path": "nsg:brainRegion",
-          "name": "Brain region",
           "description": "Brain region",
           "node": "bbptlotsh:BrainRegionOntologyTermShape",
           "minCount": 1
+        },
+        {
+          "path": "nsg:coordinatesInBrain",
+          "name": "Coordinates in brain",
+          "description": "Coordinates in brain",
+          "node": "this:CoordinatesInBrainShape",
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:coordinatesInSlice",
+          "name": "Coordinates in slice",
+          "description": "Coordinates in slice",
+          "node": "this:CoordinatesInSliceShape",
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:subRegion",
+          "name": "Sub region",
+          "description": "Sub region (e.g. CA3b)",
+          "node": "bbptlotsh:BrainRegionOntologyTermShape",
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:positionInLayer",
+          "name": "Position in layer",
+          "description": "Position in layer (deep / superficial)",
+          "sh:in" : {
+            "@list" : [ "Deep", "Superficial" ]
+          },
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:longitudinalAxis",
+          "name": "Longitudinal axis (dorsal / ventral)",
+          "sh:in" : {
+            "@list" : [ "Dorsal", "Ventral" ]
+          },
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:distanceToBoundary",
+          "name": "Distance to boundary",
+          "description": "Distance to boundary",
+          "node": "this:DistanceToBoundaryShape",
+          "maxCount": 1
         }
       ]
     },
     {
-      "@id": "this:BrainLocationCoordinatesShape",
+      "@id": "this:CoordinatesInBrainShape",
       "@type": "sh:NodeShape",
-      "label": "Brain coordinates shape definition",
+      "label": "Coordinates in brain shape definition",
       "and": [
         {
           "node": "bbpvect3dsh:Vector3DShape"
@@ -78,9 +97,9 @@
       ]
     },
     {
-      "@id": "this:SliceLocationCoordinatesShape",
+      "@id": "this:CoordinatesInSliceShape",
       "@type": "sh:NodeShape",
-      "label": "Slice coordinates shape definition",
+      "label": "Coordinates in slice shape definition",
       "property": [
         {
           "path": "nsg:valueX",
@@ -109,6 +128,28 @@
           "path": "nsg:spatialReferenceSystem",
           "name": "Spatial Reference System",
           "class": "nsg:SpatialReferenceSystem",
+          "maxCount": 1
+        }
+      ]
+    },
+    {
+      "@id" : "this:DistanceToBoundaryShape",
+      "@type" : "sh:NodeShape",
+      "label": "Distance to boundary shape definition",
+      "property" : [
+        {
+          "path": "nsg:boundary",
+          "name": "Boundary",
+          "node": "bbptlotsh:BrainRegionOntologyTermShape",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "schema:distance",
+          "name": "Distance",
+          "description": "Distance",
+          "class": "bbpqsh:QuantitativeValueShape",
+          "minCount": 1,
           "maxCount": 1
         }
       ]
