@@ -1,15 +1,17 @@
 {
-  "prov": "http://www.w3.org/ns/prov#",
-  "generated": {
-    "@id": "prov:generated"
-  },
-  "used": {
-    "@id": "prov:used"
-  },
-  "qualifiedGeneration": {
-    "@id": "prov:qualifiedGeneration"
-  },
-  "wasRevisionOf": {
-    "@id": "prov:wasRevisionOf"
+  "@context": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "generated": {
+      "@id": "prov:generated"
+    },
+    "used": {
+      "@id": "prov:used"
+    },
+    "qualifiedGeneration": {
+      "@id": "prov:qualifiedGeneration"
+    },
+    "wasRevisionOf": {
+      "@id": "prov:wasRevisionOf"
+    }
   }
 }
