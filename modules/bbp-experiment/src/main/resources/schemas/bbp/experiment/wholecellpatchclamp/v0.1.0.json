@@ -1,0 +1,50 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/experiment/wholecellpatchclamp/v0.1.0/shapes/"
+    }
+  ],
+  "imports": [
+    "{{base}}/schemas/bbp/core/activity/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:WholeCellPatchClampShape",
+      "@type": "sh:NodeShape",
+      "label": "Whole cell patch clamp",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "nsg:WholeCellPatchClamp",
+      "and": [
+        {
+          "node": "bbpactsh:ActivityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:hadProtocol",
+              "class": "nsg:Protocol"
+            },
+            {
+              "path": "prov:used",
+              "description": "The slice used",
+              "class": "nsg:Slice",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "prov:generated",
+              "description": "The patched slice generated",
+              "class": "nsg:PatchedSlice",
+              "minCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
