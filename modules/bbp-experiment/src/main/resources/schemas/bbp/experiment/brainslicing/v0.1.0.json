@@ -41,6 +41,51 @@
               "description": "The slice generated",
               "class": "nsg:Slice",
               "minCount": 1
+            },
+            {
+              "path" : "nsg:brainRegion",
+              "name" : "Brain region",
+              "description" : "Brain region sliced",
+              "node":"bbptlotsh:BrainRegionOntologyTermShape"
+            },
+            {
+              "path": "nsg:slicingPlane",
+              "name": "Slicing plane",
+              "description": "Slicing plane of the brain",
+              "sh:in" : {
+                "@list" : [ "Sagittal", "Para-sagittal", "Coronal", "Horizontal" ]
+              },
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:slicingAngle",
+              "name": "Slicing angle",
+              "description": "Slicing angle of brain",
+              "datatype": "xsd:string",
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:cuttingThickness",
+              "name": "Cutting thickness",
+              "description": "Cutting thickness of brain slice",
+              "class": "bbpqsh:QuantitativeValueShape",
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:hemisphere",
+              "name": "Hemisphere",
+              "description": "Brain hemisphere that was sliced",
+              "sh:in" : {
+                "@list" : [ "Left", "Right" ]
+              },
+              "maxCount": 2
+            },
+            {
+              "path": "nsg:solution",
+              "name": "Solution",
+              "description": "Solution in which the brain was sliced",
+              "datatype": "xsd:string",
+              "maxCount": 1
             }
           ]
         }

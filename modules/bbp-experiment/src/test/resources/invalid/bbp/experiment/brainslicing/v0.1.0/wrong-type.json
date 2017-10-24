@@ -4,7 +4,6 @@
         "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
         "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
     ],
-    "@id": "{{base}}/schemas/bbp/atlas/brainslicing/v0.1.0/2d187739-3d70-4d2e-9760-41d980e895ad",
     "@type": [
         "nsg:WrongType"
     ],

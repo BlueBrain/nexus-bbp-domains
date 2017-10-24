@@ -7,7 +7,6 @@
             "@vocab": "http://www.w3.org/ns/prov#"
         }
     ],
-    "@id": "{{base}}/schemas/bbp/atlas/brainslicing/v0.1.0/2d187739-3d70-4d2e-9760-41d980e895ad",
     "@type": [
         "nsg:BrainSlicing",
         "prov:Activity"
