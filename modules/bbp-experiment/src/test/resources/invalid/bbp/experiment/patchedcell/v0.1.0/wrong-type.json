@@ -1,6 +1,5 @@
 {
     "@context": [
-        "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
         "{{base}}/contexts/bbp/core/entity/v0.1.0",
         "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
     ],
@@ -8,5 +7,9 @@
     "@type": [
         "nsg:WrongType"
     ],
-    "name": "C010600A2-MT-C1"
+    "name": "C010600A2-MT-C1",
+    "brainRegion": {
+        "@id": "http://www.hbp.FIXME.org/hbp_whs_sd_ontology/0000014",
+        "label": "Somatosensory cortex hindlimb layer IV"
+    }
 }
