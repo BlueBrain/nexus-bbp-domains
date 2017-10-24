@@ -17,7 +17,7 @@
     {
       "@id": "this:FixedStainedSliceShape",
       "@type": "sh:NodeShape",
-      "description": "Fixed stained slice shape definition. A fixed stained slice should have an IRI as identifier",
+      "label": "Fixed stained slice shape definition",
       "targetClass": "nsg:FixedStainedSlice",
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
