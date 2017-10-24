@@ -1,63 +1,64 @@
 {
-  "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
-  "brainRegion": {
-    "@id": "nsg:brainRegion"
-  },
-  "geometry": {
-    "@id": "nsg:geometry"
-  },
-  "location": {
-    "@id": "nsg:location"
-  },
-  "geometryParameter": {
-    "@id": "nsg:geometryParameter"
-  },
-  "spatialReferenceSystem": {
-    "@id": "nsg:spatialReferenceSystem"
-  },
-  "hadProtocol": {
-    "@id": "nsg:hadProtocol"
-  },
-  "atlasVersion":{
-    "@id": "nsg:atlasVersion"
-  },
-  "sweep":{
-    "@id": "nsg:sweep"
-  },
-  "channel":{
-    "@id": "nsg:channel"
-  },
-  "putativeMType":{
-    "@id": "nsg:putativeMType"
-  },
-  "projectName":{
-    "@id": "nsg:projectName"
-  },
-  "spatialCellName":{
-    "@id": "nsg:spatialCellName"
-  },
-  "reconstructionRequested":{
-    "@id": "nsg:reconstructionRequested"
-  },
-  "reconstructable":{
-    "@id": "nsg:reconstructable"
-  },
-  "labeledCell":{
-    "@id": "nsg:labeledCell"
-  },
-  "brainLocationCoordinates": {
-    "@id": "nsg:brainLocationCoordinates"
-  },
-  "sliceLocationCoordinates": {
-    "@id": "nsg:sliceLocationCoordinates"
-  },
-  "valueX": {
-    "@id": "nsg:valueX"
-  },
-  "valueY": {
-    "@id": "nsg:valueY"
-  },
-  "valueZ ": {
-    "@id": "nsg:valueZ"
+  "@context": {
+    "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
+    "brainRegion": {
+      "@id": "nsg:brainRegion"
+    },
+    "geometry": {
+      "@id": "nsg:geometry"
+    },
+    "location": {
+      "@id": "nsg:location"
+    },
+    "geometryParameter": {
+      "@id": "nsg:geometryParameter"
+    },
+    "spatialReferenceSystem": {
+      "@id": "nsg:spatialReferenceSystem"
+    },
+    "hadProtocol": {
+      "@id": "nsg:hadProtocol"
+    },
+    "atlasVersion": {
+      "@id": "nsg:atlasVersion"
+    },
+    "sweep": {
+      "@id": "nsg:sweep"
+    },
+    "channel": {
+      "@id": "nsg:channel"
+    },
+    "putativeMType": {
+      "@id": "nsg:putativeMType"
+    },
+    "projectName": {
+      "@id": "nsg:projectName"
+    },
+    "spacialCellName": {
+      "@id": "nsg:spacialCellName"
+    },
+    "reconstructionRequested": {
+      "@id": "nsg:reconstructionRequested"
+    },
+    "reconstructable": {
+      "@id": "nsg:reconstructable"
+    },
+    "labeledCell": {
+      "@id": "nsg:labeledCell"
+    },
+    "brainLocationCoordinates": {
+      "@id": "nsg:brainLocationCoordinates"
+    },
+    "sliceLocationCoordinates": {
+      "@id": "nsg:sliceLocationCoordinates"
+    },
+    "valueX": {
+      "@id": "nsg:valueX"
+    },
+    "valueY": {
+      "@id": "nsg:valueY"
+    },
+    "valueZ ": {
+      "@id": "nsg:valueZ"
   }
 }
