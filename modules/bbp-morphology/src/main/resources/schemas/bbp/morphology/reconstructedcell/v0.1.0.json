@@ -1,0 +1,157 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
+      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/experiment/reconstructedcell/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0",
+    "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id" : "this:ReconstructedCellShape",
+      "@type" : "sh:NodeShape",
+      "description" : "Reconstructed cell shape definition. A Reconstructed cell should have an IRI as identifier.",
+      "targetClass" : "nsg:ReconstructedCell",
+      "nodeKind" : "sh:BlankNodeOrIRI",
+      "and":[
+        {
+          "node":"bbpentsh:EntityShape"
+        },
+        {
+          "property" : [
+            {
+              "path" : "nsg:projectName",
+              "name" : "Project name",
+              "description" : "Project name as given by the organization who generates the data",
+              "datatype": "xsd:string",
+              "maxCount" : 1
+            },
+            {
+              "path" : "nsg:axonProjection",
+              "name" : "Axon projection",
+              "description" : "Axon projection of the reconstructed cell.",
+              "node":"bbptlotsh:BrainRegionOntologyTermShape",
+              "maxCount" : 1
+            },
+            {
+              "path" : "nsg:brainRegion",
+              "name" : "Brain region",
+              "description" : "Brain region where the reconstructed cell is located.",
+              "node":"bbptlotsh:BrainRegionOntologyTermShape",
+              "minCount" : 1,
+              "maxCount" : 1
+            },
+            {
+              "path" : "nsg:distanceToBoundary",
+              "name" : "Distance to boundary",
+              "description" : "Distance of the reconstructed cell to pia or to another brain boundary.",
+              "node" : "bbplocsh:DistanceToBoundaryShape",
+              "maxCount" : 1
+            },
+            {
+              "path" : "nsg:mType",
+              "name" : "Morphology type",
+              "description" : "The morphology type of the reconstructed cell: need the cell type for class restriction.",
+              "node": "bbptlotsh:CellTypeOntologyTermShape",
+              "maxCount" : 1
+            },
+            {
+              "path" : "nsg:mSubType",
+              "name" : "Morphology sub-type",
+              "description" : "The morphology sub-type of the reconstructed cell: need the cell sub-type for class restriction.",
+              "datatype": "xsd:string",
+              "maxCount" : 1
+            },
+            {
+              "path" : "nsg:subRegion",
+              "name" : "Sub region",
+              "description" : "Sub region where the reconstructed cell is located, CA1a in hippocampus for example.",
+              "node":"bbptlotsh:BrainRegionOntologyTermShape",
+              "maxCount" : 1
+            },
+            {
+              "path" : "nsg:positionInLayer",
+              "name" : "Position in layer",
+              "description" : "Position in layer where the reconstructed cell is located, can be 'deep' or 'superficial' for hippocampus.",
+              "node":"bbptlocsh:BrainLocationShape",
+              "maxCount" : 1
+            },
+            {
+              "path" : "nsg:longitudinalAxis",
+              "name" : "Longitudinal axis",
+              "description" : "Position in longitudinal axis where the reconstructed cell is located, can be 'dorsal' or 'ventral' for hippocampus.",
+              "node":"bbptlocsh:BrainLocationShape",
+              "maxCount" : 1
+            },
+            {
+              "path" : "nsg:layer",
+              "name" : "Layer",
+              "description" : "Layer where the reconstructed cell is located.",
+              "node":"bbptlocsh:BrainLocationShape",
+              "maxCount" : 1
+            },
+            {
+              "path" : "nsg:integrity",
+              "name" : "Integrity",
+              "description" : "Gives information on the integrity of the reconstructed cell.",
+              "node" : "nsg:IntegrityShape",
+              "maxCount" : 1
+            },
+            {
+              "path" : "nsg:somaType",
+              "name" : "Soma type",
+              "description" : "Gives information on the type of some of the reconstructed cell, values can be 3D or 2D contour, 1 point, 3 point.",
+              "sh:in" : {
+                "@list" : [ "3D contour", "2D contour", "1 point", "3 point" ]
+              },
+              "maxCount" : 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id" : "this:IntegrityShape",
+      "@type" : "sh:NodeShape",
+      "property" : [
+        {
+          "path": "nsg:apicalDendrite",
+          "name": "Apical dendrite integrity",
+          "datatype": "xsd:boolean",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:basalDendrite",
+          "name": "Basal dendrite integrity",
+          "datatype": "xsd:boolean",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:axon",
+          "name": "Axon integrity",
+          "datatype": "xsd:boolean",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "nsg:soma",
+          "name": "Soma integrity",
+          "datatype": "xsd:boolean",
+          "minCount": 1,
+          "maxCount": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
+  ],
+  "@type": [
+    "nsg:WrongType"
+  ],
+  "name": "JY160810_A_idA",
+  "providerId": "JY160810_A_idA",
+  "brainRegion": {
+    "@type": "BrainRegion",
+    "@id": "http://purl.obolibrary.org/obo/FMA_62200",
+    "label": "ventral posterolateral thalamic nucleus"
+  },
+  "projectName": "Thalamus project",
+  "spacialCellName": "idA",
+  "mType": {
+    "@id": "http://neurolex.org/wiki/Nlx_cell_20081203",
+    "label": "Thalamocortical cell"
+  },
+  "integrity": {
+    "basalDendrite": true,
+    "axon": false,
+    "soma": true
+  },
+  "somaType": "2D contour"
+}
