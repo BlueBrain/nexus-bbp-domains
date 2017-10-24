@@ -34,8 +34,8 @@
     "projectName": {
       "@id": "nsg:projectName"
     },
-    "spacialCellName": {
-      "@id": "nsg:spacialCellName"
+    "spatialCellName": {
+      "@id": "nsg:spatialCellName"
     },
     "reconstructionRequested": {
       "@id": "nsg:reconstructionRequested"
