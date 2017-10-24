@@ -8,7 +8,7 @@
       "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
       "bbpvect3dsh" : "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
       "bbppsh": "{{base}}/schemas/bbp/core/person/v0.1.0/shapes/",
-      "this": "{{{base}}/schemas/bbp/experiment/labeledcell/v0.1.0/shapes/"
+      "this": "{{base}}/schemas/bbp/experiment/labeledcell/v0.1.0/shapes/"
     }
   ],
   "@type": "owl:Ontology",
@@ -20,7 +20,7 @@
     {
       "@id": "this:LabeledCellShape",
       "@type": "sh:NodeShape",
-      "description": "Labeled cell shape definition. A labeled cell should have an IRI as identifier.",
+      "comment": "Labeled cell shape definition",
       "targetClass": "nsg:LabeledCell",
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
