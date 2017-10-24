@@ -54,6 +54,16 @@
       ]
     },
     {
+      "@id": "this:BrainRegionOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a brain region",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    },
+    {
       "@id": "this:StimuliOntologyTermShape",
       "@type": "sh:NodeShape",
       "label": "The shape of an ontology term representing a stimuli",
