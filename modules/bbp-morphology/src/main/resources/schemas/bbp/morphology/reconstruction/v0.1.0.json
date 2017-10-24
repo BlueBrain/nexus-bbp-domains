@@ -6,7 +6,7 @@
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
-      "bbpentsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
+      "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/experiment/reconstruction/v0.1.0/shapes/"
     }
   ],
@@ -17,7 +17,7 @@
   "shapes": [ {
     "@id" : "this:ReconstructionShape",
     "@type" : "sh:NodeShape",
-    "description" : "Reconstruction activities description.",
+    "label" : "Reconstruction activities description.",
     "targetClass" : "nsg:Reconstruction",
     "nodeKind" : "sh:BlankNodeOrIRI",
     "and": [

@@ -19,7 +19,7 @@
     {
       "@id" : "this:ReconstructedCellShape",
       "@type" : "sh:NodeShape",
-      "description" : "Reconstructed cell shape definition. A Reconstructed cell should have an IRI as identifier.",
+      "label" : "Reconstructed cell shape definition",
       "targetClass" : "nsg:ReconstructedCell",
       "nodeKind" : "sh:BlankNodeOrIRI",
       "and":[
