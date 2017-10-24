@@ -43,13 +43,6 @@
           "maxCount": 1
         },
         {
-          "path": "nsg:subRegion",
-          "name": "Sub region",
-          "description": "Sub region (e.g. CA3b)",
-          "node": "bbptlotsh:BrainRegionOntologyTermShape",
-          "maxCount": 1
-        },
-        {
           "path": "nsg:positionInLayer",
           "name": "Position in layer",
           "description": "Position in layer (deep / superficial)",
