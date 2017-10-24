@@ -37,7 +37,8 @@
               "path": "prov:generated",
               "description": "The patched slice generated",
               "class": "nsg:PatchedSlice",
-              "minCount": 1
+              "minCount": 1,
+              "maxCount": 1
             }
           ]
         }
