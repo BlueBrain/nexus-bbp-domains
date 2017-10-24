@@ -14,7 +14,7 @@
   "@type": "owl:Ontology",
   "imports": [
     "{{base}}/schemas/bbp/core/entity/v0.1.0",
-    "{{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0"
+    "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0"
   ],
   "shapes": [
     {
