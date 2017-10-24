@@ -42,10 +42,11 @@
         }
       ]
     },
+
     {
-      "@id": "this:BrainRegionOntologyTermShape",
+      "@id": "this:ObjectiveTypeOntologyTermShape",
       "@type": "sh:NodeShape",
-      "label": "The shape of an ontology term representing a brain region",
+      "label": "The shape of an ontology term representing a microscope objective type",
       "and": [
         {
           "node": "bbplotsh:LabeledOntologyTermShape"
