@@ -63,6 +63,36 @@
     },
     "valueZ ": {
       "@id": "nsg:valueZ"
+    },
+      "species": {
+    "@id": "nsg:species"
+    },
+    "strain": {
+      "@id": "nsg:strain"
+    },
+    "transgenic": {
+      "@id": "nsg:transgenic"
+    },
+    "sex": {
+      "@id": "nsg:sex"
+    },
+    "age": {
+      "@id": "nsg:age"
+    },
+    "dateOfSurgery": {
+      "@id": "nsg:dateOfSurgery"
+    },
+    "diseaseModel": {
+      "@id": "nsg:diseaseModel"
+    },
+    "disease": {
+      "@id": "nsg:disease"
+    },
+    "treatment": {
+      "@id": "nsg:treatment"
+    },
+    "period": {
+      "@id": "nsg:period"
     }
   }
 }
