@@ -82,7 +82,7 @@ lazy val root = project
   .in(file("."))
   .settings(name := "bbp-schemas", moduleName := "bbp-schemas")
   .settings(common, noPublish)
-  .aggregate(docs, core, experiment, atlas, electrophysiology)
+  .aggregate(docs, core, experiment, atlas, morphology, electrophysiology)
 
 lazy val common = Seq(
   scalacOptions in (Compile, console) ~= (_ filterNot (_ == "-Xfatal-warnings")),
