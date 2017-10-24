@@ -9,23 +9,25 @@
       "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
       "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
       "bbplocsh": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/",
-      "this": "{{base}}/schemas/bbp/atlas/brainslicing/v0.1.0/shapes/"
+      "this": "{{base}}/schemas/bbp/experiment/brainslicing/v0.1.0/shapes/"
     }
   ],
   "imports": [
-    "{{base}}/schemas/bbp/core/activity/v0.1.0"
+    "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0",
+    "{{base}}/schemas/bbp/core/activity/v0.1.0",
+    "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0"
   ],
   "@type": "owl:Ontology",
   "shapes": [
     {
       "@id": "this:BrainSlicingShape",
       "@type": "sh:NodeShape",
-      "label": "Brain slicing shape description",
+      "label": "Brain slicing shape definition",
       "nodeKind": "sh:BlankNodeOrIRI",
       "targetClass": "nsg:BrainSlicing",
       "and": [
         {
-          "@id": "bbpactsh:ActivityShape"
+          "node": "bbpactsh:ActivityShape"
         },
         {
           "property": [
