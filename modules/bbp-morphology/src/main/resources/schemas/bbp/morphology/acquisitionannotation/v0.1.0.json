@@ -1,0 +1,59 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/experiment/acquisitionannotation/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "imports": [
+    "{{base}}/schemas/bbp/core/activity/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id" : "this:AcquisitionAnnotationShape",
+      "@type" : "sh:NodeShape",
+      "description" : "Acquisition and annotation shape definition. This shape should have an IRI as identifier.",
+      "targetClass" : "nsg:AcquisitionAnnotation",
+      "nodeKind" : "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "bbpentsh:ActivityShape"
+        },
+        {
+      "property" : [
+        {
+          "path" : "nsg:ObjectiveMagnification",
+          "name" : "Objective magnification",
+          "description" : "Objective magnification used to acquire the slice images.",
+          "datatype" : "xsd:string",
+          "maxCount" : 1
+        },
+        {
+          "path" : "nsg:hadProtocol",
+          "class" : "nsg:Protocol"
+        },
+        {
+          "path": "prov:used",
+          "description": "The fixed and stained slice used",
+          "class": "nsg:FixedStainedSlice",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "prov:generated",
+          "description": "The annotated slice generated",
+          "class": "nsg:AnnotatedSlice",
+          "minCount": 1,
+          "maxCount": 1
+        }
+       ]
+      }
+     ]
+    }
+  ]
+}
