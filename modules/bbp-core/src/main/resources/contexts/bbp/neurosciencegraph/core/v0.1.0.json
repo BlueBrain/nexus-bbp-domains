@@ -45,6 +45,21 @@
     },
     "labeledCell": {
       "@id": "nsg:labeledCell"
+    },
+    "brainLocationCoordinates": {
+      "@id": "nsg:brainLocationCoordinates"
+    },
+    "sliceLocationCoordinates": {
+      "@id": "nsg:sliceLocationCoordinates"
+    },
+    "valueX": {
+      "@id": "nsg:valueX"
+    },
+    "valueY": {
+      "@id": "nsg:valueY"
+    },
+    "valueZ ": {
+      "@id": "nsg:valueZ"
     }
   }
 }
