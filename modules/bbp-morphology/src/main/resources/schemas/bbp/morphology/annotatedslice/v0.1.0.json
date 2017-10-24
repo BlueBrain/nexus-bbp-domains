@@ -22,7 +22,7 @@
       {
         "@id": "this:AnnotatedSliceShape",
         "@type": "sh:NodeShape",
-        "description": "Annotated slice shape definition. An annotated slice should have an IRI as identifier",
+        "label": "Annotated slice shape definition",
         "targetClass": "nsg:AnnotatedSlice",
         "nodeKind": "sh:BlankNodeOrIRI",
         "and": [
