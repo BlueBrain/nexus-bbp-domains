@@ -5,7 +5,7 @@
     "{{base}}/contexts/nexus/core/standards/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
+      "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/experiment/acquisitionannotation/v0.1.0/shapes/"
     }
   ],
@@ -17,7 +17,7 @@
     {
       "@id" : "this:AcquisitionAnnotationShape",
       "@type" : "sh:NodeShape",
-      "description" : "Acquisition and annotation shape definition. This shape should have an IRI as identifier.",
+      "label" : "Acquisition and annotation shape definition",
       "targetClass" : "nsg:AcquisitionAnnotation",
       "nodeKind" : "sh:BlankNodeOrIRI",
       "and": [
@@ -32,10 +32,6 @@
           "description" : "Objective magnification used to acquire the slice images.",
           "datatype" : "xsd:string",
           "maxCount" : 1
-        },
-        {
-          "path" : "nsg:hadProtocol",
-          "class" : "nsg:Protocol"
         },
         {
           "path": "prov:used",
