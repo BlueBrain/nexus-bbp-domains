@@ -5,7 +5,7 @@
     "{{base}}/contexts/nexus/core/standards/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
+      "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/experiment/fixstainmount/v0.1.0/shapes/"
     }
   ],
@@ -17,7 +17,7 @@
   "shapes": [ {
     "@id" : "this:FixStainMountShape",
     "@type" : "sh:NodeShape",
-    "description" : "Fixing, Staining and Mounting activities description.",
+    "label" : "Fixing, Staining and Mounting activities description",
     "targetClass" : "nsg:FixStainMount",
     "nodeKind" : "sh:BlankNodeOrIRI",
     "and": [
