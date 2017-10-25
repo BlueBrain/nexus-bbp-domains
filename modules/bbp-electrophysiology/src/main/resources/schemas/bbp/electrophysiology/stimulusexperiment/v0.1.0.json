@@ -51,10 +51,6 @@
               "maxCount" : 1
             },
             {
-              "path": "nsg:hadProtocol",
-              "class": "nsg:Protocol"
-            },
-            {
               "path": "prov:used",
               "description": "The patched cell used",
               "class": "nsg:PatchedCell",

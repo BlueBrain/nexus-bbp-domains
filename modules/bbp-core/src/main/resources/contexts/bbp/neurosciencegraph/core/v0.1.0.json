@@ -186,6 +186,18 @@
     },
     "comment": {
       "@id": "nsg:comment"
+    },
+    "stimulus": {
+      "@id": "nsg:stimulus"
+    },
+    "providerExperimentId": {
+      "@id": "nsg:providerExperimentId"
+    },
+    "providerExperimentName": {
+      "@id": "nsg:providerExperimentName"
+    },
+    "eCode": {
+      "@id": "nsg:eCode"
     }
   }
 }
