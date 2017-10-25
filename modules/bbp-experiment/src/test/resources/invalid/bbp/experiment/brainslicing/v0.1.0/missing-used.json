@@ -6,7 +6,8 @@
             "@vocab": "http://www.w3.org/ns/prov#"
         }
     ],
-    "@type": [
+    "@id": "{{base}}/schemas/bbp/atlas/brainslicing/v0.1.0/2d187739-3d70-4d2e-9760-41d980e895ad",
+    "@type":[
         "nsg:BrainSlicing",
         "prov:Activity"
     ],
@@ -16,14 +17,6 @@
         "@type": [
             "nsg:Slice",
             "prov:Entity"
-            ]
-    },
-    "used":
-    {
-        "@id": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/experiment/subject/v0.1.0/c33d5541-ac7a-4214-8928-f4edc48e893e",
-        "@type": [
-            "nsg:Subject",
-            "prov:Entity"
-            ]
+        ]
     }
 }
