@@ -7,6 +7,7 @@
     {
       "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
       "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "bbplocsh": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/experiment/reconstructedcell/v0.1.0/shapes/"
     }
   ],
@@ -82,21 +83,21 @@
               "path" : "nsg:positionInLayer",
               "name" : "Position in layer",
               "description" : "Position in layer where the reconstructed cell is located, can be 'deep' or 'superficial' for hippocampus.",
-              "node":"bbptlocsh:BrainLocationShape",
+              "node":"bbplocsh:BrainLocationShape",
               "maxCount" : 1
             },
             {
               "path" : "nsg:longitudinalAxis",
               "name" : "Longitudinal axis",
               "description" : "Position in longitudinal axis where the reconstructed cell is located, can be 'dorsal' or 'ventral' for hippocampus.",
-              "node":"bbptlocsh:BrainLocationShape",
+              "node":"bbplocsh:BrainLocationShape",
               "maxCount" : 1
             },
             {
               "path" : "nsg:layer",
               "name" : "Layer",
               "description" : "Layer where the reconstructed cell is located.",
-              "node":"bbptlocsh:BrainLocationShape",
+              "node":"bbplocsh:BrainLocationShape",
               "maxCount" : 1
             },
             {
