@@ -9,20 +9,18 @@
   "@id": "{{base}}/schemas/bbp/simulation/circuit/v0.0.1",
   "@type": "owl:Ontology",
   "imports": [
-    "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0"
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
   ],
   "shapes": [
     {
+      "@id": "this:CircuitShape",
       "@type": "sh:NodeShape",
+      "label":"This shape is for initialization of the simulation domain and is not for real use.",
       "targetClass": "nsg:Circuit",
       "nodekind": "sh:BlankNodeOrIRI",
-      "property": [
+      "and": [
         {
-          "path": "nsg:brainRegion",
-          "name": "synapse_index",
-          "description": "synapse_index",
-          "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/BrainRegionOntologyTermShape",
-          "maxcount": 1
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
         }
       ]
     }
