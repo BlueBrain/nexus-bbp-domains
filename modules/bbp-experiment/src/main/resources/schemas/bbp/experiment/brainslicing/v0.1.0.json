@@ -1,0 +1,97 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
+      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
+      "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
+      "bbplocsh": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/experiment/brainslicing/v0.1.0/shapes/"
+    }
+  ],
+  "imports": [
+    "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0",
+    "{{base}}/schemas/bbp/core/activity/v0.1.0",
+    "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:BrainSlicingShape",
+      "@type": "sh:NodeShape",
+      "label": "Brain slicing shape definition",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "nsg:BrainSlicing",
+      "and": [
+        {
+          "node": "bbpactsh:ActivityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "prov:used",
+              "description": "The subject used",
+              "class": "nsg:Subject",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "prov:generated",
+              "description": "The slice generated",
+              "class": "nsg:Slice",
+              "minCount": 1
+            },
+            {
+              "path" : "nsg:brainRegion",
+              "name" : "Brain region",
+              "description" : "Brain region sliced",
+              "node":"bbptlotsh:BrainRegionOntologyTermShape"
+            },
+            {
+              "path": "nsg:slicingPlane",
+              "name": "Slicing plane",
+              "description": "Slicing plane of the brain",
+              "sh:in" : {
+                "@list" : [ "Sagittal", "Para-sagittal", "Coronal", "Horizontal" ]
+              },
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:slicingAngle",
+              "name": "Slicing angle",
+              "description": "Slicing angle of brain",
+              "datatype": "xsd:string",
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:cuttingThickness",
+              "name": "Cutting thickness",
+              "description": "Cutting thickness of brain slice",
+              "class": "bbpqsh:QuantitativeValueShape",
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:hemisphere",
+              "name": "Hemisphere",
+              "description": "Brain hemisphere that was sliced",
+              "sh:in" : {
+                "@list" : [ "Left", "Right" ]
+              },
+              "maxCount": 2
+            },
+            {
+              "path": "nsg:solution",
+              "name": "Solution",
+              "description": "Solution in which the brain was sliced",
+              "datatype": "xsd:string",
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
