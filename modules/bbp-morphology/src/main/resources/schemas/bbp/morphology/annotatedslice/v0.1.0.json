@@ -33,27 +33,27 @@
             "property" : [ {
               "path" : "nsg:AnnotationAngle",
               "name" : "Annotation angle",
-              "description" : "Angle at which the slice is as defined during the annotation process",
+              "description" : "Angle at which the slice is as defined during the annotation process.",
               "node": "bbpquantValue:QuantitativeValueShape",
               "maxCount" : 1
             }, {
               "path" : "nsg:AnnotatorComment",
               "name" : "Annotator comment",
-              "description" : "Comments added by the annotator during the annotation process",
+              "description" : "Comments added by the annotator during the annotation process.",
               "datatype":"xsd:string",
               "maxCount" : 1
             },
               {
                 "path": "dcterms:hasPart",
                 "name": "Patched cell collection",
-                "description": "The collections of labeled cells",
+                "description": "The collections of labeled cells.",
                 "class": "nsg:LabeledCellCollection",
                 "minCount": 1
               },
               {
                 "path": "prov:wasRevisionOf",
-                "name": "fixedStainedSlice",
-                "description": "The fixedStainedSlice this annotatedSlice is a revision of",
+                "name": "Fixed stained slice",
+                "description": "The FixedStainedSlice this AnnotatedSlice is a revision of.",
                 "class": "nsg:FixedStainedSlice",
                 "minCount": 1,
                 "maxCount": 1

@@ -17,7 +17,7 @@
   },
   "hasPart": [
     {
-      "@id": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/experiment/labeledcellcollection/v0.1.2/ab880634-3bf5-4872-a34c-b6bbbca8c0a4",
+      "@id": "{{base}}/data/bbp/experiment/labeledcellcollection/v0.1.2/ab880634-3bf5-4872-a34c-b6bbbca8c0a4",
       "@type": "nsg:LabeledCellCollection"
     }
   ],
