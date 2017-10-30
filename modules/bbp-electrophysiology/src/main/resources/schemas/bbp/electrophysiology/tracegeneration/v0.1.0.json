@@ -9,7 +9,6 @@
     }
     ],
   "@type" : "owl:Ontology",
-  "imports" : [ ],
   "shapes" : [
     {
       "@id" : "this:TraceGenerationShape",
