@@ -1,0 +1,51 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/bbp/simulation/circuit/v0.0.1",
+    {
+      "this": "{{base}}/schemas/bbp/simulation/validationactivity/v0.0.1/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:ValidationActivityShape", TODO generic for morph, cell validations just validation object is different type
+      "@type": "sh:NodeShape",
+      "targetClass": "nsg:ValidationActivity",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/nexus/prov/activity/v0.1.0/shapes/ActivityShape"
+        },
+        {
+          "property": [ these 3 should be qualifiedUsage
+            {
+              "path": "nsg:validationModel",
+              "datatype": "SomeModelShape" or list
+              "minCount": 1
+            }, {
+              "path": "nsg:referenceData",
+              "datatype": "ExperimentalDataShapeTODO"
+              "minCount": 1
+            }, {
+              "path": "nsg:ValidationDefinition",
+              "datatype": "DefinitionDataShape"
+              "minCount": 1
+            },
+            
+            {
+              "path": "nsg:generated",
+              "datatype": "ValidationResultShape",
+              "minCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

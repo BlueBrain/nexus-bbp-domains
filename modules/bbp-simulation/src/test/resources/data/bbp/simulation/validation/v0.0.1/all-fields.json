@@ -1,0 +1,11 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/bbp/simulation/circuit/v0.0.1"
+  ],
+  "@type": ["nsg:Validation", "nsg:Entity"],
+  "name": "name",
+  "description": "description",
+  "type": "validation 1"
+}

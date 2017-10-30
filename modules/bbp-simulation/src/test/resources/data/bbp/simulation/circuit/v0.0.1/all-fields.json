@@ -1,0 +1,71 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/bbp/simulation/circuit/v0.0.1"
+  ],
+  "@type": ["nsg:Circuit", "nsg:Entity"],
+  "name": "name",
+  "description": "description",
+  "nsg:date": "2018-01-10T10:00:00",
+  "brainRegion": {
+    "@id": "http://www.FIXME.org/paxinos_rat_ontology/00721",
+    "label": "primary somatosensory cortex"
+  },
+  "species": {
+     "@id": "http://purl.obolibrary.org/obo/NCBITaxon_10116",
+     "label": "Rattus norvegicus"
+  },
+  "circuit": {
+    "name": "circuit",
+    "cellLibraryFile": "circuit.mvd3",
+    "distribution": {
+        "accessURL": "file:///gpfs/server/project/"
+    }
+  },
+  "synapses": {
+    "name": "synapses",
+    "distribution": {
+      "accessURL": "file:///gpfs/server/project/"
+    }
+  },
+  "morphologies": {
+    "name": "morphologies",
+    "distribution": {
+      "accessURL": "file:///gpfs/server/project/"
+    }
+  },
+  "emodels": {
+    "name": "emodels",
+    "distribution": {
+      "accessURL": "file:///gpfs/server/project/"
+    }
+  },
+  "mecombos": {
+    "name": "mecombos",
+    "distribution": {
+      "downloadURL": "file:///gpfs/server/project/mecombo_emodel.tsv",
+      "mediaType": "application/octet-stream"
+    }
+  },
+  "target": {
+    "name": "target",
+    "distribution": {
+      "downloadURL": "file:///gpfs/server/project/default_user.target",
+      "mediaType": "application/octet-stream"
+    }
+  },
+  "builder": {
+    "name": "builder",
+    "distribution": {
+      "accessURL": "file:///gpfs/server/project/source"
+    }
+  },
+  "projection": {
+    "name": "Thalamocortical_input_VPM",
+    "distribution": {
+      "accessURL": "file:///gpfs/server/project/20171207-2"
+    },
+    "source": "proj_Thalamocortical_VPM_Source"
+  }
+}

@@ -5,23 +5,25 @@
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     "{{base}}/contexts/bbp/simulation/circuit/v0.0.1",
     {
-      "this": "{{base}}/schemas/bbp/simulation/circuit/v0.0.1/shapes/"
+      "this": "{{base}}/schemas/bbp/simulation/detailedcircuit/v0.0.1/shapes/"
     }
   ],
   "@type": "nxv:Schema",
   "imports": [
     "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0",
-    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+    "{{base}}/schemas/bbp/core/entity/v0.1.0",
+    "{{base}}/schemas/bbp/simulation/detailedcircuit/v0.0.1"
   ],
   "shapes": [
     {
-      "@id": "this:CircuitShape",
+      "@id": "this:DetailedCircuitShape",
       "@type": "sh:NodeShape",
-      "targetClass": "nsg:Circuit",
+      "targetClass": "nsg:DetailedCircuit",
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
         {
-          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape",
+          "node": "{{base}}/schemas/bbp/simulation/detailedcircuit/v0.1.0/shapes/DetailedCircuitShape"
         },
         {
           "property": [
@@ -50,42 +52,18 @@
               "maxCount": 1
             },
             {
-              "path": "nsg:circuit",
-              "name": "CircuitPath",
-              "description": "Location of circuit file containing general circuit geometry",
-              "node": "this:CircuitDetailsShape",
+              "path": "nsg:nodeCollection",
+              "name": "",
+              "description": "",
+              "node": "this:NodeCollectionShape",
               "minCount": 1,
               "maxCount": 1
             },
             {
-              "path": "nsg:synapses",
+              "path": "nsg:edgeCollection",
               "name": "nrnPath",
               "description": "Location of nrn synapse file and additional circuit description files: start.ncs and start.target",
-              "node": "this:SynapseDetailsShape",
-              "minCount": 1,
-              "maxCount": 1
-            },
-            {
-              "path": "nsg:morphologies",
-              "name": "MorphologyPath",
-              "description": "Location of morphology files. Note that there should be two subdirectories, ascii and h5",
-              "node": "this:MorphologyDetailsShape",
-              "minCount": 1,
-              "maxCount": 1
-            },
-            {
-              "path": "nsg:emodels",
-              "name": "METypePath",
-              "description": "Location of metypes or CCells, the files defining morphological and electrical combinations used by the simulation",
-              "node": "this:EModelDetailsShape",
-              "minCount": 1,
-              "maxCount": 1
-            },
-            {
-              "path": "nsg:mecombos",
-              "name": "MEComboInfoFile",
-              "description": "File containing info about me-combos, such as emodel used, threshold currents, etc",
-              "node": "this:MEComboDetailsShape",
+              "node": "this:EdgeCollectionShape",
               "minCount": 1,
               "maxCount": 1
             },
@@ -99,16 +77,8 @@
             {
               "path": "nsg:builder",
               "name": "BioName",
-              "description": "Location of builder recipe",
+              "description": "TODO this should be in activity provenance",
               "node": "this:BuilderRecipeDetailsShape",
-              "minCount": 1,
-              "maxCount": 1
-            },
-            {
-              "path": "nsg:projection",
-              "name": "Projection",
-              "description": "Designed to take into account axons projecting to and from different areas of the brain",
-              "node": "this:ProjectionShape",
               "minCount": 1,
               "maxCount": 1
             }
@@ -148,7 +118,7 @@
       ]
     },
     {
-      "@id": "this:SynapseDetailsShape",
+      "@id": "this:EdgeCollectionShape",
       "@type": "sh:NodeShape",
       "label": "Location of nrn synapse file and additional circuit description files: start.ncs and start.target",
       "nodekind": "sh:BlankNodeOrIRI",
@@ -157,12 +127,21 @@
           "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
         },
         {
+        elements of the collection defined like 
           "property": [
             {
-              "path": "nsg:distribution",
+              "path": "nsg:properties",
               "name": "Distribution",
-              "description": "Location of the data",
+              "description": "Location of the data file defining properties of the synapses",
               "node": "{{base}}/schemas/nexus/core/distribution/v0.1.0/shapes/DistributionShape",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:synapseRelease",
+              "name": "collection of mod files",
+              "description": "identified by git hash",
+              "datatype": "xsd:string",
               "minCount": 1,
               "maxCount": 1
             }
@@ -286,9 +265,40 @@
       ]
     },
     {
-      "@id": "this:ProjectionShape",
+      "@id": "this:NodeCollectionShape",
       "@type": "sh:NodeShape",
-      "label": "A shape for circuit info",
+      "label": "",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
+        },
+        {
+            elements of the collection defined like this:
+          "property": [
+            {
+              "path": "nsg:memodelRelease",
+              "name": "",
+              "description": "",
+              "node": "this:MEModelReleaseShape",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:distribution",
+              "name": "Distribution",
+              "description": "Location of the mvd3 file",
+                mvd3 mediaType
+              "node": "{{base}}/schemas/nexus/core/distribution/v0.1.0/shapes/DistributionShape",
+              "minCount": 1,
+              "maxCount": 1
+            }
+        }
+    },
+    {
+      "@id": "this:EdgeCollectionShape",
+      "@type": "sh:NodeShape",
+      "label": "",
       "nodekind": "sh:BlankNodeOrIRI",
       "and": [
         {
