@@ -10,7 +10,6 @@
     ],
     "name": "654363",
     "channel": "0",
-    "sweep": "46",
     "qualifiedGeneration":
     {
         "@id": "{{base}}/data/bbp/experiment/tracegeneration/v0.1.0/cc4ed155-fb9c-4611-815f-cfe304cba128",

@@ -34,14 +34,6 @@
             "maxCount": 1
           },
           {
-            "path": "nsg:sweep",
-            "name": "Sweep",
-            "description": "Sweep number of trace",
-            "datatype": "xsd:integer",
-            "minCount": 1,
-            "maxCount": 1
-          },
-          {
             "path": "nsg:repetition",
             "name": "Repetition",
             "description": "Repetition number of trace",
