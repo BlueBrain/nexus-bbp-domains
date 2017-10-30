@@ -67,9 +67,9 @@
       "label" : "Stimulus shape definition",
       "property": [
         {
-          "path": "nsg:stimulus",
-          "name": "Stimulus",
-          "node": "bbptlotsh:StimulusOntologyTermShape",
+          "path": "nsg:stimulusType",
+          "name": "Stimulus type",
+          "node": "bbptlotsh:StimulusTypeOntologyTermShape",
           "minCount": 1,
           "maxCount": 1
         },
