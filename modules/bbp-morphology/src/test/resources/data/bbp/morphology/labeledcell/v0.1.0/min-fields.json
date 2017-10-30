@@ -15,7 +15,7 @@
     "label": "Primary somatosensory cortex"
   },
   "projectName": "Maria Toledo",
-  "spacialCellName": "idA3",
+  "spatialCellName": "idA3",
   "putativeMType": {
     "@id": "http://www.hbp.FIXME.org/hbp_cell_ontology/HBP_CELL:0000130",
     "label": "Layer IV nest basket cell"
