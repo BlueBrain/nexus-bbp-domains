@@ -42,6 +42,17 @@
         }
       ]
     },
+
+    {
+      "@id": "this:ObjectiveTypeOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a microscope objective type",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    },
     {
       "@id": "this:BrainRegionOntologyTermShape",
       "@type": "sh:NodeShape",
@@ -53,9 +64,19 @@
       ]
     },
     {
-      "@id": "this:StimuliOntologyTermShape",
+      "@id": "this:StimulusTypeOntologyTermShape",
       "@type": "sh:NodeShape",
-      "label": "The shape of an ontology term representing a stimuli",
+      "label": "The shape of an ontology term representing a stimulus type",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    },
+    {
+      "@id": "this:EcodeOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing an eCode",
       "and": [
         {
           "node": "bbplotsh:LabeledOntologyTermShape"
