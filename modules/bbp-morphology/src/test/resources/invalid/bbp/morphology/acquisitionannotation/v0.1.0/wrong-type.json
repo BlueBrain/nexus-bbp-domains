@@ -7,33 +7,30 @@
     "nsg:WrongType"
   ],
   "used": [{
-    "@id": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/experiment/fixedstainedslice/v0.1.1/f5659fba-c0a9-4646-8b72-8219f3574d73",
+    "@id": "{{base}}/data/bbp/experiment/fixedstainedslice/v0.1.1/f5659fba-c0a9-4646-8b72-8219f3574d73",
     "@type": [
       "nsg:fixedStainedSlice",
       "prov:Entity"
     ]
   }],
   "generated": [{
-    "@id": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/experiment/annotatedslice/v0.1.3/3a49c1e4-7077-4559-8a5e-d05474dabba4",
+    "@id": "{{base}}/data/bbp/experiment/annotatedslice/v0.1.3/3a49c1e4-7077-4559-8a5e-d05474dabba4",
     "@type": [
       "nsg:AnnotatedSlice",
       "prov:Entity"
     ]
   }],
-  "startedAtTime": {
-    "@type": "xsd:dateTime",
-    "@value": "2000-06-06T00:00:00+02:00"
-  },
+  "startedAtTime": "2000-06-06T00:00:00+02:00",
   "wasStartedBy": [
     {
       "@type": "prov:Agent",
-      "@id": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/core/person/v0.1.0/cfa680b3-9027-441f-95e4-b868c03ab3f0"
+      "@id": "{{base}}/data/bbp/core/person/v0.1.0/cfa680b3-9027-441f-95e4-b868c03ab3f0"
     }],
   "qualifiedAssociation": [{
     "@type": "prov:Association",
     "agent": {
       "@type":"prov:Agent",
-      "@id":  "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/core/person/v0.1.0/cfa680b3-9027-441f-95e4-b868c03ab3f0"
+      "@id":  "{{base}}/data/bbp/core/person/v0.1.0/cfa680b3-9027-441f-95e4-b868c03ab3f0"
     },
     "hadRole": {
       "@type": "prov:Role",
@@ -42,6 +39,6 @@
   }],
   "hadProtocol": {
     "@type": "Protocol",
-    "@id": "protocolns:e49ecf79-5d4f-454c-884f-99a17a3123e8"
+    "@id": "{{base}}/data/bbp/experiment/protocol/v0.1.0/e49ecf79-5d4f-454c-884f-99a17a3123e8"
   }
 }

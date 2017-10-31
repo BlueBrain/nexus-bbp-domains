@@ -27,7 +27,7 @@
         {
       "property" : [
         {
-          "path" : "nsg:ObjectiveMagnification",
+          "path" : "nsg:objectiveMagnification",
           "name" : "Objective magnification",
           "description" : "Objective magnification used to acquire the slice images.",
           "datatype" : "xsd:string",
