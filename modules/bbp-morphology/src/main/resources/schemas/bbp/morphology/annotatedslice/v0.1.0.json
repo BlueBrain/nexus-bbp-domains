@@ -34,7 +34,7 @@
               "path" : "nsg:AnnotationAngle",
               "name" : "Annotation angle",
               "description" : "Angle at which the slice is as defined during the annotation process.",
-              "node": "bbpquantValue:QuantitativeValueShape",
+              "node": "bbpqsh:QuantitativeValueShape",
               "maxCount" : 1
             }, {
               "path" : "nsg:AnnotatorComment",
