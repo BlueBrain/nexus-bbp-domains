@@ -22,7 +22,7 @@
       "nodeKind" : "sh:BlankNodeOrIRI",
       "and": [
         {
-          "node": "bbpentsh:ActivityShape"
+          "node": "bbpactsh:ActivityShape"
         },
         {
       "property" : [
