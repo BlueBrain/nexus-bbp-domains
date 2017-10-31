@@ -117,7 +117,7 @@
               "path": "nsg:analogToDigitalConverter",
               "name": "Analog-to-digital converter settings",
               "description": "Settings of analog-to-digital converter",
-              "node": "this:AnalogToDigitalConverterShape",
+              "node": "this:ConverterShape",
               "maxCount": 1
             },
             {
@@ -138,31 +138,24 @@
         }
       ]},
     {
-      "@id" : "this:AnalogToDigitalConverterShape",
-      "@type" : "sh:NodeShape",
-      "property" : [
-        {
-          "path" : "nsg:analogToDigitalConverter",
-          "name" : "Analog to digital converter",
-          "node":"this:ConverterShape"
-        }
-      ]
-    },
-    {
       "@id" : "this:DigitalToAnalogConverterShape",
       "@type" : "sh:NodeShape",
-      "property" : [
+      "and": [
         {
-          "path" : "nsg:digitalToAnalogConverterShape",
-          "name" : "Digital to analog converter",
-          "node":"this:ConverterShape"
-        },
-        {
-          "path" : "nsg:scale",
-          "name" : "Scale",
-          "datatype" : "xsd:float",
-          "minCount" : 1,
-          "maxCount" : 1
+          "property": [
+            {
+              "path": "nsg:digitalToAnalogConverterShape",
+              "name": "Digital-to-analog converter",
+              "node": "this:ConverterShape"
+            },
+            {
+              "path": "nsg:scale",
+              "name": "Scale",
+              "datatype": "xsd:float",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
         }
       ]
     },
@@ -187,7 +180,7 @@
         {
           "path" : "schema:name",
           "name" : "Name",
-          "description" : "Name of the Digital-to-analog converter",
+          "description" : "Name of the converter",
           "maxCount" : 1
         }
       ]
