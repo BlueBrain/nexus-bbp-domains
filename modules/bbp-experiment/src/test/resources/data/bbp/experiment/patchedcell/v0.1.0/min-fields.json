@@ -10,7 +10,7 @@
     ],
     "name": "C010600A2-MT-C1",
     "brainRegion": {
-        "@id": "http://www.hbp.FIXME.org/hbp_whs_sd_ontology/0000014",
+        "@id": "http://www.FIXME.org/hbp_whs_sd_ontology/0000014",
         "label": "Somatosensory cortex hindlimb layer IV"
     }
 }

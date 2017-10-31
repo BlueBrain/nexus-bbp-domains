@@ -29,10 +29,13 @@
           "node": "bbpentsh:EntityShape"
         },
         {
-          "node": "bbplocsh:BrainLocationShape"
-        },
-        {
           "property": [
+            {
+              "path": "nsg:brainLocation",
+              "name": "Brain location",
+              "description": "Brain location information of the patchedcell",
+              "node": "bbplocsh:BrainLocationShape"
+            },
             {
               "path": "nsg:putativeEtype",
               "name": "Putative e-type",
@@ -128,7 +131,7 @@
               "path": "nsg:labelingCompound",
               "name": "Labeling compound",
               "description": "The compound used in the pipette to label the cell",
-              "node": "bbptlotsh:BrainRegionOntologyTermShape",
+              "node": "bbptlotsh:LabelingCompoundOntologyTermShape",
               "maxCount": 1
             }
           ]
@@ -139,29 +142,32 @@
       "@type" : "sh:NodeShape",
       "property" : [
         {
-          "path" : "schema:unitCode",
-          "name" : "Unit",
-          "node":"bbptlotsh:UnitCodeOntologyTermShape",
-          "minCount" : 1,
-          "maxCount" : 1
-        },
-        {
-          "path" : "nsg:gain",
-          "name" : "Gain",
-          "datatype" : "xsd:float",
-          "minCount" : 1,
-          "maxCount" : 1
-        },
-        {
-          "path" : "schema:name",
-          "name" : "Name",
-          "description" : "Name of the Analog-to-digital converter",
-          "maxCount" : 1
+          "path" : "nsg:analogToDigitalConverter",
+          "name" : "Analog to digital converter",
+          "node":"this:ConverterShape"
         }
       ]
     },
     {
       "@id" : "this:DigitalToAnalogConverterShape",
+      "@type" : "sh:NodeShape",
+      "property" : [
+        {
+          "path" : "nsg:digitalToAnalogConverterShape",
+          "name" : "Digital to analog converter",
+          "node":"this:ConverterShape"
+        },
+        {
+          "path" : "nsg:scale",
+          "name" : "Scale",
+          "datatype" : "xsd:float",
+          "minCount" : 1,
+          "maxCount" : 1
+        }
+      ]
+    },
+    {
+      "@id" : "this:ConverterShape",
       "@type" : "sh:NodeShape",
       "property" : [
         {
@@ -174,13 +180,6 @@
         {
           "path" : "nsg:gain",
           "name" : "Gain",
-          "datatype" : "xsd:float",
-          "minCount" : 1,
-          "maxCount" : 1
-        },
-        {
-          "path" : "nsg:scale",
-          "name" : "Scale",
           "datatype" : "xsd:float",
           "minCount" : 1,
           "maxCount" : 1
