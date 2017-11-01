@@ -19,12 +19,12 @@
   },
   "hasPart": [
     {
-      "@id": "{{base}}/data/bbp/experiment/labeledcellcollection/v0.1.2/ab880634-3bf5-4872-a34c-b6bbbca8c0a4",
+      "@id": "{{base}}/data/bbp/morphology/labeledcellcollection/v0.1.2/ab880634-3bf5-4872-a34c-b6bbbca8c0a4",
       "@type": "nsg:LabeledCellCollection"
     }
   ],
   "wasRevisionOf": {
-    "@id": "{{base}}/data/bbp/experiment/fixedstainedslice/v0.1.0/abdcd005-e302-49c4-9874-18d1ff11c141",
+    "@id": "{{base}}/data/bbp/morphology/fixedstainedslice/v0.1.0/abdcd005-e302-49c4-9874-18d1ff11c141",
     "@type": "nsg:FixedStainedSlice"
   },
   "annotatorComment": "One extra cell Y160810_A_idD was stained but does not have ephys results"

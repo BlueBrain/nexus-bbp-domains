@@ -9,7 +9,7 @@
       "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
       "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
       "bbppsh": "{{base}}/schemas/bbp/core/person/v0.1.0/shapes/",
-      "this": "{{base}}/schemas/bbp/experiment/annotatedslice/v0.1.0/shapes/"
+      "this": "{{base}}/schemas/bbp/morphology/annotatedslice/v0.1.0/shapes/"
     }
   ],
   "@type": "owl:Ontology",
