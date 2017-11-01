@@ -29,10 +29,10 @@
           "minCount": 1
         },
         {
-          "path": "nsg:coordinatesInBrain",
-          "name": "Coordinates in brain",
-          "description": "Coordinates in brain",
-          "node": "this:CoordinatesInBrainShape",
+          "path": "nsg:coordinatesInBrainAtlas",
+          "name": "Coordinates in brain atlas",
+          "description": "Coordinates in brain atlas",
+          "node": "this:CoordinatesInBrainAtlasShape",
           "maxCount": 1
         },
         {
@@ -69,9 +69,9 @@
       ]
     },
     {
-      "@id": "this:CoordinatesInBrainShape",
+      "@id": "this:CoordinatesInBrainAtlasShape",
       "@type": "sh:NodeShape",
-      "label": "Coordinates in brain shape definition",
+      "label": "Coordinates in brain atlas shape definition",
       "and": [
         {
           "node": "bbpvect3dsh:Vector3DShape"
