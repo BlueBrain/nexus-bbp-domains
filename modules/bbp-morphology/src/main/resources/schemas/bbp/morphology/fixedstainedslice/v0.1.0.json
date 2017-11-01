@@ -1,12 +1,13 @@
 {
   "@context": [
     "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
     "{{base}}/contexts/nexus/core/standards/v0.1.0",
     "{{base}}/contexts/bbp/core/entity/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "this": "{{base}}/schemas/bbp/experiment/fixedstainedslice/v0.1.0/shapes/"
+      "this": "{{base}}/schemas/bbp/morphology/fixedstainedslice/v0.1.0/shapes/"
     }
   ],
   "@type": "owl:Ontology",
