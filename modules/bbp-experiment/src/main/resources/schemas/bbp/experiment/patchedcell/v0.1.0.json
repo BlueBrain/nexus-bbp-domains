@@ -142,12 +142,10 @@
       "@type" : "sh:NodeShape",
       "and": [
         {
+          "node": "this:ConverterShape"
+        },
+        {
           "property": [
-            {
-              "path": "nsg:digitalToAnalogConverterShape",
-              "name": "Digital-to-analog converter",
-              "node": "this:ConverterShape"
-            },
             {
               "path": "nsg:scale",
               "name": "Scale",
