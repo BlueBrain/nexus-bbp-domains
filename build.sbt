@@ -78,11 +78,22 @@ lazy val morphology = project
     moduleName := "bbp-morphology-schemas"
   )
 
+lazy val simulation = project
+  .in(file("modules/bbp-simulation"))
+  .enablePlugins(WorkbenchPlugin)
+  .disablePlugins(ScapegoatSbtPlugin, DocumentationPlugin)
+  .dependsOn(core)
+  .settings(
+    common,
+    name := "bbp-simulation-schemas",
+    moduleName := "bbp-simulation-schemas"
+  )
+
 lazy val root = project
   .in(file("."))
   .settings(name := "bbp-schemas", moduleName := "bbp-schemas")
   .settings(common, noPublish)
-  .aggregate(docs, core, experiment, atlas, morphology, electrophysiology)
+  .aggregate(docs, core, experiment, atlas, morphology, electrophysiology,simulation)
 
 lazy val common = Seq(
   scalacOptions in (Compile, console) ~= (_ filterNot (_ == "-Xfatal-warnings")),

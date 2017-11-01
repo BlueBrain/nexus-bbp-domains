@@ -1,0 +1,46 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+    "provgensh" : "{{base}}/schemas/nexus/prov/generation/v0.1.0/shapes/",
+    "this" : "{{base}}/schemas/bbp/electrophysiology/tracegeneration/v0.1.0/shapes/"
+    }
+    ],
+  "@type" : "owl:Ontology",
+  "shapes" : [
+    {
+      "@id" : "this:TraceGenerationShape",
+      "@type" : "sh:NodeShape",
+      "label" : "Trace generation shape definition",
+      "targetClass" : "nsg:TraceGeneration",
+      "nodeKind" : "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "provgensh:GenerationShape"
+        },
+        {
+          "property": [
+            {
+              "path": "prov:activity",
+              "name": "Activity",
+              "description": "Points at stimulus experiment activity that generated trace",
+              "class": "nsg:StimulusExperiment",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:sweep",
+              "name": "Sweep",
+              "description": "Sweep number of the trace",
+              "datatype": "xsd:integer",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
