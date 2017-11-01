@@ -29,7 +29,7 @@
           "path": "prov:wasRevisionOf",
           "name": "patchedSlice",
           "description": "The patchedSlice this fixedStainedSlice is a revision of",
-          "class": "nsg:patchedSlice",
+          "class": "nsg:PatchedSlice",
           "maxCount": 1
         }
       ]
