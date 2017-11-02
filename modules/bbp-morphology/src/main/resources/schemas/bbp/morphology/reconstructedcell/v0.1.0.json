@@ -46,7 +46,7 @@
             {
               "path" : "nsg:brainLocation",
               "name" : "Brain location",
-              "description" : "Brain region where the reconstructed cell is located.",
+              "description" : "Brain Location (brain region, position In Layer, longitudinalAxis) of the reconstructed cell.",
               "node":"bbptlocsh:BrainLocationShape",
               "minCount" : 1,
               "maxCount" : 1
