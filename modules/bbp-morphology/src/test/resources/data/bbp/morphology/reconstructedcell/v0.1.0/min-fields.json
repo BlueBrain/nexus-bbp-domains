@@ -10,18 +10,20 @@
   ],
   "name": "JY160810_A_idA",
   "providerId": "JY160810_A_idA",
-  "brainRegion": {
+  "brainLocation": [
+   {
     "@type": "BrainRegion",
     "@id": "http://purl.obolibrary.org/obo/FMA_62200",
     "label": "ventral posterolateral thalamic nucleus"
-  },
+    }
+  ],
   "projectName": "Thalamus project",
   "spacialCellName": "idA",
   "mType": {
     "@id": "http://neurolex.org/wiki/Nlx_cell_20081203",
     "label": "Thalamocortical cell"
   },
-  "integrity": {
+  "reconstructedCellIntegrity": {
     "basalDendrite": true,
     "axon": false,
     "soma": true

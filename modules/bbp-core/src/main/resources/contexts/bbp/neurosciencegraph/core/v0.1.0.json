@@ -93,6 +93,9 @@
     },
     "period": {
       "@id": "nsg:period"
+    },
+    "brainLocation": {
+      "@id": "nsg:brainLocation"
     }
   }
 }

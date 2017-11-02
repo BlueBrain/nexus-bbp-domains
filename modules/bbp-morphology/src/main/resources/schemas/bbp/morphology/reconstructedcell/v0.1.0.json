@@ -8,7 +8,7 @@
       "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
       "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
       "bbplocsh": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/",
-      "this": "{{base}}/schemas/bbp/experiment/reconstructedcell/v0.1.0/shapes/"
+      "this": "{{base}}/schemas/bbp/morphology/reconstructedcell/v0.1.0/shapes/"
     }
   ],
   "@type": "owl:Ontology",
@@ -44,67 +44,33 @@
               "maxCount" : 1
             },
             {
-              "path" : "nsg:brainRegion",
-              "name" : "Brain region",
+              "path" : "nsg:brainLocation",
+              "name" : "Brain location",
               "description" : "Brain region where the reconstructed cell is located.",
-              "node":"bbptlotsh:BrainRegionOntologyTermShape",
+              "node":"bbptlocsh:BrainLocationShape",
               "minCount" : 1,
-              "maxCount" : 1
-            },
-            {
-              "path" : "nsg:distanceToBoundary",
-              "name" : "Distance to boundary",
-              "description" : "Distance of the reconstructed cell to pia or to another brain boundary.",
-              "node" : "bbplocsh:DistanceToBoundaryShape",
               "maxCount" : 1
             },
             {
               "path" : "nsg:mType",
               "name" : "Morphology type",
-              "description" : "The morphology type of the reconstructed cell: need the cell type for class restriction.",
+              "description" : "The morphology type of the reconstructed cell.",
+              "editorialNote": "Need the cell type for class restriction.",
               "node": "bbptlotsh:CellTypeOntologyTermShape",
               "maxCount" : 1
             },
             {
               "path" : "nsg:mSubType",
               "name" : "Morphology sub-type",
-              "description" : "The morphology sub-type of the reconstructed cell: need the cell sub-type for class restriction.",
-              "datatype": "xsd:string",
+              "description" : "The morphology sub-type of the reconstructed cell.",
+              "node": "bbptlotsh:CellTypeOntologyTermShape",
               "maxCount" : 1
             },
-            {
-              "path" : "nsg:subRegion",
-              "name" : "Sub region",
-              "description" : "Sub region where the reconstructed cell is located, CA1a in hippocampus for example.",
-              "node":"bbptlotsh:BrainRegionOntologyTermShape",
-              "maxCount" : 1
-            },
-            {
-              "path" : "nsg:positionInLayer",
-              "name" : "Position in layer",
-              "description" : "Position in layer where the reconstructed cell is located, can be 'deep' or 'superficial' for hippocampus.",
-              "node":"bbplocsh:BrainLocationShape",
-              "maxCount" : 1
-            },
-            {
-              "path" : "nsg:longitudinalAxis",
-              "name" : "Longitudinal axis",
-              "description" : "Position in longitudinal axis where the reconstructed cell is located, can be 'dorsal' or 'ventral' for hippocampus.",
-              "node":"bbplocsh:BrainLocationShape",
-              "maxCount" : 1
-            },
-            {
-              "path" : "nsg:layer",
-              "name" : "Layer",
-              "description" : "Layer where the reconstructed cell is located.",
-              "node":"bbplocsh:BrainLocationShape",
-              "maxCount" : 1
-            },
-            {
-              "path" : "nsg:integrity",
-              "name" : "Integrity",
+             {
+              "path" : "nsg:reconstructedCellIntegrity",
+              "name" : "Reconstructed cell ntegrity",
               "description" : "Gives information on the integrity of the reconstructed cell.",
-              "node" : "nsg:IntegrityShape",
+              "node" : "nsg:ReconstructedCellIntegrityShape",
               "maxCount" : 1
             },
             {
@@ -121,7 +87,7 @@
       ]
     },
     {
-      "@id" : "this:IntegrityShape",
+      "@id" : "this:ReconstructedCellIntegrityShape",
       "@type" : "sh:NodeShape",
       "property" : [
         {

@@ -7,7 +7,7 @@
     {
       "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
       "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
-      "this": "{{base}}/schemas/bbp/experiment/reconstruction/v0.1.0/shapes/"
+      "this": "{{base}}/schemas/bbp/morphology/reconstruction/v0.1.0/shapes/"
     }
   ],
   "@type": "owl:Ontology",
