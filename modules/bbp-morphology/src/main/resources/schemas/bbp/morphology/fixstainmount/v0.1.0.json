@@ -6,7 +6,7 @@
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
-      "this": "{{base}}/schemas/bbp/experiment/fixstainmount/v0.1.0/shapes/"
+      "this": "{{base}}/schemas/bbp/morphology/fixationstainingmounting/v0.1.0/shapes/"
     }
   ],
   "@type": "owl:Ontology",
@@ -15,10 +15,10 @@
     "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0"
   ],
   "shapes": [ {
-    "@id" : "this:FixStainMountShape",
+    "@id" : "this:FixationStainingMountingShape",
     "@type" : "sh:NodeShape",
     "label" : "Fixing, Staining and Mounting activities description",
-    "targetClass" : "nsg:FixStainMount",
+    "targetClass" : "nsg:FixationStainingMounting",
     "nodeKind" : "sh:BlankNodeOrIRI",
     "and": [
       {
@@ -46,10 +46,6 @@
             "datatype": "xsd:string",
             "description": "Mounting media is the medium that the sample is in while it is being imaged on the microscope such as Xylene or Mowiol.",
             "maxCount": 1
-          },
-          {
-            "path": "nsg:hadProtocol",
-            "class": "nsg:Protocol"
           },
           {
             "path": "prov:used",
