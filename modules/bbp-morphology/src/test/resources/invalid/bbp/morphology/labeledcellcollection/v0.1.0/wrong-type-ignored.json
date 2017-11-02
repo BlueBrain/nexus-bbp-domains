@@ -1,0 +1,18 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
+  ],
+  "@type": [
+    "nsg:WrongType"
+  ],
+  "name": "PatchedCells_ABC-DAB",
+  "providerId": "LNMC_IHC_00000052",
+  "hadMember": [
+    {
+      "@id": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/experiment/labeledcell/v0.1.1/8258536c-f010-467b-9c00-3c1df7a7ab11",
+      "@type": "nsg:LabeledCell"
+    }
+  ]
+}

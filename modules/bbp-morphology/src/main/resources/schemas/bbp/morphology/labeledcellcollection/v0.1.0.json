@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "bbpcolsh": "{{base}}/schemas/bbp/core/collection/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/morphology/labeledcellcollection/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0",
+    "{{base}}/schemas/bbp/core/collection/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id" : "this:LabeledCellCollectionShape",
+      "@type" : "sh:NodeShape",
+      "description" : "Labeled cell collection",
+      "targetClass" : "prov:Collection",
+      "and": [
+        {
+          "node":"bbpcolsh:CollectionShape"
+        },
+        {
+          "@id" : "this:LabeledCellCollectionMemberShape",
+          "@type" : "sh:NodeShape",
+          "description" : "The shape of the labeled cell collection members",
+          "targetObjectsOf" : "prov:hadMember",
+          "class":"nsg:LabeledCell"
+        }
+      ]
+    }
+  ]
+}
