@@ -8,7 +8,7 @@
       "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
       "bbpvect3dsh" : "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
       "bbppsh": "{{base}}/schemas/bbp/core/person/v0.1.0/shapes/",
-      "this": "{{base}}/schemas/bbp/experiment/labeledcell/v0.1.0/shapes/"
+      "this": "{{base}}/schemas/bbp/morphology/labeledcell/v0.1.0/shapes/"
     }
   ],
   "@type": "owl:Ontology",
