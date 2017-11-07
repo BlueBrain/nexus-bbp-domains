@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/morphology/fixedstainedslice/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:FixedStainedSliceShape",
+      "@type": "sh:NodeShape",
+      "label": "Fixed stained slice shape definition",
+      "targetClass": "nsg:FixedStainedSlice",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "bbpentsh:EntityShape"
+        },
+        {
+          "path": "prov:wasRevisionOf",
+          "name": "patchedSlice",
+          "description": "The patchedSlice this fixedStainedSlice is a revision of",
+          "class": "nsg:PatchedSlice",
+          "maxCount": 1
+        }
+      ]
+    }
+  ]
+}

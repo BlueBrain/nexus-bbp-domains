@@ -102,6 +102,28 @@
           "node": "bbplotsh:LabeledOntologyTermShape"
         }
       ]
+    },
+    {
+      "@id": "this:UnitCodeOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a unit code",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    },
+    {
+      "@id": "this:LabelingCompoundOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a labeling compound",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
     }
   ]
 }
+
+
