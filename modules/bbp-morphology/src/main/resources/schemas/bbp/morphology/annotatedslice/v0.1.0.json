@@ -1,0 +1,66 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
+      "bbppsh": "{{base}}/schemas/bbp/core/person/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/morphology/annotatedslice/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0",
+    "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0"
+  ],
+  "shapes": 
+    [
+      {
+        "@id": "this:AnnotatedSliceShape",
+        "@type": "sh:NodeShape",
+        "label": "Annotated slice shape definition",
+        "targetClass": "nsg:AnnotatedSlice",
+        "nodeKind": "sh:BlankNodeOrIRI",
+        "and": [
+          {
+            "node": "bbpentsh:EntityShape"
+          },
+          {
+            "property" : [ {
+              "path" : "nsg:AnnotationAngle",
+              "name" : "Annotation angle",
+              "description" : "Angle at which the slice is as defined during the annotation process.",
+              "node": "bbpqsh:QuantitativeValueShape",
+              "maxCount" : 1
+            }, {
+              "path" : "nsg:AnnotatorComment",
+              "name" : "Annotator comment",
+              "description" : "Comments added by the annotator during the annotation process.",
+              "datatype":"xsd:string",
+              "maxCount" : 1
+            },
+              {
+                "path": "dcterms:hasPart",
+                "name": "Patched cell collection",
+                "description": "The collections of labeled cells.",
+                "class": "nsg:LabeledCellCollection",
+                "minCount": 1
+              },
+              {
+                "path": "prov:wasRevisionOf",
+                "name": "Fixed stained slice",
+                "description": "The FixedStainedSlice this AnnotatedSlice is a revision of.",
+                "class": "nsg:FixedStainedSlice",
+                "minCount": 1,
+                "maxCount": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+}
