@@ -11,7 +11,7 @@
   "providerId": "LNMC_IHC_00000052",
   "hadMember": [
     {
-      "@id": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/experiment/labeledcell/v0.1.1/8258536c-f010-467b-9c00-3c1df7a7ab11",
+      "@id": "{{base}}/data/bbp/experiment/labeledcell/v0.1.1/8258536c-f010-467b-9c00-3c1df7a7ab11",
       "@type": "nsg:LabeledCell"
     }
   ]
