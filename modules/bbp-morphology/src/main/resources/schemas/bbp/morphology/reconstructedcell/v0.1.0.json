@@ -76,10 +76,8 @@
             {
               "path" : "nsg:somaType",
               "name" : "Soma type",
-              "description" : "Gives information on the type of some of the reconstructed cell, values can be 3D or 2D contour, 1 point, 3 point.",
-              "sh:in" : {
-                "@list" : [ "3D contour", "2D contour", "1 point", "3 point" ]
-              },
+              "description" : "Gives information on the type of soma of the reconstructed cell, values can be 3D or 2D contour, 1 point, 3 point.",
+              "node": "bbptlotsh:SomaTypeTermShape",
               "maxCount" : 1
             }
           ]

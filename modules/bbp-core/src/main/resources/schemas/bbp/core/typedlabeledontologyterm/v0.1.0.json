@@ -81,6 +81,16 @@
           "node": "bbplotsh:LabeledOntologyTermShape"
         }
       ]
+    },
+    {
+      "@id": "this:SomaTypeTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing the types of somas of the reconstructed cell",
+      "and": [
+        {
+          "node": "bbplotsh:SomaTypeTermShape"
+        }
+      ]
     }
   ]
 }
