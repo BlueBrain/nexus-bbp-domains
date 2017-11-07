@@ -37,10 +37,10 @@
               "maxCount": 1
             },
             {
-              "path": "nsg:brainRegion",
-              "description": "Brain region",
-              "name": "Brain region where the labeled cell is found",
-              "node": "bbptlotsh:BrainRegionOntologyTermShape",
+              "path": "nsg:brainLocation",
+              "description": "Brain location",
+              "name": "Brain location where the labeled cell is found",
+              "node": "bbptlotsh:BrainLocationOtologyTermShape",
               "maxCount": 1
             },
             {

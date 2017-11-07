@@ -8,10 +8,11 @@
   ],
   "name": "C060600A3",
   "providerId": "C060600A3",
-  "brainRegion": {
-    "@type": "BrainRegion",
+  "brainLocation": {
+    "brainRegion":{
     "@id": "http://www.hbp.FIXME.org/paxinos_rat_ontology/PRBA:00721",
     "label": "Primary somatosensory cortex"
+  }
   },
   "projectName": "Maria Toledo",
   "spacialCellName": "idA3",
