@@ -49,13 +49,6 @@
             "maxCount": 1
           },
           {
-            "path": "nsg:originalFileName",
-            "name": "Original filename",
-            "description": "Original filename of binary",
-            "datatype": "xsd:string",
-            "maxCount": 1
-          },
-          {
             "path": "nsg:retrievalDate",
             "name": "Retrieval date",
             "description": "Retrieval date of binary",
