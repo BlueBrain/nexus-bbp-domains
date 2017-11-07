@@ -9,8 +9,10 @@
         "nsg:PatchedCell"
     ],
     "name": "C010600A2-MT-C1",
-    "brainRegion": {
-        "@id": "http://www.FIXME.org/hbp_whs_sd_ontology/0000014",
-        "label": "Somatosensory cortex hindlimb layer IV"
+    "brainLocation": {
+        "brainRegion": {
+            "@id": "http://www.FIXME.org/hbp_whs_sd_ontology/0000014",
+            "label": "Somatosensory cortex hindlimb layer IV"
+        }
     }
 }
