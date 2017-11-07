@@ -11,14 +11,14 @@
   "providerId": "C060600A3",
   "brainLocation": {
     "brainRegion":{
-    "@id": "http://www.hbp.FIXME.org/paxinos_rat_ontology/PRBA:00721",
+    "@id": "http://www.FIXME.org/paxinos_rat_ontology/PRBA:00721",
     "label": "Primary somatosensory cortex"
     }
   },
   "projectName": "Maria Toledo",
   "spatialCellName": "idA3",
   "putativeMType": {
-    "@id": "http://www.hbp.FIXME.org/hbp_cell_ontology/HBP_CELL:0000130",
+    "@id": "http://www.FIXME.org/cell_ontology/CELL:0000130",
     "label": "Layer IV nest basket cell"
   },
   "reconstructionRequested": true,
