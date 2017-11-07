@@ -8,7 +8,7 @@
       "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
       "bbpvect3dsh" : "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
       "bbppsh": "{{base}}/schemas/bbp/core/person/v0.1.0/shapes/",
-      "this": "{{base}}/schemas/bbp/experiment/labeledcell/v0.1.0/shapes/"
+      "this": "{{base}}/schemas/bbp/morphology/labeledcell/v0.1.0/shapes/"
     }
   ],
   "@type": "owl:Ontology",
@@ -37,10 +37,10 @@
               "maxCount": 1
             },
             {
-              "path": "nsg:brainRegion",
-              "description": "Brain region",
-              "name": "Brain region where the labeled cell is found",
-              "node": "bbptlotsh:BrainRegionOntologyTermShape",
+              "path": "nsg:brainLocation",
+              "description": "Brain location",
+              "name": "Brain location where the labeled cell is found",
+              "node": "bbptlotsh:BrainLocationOtologyTermShape",
               "maxCount": 1
             },
             {
