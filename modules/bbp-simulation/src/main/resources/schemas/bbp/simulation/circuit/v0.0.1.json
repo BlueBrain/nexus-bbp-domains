@@ -1,0 +1,28 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    {
+      "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
+      "this": "{{base}}/schemas/bbp/simulation/circuit/v0.1.0/shapes/"
+    }
+  ],
+  "@id": "{{base}}/schemas/bbp/simulation/circuit/v0.0.1",
+  "@type": "owl:Ontology",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:CircuitShape",
+      "@type": "sh:NodeShape",
+      "label":"This shape is for initialization of the simulation domain and is not for real use.",
+      "targetClass": "nsg:Circuit",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
+        }
+      ]
+    }
+  ]
+}
