@@ -49,6 +49,9 @@
     "objectiveMagnification": {
       "@id": "nsg:objectiveMagnification"
     },
+    "objectiveType": {
+      "@id": "nsg:objectiveType"
+    },
     "brainLocationCoordinates": {
       "@id": "nsg:brainLocationCoordinates"
     },
@@ -108,6 +111,111 @@
     },
     "brainLocation": {
       "@id": "nsg:brainLocation"
+    },
+    "fixationMethod": {
+      "@id": "nsg:fixationMethod"
+    },
+    "stain": {
+      "@id": "nsg:stain"
+    },
+    "mountingMedia": {
+      "@id": "nsg:mountingMedia"
+    },
+    "annotationAngle": {
+      "@id": "nsg:annotationAngle"
+    },
+    "annotatorComment": {
+      "@id": "nsg:annotatorComment"
+    },
+    "axonProjection": {
+      "@id": "nsg:axonProjection"
+    },
+    "distanceToBoundary": {
+      "@id": "nsg:distanceToBoundary"
+    },
+    "mType": {
+      "@id": "nsg:mType"
+    },
+    "mSubType": {
+      "@id": "nsg:mSubType"
+    },
+    "subRegion": {
+      "@id": "nsg:subRegion"
+    },
+    "positionInLayer": {
+      "@id": "nsg:positionInLayer"
+    },
+    "longitudinalAxis": {
+      "@id": "nsg:longitudinalAxis"
+    },
+    "layer": {
+      "@id": "nsg:layer"
+    },
+    "integrity": {
+      "@id": "nsg:integrity"
+    },
+    "somaType": {
+      "@id": "nsg:somaType"
+    },
+    "apicalDendrite": {
+      "@id": "nsg:apicalDendrite"
+    },
+    "basalDendrite": {
+      "@id": "nsg:basalDendrite"
+    },
+    "axon": {
+      "@id": "nsg:axon"
+    },
+    "soma": {
+      "@id": "nsg:soma"
+    },
+    "orientationOfReconstruction": {
+      "@id": "nsg:orientationOfReconstruction"
+    },
+    "reconstructionCompressionCorrected": {
+      "@id": "nsg:reconstructionCompressionCorrected"
+    },
+    "reconstructionCompleted": {
+      "@id": "nsg:reconstructionCompleted"
+    },
+    "reconstructionCorrected": {
+      "@id": "nsg:reconstructionCorrected"
+    },
+    "reconstructionComment": {
+      "@id": "nsg:reconstructionComment"
+    },
+    "clusterReconstructionRequested": {
+      "@id": "nsg:clusterReconstructionRequested"
+    },
+    "reconstructionRequester": {
+      "@id": "nsg:reconstructionRequester"
+    },
+    "reconstructionSentDate": {
+      "@id": "nsg:reconstructionSentDate"
+    },
+    "reconstructionDate": {
+      "@id": "nsg:reconstructionDate"
+    },
+    "reconstructionLocation": {
+      "@id": "nsg:reconstructionLocation"
+    },
+    "comment": {
+      "@id": "nsg:comment"
+    },
+    "stimulus": {
+      "@id": "nsg:stimulus"
+    },
+    "stimulusType": {
+      "@id": "nsg:stimulusType"
+    },
+    "providerExperimentId": {
+      "@id": "nsg:providerExperimentId"
+    },
+    "providerExperimentName": {
+      "@id": "nsg:providerExperimentName"
+    },
+    "eCode": {
+      "@id": "nsg:eCode"
     }
   }
 }
