@@ -62,14 +62,14 @@
             {
               "path": "nsg:age",
               "name": "Age",
-              "description": "The age of the subject",
+              "description": "The age of the subject.",
               "node": "this:AgeShape",
               "maxCount": 1
             },
             {
               "path": "schema:birthDate",
               "name": "Date of birth",
-              "description": "Date of birth of subject",
+              "description": "Date of birth of subject.",
               "datatype": "xsd:dateTime",
               "lessThan": "schema:deathDate",
               "maxCount": 1
@@ -77,43 +77,43 @@
             {
               "path": "schema:deathDate",
               "name": "Date of sacrifice",
-              "description": "Date of sacrifice of subject",
+              "description": "Date of sacrifice of subject.",
               "datatype": "xsd:dateTime",
               "maxCount": 1
             },
             {
               "path": "nsg:dateOfSurgery",
               "name": "Date of surgery",
-              "description": "Date of surgery of subject",
+              "description": "Date of surgery of subject.",
               "datatype": "xsd:dateTime",
               "maxCount": 1
             },
             {
               "path": "nsg:diseaseModel",
               "name": "Disease",
-              "description": "Disease modeled in subject",
+              "description": "Disease modeled in subject.",
               "node": "bbptlotsh:DiseaseModelOntologyTermShape",
               "maxCount": 1
             },
             {
               "path": "nsg:disease",
               "name": "Disease",
-              "description": "Disease of subject",
+              "description": "Disease of subject.",
               "node": "bbptlotsh:DiseaseOntologyTermShape",
               "maxCount": 1
             },
             {
               "path": "nsg:treatment",
               "name": "Treatment",
-              "description": "Treatment of the subject (e.g. drugs administered)",
+              "description": "Treatment of the subject.",
               "node": "bbptlotsh:TreatmentOntologyTermShape",
               "maxCount": 1
             },
             {
               "path": "schema:weight",
               "name": "Weight",
-              "description": "The weight of the subject",
-              "node": "this:WeightShape",
+              "description": "Weight of the subject.",
+              "node": "bbpqsh:QuantitativeValueShape",
               "maxCount": 1
             }
           ]
@@ -136,12 +136,6 @@
         "minCount" : 1,
         "maxCount" : 1
       } ]
-    },
-    {
-      "@id" : "this:WeightShape",
-      "@type" : "sh:NodeShape",
-      "targetObjectsOf" : "schema:weight",
-      "node" : "bbpqsh:QuantitativeValueShape"
     }
   ]
 }
