@@ -2,21 +2,36 @@
 
 ## Use case
 
-A description of the use case.
+### Description
 
-## Prov template
+TBD
 
-The description of a provenance template
+### Competency questions
+
+TBD
+
+## Provenance pattern
+
+Link towards the provenance pattern: TBD
+
 
 ## Entities
 
-The description of entities
+The different entity types involved are described below.
+
+| Type  | Description|
+| ------------- | ------------- |
+| An Entity type   |     A description      |
 
 ## Activities
 
-The description of activities
+| Type  | Description|
+| ------------- | ------------- |
+| An activity Type   |     A description      |
 
 ## Agents
 
-The description of agents
+| Type  | Description|
+| ------------- | ------------- |
+| An Agent Types   |     A description      |
 
