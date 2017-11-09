@@ -5,7 +5,6 @@
     "{{base}}/contexts/bbp/core/entity/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
       "bbpcolsh": "{{base}}/schemas/bbp/core/collection/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/morphology/labeledcellcollection/v0.1.0/shapes/"
     }
