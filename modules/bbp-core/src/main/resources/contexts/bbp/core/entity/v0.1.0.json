@@ -52,6 +52,10 @@
     "hasPart": {
       "@id": "dcterms:hasPart",
       "@type": "@id"
+    },
+    "activity": {
+      "@id": "prov:activity",
+      "@type": "@id"
     }
   }
 }
