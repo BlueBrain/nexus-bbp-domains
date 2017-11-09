@@ -36,7 +36,7 @@
     },
     "hadRole": {
       "@type": "prov:Role",
-      "@id": "HBP_ROLE:0000047"
+      "@id": "http://www.fixme.com/role_ontology/ROLE:0000047"
     }
   }],
   "hadProtocol": {
