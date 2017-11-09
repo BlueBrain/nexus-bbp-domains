@@ -13,9 +13,10 @@
   ],
   "@type": "owl:Ontology",
   "import": [
+    "{{base}}/schemas/nexus/core/datadownload/v0.1.0",
     "{{base}}/schemas/bbp/core/entity/v0.1.0",
-    "{{base}}/schemas/bbp/core/rotationalmatrix/v0.1.0"
-
+    "{{base}}/schemas/bbp/core/rotationalmatrix/v0.1.0",
+    "{{base}}/schemas/bbp/core/vector3d/v0.1.0"
   ],
   "shapes": [
     {
@@ -76,6 +77,11 @@
               "node": "bbprotmatsh:RotationalMatrixShape",
               "minCount": 1,
               "maxCount": 1
+            },
+            {
+              "path": "nxv:distribution",
+              "node": "{{base}}/schemas/nexus/core/datadownload/v0.1.0/shapes/DataDownloadShape",
+              "minCount": 1
             }
           ]
         }

@@ -5,8 +5,8 @@
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "bbpentsh": "{{base}}/v0/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbpimgvolsh": "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.0/shapes/",
-      "this": "{{base}}/schemas/bbp/atlas/parcellationvolume/v0.1.0/shapes/"
+      "bbpimgvolsh": "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.6/shapes/",
+      "this": "{{base}}/schemas/bbp/atlas/templatevolume/v0.1.0/shapes/"
     }
   ],
   "@type": "owl:Ontology",
@@ -16,11 +16,11 @@
   ],
   "shapes": [
     {
-      "@id": "this:ParcellationVolumeShape",
+      "@id": "this:TemplateVolumeShape",
       "@type": "sh:NodeShape",
-      "description": "Parcellation volume",
+      "description": "Template volume",
       "nodeKind": "sh:BlankNodeOrIRI",
-      "targetClass": "nsg:ParcellationVolume",
+      "targetClass": "nsg:TemplateVolume",
       "and": [
         {
           "node": "bbpentsh:EntityShape"

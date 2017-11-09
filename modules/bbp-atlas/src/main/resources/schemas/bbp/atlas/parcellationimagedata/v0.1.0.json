@@ -5,13 +5,10 @@
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "bbpentsh": "{{base}}/v0/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "this": "{{base}}/schemas/bbp/atlas/parcellationimagedata/v0.1.20/shapes/",
-      "bbpimagestack": "{{base}}/schemas/bbp/atlas/imagestack/v0.1.0/shapes/",
-      "bbpimagevolume": "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.6/shapes/"
+      "this": "{{base}}/schemas/bbp/atlas/parcellationimagedata/v0.1.0/shapes/",
+      "bbpimagestacksh": "{{base}}/schemas/bbp/atlas/imagestack/v0.1.0/shapes/",
+      "bbpimagevolumesh": "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.0/shapes/"
     }
-
-
-
   ],
   "import": [
     "{{base}}/schemas/bbp/core/entity/v0.1.0",
@@ -33,20 +30,20 @@
         {
           "xone": [
             {
-              "path": "bbpatlas:imageStack",
-              "node": "bbpimagestack:ImageStackShape",
+              "path": "nsg:imageStack",
+              "node": "bbpimagestacksh:ImageStackShape",
               "minCount": 1,
               "maxCount": 1
             },
             {
-              "path": "bbpatlas:imageVolume",
-              "node": "bbpimagevolume:ImageVolumeShape",
+              "path": "nsg:imageVolume",
+              "node": "bbpimagevolumesh:ImageVolumeShape",
               "minCount": 1,
               "maxCount": 1
             },
             {
-              "path": "bbpatlas:imageFromPDF",
-              "node": "bbpatlas:ImageFromPDFShape",
+              "path": "nsg:imageFromPDF",
+              "node": "nsg:ImageFromPDFShape",
               "minCount": 1,
               "maxCount": 1
             }

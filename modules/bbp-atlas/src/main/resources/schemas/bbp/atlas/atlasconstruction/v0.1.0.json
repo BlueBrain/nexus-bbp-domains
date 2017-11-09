@@ -78,6 +78,7 @@
                 "class": "nsg:TemplateImageData"
               },
               "qualifiedValueShapesDisjoint": true,
+              "qualifiedMinCount" :1 ,
               "qualifiedMaxCount": 1
             }
           ]

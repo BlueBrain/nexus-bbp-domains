@@ -138,7 +138,7 @@
     "bbpexp": "https://bbp-nexus.epfl.ch/voc/experiment/core/",
     "bbpatlas": "https://bbp-nexus.epfl.ch/voc/atlas/core/",
     "nexusprovactivity": "https://bbp-nexus.epfl.ch/dev/v0/schemas/nexus/prov/activity/v0.1.0/shapes/",
-    "this": "https://bbp-nexus.epfl.ch/dev/v0/schemas/bbp/atlas/ontologyconversion/v0.1.1/shapes/"
+    "this": "https://bbp-nexus.epfl.ch/dev/v0/schemas/bbp/atlas/ontologyconversion/v0.1.0/shapes/"
   },
   "imports": [
     "https://bbp-nexus.epfl.ch/dev/v0/schemas/nexus/prov/activity/v0.1.0"
