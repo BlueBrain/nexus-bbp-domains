@@ -42,7 +42,7 @@
             {
               "path": "schema:unitCode",
               "name": "Unit",
-              "datatype": "xsd:anyURI",
+              "node":"bbptlotsh:UnitCodeOntologyTermShape",
               "minCount": 1,
               "maxCount": 1
             }
