@@ -13,8 +13,11 @@
     "wasRevisionOf": {
       "@id": "prov:wasRevisionOf"
     },
-      "hadMember": {
+    "hadMember": {
       "@id": "prov:hadMember"
+    },
+    "wasGeneratedBy": {
+      "@id": "prov:wasGeneratedBy"
     }
   }
 }
