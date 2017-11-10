@@ -1,4 +1,4 @@
-# Subject
+# Trace
 
 # Definition
 
@@ -22,8 +22,8 @@ Shacl
 ## Examples
 
 Minimal example
-: @@snip [subject-min-fields.json](../../assets/entities/subject-min-fields.json)
+: @@snip [trace-min-fields.json](../../assets/entities/trace-min-fields.json)
 
 Full example
-:   @@snip [subject-all-fields.json](../../assets/entities/subject-all-fields.json)
+:   @@snip [trace-all-fields.json](../../assets/entities/trace-all-fields.json)
 

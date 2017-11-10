@@ -1,6 +1,6 @@
 @@@ index
 
-* [In vitro single cell Electrophysiology Recording](wholecellpatchclamp-recording.md)
+* [In vitro electrophysiology](wholecellpatchclamp-recording.md)
 
 @@@
 
