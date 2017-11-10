@@ -56,7 +56,7 @@
             "maxCount": 1
           },
           {
-            "path" : "schema:unitCode",
+            "path" : "nsg:dataUnit",
             "name" : "Data unit",
             "description" : "Unit of measurement of data",
             "node":"bbptlotsh:UnitCodeOntologyTermShape",

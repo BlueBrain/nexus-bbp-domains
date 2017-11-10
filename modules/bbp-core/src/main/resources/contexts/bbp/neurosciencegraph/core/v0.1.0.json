@@ -212,6 +212,9 @@
     },
     "deathDate": {
       "@id": "schema:deathDate"
+    },
+    "dataUnit": {
+      "@id": "nsg:dataUnit"
     }
   }
 }
