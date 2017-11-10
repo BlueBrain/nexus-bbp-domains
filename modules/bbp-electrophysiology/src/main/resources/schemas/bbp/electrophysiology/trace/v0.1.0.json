@@ -59,7 +59,7 @@
             "path" : "nsg:dataUnit",
             "name" : "Data unit",
             "description" : "Unit of measurement of data",
-            "node":"bbptlotsh:UnitCodeOntologyTermShape",
+            "node":"this:DataUnitShape",
             "maxCount" : 1
           },
           {
@@ -86,6 +86,26 @@
             "maxCount": 1
           }
           ]
+        }
+      ]
+    },
+    {
+      "@id" : "this:DataUnitShape",
+      "@type" : "sh:NodeShape",
+      "xone": [
+        {
+          "path": "schema:unitText",
+          "name": "Unit",
+          "datatype": "xsd:string",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "schema:unitCode",
+          "name": "Unit",
+          "node":"bbptlotsh:UnitCodeOntologyTermShape",
+          "minCount": 1,
+          "maxCount": 1
         }
       ]
     }

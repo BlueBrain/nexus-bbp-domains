@@ -18,7 +18,9 @@
     "citation": "https://doi.org/10.1093/cercor/bhh092",
     "projectName": "Somatosensory cortex project",
     "retrievalDate": "2016-10-15T00:00:00",
-    "dataUnit": "pA",
+    "dataUnit": {
+        "unitText": "pA"
+    },
     "timeStep": {
         "unitText": "seconds",
         "value": "0.00005"
@@ -33,4 +35,4 @@
         "@id": "{{base}}/data/bbp/experiment/stimulusexperiment/v0.1.0/fcdab649-7ed9-4bf6-a413-41ab8827e896",
         "@type": "nsg:StimulusExperiment"
     }
-}2
+}
