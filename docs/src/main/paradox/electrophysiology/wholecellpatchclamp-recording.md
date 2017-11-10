@@ -1,4 +1,4 @@
-# In vitro intracellular electrophysiology
+# Whole-cell patch-clamp recording
 
 ## Use case
 
@@ -18,7 +18,7 @@ The following points describe a subset of questions the provenance pattern above
 
 ## Provenance pattern
 
-Link towards the provenance pattern: TBD
+![Whole-cell patch-clamp-recording](../assets/provtemplates/wholecellpatchclamp-recording-prov-template.svg)
 
 
 ## Entities
@@ -32,7 +32,7 @@ The different entity types involved are described below.
 | [PatchedSlice](../entities/experiment/patchedslice.html)                  |     Brain slice with patched cells      |
 | [PatchedCellCollection](../entities/experiment/patchedcellcollection.html)|     Collection of patched cells in a single slice |
 | [PatchedCell](../entities/experiment/patchedcell.html)                    |     Cell that was patched in the slice      |
-| [Trace](../entities/electrophysiology/trace.html)                         |     Individual recording trace of the patched cell      |
+| [Trace](../entities/electrophysiology/trace.html)                         |     Individual recording trace of the patched cell (StimulationTrace and ResponseTrace)     |
 | [Protocol](../entities/experiment/protocol.html)                          |     Document that describes the method used in the design and implementation of an experiment      |
     
 ## Activities
