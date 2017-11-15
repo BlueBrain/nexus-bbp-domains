@@ -6,7 +6,7 @@
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
-      "this": "{{base}}/schemas/bbp/experiment/acquisitionannotation/v0.1.0/shapes/"
+      "this": "{{base}}/schemas/bbp/morphology/acquisitionannotation/v0.1.0/shapes/"
     }
   ],
   "@type": "owl:Ontology",
