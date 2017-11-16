@@ -9,6 +9,7 @@
     "nsg:ReconstructedCell"
   ],
   "name": "JY160810_A_idA",
+  "providerId": "JY160810_A_idA",
   "brainLocation": [
    {
     "@type": "BrainRegion",
@@ -16,8 +17,20 @@
     "label": "ventral posterolateral thalamic nucleus"
     }
   ],
+  "projectName": "Thalamus project",
+  "spacialCellName": "idA",
   "mType": {
     "@id": "http://neurolex.org/wiki/Nlx_cell_20081203",
     "label": "Thalamocortical cell"
+  },
+  "reconstructedCellIntegrity": {
+    "basalDendrite": true,
+    "axon": false,
+    "soma": true
+  },
+  "somaType":
+  {
+    "@id": "nsg:2DContour",
+    "label": "2D contour"
   }
 }
