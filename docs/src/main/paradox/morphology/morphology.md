@@ -1,7 +1,7 @@
 
 @@@ index
 
-* [Morphology Reconstrcution](morphology-reconstruction.md)
+* [Morphology Reconstruction](morphology-reconstruction.md)
 
 @@@
 
