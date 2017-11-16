@@ -7,9 +7,6 @@
 
 # Brain Atlas
 
-
-## Namespaces
-
 ## Use cases
 
-A description of the use cases
+List of use cases: TBD

@@ -1,22 +1,43 @@
-# Atlas Release
+# Registering a Brain Atlas Release
 
 ## Use case
 
-A description of the use case.
+### Description
 
-## Prov template
+TBD
 
-The description of a provenance template
+### Competency questions (to be completed)
+
+From a specific version of a brain atlas:
+
+* Get the brain parcellation dataset
+* Get the brain parcellation labels dataset
+* Get the image stack datasets
+* Get the coordinate system of the atlas spatial reference system
+
+
+## Provenance pattern
+
+Link towards the provenance pattern: TBD
+
 
 ## Entities
 
-The description of entities
+The different entity types involved are described below.
+
+| Type  | Description|
+| ------------- | ------------- |
+| SubjectCollection   |     A description      |
 
 ## Activities
 
-The description of activities
+| Type  | Description|
+| ------------- | ------------- |
+| Atlas Construction   |     A description      |
 
 ## Agents
 
-The description of agents
+| Type  | Description|
+| ------------- | ------------- |
+| Person   |     A description      |
 
