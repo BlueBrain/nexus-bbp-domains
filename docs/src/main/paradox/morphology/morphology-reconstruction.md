@@ -5,7 +5,7 @@
 ### Description
 
 This specification describes metadata collected for in vitro morphology reconstruction using a slice. The process of obtaining a 
-reconstructed cell for typically begins with the injection of a dye during the electrophysiology recording. Some of the activities
+reconstructed cell typically begins with the injection of a dye during the electrophysiology recording. Some of the activities
 and entities shown here are shared with the electrophysiology whole-cell patch-clamp recording. The metadata is collected
 starting with the specimen, the slice, the patched cell. The stained neuron is most commonly visualized with a histological procedure
  following the fixation of the tissue where the cells can be identified and annotated to proceed then with the reconstruction
