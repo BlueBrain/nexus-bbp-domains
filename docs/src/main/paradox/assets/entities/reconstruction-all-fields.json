@@ -54,5 +54,13 @@
   "reconstructionCompleted": true,
   "reconstructionCorrected": false,
   "clusterReconstructionRequested": false,
-  "reconstructionReceivedDate": "2016-08-30T00:00:00+02:00"
+  "reconstructionRequester": [
+    {
+      "@type": "prov:Agent",
+      "@id": "{{base}}/data/bbp/core/person/v0.1.0/92801f69-0db3-4945-a746-bb6abaf510e0"
+    }
+  ],
+  "reconstructionSentDate": "2016-07-30T00:00:00+02:00",
+  "reconstructionReceivedDate": "2016-08-30T00:00:00+02:00",
+  "reconstructionLocation":"LNMC"
 }
