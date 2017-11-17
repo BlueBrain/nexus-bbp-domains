@@ -70,7 +70,7 @@
               "path": "nsg:cuttingThickness",
               "name": "Cutting thickness",
               "description": "Cutting thickness of brain slice",
-              "class": "bbpqsh:QuantitativeValueShape",
+              "node": "bbpqsh:QuantitativeValueShape",
               "maxCount": 1
             },
             {
