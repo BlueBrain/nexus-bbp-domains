@@ -1,8 +1,12 @@
+@@@ index
+
+* [In vitro electrophysiology](wholecellpatchclamp-recording.md)
+
+@@@
+
 # Electrophysiology
-
-
-## Namespaces
 
 ## Use cases
 
-A description of the use case
+List of use cases: TBD
+

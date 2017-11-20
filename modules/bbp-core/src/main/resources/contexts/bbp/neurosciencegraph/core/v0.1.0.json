@@ -99,6 +99,21 @@
     "period": {
       "@id": "nsg:period"
     },
+    "2DContour": {
+      "@id": "nsg:2DContour"
+    },
+    "3DContour": {
+      "@id": "nsg:3DContour"
+    },
+    "1Point": {
+      "@id": "nsg:1Point"
+    },
+    "3Point": {
+      "@id": "nsg:3Point"
+    },
+    "brainLocation": {
+      "@id": "nsg:brainLocation"
+    },
     "fixationMethod": {
       "@id": "nsg:fixationMethod"
     },

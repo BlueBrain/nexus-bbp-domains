@@ -9,14 +9,6 @@
     "nsg:AnnotatedSlice"
   ],
   "name": "JY160810_A",
-  "providerId": "SLI_00000056",
-  "annotationAngle": {
-    "value": 30,
-    "unitCode": {
-      "@id": "http://bbp-nexus.epfl.ch/voc/unit/DD",
-      "label": "degree"
-    }
-  },
   "hasPart": [
     {
       "@id": "{{base}}/data/bbp/morphology/labeledcellcollection/v0.1.2/ab880634-3bf5-4872-a34c-b6bbbca8c0a4",
