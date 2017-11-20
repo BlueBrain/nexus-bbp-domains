@@ -1,6 +1,8 @@
 {
   "@context": {
     "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
+    "schema": "http://schema.org/",
+
     "brainRegion": {
       "@id": "nsg:brainRegion"
     },
@@ -67,8 +69,8 @@
     "valueZ ": {
       "@id": "nsg:valueZ"
     },
-      "species": {
-    "@id": "nsg:species"
+    "species": {
+      "@id": "nsg:species"
     },
     "strain": {
       "@id": "nsg:strain"
@@ -216,6 +218,15 @@
     },
     "eCode": {
       "@id": "nsg:eCode"
+    },
+    "weight": {
+      "@id": "schema:weight"
+    },
+    "birthDate": {
+      "@id": "schema:birthDate"
+    },
+    "deathDate": {
+      "@id": "schema:deathDate"
     }
   }
 }
