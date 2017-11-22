@@ -1,0 +1,110 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    {
+      "bbpvoc": "https://bbp-nexus.epfl.ch/vocabularies/core/v0.1.0/",
+      "expes": "{{base}}/schemas/bbp/experiment/entity/v0.1.0/shapes/",
+      "quantvs": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
+      "rois": "{{base}}/schemas/bbp/atlas/regionofinterest/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/atlas/convexpolytopeofinterest/v0.1.0/shapes/"
+    }
+  ],
+  "import": [
+    "{{base}}/schemas/bbp/atlas/regionofinterest/v0.1.0",
+    "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0"
+  ],
+  "@type": "owl:Ontology",
+  "shapes": [
+    {
+      "@id": "this:ConvexPolytopeOfInterestShape",
+      "@type": "sh:NodeShape",
+      "label": "A region of interest with convex-polytope as a geometric shape.",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "targetClass": "bbpvoc:RegionOfInterest",
+      "and": [
+        {
+          "node": "rois:RegionOfInterestShape"
+        },
+        {
+          "property": [
+            {
+              "path": "bbpvoc:geometry",
+              "description": "The geometric shape of the sphere of interest.",
+              "node": "this:ConvexPolytopeGeometricShapeShape",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "this:ConvexPolytopeGeometricShapeShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of a  sphere geometry.",
+      "targetObjectsOf": "bbpvoc:geometry",
+      "class": "bbpvoc:convexpolytope",
+      "property": [
+        {
+          "path": "bbpvoc:geometryParameter",
+          "name": "Parameters",
+          "node": "this:ConvexPolytopeGeometryParameterShape",
+          "minCount": 1,
+          "maxCount": 1
+        }
+      ]
+    },
+    {
+      "@id": "this:ConvexPolytopeGeometryParameterShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of sphere geometry parameters.",
+      "targetObjectsOf": "bbpvoc:geometryParameter",
+      "property": [
+        {
+          "path": "bbpvoc:geometryParameter",
+          "name": "Plane",
+          "description": "The parameters of a plane",
+          "node": "this:PlaneGeometryParameterShape",
+          "minCount": 1
+        }
+      ]
+    },
+    {
+      "@id": "this:PlaneGeometryParameterShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of sphere geometry parameters.",
+      "targetObjectsOf": "bbpvoc:geometryParameter",
+      "property": [
+        {
+          "path": "bbpvoc:coefA",
+          "name": "Coefficient A",
+          "datatype": "xsd:integer",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "bbpvoc:coefB",
+          "name": "Coefficient B",
+          "datatype": "xsd:integer",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "bbpvoc:coefC",
+          "name": "Coefficient C",
+          "datatype": "xsd:integer",
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "bbpvoc:coefD",
+          "name": "Coefficient D",
+          "datatype": "xsd:integer",
+          "minCount": 1,
+          "maxCount": 1
+        }
+      ]
+    }
+  ]
+}
