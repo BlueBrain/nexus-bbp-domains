@@ -58,9 +58,17 @@
           {
             "path" : "nsg:dataUnit",
             "name" : "Data unit",
-            "description" : "Unit of measurement of data",
-            "node":"this:DataUnitShape",
-            "maxCount" : 1
+            "description" : "Unit of the trace data (e.g. mV or pA)",
+            "or":[
+              {
+                "datatype": "xsd:string"
+              },
+              {
+                "node": "bbptlotsh:UnitCodeOntologyTermShape"
+              }
+            ],
+            "minCount": 1,
+            "maxCount": 1
           },
           {
             "path" : "nsg:timeStep",
