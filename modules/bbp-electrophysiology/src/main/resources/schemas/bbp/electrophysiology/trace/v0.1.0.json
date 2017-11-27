@@ -67,7 +67,6 @@
                 "node": "bbptlotsh:UnitCodeOntologyTermShape"
               }
             ],
-            "minCount": 1,
             "maxCount": 1
           },
           {
