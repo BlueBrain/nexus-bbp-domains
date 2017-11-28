@@ -13,7 +13,7 @@
     "species": "Wrong species",
     "strain": {
         "@id": "http://www.FIXME.org/taxonomy_ontology/0000000",
-        "label": "Long evans"
+        "label": "Long Evans"
     },
     "transgenic": {
         "@id": "http://www.FIXME.org/trasngenic_ontology/0000000",

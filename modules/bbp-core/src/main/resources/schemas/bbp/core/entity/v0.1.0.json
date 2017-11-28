@@ -39,9 +39,17 @@
         {
           "path": "schema:citation",
           "name": "Citation",
-          "description": "Publication citation.",
-          "nodeKind":"sh:IRI",
-          "maxCount": 1
+          "description": "Citation (s) of publication (s) that describe the dataset.",
+          "xone":[
+            {
+              "datatype": "xsd:anyURI"
+            },{
+              "datatype": "xsd:string"
+            },{
+              "nodeKind": "sh:IRI"
+            }
+          ]
+
         },
         {
           "path": "schema:license",
