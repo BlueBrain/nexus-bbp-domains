@@ -95,26 +95,6 @@
           ]
         }
       ]
-    },
-    {
-      "@id" : "this:DataUnitShape",
-      "@type" : "sh:NodeShape",
-      "xone": [
-        {
-          "path": "schema:unitText",
-          "name": "Unit",
-          "datatype": "xsd:string",
-          "minCount": 1,
-          "maxCount": 1
-        },
-        {
-          "path": "schema:unitCode",
-          "name": "Unit",
-          "node":"bbptlotsh:UnitCodeOntologyTermShape",
-          "minCount": 1,
-          "maxCount": 1
-        }
-      ]
     }
   ]
 }
