@@ -30,7 +30,7 @@
           "property": [
             {
               "path": "bbpvoc:geometry",
-              "description": "The geometric shape of the sphere of interest.",
+              "description": "The geometric shape of the a convex-polytope.",
               "node": "this:ConvexPolytopeGeometricShapeShape",
               "minCount": 1,
               "maxCount": 1
@@ -42,7 +42,7 @@
     {
       "@id": "this:ConvexPolytopeGeometricShapeShape",
       "@type": "sh:NodeShape",
-      "label": "The shape of a  sphere geometry.",
+      "label": "The shape of a convex-polytope geometry.",
       "targetObjectsOf": "bbpvoc:geometry",
       "class": "bbpvoc:convexpolytope",
       "property": [
@@ -58,7 +58,7 @@
     {
       "@id": "this:ConvexPolytopeGeometryParameterShape",
       "@type": "sh:NodeShape",
-      "label": "The shape of sphere geometry parameters.",
+      "label": "The shape of a convex-polytope geometry parameters.",
       "targetObjectsOf": "bbpvoc:geometryParameter",
       "property": [
         {
@@ -73,7 +73,7 @@
     {
       "@id": "this:PlaneGeometryParameterShape",
       "@type": "sh:NodeShape",
-      "label": "The shape of sphere geometry parameters.",
+      "label": "The shape of a plane geometry parameters.",
       "targetObjectsOf": "bbpvoc:geometryParameter",
       "property": [
         {
