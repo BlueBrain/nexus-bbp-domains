@@ -1,0 +1,60 @@
+{
+
+  "@context": [
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "@vocab":"https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/"
+    },
+    "{{base}}/contexts/bbp/core/entity/v0.1.0"
+
+  ],
+  "@type": "AtlasSpatialReferenceSystem",
+  "name": "Allen mouse CCFv3 atlas spatial reference system",
+  "description": "Allen mouse CCFv3 atlas spatial reference system",
+  "origin": {
+    "@type": "Vector3D",
+    "valueX": 0,
+    "valueY": 0,
+    "valueZ": 0
+  },
+  "orientation": {
+    "@type": "RotationalMatrix",
+    "firstRow": {
+      "@type": "Vector3D",
+      "valueX": 1,
+      "valueY": 0,
+      "valueZ": 0
+    },
+    "secondRow": {
+      "@type": "Vector3D",
+      "valueX": 0,
+      "valueY": 1,
+      "valueZ": 0
+    },
+    "thirdRow": {
+      "@type": "Vector3D",
+      "valueX": 0,
+      "valueY": 0,
+      "valueZ": 1
+    }
+  },
+  "boundingbox": {
+    "@type": "BoundingBox",
+    "upperPoint": {
+      "@type": "Vector3D",
+      "valueX": 13200,
+      "valueY": 8000,
+      "valueZ": 11400
+    },
+    "lowerPoint": {
+      "@type": "Vector3D",
+      "valueX": 0,
+      "valueY": 0,
+      "valueZ": 0
+    },
+    "unitText": "micron"
+  },
+
+  "unitText": "micron"
+
+}

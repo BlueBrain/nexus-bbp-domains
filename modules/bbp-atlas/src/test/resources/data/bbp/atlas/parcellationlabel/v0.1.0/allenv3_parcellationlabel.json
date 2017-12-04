@@ -1,0 +1,27 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "nxv": "https://bbp-nexus.epfl.ch/vocabs/nexus/core/v0.0.1/",
+      "size" : "schema:size",
+      "digest" : "nxv:digest",
+      "contentType": "nxv:contentType",
+      "originalFileName": "nxv:originalFileName"
+    }
+  ],
+  "@id": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/atlas/parcellationlabel/v0.1.0/c7ef5f39-b66c-44e1-a183-36a7528386ff",
+  "@type": "nsg:ParcellationLabel",
+  "name": "Allen CCFv3 mouse atlas parcellation labels",
+  "atlasVersion":"v3",
+  "originalFileName": "allenv3_labels.json",
+  "contentType": "application/octet-stream",
+  "size": {
+    "unit": "byte",
+    "value": 627453
+  },
+  "digest": {
+    "alg": "SHA-256",
+    "value": "655c96f7ceaa32c9be2bc2963efdd12ec749b7ced3cf6ce8b4fdf3960f1e8729"
+  }
+}

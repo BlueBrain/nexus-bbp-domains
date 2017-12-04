@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "bbpemptycolsh": "{{base}}/schemas/bbp/core/emptycollection/v1.0.0/shapes/",
+      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v1.0.0/shapes/",
+      "this": "{{base}}/schemas/bbp/experiment/emptysubjectcollection/v1.0.0/shapes/"
+    }
+  ],
+  "@type": "owl:Ontology",
+  "imports": [
+    "{{base}}/schemas/bbp/core/emptycollection/v0.1.0",
+    "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:EmptySubjectCollectionShape",
+      "@type": "sh:NodeShape",
+      "label": "Subject Collection",
+      "targetClass": "prov:EmptyCollection",
+      "and": [
+        {
+          "node": "bbpemptycolsh:EmptyCollectionShape"
+        },{
+          "property": [
+            {
+              "path": "nsg:species",
+              "name": "Species",
+              "description": "The species of this collection members",
+              "node": "bbptlotsh:SpeciesOntologyTermShape",
+              "maxCount": 1,
+              "minCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
