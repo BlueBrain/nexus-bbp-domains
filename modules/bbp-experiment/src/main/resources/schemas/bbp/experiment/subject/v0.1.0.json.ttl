@@ -1,0 +1,44 @@
+<https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/transgenic>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/disease>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/sex>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://schema.org/birthDate>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://schema.org/weight>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://schema.org/deathDate>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/strain>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/period>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/Subject>
+        a       <http://www.w3.org/2002/07/owl#Class> .
+
+<https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/treatment>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<http://schema.org/value>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/species>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/age>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/dateOfSurgery>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .
+
+<https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/diseaseModel>
+        a       <http://www.w3.org/2002/07/owl#ObjectProperty> .

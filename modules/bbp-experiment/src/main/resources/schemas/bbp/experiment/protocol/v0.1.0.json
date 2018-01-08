@@ -1,6 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/nexus/core/standards/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
@@ -9,7 +9,7 @@
       "this": "{{base}}/schemas/bbp/experiment/protocol/v0.1.0/shapes/"
     }
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "imports": [
     "{{base}}/schemas/bbp/core/entity/v0.1.0",
     "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0"
@@ -49,13 +49,13 @@
           "path": "schema:author",
           "name": "Author",
           "description": "Author of the protocol",
-          "class":"nsg:Agent"
+          "class": "nsg:Agent"
         },
         {
           "path": "nsg:vendor",
           "name": "Vendor",
           "description": "Name of vendor of protocol",
-          "class":"schema:Organization"
+          "class": "schema:Organization"
         },
         {
           "path": "nsg:steps",
@@ -116,7 +116,7 @@
           "path": "nsg:reagentVendor",
           "name": "Reagent vendor",
           "description": "Name of vendor of reagent",
-          "class":"schema:Organization"
+          "class": "schema:Organization"
         }
       ]
     },

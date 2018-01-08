@@ -1,6 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/nexus/core/standards/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
@@ -11,7 +11,7 @@
   "imports": [
     "{{base}}/schemas/nexus/prov/activity/v0.1.0"
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "shapes": [
     {
       "@id": "this:ActivityShape",
@@ -28,13 +28,14 @@
             {
               "path": "nsg:hadProtocol",
               "class": "nsg:Protocol",
-              "node":"this:HadProtocolValueShape",
+              "node": "this:HadProtocolValueShape",
               "maxCount": 1
             }
           ]
         }
       ]
-    },{
+    },
+    {
       "@id": "this:HadProtocolValueShape",
       "@type": "sh:NodeShape",
       "targetObjectsOf": "nsg:hadProtocol",

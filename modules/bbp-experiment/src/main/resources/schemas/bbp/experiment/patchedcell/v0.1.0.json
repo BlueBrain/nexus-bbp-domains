@@ -1,23 +1,24 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/bbp/core/entity/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbpqsh" : "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
+      "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
       "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
       "bbplocsh": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/",
-      "this" : "{{base}}/schemas/bbp/experiment/patchedcell/v0.1.0/shapes/"
+      "this": "{{base}}/schemas/bbp/experiment/patchedcell/v0.1.0/shapes/"
     }
   ],
-
-  "@type" : "owl:Ontology",
-  "imports" : [ "{{base}}/schemas/bbp/core/entity/v0.1.0",
-                "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0",
-                "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0",
-                "{{base}}/schemas/bbp/core/brainlocation/v0.1.0"],
-  "shapes" : [
+  "@type": "owl:Ontology",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0",
+    "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0",
+    "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0",
+    "{{base}}/schemas/bbp/core/brainlocation/v0.1.0"
+  ],
+  "shapes": [
     {
       "@id": "this:PatchedCellShape",
       "@type": "sh:NodeShape",
@@ -136,10 +137,11 @@
             }
           ]
         }
-      ]},
+      ]
+    },
     {
-      "@id" : "this:DigitalToAnalogConverterShape",
-      "@type" : "sh:NodeShape",
+      "@id": "this:DigitalToAnalogConverterShape",
+      "@type": "sh:NodeShape",
       "and": [
         {
           "node": "this:ConverterShape"
@@ -158,28 +160,28 @@
       ]
     },
     {
-      "@id" : "this:ConverterShape",
-      "@type" : "sh:NodeShape",
-      "property" : [
+      "@id": "this:ConverterShape",
+      "@type": "sh:NodeShape",
+      "property": [
         {
-          "path" : "schema:unitCode",
-          "name" : "Unit",
-          "node":"bbptlotsh:UnitCodeOntologyTermShape",
-          "minCount" : 1,
-          "maxCount" : 1
+          "path": "schema:unitCode",
+          "name": "Unit",
+          "node": "bbptlotsh:UnitCodeOntologyTermShape",
+          "minCount": 1,
+          "maxCount": 1
         },
         {
-          "path" : "nsg:gain",
-          "name" : "Gain",
-          "datatype" : "xsd:float",
-          "minCount" : 1,
-          "maxCount" : 1
+          "path": "nsg:gain",
+          "name": "Gain",
+          "datatype": "xsd:float",
+          "minCount": 1,
+          "maxCount": 1
         },
         {
-          "path" : "schema:name",
-          "name" : "Name",
-          "description" : "Name of the converter",
-          "maxCount" : 1
+          "path": "schema:name",
+          "name": "Name",
+          "description": "Name of the converter",
+          "maxCount": 1
         }
       ]
     }

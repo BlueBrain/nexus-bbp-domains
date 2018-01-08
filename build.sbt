@@ -1,4 +1,8 @@
-lazy val nexusProv = "ch.epfl.bluebrain.nexus" %% "nexus-prov" % "0.1.1"
+val commonsVersion         = "0.5.23"
+
+
+lazy val nexusProv = "ch.epfl.bluebrain.nexus" %% "nexus-prov" % "0.1.2"
+lazy val commonsSchemas = nexusDep("commons-schemas", commonsVersion)
 
 lazy val docs = project
   .in(file("docs"))
@@ -31,7 +35,10 @@ lazy val kgschemas = project
     common,
     noPublish,
     name := "kg-schemas",
-    moduleName := "kg-schemas"
+    moduleName := "kg-schemas",
+    libraryDependencies ++= Seq(
+      commonsSchemas
+    )
   )
 
 lazy val experiment = project
@@ -93,7 +100,7 @@ lazy val root = project
   .in(file("."))
   .settings(name := "bbp-schemas", moduleName := "bbp-schemas")
   .settings(common, noPublish)
-  .aggregate(docs, core, experiment, atlas, morphology, electrophysiology,simulation)
+  .aggregate(docs, core, experiment, atlas, morphology, electrophysiology,simulation,kgschemas)
 
 lazy val common = Seq(
   scalacOptions in (Compile, console) ~= (_ filterNot (_ == "-Xfatal-warnings")),
@@ -103,6 +110,10 @@ lazy val common = Seq(
 )
 
 lazy val noPublish = Seq(publishLocal := {}, publish := {})
+
+
+def nexusDep(name: String, version: String): ModuleID =
+  "ch.epfl.bluebrain.nexus" %% name % version
 
 addCommandAlias("review", ";clean;test")
 addCommandAlias("rel", ";release with-defaults skip-tests")

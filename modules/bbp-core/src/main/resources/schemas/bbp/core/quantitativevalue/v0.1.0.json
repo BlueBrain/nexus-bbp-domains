@@ -1,6 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/nexus/core/standards/v0.1.0",
     {
       "scqsh": "{{base}}/schemas/nexus/schemaorg/quantitativevalue/v0.1.0/shapes/",
@@ -10,7 +10,7 @@
   "imports": [
     "{{base}}/schemas/nexus/schemaorg/quantitativevalue/v0.1.0"
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "shapes": [
     {
       "@id": "this:QuantitativeValueShape",
@@ -42,7 +42,7 @@
             {
               "path": "schema:unitCode",
               "name": "Unit",
-              "node":"bbptlotsh:UnitCodeOntologyTermShape",
+              "node": "bbptlotsh:UnitCodeOntologyTermShape",
               "minCount": 1,
               "maxCount": 1
             }

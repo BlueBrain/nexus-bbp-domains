@@ -1,69 +1,69 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/morphology/fixationstainingmounting/v0.1.0/shapes/"
     }
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "imports": [
     "{{base}}/schemas/bbp/core/activity/v0.1.0",
     "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0"
   ],
-  "shapes": [ {
-    "@id" : "this:FixationStainingMountingShape",
-    "@type" : "sh:NodeShape",
-    "label" : "Fixing, Staining and Mounting activities description",
-    "targetClass" : "nsg:FixationStainingMounting",
-    "nodeKind" : "sh:BlankNodeOrIRI",
-    "and": [
-      {
-        "node": "bbpactsh:ActivityShape"
-      },
-      {
-        "property": [
-          {
-            "path": "nsg:fixationMethod",
-            "name": "Fixation method",
-            "description": "Method used for the fixation of the slice after electrophysiology such as PFA.",
-            "datatype": "xsd:string",
-            "maxCount": 1
-          },
-          {
-            "path": "nsg:stain",
-            "name": "Stain",
-            "description": "Stain used for the detection of the cell labeling compound such as the chromogen DAB.",
-            "datatype": "xsd:string",
-            "maxCount": 1
-          },
-          {
-            "path": "nsg:mountingMedia",
-            "name": "Mounting Media",
-            "description": "Mounting media is the medium that the sample is in while it is being imaged on the microscope such as Xylene or Mowiol.",
-            "datatype": "xsd:string",
-            "maxCount": 1
-          },
-          {
-            "path": "prov:used",
-            "description": "The patched slice used",
-            "class": "nsg:PatchedSlice",
-            "minCount": 1,
-            "maxCount": 1
-          },
-          {
-            "path": "prov:generated",
-            "description": "The fixed and stained slice used",
-            "class": "nsg:FixedStainedSlice",
-            "minCount": 1,
-            "maxCount": 1
-          }
-        ]
-      }
-    ]
-   }
- ]
+  "shapes": [
+    {
+      "@id": "this:FixationStainingMountingShape",
+      "@type": "sh:NodeShape",
+      "label": "Fixing, Staining and Mounting activities description",
+      "targetClass": "nsg:FixationStainingMounting",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "bbpactsh:ActivityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:fixationMethod",
+              "name": "Fixation method",
+              "description": "Method used for the fixation of the slice after electrophysiology such as PFA.",
+              "datatype": "xsd:string",
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:stain",
+              "name": "Stain",
+              "description": "Stain used for the detection of the cell labeling compound such as the chromogen DAB.",
+              "datatype": "xsd:string",
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:mountingMedia",
+              "name": "Mounting Media",
+              "description": "Mounting media is the medium that the sample is in while it is being imaged on the microscope such as Xylene or Mowiol.",
+              "datatype": "xsd:string",
+              "maxCount": 1
+            },
+            {
+              "path": "prov:used",
+              "description": "The patched slice used",
+              "class": "nsg:PatchedSlice",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "prov:generated",
+              "description": "The fixed and stained slice used",
+              "class": "nsg:FixedStainedSlice",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

@@ -1,17 +1,16 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
       "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbpvect3dsh" : "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
+      "bbpvect3dsh": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
       "bbppsh": "{{base}}/schemas/bbp/core/person/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/morphology/labeledcell/v0.1.0/shapes/"
     }
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "imports": [
     "{{base}}/schemas/bbp/core/entity/v0.1.0",
     "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0"

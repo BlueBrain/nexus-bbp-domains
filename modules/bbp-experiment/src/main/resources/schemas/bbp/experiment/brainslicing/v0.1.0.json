@@ -1,6 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/nexus/core/standards/v0.1.0",
     "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
@@ -16,7 +16,7 @@
     "{{base}}/schemas/bbp/core/activity/v0.1.0",
     "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0"
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "shapes": [
     {
       "@id": "this:BrainSlicingShape",
@@ -44,17 +44,22 @@
               "minCount": 1
             },
             {
-              "path" : "nsg:brainLocation",
-              "name" : "Brain location",
-              "description" : "Brain location information",
-              "node":"bbplocsh:BrainLocationShape"
+              "path": "nsg:brainLocation",
+              "name": "Brain location",
+              "description": "Brain location information",
+              "node": "bbplocsh:BrainLocationShape"
             },
             {
               "path": "nsg:slicingPlane",
               "name": "Slicing plane",
               "description": "Slicing plane of the brain",
-              "sh:in" : {
-                "@list" : [ "Sagittal", "Para-sagittal", "Coronal", "Horizontal" ]
+              "sh:in": {
+                "@list": [
+                  "Sagittal",
+                  "Para-sagittal",
+                  "Coronal",
+                  "Horizontal"
+                ]
               },
               "maxCount": 1
             },
@@ -76,8 +81,11 @@
               "path": "nsg:hemisphere",
               "name": "Hemisphere",
               "description": "Brain hemisphere that was sliced",
-              "sh:in" : {
-                "@list" : [ "Left", "Right" ]
+              "sh:in": {
+                "@list": [
+                  "Left",
+                  "Right"
+                ]
               },
               "maxCount": 2
             },

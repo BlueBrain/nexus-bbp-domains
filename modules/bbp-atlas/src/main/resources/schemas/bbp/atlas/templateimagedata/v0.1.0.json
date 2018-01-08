@@ -149,7 +149,7 @@
     "{{base}}/schemas/bbp/atlas/imagestack/v0.1.0",
     "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.0"
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "shapes": [
     {
       "@id": "this:TemplateImageDataShape",

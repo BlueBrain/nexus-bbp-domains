@@ -1,0 +1,24 @@
+{
+  "distribution": [
+    {
+      "accessURL": "/gpfs/......",
+
+      "mediaType": "application/json",
+
+      "contentSize": {
+        "value": 50,
+        "unitCode": "mb"
+      },
+      "digest": [
+        {
+          "alg": "MD5",
+          "value": "c02aa11a4c6"
+        },
+        {
+          "alg": "SHA-256",
+          "value": "639e...60cba"
+        }
+      ]
+    }
+  ]
+}
