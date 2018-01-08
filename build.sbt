@@ -1,8 +1,10 @@
 val commonsVersion         = "0.5.23"
+val nexusKGVersion         = "0.8"
 
 
 lazy val nexusProv = "ch.epfl.bluebrain.nexus" %% "nexus-prov" % "0.1.2"
 lazy val commonsSchemas = nexusDep("commons-schemas", commonsVersion)
+lazy val nexusKGSchemas = nexusDep("kg-schemas", nexusKGVersion)
 
 lazy val docs = project
   .in(file("docs"))
@@ -19,7 +21,7 @@ lazy val core = project
   .in(file("modules/bbp-core"))
   .enablePlugins(WorkbenchPlugin)
   .disablePlugins(ScapegoatSbtPlugin, DocumentationPlugin)
-  .dependsOn(kgschemas)
+  .dependsOn(kgbbpschemas)
   .settings(
     common,
     name := "bbp-core-schemas",
@@ -27,17 +29,18 @@ lazy val core = project
     libraryDependencies += nexusProv
   )
 
-lazy val kgschemas = project
-  .in(file("modules/kg-schemas"))
+lazy val kgbbpschemas = project
+  .in(file("modules/kg-bbp-schemas"))
   .enablePlugins(WorkbenchPlugin)
   .disablePlugins(ScapegoatSbtPlugin, DocumentationPlugin)
   .settings(
     common,
     noPublish,
-    name := "kg-schemas",
-    moduleName := "kg-schemas",
+    name := "kg-bbp-schemas",
+    moduleName := "kg-bbp-schemas",
     libraryDependencies ++= Seq(
-      commonsSchemas
+      commonsSchemas,
+      nexusKGSchemas
     )
   )
 
@@ -100,7 +103,7 @@ lazy val root = project
   .in(file("."))
   .settings(name := "bbp-schemas", moduleName := "bbp-schemas")
   .settings(common, noPublish)
-  .aggregate(docs, core, experiment, atlas, morphology, electrophysiology,simulation,kgschemas)
+  .aggregate(docs, core, experiment, atlas, morphology, electrophysiology,simulation,kgbbpschemas)
 
 lazy val common = Seq(
   scalacOptions in (Compile, console) ~= (_ filterNot (_ == "-Xfatal-warnings")),
