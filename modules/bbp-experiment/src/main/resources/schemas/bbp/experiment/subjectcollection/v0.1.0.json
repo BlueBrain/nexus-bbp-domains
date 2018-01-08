@@ -1,12 +1,11 @@
 {
   "@context": [
     "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
-      "bbpcolsh": "{{base}}/schemas/bbp/core/collection/v1.0.0/shapes/",
-      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v1.0.0/shapes/",
-      "this": "{{base}}/schemas/bbp/experiment/subjectcollection/v1.0.0/shapes/"
+      "bbpcolsh": "{{base}}/schemas/bbp/core/collection/v0.1.0/shapes/",
+      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/experiment/subjectcollection/0.1.0/shapes/"
     }
   ],
   "@type": "nxv:Schema",

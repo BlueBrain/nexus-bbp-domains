@@ -1,7 +1,7 @@
 {
   "@context": [
     "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+
     {
       "bbpvoc": "https://bbp-nexus.epfl.ch/vocabularies/core/v0.1.0/",
       "expes": "{{base}}/schemas/bbp/experiment/entity/v0.1.0/shapes/",
