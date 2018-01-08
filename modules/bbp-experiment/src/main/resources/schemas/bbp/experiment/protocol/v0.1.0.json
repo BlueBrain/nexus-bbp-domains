@@ -28,7 +28,7 @@
           "path": "schema:identifier",
           "name": "Identifier",
           "description": "The identifier of protocol such as a DOI, ISBN,...",
-          "node": "this:IdentifierShape",
+          "datatype": "xsd:anyURI",
           "minCount": 1,
           "maxCount": 1
         },
@@ -36,6 +36,7 @@
           "path": "schema:datePublished",
           "name": "date published",
           "description": "Publishing date of protocol.",
+          "datatype": "xsd:dateTime",
           "maxCount": 1
         },
         {
@@ -73,7 +74,6 @@
     {
       "@id": "this:MaterialsShape",
       "@type": "sh:NodeShape",
-      "targetObjectsOf": "nsg:materials",
       "property": [
         {
           "path": "nsg:reagentName",
@@ -118,16 +118,6 @@
           "class": "schema:Organization"
         }
       ]
-    },
-    {
-      "@id": "this:DatePublishedValueShape",
-      "targetObjectsOf": "schema:datePublished",
-      "datatype": "xsd:dateTime"
-    },
-    {
-      "@id": "this:IdentifierShape",
-      "targetObjectsOf": "schema:identifier",
-      "datatype": "xsd:anyURI"
     }
   ]
 }
