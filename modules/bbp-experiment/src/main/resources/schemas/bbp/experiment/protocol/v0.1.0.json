@@ -28,9 +28,7 @@
           "path": "schema:identifier",
           "name": "Identifier",
           "description": "The identifier of protocol such as a DOI, ISBN,...",
-          "datatype": "xsd:anyURI",
-          "minCount": 1,
-          "maxCount": 1
+          "datatype": "xsd:anyURI"
         },
         {
           "path": "schema:datePublished",
