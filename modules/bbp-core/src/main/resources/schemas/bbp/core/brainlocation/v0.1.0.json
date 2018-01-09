@@ -1,7 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "bbpvect3dsh": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
@@ -11,10 +10,10 @@
     }
   ],
   "imports": [
-                "{{base}}/schemas/bbp/core/vector3d/v0.1.0",
-                "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0"
+    "{{base}}/schemas/bbp/core/vector3d/v0.1.0",
+    "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0"
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "shapes": [
     {
       "@id": "this:BrainLocationShape",
@@ -46,16 +45,22 @@
           "path": "nsg:positionInLayer",
           "name": "Position in layer",
           "description": "Position in layer (deep / superficial)",
-          "sh:in" : {
-            "@list" : [ "Deep", "Superficial" ]
+          "sh:in": {
+            "@list": [
+              "Deep",
+              "Superficial"
+            ]
           },
           "maxCount": 1
         },
         {
           "path": "nsg:longitudinalAxis",
           "name": "Longitudinal axis (dorsal / ventral)",
-          "sh:in" : {
-            "@list" : [ "Dorsal", "Ventral" ]
+          "sh:in": {
+            "@list": [
+              "Dorsal",
+              "Ventral"
+            ]
           },
           "maxCount": 1
         },
@@ -127,10 +132,10 @@
       ]
     },
     {
-      "@id" : "this:DistanceToBoundaryShape",
-      "@type" : "sh:NodeShape",
+      "@id": "this:DistanceToBoundaryShape",
+      "@type": "sh:NodeShape",
       "label": "Distance to boundary shape definition",
-      "property" : [
+      "property": [
         {
           "path": "nsg:boundary",
           "name": "Boundary",

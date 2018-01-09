@@ -1,21 +1,21 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/bbp/core/entity/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
-    "provgensh" : "{{base}}/schemas/nexus/prov/generation/v0.1.0/shapes/",
-    "this" : "{{base}}/schemas/bbp/electrophysiology/tracegeneration/v0.1.0/shapes/"
+      "provgensh": "{{base}}/schemas/nexus/prov/generation/v0.1.0/shapes/",
+      "this": "{{base}}/schemas/bbp/electrophysiology/tracegeneration/v0.1.0/shapes/"
     }
-    ],
-  "@type" : "owl:Ontology",
-  "shapes" : [
+  ],
+  "@type": "nxv:Schema",
+  "shapes": [
     {
-      "@id" : "this:TraceGenerationShape",
-      "@type" : "sh:NodeShape",
-      "label" : "Trace generation shape definition",
-      "targetClass" : "nsg:TraceGeneration",
-      "nodeKind" : "sh:BlankNodeOrIRI",
+      "@id": "this:TraceGenerationShape",
+      "@type": "sh:NodeShape",
+      "label": "Trace generation shape definition",
+      "targetClass": "nsg:TraceGeneration",
+      "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
         {
           "node": "provgensh:GenerationShape"

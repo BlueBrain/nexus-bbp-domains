@@ -1,4 +1,10 @@
-lazy val nexusProv = "ch.epfl.bluebrain.nexus" %% "nexus-prov" % "0.1.1"
+val commonsVersion         = "0.5.24"
+val nexusKGVersion         = "0.8.2"
+
+
+lazy val nexusProv = "ch.epfl.bluebrain.nexus" %% "nexus-prov" % "0.1.3"
+lazy val commonsSchemas = nexusDep("commons-schemas", commonsVersion)
+lazy val nexusKGSchemas = nexusDep("kg-schemas", nexusKGVersion)
 
 lazy val docs = project
   .in(file("docs"))
@@ -15,7 +21,7 @@ lazy val core = project
   .in(file("modules/bbp-core"))
   .enablePlugins(WorkbenchPlugin)
   .disablePlugins(ScapegoatSbtPlugin, DocumentationPlugin)
-  .dependsOn(kgschemas)
+  .dependsOn(kgbbpschemas)
   .settings(
     common,
     name := "bbp-core-schemas",
@@ -23,15 +29,19 @@ lazy val core = project
     libraryDependencies += nexusProv
   )
 
-lazy val kgschemas = project
-  .in(file("modules/kg-schemas"))
+lazy val kgbbpschemas = project
+  .in(file("modules/kg-bbp-schemas"))
   .enablePlugins(WorkbenchPlugin)
   .disablePlugins(ScapegoatSbtPlugin, DocumentationPlugin)
   .settings(
     common,
     noPublish,
-    name := "kg-schemas",
-    moduleName := "kg-schemas"
+    name := "kg-bbp-schemas",
+    moduleName := "kg-bbp-schemas",
+    libraryDependencies ++= Seq(
+      commonsSchemas,
+      nexusKGSchemas
+    )
   )
 
 lazy val experiment = project
@@ -93,7 +103,7 @@ lazy val root = project
   .in(file("."))
   .settings(name := "bbp-schemas", moduleName := "bbp-schemas")
   .settings(common, noPublish)
-  .aggregate(docs, core, experiment, atlas, morphology, electrophysiology,simulation)
+  .aggregate(docs, core, experiment, atlas, morphology, electrophysiology,simulation,kgbbpschemas)
 
 lazy val common = Seq(
   scalacOptions in (Compile, console) ~= (_ filterNot (_ == "-Xfatal-warnings")),
@@ -103,6 +113,10 @@ lazy val common = Seq(
 )
 
 lazy val noPublish = Seq(publishLocal := {}, publish := {})
+
+
+def nexusDep(name: String, version: String): ModuleID =
+  "ch.epfl.bluebrain.nexus" %% name % version
 
 addCommandAlias("review", ";clean;test")
 addCommandAlias("rel", ";release with-defaults skip-tests")

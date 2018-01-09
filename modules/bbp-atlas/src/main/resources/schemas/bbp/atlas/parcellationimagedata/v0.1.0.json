@@ -1,24 +1,20 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
-      "bbpentsh": "{{base}}/v0/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/atlas/parcellationimagedata/v0.1.20/shapes/",
       "bbpimagestack": "{{base}}/schemas/bbp/atlas/imagestack/v0.1.0/shapes/",
       "bbpimagevolume": "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.6/shapes/"
     }
-
-
-
   ],
   "import": [
     "{{base}}/schemas/bbp/core/entity/v0.1.0",
     "{{base}}/schemas/bbp/atlas/imagestack/v0.1.0",
     "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.0"
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "shapes": [
     {
       "@id": "this:ParcellationImageDataShape",
@@ -28,7 +24,7 @@
       "targetClass": "nsg:ParcellationImageData",
       "and": [
         {
-          "node": "bbpentity:EntityShape"
+          "node": "bbpentsh:EntityShape"
         },
         {
           "xone": [

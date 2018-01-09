@@ -1,13 +1,13 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/bbp/core/entity/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "this": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/"
     }
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "shapes": [
     {
       "@id": "this:EntityShape",
@@ -40,22 +40,23 @@
           "path": "schema:citation",
           "name": "Citation",
           "description": "Citation (s) of publication (s) that describe the dataset.",
-          "xone":[
+          "xone": [
             {
               "datatype": "xsd:anyURI"
-            },{
+            },
+            {
               "datatype": "xsd:string"
-            },{
+            },
+            {
               "nodeKind": "sh:IRI"
             }
           ]
-
         },
         {
           "path": "schema:license",
           "name": "License",
           "description": "License.",
-          "nodeKind":"sh:IRI",
+          "nodeKind": "sh:IRI",
           "maxCount": 1
         }
       ]
