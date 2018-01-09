@@ -1,8 +1,8 @@
-val commonsVersion         = "0.5.23"
-val nexusKGVersion         = "0.8"
+val commonsVersion         = "0.5.24"
+val nexusKGVersion         = "0.8.2"
 
 
-lazy val nexusProv = "ch.epfl.bluebrain.nexus" %% "nexus-prov" % "0.1.2"
+lazy val nexusProv = "ch.epfl.bluebrain.nexus" %% "nexus-prov" % "0.1.3"
 lazy val commonsSchemas = nexusDep("commons-schemas", commonsVersion)
 lazy val nexusKGSchemas = nexusDep("kg-schemas", nexusKGVersion)
 
