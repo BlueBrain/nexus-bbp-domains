@@ -1,0 +1,63 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/shacl20170720/v0.1.0",
+    {
+      "this": "{{base}}/schemas/nexus/core/datadownload/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/nexus/core/quantitativevalue/v0.1.0",
+    "{{base}}/schemas/nexus/core/digest/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:DataDownloadShape",
+      "@type": "sh:NodeShape",
+      "and": [
+        {
+          "or": [
+            {
+              "path": "schema:downloadURL",
+              "datatype": "xsd:anyURI",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "schema:accessURL",
+              "datatype": "xsd:anyURI",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        },
+        {
+          "property": [
+            {
+              "path": "schema:contentSize",
+              "node": "{{base}}/schemas/nexus/core/quantitativevalue/v0.1.0/shapes/PositiveQuantitativeValueShape",
+              "maxCount": 1
+            },
+            {
+              "path": "nxv:digest",
+              "node": "{{base}}/schemas/nexus/core/digest/v0.1.0/shapes/DigestShape"
+            },
+            {
+              "path": "schema:mediaType",
+              "datatype": "xsd:string",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nxv:storage",
+              "name": "Storage",
+              "description": "Storage",
+              "nodeKind": "sh:IRI",
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
