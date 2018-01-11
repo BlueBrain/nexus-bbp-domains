@@ -141,7 +141,7 @@
     "bbpcore": "http://bbp-nexus.epfl.ch/voc/core/",
     "bbpimagestack": "{{base}}/schemas/bbp/atlas/bbpimagestack/v0.1.0/shapes/",
     "bbpimagevolume": "{{base}}/schemas/bbp/atlas/bbpimagevolume/v0.1.6/shapes/",
-    "bbpentity": "{{base}}/schemas/bbp/experiment/entity/v0.1.0/shapes/",
+    "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
     "this": "{{base}}/schemas/bbp/atlas/templateimagedata/v0.1.0/shapes/"
   },
   "import": [
@@ -159,7 +159,7 @@
       "targetClass": "bbpatlas:TemplateImageData",
       "and": [
         {
-          "node": "bbpentity:EntityShape"
+          "node": "bbpentsh:EntityShape"
         },
         {
           "property": [

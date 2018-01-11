@@ -1,7 +1,6 @@
 {
   "@context": [
     "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
@@ -10,7 +9,7 @@
       "this": "{{base}}/schemas/bbp/electrophysiology/stimulusexperiment/v0.1.0/shapes/"
     }
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "imports": [
     "{{base}}/schemas/bbp/core/activity/v0.1.0",
     "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0"

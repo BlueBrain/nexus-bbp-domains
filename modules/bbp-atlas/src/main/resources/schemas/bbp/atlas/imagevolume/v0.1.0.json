@@ -1,10 +1,9 @@
 {
   "@context": [
     "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
-      "bbpentsh": "{{base}}/v0/schemas/bbp/core/entity/v0.1.0/shapes/",
+      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
       "bbpvect3dsh": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
       "bbprotmatsh": "{{base}}/schemas/bbp/core/rotationalmatrix/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.0/shapes/"

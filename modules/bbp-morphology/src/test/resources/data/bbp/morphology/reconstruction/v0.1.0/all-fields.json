@@ -38,7 +38,7 @@
       "@type": "prov:Association",
       "agent": {
         "@type": "prov:Agent",
-        "@id": "{{base}}/v0/data/bbp/core/person/v0.1.0/92801f69-0db3-4945-a746-bb6abaf510e0"
+        "@id": "{{base}}/data/bbp/core/person/v0.1.0/92801f69-0db3-4945-a746-bb6abaf510e0"
       },
       "hadRole": {
         "@type": "prov:Role",

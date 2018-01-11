@@ -1,7 +1,6 @@
 {
   "@context": [
     "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
     {
       "bbplotsh": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/"
