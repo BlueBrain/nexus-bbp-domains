@@ -1,0 +1,54 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/mediatype/v0.1.0",
+    {
+      "ianaform": "https://www.iana.org/form/media-types/",
+      "typeName": {
+        "@id": "ianaform:typeName"
+      },
+      "subtype": {
+        "@id": "ianaform:subtype"
+      },
+      "requiredParameter": {
+        "@id": "ianaform:requiredParameter"
+      },
+      "optionalParameter": {
+        "@id": "ianaform:optionalParameter"
+      },
+      "encoding": {
+        "@id": "ianaform:encoding"
+      },
+      "security": {
+        "@id": "ianaform:security"
+      },
+      "Interoperability": {
+        "@id": "ianaform:Interoperability"
+      },
+      "citation": {
+        "@id": "schema:citation"
+      },
+      "usingApplication": {
+        "@id": "ianaform:usingApplication"
+      },
+      "fragmentIdentification": {
+        "@id": "ianaform:fragmentIdentification"
+      },
+      "usageRestriction": {
+        "@id": "ianaform:usageRestriction"
+      },
+      "intendedUsage": {
+        "@id": "ianaform:intendedUsage"
+      },
+      "contactPerson": {
+        "@id": "ianaform:contactPerson"
+      },
+      "propertyID": {
+        "@id": "schema:propertyID"
+      },
+      "value": {
+        "@id": "schema:value"
+      }
+    }
+  ]
+}
+
