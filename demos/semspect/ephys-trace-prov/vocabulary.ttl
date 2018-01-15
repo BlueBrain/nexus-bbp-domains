@@ -1,0 +1,415 @@
+@prefix : <https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+@prefix nsg: <https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/> .
+@prefix nxv: <https://bbp-nexus.epfl.ch/dev/v0/voc/nexus/core/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shsh: <http://www.w3.org/ns/shacl-shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms> .
+@base <https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0> .
+
+<https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0> rdf:type owl:Ontology ;
+                                                                      dc:creator "Anna-Kristin Kaufmann <anna-kristin.kaufmann@epfl.ch>" ;
+                                                                      vann:preferredNamespacePrefix "nsg" ;
+                                                                      dc:rights "This work is distributed under a Creative Commons Attribution 4.0 (CC-BY-4.0) Public License <https://creativecommons.org/licenses/by/4.0/>."@en ;
+                                                                      rdfs:label "BBP Core Vocabulary"@en ;
+                                                                      dc:publisher "Blue Brain Project" ;
+                                                                      dc:creator "Silvia Jimenez <silvia.jimenez@epfl.ch>" ;
+                                                                      rdfs:comment "This vocabulary is still under development and does not cover all the taxonomies used in BBP."@en ;
+                                                                      owl:versionInfo "0.1.0" ;
+                                                                      <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                                                                      dc:creator "Mohameth François Sy <mohameth.sy@epfl.ch>" ;
+                                                                      vann:preferredNamespaceUri "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
+                    rdfs:label "was derived from" .
+
+
+###  https://bbp-nexus.epfl.ch/dev/v0/voc/nexus/core/domain
+nxv:domain rdf:type owl:ObjectProperty .
+
+
+###  https://bbp-nexus.epfl.ch/dev/v0/voc/nexus/core/organization
+nxv:organization rdf:type owl:ObjectProperty ;
+                 rdfs:label "organization" .
+
+
+###  https://bbp-nexus.epfl.ch/dev/v0/voc/nexus/core/schema
+nxv:schema rdf:type owl:ObjectProperty ;
+           rdfs:label "conform to schema" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/brainRegion
+nsg:brainRegion rdf:type owl:ObjectProperty ;
+                rdfs:label "is located in brain region" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/contributor
+nsg:contributor rdf:type owl:ObjectProperty ;
+                rdfs:label "has contributor" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/coordinatesInBrainAtlas
+nsg:coordinatesInBrainAtlas rdf:type owl:ObjectProperty ;
+                            rdfs:label "coordinates in brain atlas" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/coordinatesInSlice
+nsg:coordinatesInSlice rdf:type owl:ObjectProperty ;
+                       rdfs:label "coordinates in slice" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/distanceToBoundary
+nsg:distanceToBoundary rdf:type owl:ObjectProperty ;
+                       rdfs:label "distance to boundary" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/eCode
+nsg:eCode rdf:type owl:ObjectProperty ;
+          rdfs:label "eCode" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/hadProtocol
+nsg:hadProtocol rdf:type owl:ObjectProperty ;
+                rdfs:label "had protocol" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/longitudinalAxis
+nsg:longitudinalAxis rdf:type owl:ObjectProperty ;
+                     rdfs:label "longitudinal axis" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/materials
+nsg:materials rdf:type owl:ObjectProperty ;
+              rdfs:label "materials" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/radius
+nsg:radius rdf:type owl:ObjectProperty ;
+           rdfs:label "radius" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/reagentMolarWeight
+nsg:reagentMolarWeight rdf:type owl:ObjectProperty ;
+                       rdfs:label "reagent molar weight" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/reagentVendor
+nsg:reagentVendor rdf:type owl:ObjectProperty ;
+                  rdfs:label "reagent vendor" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/soma
+nsg:soma rdf:type owl:ObjectProperty ;
+         rdfs:label "soma" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/species
+nsg:species rdf:type owl:ObjectProperty .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/stimulusType
+nsg:stimulusType rdf:type owl:ObjectProperty ;
+                 rdfs:label "stimulus type" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/subject
+nsg:subject rdf:type owl:ObjectProperty ;
+            rdfs:comment "subject" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/valueX
+nsg:valueX rdf:type owl:ObjectProperty ;
+           rdfs:label "value X" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/valueY
+nsg:valueY rdf:type owl:ObjectProperty ;
+           rdfs:label "value Y" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/valueZ
+nsg:valueZ rdf:type owl:ObjectProperty ;
+           rdfs:label "value Z" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/voxelResolution
+nsg:voxelResolution rdf:type owl:ObjectProperty ;
+                    rdfs:label "voxel resolution" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/voxelResolutionValue
+nsg:voxelResolutionValue rdf:type owl:ObjectProperty ;
+                         rdfs:label "voxel resolution value" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://bbp-nexus.epfl.ch/dev/v0/voc/nexus/core/deprecated
+nxv:deprecated rdf:type owl:DatatypeProperty ;
+               rdfs:label "deprecated" .
+
+
+###  https://bbp-nexus.epfl.ch/dev/v0/voc/nexus/core/published
+nxv:published rdf:type owl:DatatypeProperty ;
+              rdfs:label "published" .
+
+
+###  https://bbp-nexus.epfl.ch/dev/v0/voc/nexus/core/rev
+nxv:rev rdf:type owl:DatatypeProperty ;
+        rdfs:label "revision" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/apicalDendrite
+nsg:apicalDendrite rdf:type owl:DatatypeProperty ;
+                   rdfs:label "apical dendrite" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/axon
+nsg:axon rdf:type owl:DatatypeProperty ;
+         rdfs:label "axon" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/basalDendrite
+nsg:basalDendrite rdf:type owl:DatatypeProperty ;
+                  rdfs:label "basal dendrite" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/boundary
+nsg:boundary rdf:type owl:DatatypeProperty ;
+             rdfs:label "boundary" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/gain
+nsg:gain rdf:type owl:DatatypeProperty ;
+         rdfs:label "gain" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/period
+nsg:period rdf:type owl:DatatypeProperty ;
+           rdfs:label "age period" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/positionInLayer
+nsg:positionInLayer rdf:type owl:DatatypeProperty ;
+                    rdfs:label "position in layer" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/providerId
+nsg:providerId rdf:type owl:DatatypeProperty ;
+               rdfs:label "provider identifier" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/reagentLinearFormula
+nsg:reagentLinearFormula rdf:type owl:DatatypeProperty ;
+                         rdfs:label "reagent linear formula" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/reagentName
+nsg:reagentName rdf:type owl:DatatypeProperty ;
+                rdfs:label "reagent name" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/ns/prov#Entity
+prov:Entity rdf:type owl:Class .
+
+
+###  http://schema.org/Organization
+schema:Organization rdf:type owl:Class ;
+                    rdfs:subClassOf schema:Organization ,
+                                    nsg:Agent ;
+                    rdfs:label "Organization" .
+
+
+###  http://schema.org/Person
+schema:Person rdf:type owl:Class ;
+              rdfs:subClassOf nsg:Agent ;
+              rdfs:label "Person" .
+
+
+###  http://www.w3.org/ns/prov#Activity
+prov:Activity rdf:type owl:Class ;
+              rdfs:label "Activity" .
+
+
+###  https://bbp-nexus.epfl.ch/dev/v0/voc/nexus/core/Domain
+nxv:Domain rdf:type owl:Class ;
+           rdfs:label "Nexus Domain" .
+
+
+###  https://bbp-nexus.epfl.ch/dev/v0/voc/nexus/core/Organization
+nxv:Organization rdf:type owl:Class ;
+                 rdfs:label "Nexus Organization" .
+
+
+###  https://bbp-nexus.epfl.ch/dev/v0/voc/nexus/core/Schema
+nxv:Schema rdf:type owl:Class ;
+           rdfs:label "Nexus Schema" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/AcquisitionAnnotation
+nsg:AcquisitionAnnotation rdf:type owl:Class ;
+                          rdfs:subClassOf prov:Activity ;
+                          rdfs:label "Acquisition Annotation" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/Agent
+nsg:Agent rdf:type owl:Class ;
+          rdfs:label "Agent" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/AnnotatedSlice
+nsg:AnnotatedSlice rdf:type owl:Class ;
+                   rdfs:subClassOf nsg:Entity ;
+                   rdfs:label "Annotated Slice" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/BrainSlicing
+nsg:BrainSlicing rdf:type owl:Class ;
+                 rdfs:subClassOf prov:Activity ;
+                 rdfs:label "Brain Slicing" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/Entity
+nsg:Entity rdf:type owl:Class ;
+           rdfs:label "Entity" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/FixationStainingMounting
+nsg:FixationStainingMounting rdf:type owl:Class ;
+                             rdfs:subClassOf prov:Activity ;
+                             rdfs:label "Fixation Staining Mounting" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/FixedStainedSlice
+nsg:FixedStainedSlice rdf:type owl:Class ;
+                      rdfs:subClassOf nsg:Entity ;
+                      rdfs:label "Fixed Stained Slice" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/LabeledCell
+nsg:LabeledCell rdf:type owl:Class ;
+                rdfs:subClassOf nsg:Entity ;
+                rdfs:label "Labeled Cell" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/NodeShape
+nsg:NodeShape rdf:type owl:Class ;
+              rdfs:subClassOf nsg:Shape ;
+              rdfs:label "Node Shape" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/PatchedCell
+nsg:PatchedCell rdf:type owl:Class ;
+                rdfs:subClassOf nsg:Entity ;
+                rdfs:label "Patched Cell" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/PatchedSlice
+nsg:PatchedSlice rdf:type owl:Class ;
+                 rdfs:subClassOf nsg:Entity ;
+                 rdfs:label "Patched Slice" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/PropertyShape
+nsg:PropertyShape rdf:type owl:Class ;
+                  rdfs:subClassOf nsg:Shape ;
+                  rdfs:label "Property Shape" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/Protocol
+nsg:Protocol rdf:type owl:Class ;
+             rdfs:subClassOf nsg:Entity ;
+             rdfs:label "Protocol" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/ReconstructedCell
+nsg:ReconstructedCell rdf:type owl:Class ;
+                      rdfs:subClassOf nsg:Entity ;
+                      rdfs:label "Reconstructed Cell" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/Reconstruction
+nsg:Reconstruction rdf:type owl:Class ;
+                   rdfs:subClassOf prov:Activity ;
+                   rdfs:label "Reconstruction" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/ResponseTrace
+nsg:ResponseTrace rdf:type owl:Class ;
+                  rdfs:subClassOf nsg:Trace ;
+                  rdfs:label "Response Trace" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/Shape
+nsg:Shape rdf:type owl:Class .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/Slice
+nsg:Slice rdf:type owl:Class ;
+          rdfs:subClassOf nsg:Entity ;
+          rdfs:label "Slice" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/SoftwareAgent
+nsg:SoftwareAgent rdf:type owl:Class ;
+                  rdfs:subClassOf nsg:Agent ;
+                  rdfs:label "Software Agent" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/StimulationTrace
+nsg:StimulationTrace rdf:type owl:Class ;
+                     rdfs:subClassOf nsg:Trace ;
+                     rdfs:label "Stimulation Trace" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/StimulusExperiment
+nsg:StimulusExperiment rdf:type owl:Class ;
+                       rdfs:subClassOf prov:Activity ;
+                       rdfs:label "Stimulus Experiment" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/Subject
+nsg:Subject rdf:type owl:Class ;
+            rdfs:subClassOf nsg:Entity ;
+            rdfs:label "Subject" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/Trace
+nsg:Trace rdf:type owl:Class ;
+          rdfs:subClassOf nsg:Entity ;
+          rdfs:label "Trace" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/TraceGeneration
+nsg:TraceGeneration rdf:type owl:Class ;
+                    rdfs:label "Trace Generation" .
+
+
+###  https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/WholeCellPatchClamp
+nsg:WholeCellPatchClamp rdf:type owl:Class ;
+                        rdfs:subClassOf prov:Activity ;
+                        rdfs:label "Whole Cell Patch Clamp" .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
