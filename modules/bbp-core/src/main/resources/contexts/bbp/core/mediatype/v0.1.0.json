@@ -21,8 +21,8 @@
       "security": {
         "@id": "ianaform:security"
       },
-      "Interoperability": {
-        "@id": "ianaform:Interoperability"
+      "interoperability": {
+        "@id": "ianaform:interoperability"
       },
       "citation": {
         "@id": "schema:citation"

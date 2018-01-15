@@ -14,7 +14,7 @@
       "@id": "this:MediaTypeShape",
       "@type": "sh:NodeShape",
       "label": "A shape for describing a media type.",
-      "comment": "This shape is inspired from the IANA media type registration form. Please review existing types and subtypes of  media type (see https://www.iana.org/assignments/media-types/media-types.xhtml ). ",
+      "comment": "This shape is inspired from the IANA media type registration form. Please review existing types and subtypes of  media type (see https://www.iana.org/assignments/media-types/media-types.xhtml). ",
       "rdfs:seeAlso": [
         "https://www.iana.org/form/media-types",
         "https://www.iana.org/assignments/media-types/media-types.xhtml"
