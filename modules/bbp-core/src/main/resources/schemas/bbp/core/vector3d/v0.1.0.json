@@ -1,13 +1,12 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
       "this": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/"
     }
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "shapes": [
     {
       "@id": "this:Vector3DShape",

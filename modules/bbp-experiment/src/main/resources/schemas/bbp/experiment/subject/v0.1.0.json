@@ -1,6 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/shacl/rec-shacl-20170720/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/bbp/core/entity/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
@@ -10,7 +10,7 @@
       "this": "{{base}}/schemas/bbp/experiment/subject/v0.1.0/shapes/"
     }
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "imports": [
     "{{base}}/schemas/bbp/core/entity/v0.1.0",
     "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0",
@@ -121,21 +121,27 @@
       ]
     },
     {
-      "@id" : "this:AgeShape",
-      "@type" : "sh:NodeShape",
-      "property" : [ {
-        "path" : "nsg:period",
-        "name" : "Period",
-        "in" : [ "Pre-natal", "Post-natal" ],
-        "minCount" : 1,
-        "maxCount" : 1
-      }, {
-        "path" : "schema:value",
-        "name" : "Age value",
-        "node" : "bbpqsh:QuantitativeValueShape",
-        "minCount" : 1,
-        "maxCount" : 1
-      } ]
+      "@id": "this:AgeShape",
+      "@type": "sh:NodeShape",
+      "property": [
+        {
+          "path": "nsg:period",
+          "name": "Period",
+          "in": [
+            "Pre-natal",
+            "Post-natal"
+          ],
+          "minCount": 1,
+          "maxCount": 1
+        },
+        {
+          "path": "schema:value",
+          "name": "Age value",
+          "node": "bbpqsh:QuantitativeValueShape",
+          "minCount": 1,
+          "maxCount": 1
+        }
+      ]
     }
   ]
 }

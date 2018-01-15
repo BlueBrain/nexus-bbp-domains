@@ -143,7 +143,7 @@
   "imports": [
     "https://bbp-nexus.epfl.ch/dev/v0/schemas/nexus/prov/activity/v0.1.0"
   ],
-  "@type": "owl:Ontology",
+  "@type": "nxv:Schema",
   "shapes": [
     {
       "@id": "this:OntologyConversionShape",
