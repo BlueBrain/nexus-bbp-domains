@@ -20,16 +20,6 @@
           "node": "scqsh:QuantitativeValueShape"
         },
         {
-          "property": [
-            {
-              "path": "schema:value",
-              "datatype": "xsd:string",
-              "maxCount": 1,
-              "minCount": 1
-            }
-          ]
-        },
-        {
           "xone": [
             {
               "path": "schema:unitText",
