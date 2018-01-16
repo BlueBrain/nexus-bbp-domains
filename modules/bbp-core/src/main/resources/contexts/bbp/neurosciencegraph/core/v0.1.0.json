@@ -2,7 +2,6 @@
   "@context": {
     "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
     "schema": "http://schema.org/",
-
     "brainRegion": {
       "@id": "nsg:brainRegion"
     },
@@ -230,6 +229,10 @@
     },
     "dataUnit": {
       "@id": "nsg:dataUnit"
+    },
+    "modelScript": {
+      "@id": "nsg:modelScript",
+      "@type": "@id"
     }
   }
 }

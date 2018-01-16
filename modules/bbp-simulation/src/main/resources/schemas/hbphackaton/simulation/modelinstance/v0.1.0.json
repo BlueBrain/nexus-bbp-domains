@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    {
+      "this": "{{base}}/schemas/hbphackaton/simulation/modelinstance/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:ModelInstanceShape",
+      "@type": "sh:NodeShape",
+      "label": "This shape is for...",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:modelOf",
+              "name": "Model of",
+              "description": "",
+              "class": "nsg:CellType"
+            },
+            {
+              "path": "nsg:modelScript",
+              "name": "Model script",
+              "description": "Model script"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

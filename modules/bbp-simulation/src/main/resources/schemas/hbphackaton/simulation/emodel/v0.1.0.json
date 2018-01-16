@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    {
+      "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
+      "this": "{{base}}/schemas/hbphackaton/simulation/emodel/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/hbphackaton/simulation/modelinstance/v0.1.0",
+    "{{base}}/schemas/hbphackaton/simulation/modelscript/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:EModelShape",
+      "@type": "sh:NodeShape",
+      "label": "This shape is for...",
+      "targetClass": "nsg:EModel",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/hbphackaton/simulation/modelinstance/v0.1.0/shapes/ModelInstanceShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:subCellularMechanism",
+              "name": "SubCellular mechanism",
+              "description": "SubCellular mechanism",
+              "class": "nsg:SubCellularModel",
+              "node": "{{base}}/schemas/hbphackaton/simulation/subcellarmodel/v0.1.0/SubCellularModelShape"
+            },
+            {
+              "property": [
+                {
+                  "path": "nsg:modelScript",
+                  "name": "Cell type",
+                  "description": "mod file",
+                  "node": "{{base}}/schemas/hbphackaton/simulation/modelscript/v0.1.0/shapes/EModelScriptShape"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
