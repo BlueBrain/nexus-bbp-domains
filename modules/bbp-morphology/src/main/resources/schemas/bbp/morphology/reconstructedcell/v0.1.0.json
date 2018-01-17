@@ -67,7 +67,7 @@
             },
             {
               "path": "nsg:reconstructedCellIntegrity",
-              "name": "Reconstructed cell ntegrity",
+              "name": "Reconstructed cell integrity",
               "description": "Gives information on the integrity of the reconstructed cell.",
               "node": "nsg:ReconstructedCellIntegrityShape",
               "maxCount": 1
