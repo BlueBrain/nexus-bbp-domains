@@ -5,6 +5,7 @@
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
   ],
   "@type": "nsg:SubCellularModel",
+
   "@id": "{{base}}/data/hbphackaton/simulation/subcellularmodel/v0.1.0/d4d5bebf-2777-481f-8623-fc3b36edba91",
   "name": "Transient Sodium",
   "modelOf": {
@@ -15,6 +16,15 @@
     "@id": "{{base}}/data/hbphackaton/simulation/modelscript/v0.1.0/cfd2ba87-ac84-4615-98d6-048b79d05c0e",
     "@type": "nsg:ModelScript",
     "name": "NaTg.mod",
+
+  "name": "Entity Name",
+  "modelScript": {
+    "@id": "{{base}}/data/hbphackaton/simulation/modelscript/v0.1.0/cfd2ba87-ac84-4615-98d6-048b79d05c0e",
+    "@type": "nsg:ModelScript",
+    "name": "Entity Name",
+    "description": "Entity Description",
+    "providerId": "ProviderId",
+
     "distribution": [
       {
         "@context": {
@@ -52,7 +62,11 @@
             "@id": "schema:algorithm"
           }
         },
+
         "downloadURL": "https://bbpcode.epfl.ch/browse/code/sim/neurodamus/bbp/tree/lib/modlib/NaTg.mod?h=refs/heads/master",
+
+        "downloadURL": "file:///gpfs/bbp.cscs.ch/project/proj64/circuits/O1.v6a/20171206/source",
+
         "mediaType": "application/neuron-mod"
       }
     ]

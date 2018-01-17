@@ -233,6 +233,7 @@
     "modelScript": {
       "@id": "nsg:modelScript",
       "@type": "@id"
+
     },
     "modelOf": {
       "@id": "nsg:modelOf",
@@ -241,6 +242,7 @@
     "subCellularMechanism": {
       "@id": "nsg:subCellularMechanism",
       "@type": "@id"
+
     }
   }
 }
