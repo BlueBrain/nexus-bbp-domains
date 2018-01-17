@@ -16,7 +16,9 @@
       "@id": "this:PersonShape",
       "@type": "sh:NodeShape",
       "label": "Schema.org person specification is used as a vocabulary to describe a person.",
-      "targetClass": "nsg:Person",
+      "targetClass": [
+        "nsg:Person"
+      ],
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
         {
@@ -24,6 +26,12 @@
         },
         {
           "property": [
+            {
+              "path": "nsg:orcID",
+              "nodeKind": "sh:IRI",
+              "sh:pattern": "^(https:\/\/orcid.org)",
+              "maxCount": 1
+            },
             {
               "path": "schema:familyName",
               "minCount": 1,

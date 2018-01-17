@@ -22,6 +22,16 @@
       ]
     },
     {
+      "@id": "this:IonChannelOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a ion channel",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    },
+    {
       "@id": "this:SexOntologyTermShape",
       "@type": "sh:NodeShape",
       "label": "The shape of an ontology term representing a sex",
