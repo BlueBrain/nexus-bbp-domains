@@ -1,0 +1,112 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    {
+      "this": "{{base}}/schemas/hbphackaton/simulation/modelscript/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/hbphackaton/simulation/modelinstance/v0.1.0",
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:EModelScriptShape",
+      "@type": "sh:NodeShape",
+      "label": "This shape is for...",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "schema:distribution",
+              "name": "Distribution",
+              "description": "",
+              "node": "this:EModelScriptDistributionShape"
+            },
+            {
+              "path": "nsg:modelScript",
+              "name": "Cell type",
+              "description": "mod file",
+              "class": "",
+              "node": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "this:EModelScriptDistributionShape",
+      "@type": "sh:NodeShape",
+      "label": "This shape is for...",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/nexus/core/distribution/v0.1.0/shapes/DistributionShape"
+        },
+        {
+          "property": [
+            {
+              "path": "schema:mediaType",
+              "name": "Media type",
+              "description": "",
+              "in": [
+                "application/neuron-hoc",
+                "application/neuroml"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "this:SubCellularModelScriptShape",
+      "@type": "sh:NodeShape",
+      "label": "This shape is for...",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "schema:distribution",
+              "name": "Distribution",
+              "description": "",
+              "node": "this:SubCellularModelScriptDistributionShape"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "this:SubCellularModelScriptDistributionShape",
+      "@type": "sh:NodeShape",
+      "label": "This shape is for...",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/nexus/core/distribution/v0.1.0/shapes/DistributionShape"
+        },
+        {
+          "property": [
+            {
+              "path": "schema:mediaType",
+              "name": "Media type",
+              "description": "",
+              "in": [
+                "application/neuron-mod"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
