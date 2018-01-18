@@ -233,6 +233,9 @@
     "modelScript": {
       "@id": "nsg:modelScript",
       "@type": "@id"
+    },
+    "providerId": {
+      "@id": "nsg:providerId"
     }
   }
 }

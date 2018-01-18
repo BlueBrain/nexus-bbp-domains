@@ -1,7 +1,7 @@
 {
   "@context": [
     "{{base}}/contexts/nexus/core/standards/v0.1.0",
-    "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
+    "{{base}}/contexts/nexus/prov/provo20130430/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
     "@vocab": "http://www.w3.org/ns/prov#"
