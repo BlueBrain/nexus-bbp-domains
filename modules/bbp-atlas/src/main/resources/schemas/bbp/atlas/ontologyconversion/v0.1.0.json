@@ -1,147 +1,12 @@
 {
-  "@context": {
-    "class": {
-      "@id": "sh:class",
-      "@type": "@id"
-    },
-    "rootClass": {
-      "@id": "shext:rootClass",
-      "@type": "@id"
-    },
-    "path": {
-      "@id": "sh:path",
-      "@type": "@id"
-    },
-    "qualifiedValueShape": {
-      "@id": "sh:qualifiedValueShape",
-      "@type": "@id",
-      "@container": "@list"
-    },
-    "qualifiedValueShapesDisjoint": {
-      "@id": "sh:qualifiedValueShapesDisjoint",
-      "@type": "xsd:boolean"
-    },
-    "qualifiedMinCount": {
-      "@id": "sh:qualifiedMinCount",
-      "@type": "xsd:integer"
-    },
-    "qualifiedMaxCount": {
-      "@id": "sh:qualifiedMaxCount",
-      "@type": "xsd:integer"
-    },
-    "maxCount": {
-      "@id": "sh:maxCount",
-      "@type": "xsd:integer"
-    },
-    "minCount": {
-      "@id": "sh:minCount",
-      "@type": "xsd:integer"
-    },
-    "minInclusive": "sh:minInclusive",
-    "maxInclusive": "sh:maxInclusive",
-    "maxExclusive": "sh:maxExclusive",
-    "minExclusive": "sh:minExclusive",
-    "in": {
-      "@id": "sh:in",
-      "@container": "@list"
-    },
-    "imports": {
-      "@id": "owl:imports",
-      "@type": "@id",
-      "@container": "@set"
-    },
-    "datatype": {
-      "@id": "sh:datatype",
-      "@type": "@id"
-    },
-    "description": "sh:description",
-    "name": "sh:name",
-    "nodeKind": {
-      "@id": "sh:nodeKind",
-      "@type": "@id"
-    },
-    "node": {
-      "@id": "sh:node",
-      "@type": "@id"
-    },
-    "property": {
-      "@id": "sh:property",
-      "@type": "@id",
-      "@container": "@set"
-    },
-    "targetClass": {
-      "@id": "sh:targetClass",
-      "@type": "@id"
-    },
-    "targetObjectsOf": {
-      "@id": "sh:targetObjectsOf",
-      "@type": "@id"
-    },
-    "targetSubjectsOf": {
-      "@id": "sh:targetSubjectsOf",
-      "@type": "@id"
-    },
-    "isDefinedBy": {
-      "@id": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
-      "@type": "@id"
-    },
-    "shapes": {
-      "@reverse": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
-      "@type": "@id",
-      "@container": "@set"
-    },
-    "or": {
-      "@id": "sh:or",
-      "@type": "@id",
-      "@container": "@list"
-    },
-    "and": {
-      "@id": "sh:and",
-      "@type": "@id",
-      "@container": "@list"
-    },
-    "xone": {
-      "@id": "sh:xone",
-      "@type": "@id",
-      "@container": "@list"
-    },
-    "not": {
-      "@id": "sh:not",
-      "@type": "@id",
-      "@container": "@list"
-    },
-    "lessThan": {
-      "@id": "sh:lessThan",
-      "@type": "@id"
-    },
-    "hasValue": "sh:hasValue",
-    "label": {
-      "@id": "rdfs:label",
-      "@type": "xsd:string"
-    },
-    "comment": {
-      "@id": "rdfs:comment",
-      "@type": "xsd:string"
-    },
-    "editorialNote": {
-      "@id": "skos:editorialNote",
-      "@type": "xsd:string"
-    },
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "owl": "http://www.w3.org/2002/07/owl#",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "sh": "http://www.w3.org/ns/shacl#",
-    "schema": "http://schema.org/",
-    "prov": "http://www.w3.org/ns/prov#",
-    "bbpexp": "https://bbp-nexus.epfl.ch/voc/experiment/core/",
-    "bbpatlas": "https://bbp-nexus.epfl.ch/voc/atlas/core/",
-    "nexusprovactivity": "https://bbp-nexus.epfl.ch/dev/v0/schemas/nexus/prov/activity/v0.1.0/shapes/",
-    "this": "https://bbp-nexus.epfl.ch/dev/v0/schemas/bbp/atlas/ontologyconversion/v0.1.1/shapes/"
-  },
+  "@context": [
+      "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
+    {
+    "this": "{{base}}/dev/v0/schemas/bbp/atlas/ontologyconversion/v0.1.1/shapes/"
+  }
+  ],
   "imports": [
-    "https://bbp-nexus.epfl.ch/dev/v0/schemas/nexus/prov/activity/v0.1.0"
+    "{{base}}/dev/v0/schemas/nexus/prov/activity/v0.1.0"
   ],
   "@type": "nxv:Schema",
   "shapes": [
@@ -150,27 +15,27 @@
       "@type": "sh:NodeShape",
       "description": "Ontology conversion activity description.",
       "nodeKind": "sh:BlankNodeOrIRI",
-      "targetClass": "bbpatlas:OntologyConversion",
+      "targetClass": "{{base}}/voc/atlas/core/OntologyConversion",
       "and": [
         {
-          "@id": "nexusprovactivity:ActivityShape"
+          "@id": "{{base}}/dev/v0/schemas/nexus/prov/activity/v0.1.0/shapes/ActivityShape"
         },
         {
           "property": [
             {
               "path": "prov:used",
-              "class": "bbpatlas:ParcellationLabels",
+              "class": "{{base}}/voc/atlas/core/ParcellationLabels",
               "minCount": 1,
               "maxCount": 1
             },
             {
-              "path": "bbpexp:hadProtocol",
-              "class": "bbpexp:Protocol",
+              "path": "{{base}}/voc/experiment/core/hadProtocol",
+              "class": "{{base}}/voc/experiment/core/Protocol",
               "maxCount": 1
             },
             {
               "path": "prov:generated",
-              "class": "bbpatlas:ParcellationOntology",
+              "class": "{{base}}/voc/atlas/core/ParcellationOntology",
               "minCount": 1,
               "maxCount": 1
             }

@@ -1,12 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbpbboxsh": "{{base}}/schemas/bbp/core/boundingbox/v1.0.0/shapes/",
-      "bbprotmatsh": "{{base}}/schemas/bbp/core/rotationalmatrix/v0.1.0/shapes/",
-      "bbpvect3dsh": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/atlas/atlasspatialreferencesystem/v0.1.0/shapes/"
     }
   ],
@@ -25,7 +20,7 @@
       "targetClass": "nsg:AtlasSpatialReferenceSystem",
       "and": [
         {
-          "@id": "bbpentsh:EntityShape"
+          "@id": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
         },
         {
           "property": [
@@ -33,7 +28,7 @@
               "path": "nsg:origin",
               "name": "Origin",
               "description": "Origin of the reference system",
-              "node": "bbpvect3dsh:Vector3DShape",
+              "node": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/Vector3DShape",
               "minCount": 1,
               "maxCount": 1
             },
@@ -41,15 +36,15 @@
               "path": "nsg:orientation",
               "name": "Roatational matrix",
               "description": "3x3 rotational matrix",
-              "node": "bbprotmatsh:RotationalMatrixShape",
+              "node": "{{base}}/schemas/bbp/core/rotationalmatrix/v0.1.0/shapes/RotationalMatrixShape",
               "minCount": 1,
               "maxCount": 1
             },
             {
-              "path": "nsg:boundingbox",
+              "path": "nsg:boundingBox",
               "name": "Bounding box",
               "description": "Bounding box of the image data",
-              "node": "bbpbboxsh:BoundingBoxShape",
+              "node": "{{base}}/schemas/bbp/core/boundingbox/v1.0.0/shapes/BoundingBoxShape",
               "minCount": 1,
               "maxCount": 1
             },

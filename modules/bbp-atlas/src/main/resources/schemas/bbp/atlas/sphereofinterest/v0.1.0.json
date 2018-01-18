@@ -1,12 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpvoc": "https://bbp-nexus.epfl.ch/vocabularies/core/v0.1.0/",
-      "expes": "{{base}}/schemas/bbp/experiment/entity/v0.1.0/shapes/",
-      "quantvs": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
-      "rois": "{{base}}/schemas/bbp/atlas/regionofinterest/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/atlas/sphereofinterest/v0.1.0/shapes/"
     }
   ],
@@ -21,15 +16,15 @@
       "@type": "sh:NodeShape",
       "label": "A region of interest with sphere as a geometric shape.",
       "nodeKind": "sh:BlankNodeOrIRI",
-      "targetClass": "bbpvoc:RegionOfInterest",
+      "targetClass": "nsg:RegionOfInterest",
       "and": [
         {
-          "node": "rois:RegionOfInterestShape"
+          "node": "{{base}}/schemas/bbp/atlas/regionofinterest/v0.1.0/shapes/RegionOfInterestShape"
         },
         {
           "property": [
             {
-              "path": "bbpvoc:geometry",
+              "path": "nsg:geometry",
               "description": "The geometric shape of the sphere of interest.",
               "node": "this:SphereGeometricShapeShape",
               "minCount": 1,
@@ -43,11 +38,11 @@
       "@id": "this:SphereGeometricShapeShape",
       "@type": "sh:NodeShape",
       "label": "The shape of a  sphere geometry.",
-      "targetObjectsOf": "bbpvoc:geometry",
-      "class": "bbpvoc:Sphere",
+      "targetObjectsOf": "nsg:geometry",
+      "class": "nsg:Sphere",
       "property": [
         {
-          "path": "bbpvoc:geometryParameter",
+          "path": "nsg:geometryParameter",
           "name": "Parameters",
           "node": "this:SphereGeometryParameterShape",
           "minCount": 1,
@@ -59,21 +54,21 @@
       "@id": "this:SphereGeometryParameterShape",
       "@type": "sh:NodeShape",
       "label": "The shape of sphere geometry parameters.",
-      "targetObjectsOf": "bbpvoc:geometryParameter",
+      "targetObjectsOf": "nsg:geometryParameter",
       "property": [
         {
-          "path": "bbpvoc:center",
+          "path": "nsg:center",
           "name": "Center",
           "description": "The sphere center coordinates",
-          "node": "quantvs:QuantitativeValueShape",
+          "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
           "minCount": 1,
           "maxCount": 1
         },
         {
-          "path": "bbpvoc:radius",
+          "path": "nsg:radius",
           "name": "Radius",
           "description": "The sphere radius",
-          "node": "quantvs:QuantitativeValueShape",
+          "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
           "minCount": 1,
           "maxCount": 1
         }

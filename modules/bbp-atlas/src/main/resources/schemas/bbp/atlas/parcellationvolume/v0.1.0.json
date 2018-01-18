@@ -1,10 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbpimgvolsh": "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.6/shapes/",
       "this": "{{base}}/schemas/bbp/atlas/parcellationvolume/v0.1.0/shapes/"
     }
   ],
@@ -22,7 +19,7 @@
       "targetClass": "nsg:ParcellationVolume",
       "and": [
         {
-          "node": "bbpentsh:EntityShape"
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
         },
         {
           "property": [
@@ -30,7 +27,7 @@
               "path": "nsg:imageVolume",
               "name": "Image Volume",
               "description": "Image volume",
-              "node": "bbpimgvolsh:ImageVolumeShape",
+              "node": "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.6/shapes/ImageVolumeShape",
               "minCount": 1,
               "maxCount": 1
             },

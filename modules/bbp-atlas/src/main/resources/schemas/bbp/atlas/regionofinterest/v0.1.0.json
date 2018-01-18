@@ -1,10 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/experiment/entity/v0.1.0/shapes/",
-      "bbptlosh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/",
       "this": "{{base}}/schemas/bbp/atlas/regionofinterest/v0.1.0/shapes/"
     }
   ],
@@ -22,7 +19,7 @@
       "targetClass": "nsg:RegionOfInterest",
       "and": [
         {
-          "node": "bbpentsh:EntityShape"
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
         },
         {
           "property": [
@@ -86,7 +83,7 @@
           "path": "nsg:brainRegion",
           "name": "Brain region",
           "description": "Brain region",
-          "node": "bbptlosh:BrainRegionOntologyTermShape",
+          "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/BrainRegionOntologyTermShape",
           "minCount": 1
         }
       ]

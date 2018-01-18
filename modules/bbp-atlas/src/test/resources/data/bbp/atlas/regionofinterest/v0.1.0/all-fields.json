@@ -1,10 +1,10 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
+    "{{base}}/contexts/bbp/core/entity/v0.1.0"
   ],
   "@type": "nsg:RegionOfInterest",
   "description": "Region of interest with sphere as a shape and from a brain atlas",
+  "name": "Region of interest",
   "geometry": {
     "@type": [
       "nsg:Sphere",

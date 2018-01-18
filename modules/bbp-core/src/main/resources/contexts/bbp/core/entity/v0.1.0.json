@@ -1,11 +1,9 @@
 {
-  "@context": {
-    "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
-    "prov": "http://www.w3.org/ns/prov#",
-    "schema": "http://schema.org/",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "dcterms": "http://purl.org/dc/terms/",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+  "@context": [
+    "{{base}}/contexts/nexus/core/provo20130430/v0.1.0",
+    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
     "label": {
       "@id": "rdfs:label",
       "@type": "xsd:string"
@@ -34,13 +32,9 @@
     "size": {
       "@id": "schema:size"
     },
-    "xsd": "http://www.w3.org/2001/XMLSchema#",
-    "description": "schema:description",
-    "providerId": "nsg:providerId",
-    "species": {
-      "@id": "nsg:species"
-    },
-    "nxcv": "https://bbp-nexus.epfl.ch/vocabs/nexus/core/v0.0.1/",
+    "description": {
+        "@id": "schema:description"
+      },
     "citation": {
       "@id": "schema:citation",
       "@type": "@id"
@@ -52,10 +46,7 @@
     "hasPart": {
       "@id": "dcterms:hasPart",
       "@type": "@id"
-    },
-    "activity": {
-      "@id": "prov:activity",
-      "@type": "@id"
     }
   }
+  ]
 }

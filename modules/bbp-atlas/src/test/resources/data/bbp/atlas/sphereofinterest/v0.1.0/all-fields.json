@@ -1,18 +1,13 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
-    {
-      "@vocab": "https://bbp-nexus.epfl.ch/vocabularies/core/v0.1.0/",
-      "value": "schema:value",
-      "unitCode": "schema:unitCode"
-    }
+    "{{base}}/contexts/bbp/core/entity/v0.1.0"
   ],
-  "@type": "RegionOfInterest",
+  "@type": "nsg:RegionOfInterest",
   "description": "Region of interest with sphere as a shape and from a brain atlas",
   "geometry": {
     "@type": [
-      "Sphere",
-      "GeometricShape"
+      "nsg:Sphere",
+      "nsg:GeometricShape"
     ],
     "geometryParameter": {
       "center": {

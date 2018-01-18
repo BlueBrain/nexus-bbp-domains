@@ -1,11 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbpvect3dsh": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
-      "bbprotmatsh": "{{base}}/schemas/bbp/core/rotationalmatrix/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/atlas/imagevolume/v0.1.0/shapes/"
     }
   ],
@@ -23,7 +19,7 @@
       "targetClass": "nsg:ImageVolume",
       "and": [
         {
-          "node": "bbpentsh:EntityShape"
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
         },
         {
           "property": [
@@ -46,7 +42,7 @@
               "path": "nsg:volumeDimension",
               "name": "Volume Dimension",
               "description": "Dimension of the 3D volume in voxel",
-              "node": "bbpvect3dsh:Vector3DShape",
+              "node": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/Vector3DShape",
               "minCount": 1,
               "maxCount": 1
             },
@@ -62,7 +58,7 @@
               "path": "nsg:imageOrigin",
               "name": "Image Origin",
               "description": "Origin of the image volume",
-              "node": "bbpvect3dsh:Vector3DShape",
+              "node": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/Vector3DShape",
               "minCount": 1,
               "maxCount": 1
             },
@@ -70,7 +66,7 @@
               "path": "nsg:imageDirection",
               "name": "Image direction",
               "description": "Direction of the image volume represented as a rotational matrix",
-              "node": "bbprotmatsh:RotationalMatrixShape",
+              "node": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/RotationalMatrixShape",
               "minCount": 1,
               "maxCount": 1
             }
@@ -87,7 +83,7 @@
           "path": "nsg:voxelResolutionValue",
           "name": "Voxel resolution value",
           "description": "Voxel resolution value",
-          "node": "bbpvect3dsh:Vector3DShape",
+          "node": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/Vector3DShape",
           "minCount": 1,
           "maxCount": 1
         },
