@@ -2,7 +2,6 @@
   "@context": [
     "{{base}}/contexts/nexus/core/schema/v0.1.0",
     {
-      "bbplotsh": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/"
     }
   ],
@@ -17,7 +16,7 @@
       "label": "The shape of an ontology term representing a species",
       "and": [
         {
-          "node": "bbplotsh:LabeledOntologyTermShape"
+          "node": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/LabeledOntologyTermShape"
         }
       ]
     },
@@ -27,7 +26,7 @@
       "label": "The shape of an ontology term representing a sex",
       "and": [
         {
-          "node": "bbplotsh:LabeledOntologyTermShape"
+          "node": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/LabeledOntologyTermShape"
         }
       ]
     },
@@ -37,7 +36,7 @@
       "label": "The shape of an ontology term representing a cell type",
       "and": [
         {
-          "node": "bbplotsh:LabeledOntologyTermShape"
+          "node": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/LabeledOntologyTermShape"
         }
       ]
     },
@@ -47,7 +46,7 @@
       "label": "The shape of an ontology term representing a microscope objective type",
       "and": [
         {
-          "node": "bbplotsh:LabeledOntologyTermShape"
+          "node": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/LabeledOntologyTermShape"
         }
       ]
     },
@@ -57,7 +56,7 @@
       "label": "The shape of an ontology term representing a brain region",
       "and": [
         {
-          "node": "bbplotsh:LabeledOntologyTermShape"
+          "node": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/LabeledOntologyTermShape"
         }
       ]
     },
@@ -67,7 +66,7 @@
       "label": "The shape of an ontology term representing a stimulus type",
       "and": [
         {
-          "node": "bbplotsh:LabeledOntologyTermShape"
+          "node": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/LabeledOntologyTermShape"
         }
       ]
     },
@@ -77,7 +76,7 @@
       "label": "The shape of an ontology term representing an eCode",
       "and": [
         {
-          "node": "bbplotsh:LabeledOntologyTermShape"
+          "node": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/LabeledOntologyTermShape"
         }
       ]
     },
@@ -87,7 +86,7 @@
       "label": "The shape of an ontology term representing a role",
       "and": [
         {
-          "node": "bbplotsh:LabeledOntologyTermShape"
+          "node": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/LabeledOntologyTermShape"
         }
       ]
     },
@@ -97,7 +96,7 @@
       "label": "The shape of an ontology term representing a license",
       "and": [
         {
-          "node": "bbplotsh:LabeledOntologyTermShape"
+          "node": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/LabeledOntologyTermShape"
         }
       ]
     },
@@ -107,7 +106,7 @@
       "label": "The shape of an ontology term representing the types of somas of the reconstructed cell",
       "and": [
         {
-          "node": "bbplotsh:LabeledOntologyTermShape"
+          "node": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/LabeledOntologyTermShape"
         }
       ]
     },
@@ -117,7 +116,7 @@
       "label": "The shape of an ontology term representing a unit code",
       "and": [
         {
-          "node": "bbplotsh:LabeledOntologyTermShape"
+          "node": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/LabeledOntologyTermShape"
         }
       ]
     },
@@ -127,7 +126,7 @@
       "label": "The shape of an ontology term representing a labeling compound",
       "and": [
         {
-          "node": "bbplotsh:LabeledOntologyTermShape"
+          "node": "{{base}}/schemas/bbp/core/labeledontologyterm/v0.1.0/shapes/LabeledOntologyTermShape"
         }
       ]
     }

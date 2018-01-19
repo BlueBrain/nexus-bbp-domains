@@ -45,7 +45,7 @@
       },
       "hadRole": {
         "@type": "prov:Role",
-        "@id": "https://bbp-nexus.epfl.ch/voc/role_ontology/0000004"
+        "@id": "{{base}}/voc/role_ontology/0000004"
       },
       "hadPlan": {
         "@type": "prov:Plan",
@@ -58,7 +58,7 @@
       "@type": "prov:Usage",
       "hadRole": {
         "@type": "prov:Role",
-        "@id": "https://bbp-nexus.epfl.ch/voc/role_ontology/0000031"
+        "@id": "{{base}}/voc/role_ontology/0000031"
       },
       "entity": {
         "@type": [

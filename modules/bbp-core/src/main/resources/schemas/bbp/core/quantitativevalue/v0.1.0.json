@@ -2,7 +2,6 @@
   "@context": [
     "{{base}}/contexts/nexus/core/schema/v0.1.0",
     {
-      "scqsh": "{{base}}/schemas/nexus/schemaorg/quantitativevalue/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/"
     }
   ],
@@ -17,7 +16,7 @@
       "targetClass": "schema:QuantitativeValue",
       "and": [
         {
-          "node": "scqsh:QuantitativeValueShape"
+          "node": "{{base}}/schemas/nexus/schemaorg/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape"
         },
         {
           "xone": [
@@ -31,7 +30,7 @@
             {
               "path": "schema:unitCode",
               "name": "Unit",
-              "node": "bbptlotsh:UnitCodeOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/UnitCodeOntologyTermShape",
               "minCount": 1,
               "maxCount": 1
             }

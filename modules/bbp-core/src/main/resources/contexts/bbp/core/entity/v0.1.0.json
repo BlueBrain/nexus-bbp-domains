@@ -43,6 +43,18 @@
       "@id": "schema:license",
       "@type": "@id"
     },
+    "address": {
+      "@id": "schema:address"
+    },
+    "email": {
+      "@id": "schema:email"
+    },
+    "parentOrganization": {
+      "@id": "schema:parentOrganization"
+    },
+    "familyName": {
+      "@id": "schema:familyName"
+    },
     "hasPart": {
       "@id": "dcterms:hasPart",
       "@type": "@id"

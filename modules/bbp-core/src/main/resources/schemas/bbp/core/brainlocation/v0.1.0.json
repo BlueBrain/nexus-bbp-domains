@@ -1,11 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpvect3dsh": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
-      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
-      "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/"
     }
   ],
@@ -24,7 +20,7 @@
           "path": "nsg:brainRegion",
           "name": "Brain region",
           "description": "Brain region",
-          "node": "bbptlotsh:BrainRegionOntologyTermShape",
+          "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/BrainRegionOntologyTermShape",
           "minCount": 1
         },
         {
@@ -79,7 +75,7 @@
       "label": "Coordinates in brain atlas shape definition",
       "and": [
         {
-          "node": "bbpvect3dsh:Vector3DShape"
+          "node": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/Vector3DShape"
         },
         {
           "property": [
@@ -139,7 +135,7 @@
         {
           "path": "nsg:boundary",
           "name": "Boundary",
-          "node": "bbptlotsh:BrainRegionOntologyTermShape",
+          "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/BrainRegionOntologyTermShape",
           "minCount": 1,
           "maxCount": 1
         },
@@ -147,7 +143,7 @@
           "path": "schema:distance",
           "name": "Distance",
           "description": "Distance",
-          "class": "bbpqsh:QuantitativeValueShape",
+          "class": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
           "minCount": 1,
           "maxCount": 1
         }

@@ -235,8 +235,7 @@
       "@type": "@id"
     },
     "providerId": {
-      "@id": "nsg:providerId",
-      "@type": "@id"
+      "@id": "nsg:providerId"
     },
     "boundingBox": {
       "@id": "nsg:boundingBox",
@@ -268,6 +267,9 @@
     "center": {
       "@id": "nsg:center",
       "@type": "@id"
+    },
+    "valueZ": {
+      "@id": "nsg:valueZ"
     }
 
   }
