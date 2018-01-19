@@ -1,13 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/core/entity/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
-      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
-      "bbplocsh": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/experiment/patchedcell/v0.1.0/shapes/"
     }
   ],
@@ -27,7 +21,7 @@
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
         {
-          "node": "bbpentsh:EntityShape"
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
         },
         {
           "property": [
@@ -35,20 +29,20 @@
               "path": "nsg:brainLocation",
               "name": "Brain location",
               "description": "Brain location information of the patchedcell",
-              "node": "bbplocsh:BrainLocationShape"
+              "node": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/BrainLocationShape"
             },
             {
               "path": "nsg:putativeEtype",
               "name": "Putative e-type",
               "description": "The putative e-type of the patched cell",
-              "node": "bbptlotsh:CellTypeOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/CellTypeOntologyTermShape",
               "maxCount": 1
             },
             {
               "path": "nsg:eType",
               "name": "E-type",
               "description": "The e-type of the patched cell",
-              "node": "bbptlotsh:CellTypeOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/CellTypeOntologyTermShape",
               "maxCount": 1
             },
             {
@@ -62,56 +56,56 @@
               "path": "nsg:holdingPotential",
               "name": "Holding potential",
               "description": "Holding potential of patched cell",
-              "node": "bbpqsh:QuantitativeValueShape",
+              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
               "maxCount": 1
             },
             {
               "path": "nsg:startMembranePotential",
               "name": "Start membrane potential",
               "description": "Membrane potential of patched cell at beginning",
-              "node": "bbpqsh:QuantitativeValueShape",
+              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
               "maxCount": 1
             },
             {
               "path": "nsg:endMembranePotential",
               "name": "End membrane potential",
               "description": "Membrane potential of patched cell at the end",
-              "node": "bbpqsh:QuantitativeValueShape",
+              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
               "maxCount": 1
             },
             {
               "path": "nsg:sealResistance",
               "name": "Seal resistance",
               "description": "Seal resistance of patch",
-              "node": "bbpqsh:QuantitativeValueShape",
+              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
               "maxCount": 1
             },
             {
               "path": "nsg:pipetteResistance",
               "name": "Pipette resistance",
               "description": "Resistance of pipette used",
-              "node": "bbpqsh:QuantitativeValueShape",
+              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
               "maxCount": 1
             },
             {
               "path": "nsg:inputResistance",
               "name": "Input resistance",
               "description": "Input resistance of patched cell",
-              "node": "bbpqsh:QuantitativeValueShape",
+              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
               "maxCount": 1
             },
             {
               "path": "nsg:seriesResistance",
               "name": "Series resistance",
               "description": "Series resistance while patching cell",
-              "node": "bbpqsh:QuantitativeValueShape",
+              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
               "maxCount": 1
             },
             {
               "path": "nsg:liquidJunctionPotential",
               "name": "Liquid junction potential",
               "description": "Liquid junction potential of patch",
-              "node": "bbpqsh:QuantitativeValueShape",
+              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
               "maxCount": 1
             },
             {
@@ -132,7 +126,7 @@
               "path": "nsg:labelingCompound",
               "name": "Labeling compound",
               "description": "The compound used in the pipette to label the cell",
-              "node": "bbptlotsh:LabelingCompoundOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/LabelingCompoundOntologyTermShape",
               "maxCount": 1
             }
           ]
@@ -166,7 +160,7 @@
         {
           "path": "schema:unitCode",
           "name": "Unit",
-          "node": "bbptlotsh:UnitCodeOntologyTermShape",
+          "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/UnitCodeOntologyTermShape",
           "minCount": 1,
           "maxCount": 1
         },

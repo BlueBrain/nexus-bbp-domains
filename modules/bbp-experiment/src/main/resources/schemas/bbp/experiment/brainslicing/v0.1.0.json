@@ -1,12 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
-      "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
-      "bbplocsh": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/experiment/brainslicing/v0.1.0/shapes/"
     }
   ],
@@ -25,7 +20,7 @@
       "targetClass": "nsg:BrainSlicing",
       "and": [
         {
-          "node": "bbpactsh:ActivityShape"
+          "node": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/ActivityShape"
         },
         {
           "property": [
@@ -46,7 +41,7 @@
               "path": "nsg:brainLocation",
               "name": "Brain location",
               "description": "Brain location information",
-              "node": "bbplocsh:BrainLocationShape"
+              "node": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/BrainLocationShape"
             },
             {
               "path": "nsg:slicingPlane",
@@ -73,7 +68,7 @@
               "path": "nsg:cuttingThickness",
               "name": "Cutting thickness",
               "description": "Cutting thickness of brain slice",
-              "node": "bbpqsh:QuantitativeValueShape",
+              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
               "maxCount": 1
             },
             {

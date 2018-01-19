@@ -1,10 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/experiment/protocol/v0.1.0/shapes/"
     }
   ],
@@ -22,7 +19,7 @@
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
         {
-          "node": "bbpentsh:EntityShape"
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
         },
         {
           "path": "schema:identifier",
@@ -85,7 +82,7 @@
           "path": "nsg:reagentMolarWeight",
           "name": "Reagent molar weight",
           "description": "Molar weight of reagent",
-          "node": "bbpqsh:QuantitativeValueShape",
+          "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
           "maxCount": 1
         },
         {

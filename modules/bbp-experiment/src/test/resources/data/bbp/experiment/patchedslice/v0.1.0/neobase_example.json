@@ -2,9 +2,9 @@
     "@context": [
         "{{base}}/contexts/bbp/core/entity/v0.1.0"
     ],
-
     "@type": [
-        "nsg:WrongType"
+        "prov:Entity",
+        "nsg:PatchedSlice"
     ],
     "name": "C010600A",
     "hasPart": [

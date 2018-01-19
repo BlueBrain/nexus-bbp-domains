@@ -1,10 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/core/entity/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/experiment/slice/v0.1.0/shapes/"
     }
   ],
@@ -21,7 +18,7 @@
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
         {
-          "node": "bbpentsh:EntityShape"
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
         }
       ]
     }

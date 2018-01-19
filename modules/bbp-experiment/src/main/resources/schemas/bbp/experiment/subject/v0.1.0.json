@@ -1,12 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/core/entity/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
-      "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/experiment/subject/v0.1.0/shapes/"
     }
   ],
@@ -26,7 +21,7 @@
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
         {
-          "node": "bbpentsh:EntityShape"
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
         },
         {
           "property": [
@@ -34,7 +29,7 @@
               "path": "nsg:species",
               "name": "Species",
               "description": "The species of the subject",
-              "node": "bbptlotsh:SpeciesOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/SpeciesOntologyTermShape",
               "minCount": 1,
               "maxCount": 1
             },
@@ -42,21 +37,21 @@
               "path": "nsg:strain",
               "name": "Strain",
               "description": "Subject strain",
-              "node": "bbptlotsh:StrainOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/StrainOntologyTermShape",
               "maxCount": 1
             },
             {
               "path": "nsg:transgenic",
               "name": "Transgenic",
               "description": "Transgenic modification of subject",
-              "node": "bbptlotsh:TransgenicOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/TransgenicOntologyTermShape",
               "maxCount": 1
             },
             {
               "path": "nsg:sex",
               "name": "Sex",
               "description": "The sex of the subject",
-              "node": "bbptlotsh:SexOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/SexOntologyTermShape",
               "maxCount": 1
             },
             {
@@ -92,28 +87,28 @@
               "path": "nsg:diseaseModel",
               "name": "Disease",
               "description": "Disease modeled in subject.",
-              "node": "bbptlotsh:DiseaseModelOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/DiseaseModelOntologyTermShape",
               "maxCount": 1
             },
             {
               "path": "nsg:disease",
               "name": "Disease",
               "description": "Disease of subject.",
-              "node": "bbptlotsh:DiseaseOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/DiseaseOntologyTermShape",
               "maxCount": 1
             },
             {
               "path": "nsg:treatment",
               "name": "Treatment",
               "description": "Treatment of the subject.",
-              "node": "bbptlotsh:TreatmentOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/TreatmentOntologyTermShape",
               "maxCount": 1
             },
             {
               "path": "schema:weight",
               "name": "Weight",
               "description": "Weight of the subject.",
-              "node": "bbpqsh:QuantitativeValueShape",
+              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
               "maxCount": 1
             }
           ]
@@ -137,7 +132,7 @@
         {
           "path": "schema:value",
           "name": "Age value",
-          "node": "bbpqsh:QuantitativeValueShape",
+          "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
           "minCount": 1,
           "maxCount": 1
         }

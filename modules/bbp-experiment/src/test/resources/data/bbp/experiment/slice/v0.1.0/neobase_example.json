@@ -2,9 +2,10 @@
     "@context": [
         "{{base}}/contexts/bbp/core/entity/v0.1.0"
     ],
-
     "@type": [
-        "nsg:WrongType"
+        "prov:Entity",
+        "nsg:Slice"
     ],
-    "name": "C010600A"
+    "name": "C060600A",
+    "providerId": "C060600A"
 }

@@ -1,11 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/core/entity/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbpcolsh": "{{base}}/schemas/bbp/core/collection/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/experiment/patchedcellcollection/v0.1.0/shapes/"
     }
   ],
@@ -22,7 +18,7 @@
       "targetClass": "prov:Collection",
       "and": [
         {
-          "node": "bbpcolsh:CollectionShape"
+          "node": "{{base}}/schemas/bbp/core/collection/v0.1.0/shapes/CollectionShape"
         },
         {
           "property": [
