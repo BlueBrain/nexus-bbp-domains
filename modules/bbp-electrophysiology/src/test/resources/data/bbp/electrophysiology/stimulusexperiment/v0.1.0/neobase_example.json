@@ -3,7 +3,8 @@
         "{{base}}/contexts/bbp/core/entity/v0.1.0"
     ],
     "@type": [
-        "nsg:WrongType"
+        "prov:Activity",
+        "nsg:StimulusExperiment"
     ],
     "stimulus": {
         "stimulusType": {
