@@ -1,0 +1,38 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/bbp/simulation/circuit/v0.0.1",
+    {
+      "this": "{{base}}/schemas/bbp/simulation/validationresult/v0.0.1/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:ValidationResultShape",
+      "@type": "sh:NodeShape",
+      "targetClass": "nsg:Validation",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:otherOutput",
+              "name": "",
+              "description": "additional data produced like figures",
+              "datatype": "collectionDistributions"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

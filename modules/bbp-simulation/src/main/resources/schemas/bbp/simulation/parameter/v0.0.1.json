@@ -1,0 +1,42 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "this": "{{base}}/schemas/bbp/simulation/parameter/v0.0.1/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@type": "sh:NodeShape",
+      "targetClass": "nsg:Parameter",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:parameter",
+              "node":"this:ParameterShape",
+              "maxCount": 1,
+              "minCount": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@id": "this:ParameterShape",
+      "@type": "sh:NodeShape",
+      "label": "A shape for parameter dictionary",
+      "targetObjectsOf": "nsg:parameter",
+      "nodeKind": "sh:BlankNode"
+    }
+  ]
+}

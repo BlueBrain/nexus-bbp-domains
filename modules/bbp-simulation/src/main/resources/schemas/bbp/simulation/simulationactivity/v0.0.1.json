@@ -1,0 +1,54 @@
+Clarify the qualified usage and generation with Nexus
+make workbench work in neuro shapes
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/bbp/simulation/circuit/v0.0.1",
+    {
+      "this": "{{base}}/schemas/bbp/simulation/simulationactivity/v0.0.1/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:SimulationActivityShape",
+      "@type": "sh:NodeShape",
+      "targetClass": "nsg:SimulationActivity",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/nexus/prov/activity/v0.1.0/shapes/ActivityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:status",
+              "datatype": "",
+              "description": "TODO activity needs status field",
+              "minCount": 1
+            }, {
+              "path": "nsg:model",
+              "datatype": "SimulationModelDataShape",
+              "minCount": 1
+            }, {
+              "path": "nsg:configuration",
+              "datatype": "ConfigurationDataShape",
+              "minCount": 1
+            },
+            
+            {
+              "path": "nsg:generated",
+              "datatype": "SimulationResultShape",
+              "minCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

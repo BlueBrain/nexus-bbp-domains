@@ -1,0 +1,24 @@
+{
+  "@context": {
+    "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "nxcv": "https://bbp-nexus.epfl.ch/vocabs/nexus/core/v0.0.1/",
+    "date": {"@id": "nsg:date"},
+    "distribution": {"@id": "nsg:distribution"},
+    "circuit": {"@id": "nsg:circuit"},
+    "cellLibraryFile": {"@id": "nsg:cellLibraryFile"},
+    "synapses": {"@id": "nsg:synapses"},
+    "morphologies": {"@id": "nsg:morphologies"},
+    "emodels": {"@id": "nsg:emodels"},
+    "mecombos": {"@id": "nsg:mecombos"},
+    "target": {"@id": "nsg:target"},
+    "builder": {"@id": "nsg:builder"},
+    "projection": {"@id": "nsg:projection"},
+    "type": {"@id": "nsg:type"}
+  }
+}

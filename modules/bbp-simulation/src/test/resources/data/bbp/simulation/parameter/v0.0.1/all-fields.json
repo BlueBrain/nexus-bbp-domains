@@ -1,0 +1,19 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    {
+      "parameter": {
+        "@id": "nsg:parameter"
+      }
+    }
+  ],
+  "@type": ["nsg:Parameter", "nsg:Entity"],
+  "name": "cells parameters",
+  "description": "Cells placement parameters",
+  "parameter": [
+    {
+      "foo": "bar",
+      "seed": 42
+    }
+  ]
+}
