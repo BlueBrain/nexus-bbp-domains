@@ -1,12 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
-      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbpvect3dsh": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/",
-      "bbppsh": "{{base}}/schemas/bbp/core/person/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/morphology/labeledcell/v0.1.0/shapes/"
     }
   ],
@@ -24,7 +19,7 @@
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
         {
-          "node": "bbpentsh:EntityShape"
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
         },
         {
           "property": [
@@ -39,21 +34,21 @@
               "path": "nsg:brainLocation",
               "description": "Brain location",
               "name": "Brain location where the labeled cell is found",
-              "node": "bbptlotsh:BrainLocationOtologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/BrainLocationOtologyTermShape",
               "maxCount": 1
             },
             {
               "path": "nsg:putativeMType",
               "name": "Putative morphology type",
               "description": "Indicates the putative morphology type of the labeled cell, may have an mtype as well",
-              "node": "bbptlotsh:CellTypeOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/CellTypeOntologyTermShape",
               "maxCount": 1
             },
             {
               "path": "nsg:locationInSlice",
               "name": "Coordinates of location in slice",
               "description": "Specifies the coordinates of the location of the cell in the slice",
-              "class": "bbpvect3dsh:VectorShape",
+              "class": "{{base}}/schemas/bbp/core/vector3d/v0.1.0/shapes/VectorShape",
               "maxCount": 1
             },
             {

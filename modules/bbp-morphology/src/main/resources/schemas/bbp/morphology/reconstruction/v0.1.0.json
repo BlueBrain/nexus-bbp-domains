@@ -1,11 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/nexus/prov/rec-prov-o-20130430/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
-      "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/morphology/reconstruction/v0.1.0/shapes/"
     }
   ],
@@ -22,7 +18,7 @@
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
         {
-          "node": "bbpactsh:ActivityShape"
+          "node": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/ActivityShape"
         },
         {
           "property": [
@@ -30,7 +26,7 @@
               "path": "nsg:objectiveType",
               "name": "Objective type",
               "description": "Type of objective that was used for the reconstruction such as dry, oil or water.",
-              "node": "bbptlotsh:ObjectiveTypeOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/ObjectiveTypeOntologyTermShape",
               "maxCount": 1
             },
             {
