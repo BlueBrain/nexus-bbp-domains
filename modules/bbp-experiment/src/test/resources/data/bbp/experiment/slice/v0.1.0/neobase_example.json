@@ -1,0 +1,11 @@
+{
+    "@context": [
+        "{{base}}/contexts/bbp/core/entity/v0.1.0"
+    ],
+    "@type": [
+        "prov:Entity",
+        "nsg:Slice"
+    ],
+    "name": "C060600A",
+    "providerId": "C060600A"
+}

@@ -1,9 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "scpsh": "{{base}}/schemas/nexus/schemaorg/person/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/core/person/v0.1.0/shapes/"
     }
   ],
@@ -16,11 +14,11 @@
       "@id": "this:PersonShape",
       "@type": "sh:NodeShape",
       "label": "Schema.org person specification is used as a vocabulary to describe a person.",
-      "targetClass": "nsg:Person",
+      "targetClass": "schema:Person",
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
         {
-          "node": "scpsh:PersonShape"
+          "node": "{{base}}/schemas/nexus/schemaorg/person/v0.1.0/shapes/PersonShape"
         },
         {
           "property": [

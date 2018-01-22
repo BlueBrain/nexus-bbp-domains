@@ -1,10 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
-      "bbpactsh": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/atlas/atlasconstruction/v0.1.0/shapes/"
     }
   ],
@@ -23,7 +20,7 @@
       "targetClass": "nsg:AtlasConstruction",
       "and": [
         {
-          "node": "bbpactsh:ActivityShape"
+          "node": "{{base}}/schemas/bbp/core/activity/v0.1.0/shapes/ActivityShape"
         },
         {
           "property": [
@@ -31,7 +28,7 @@
               "path": "nsg:brainRegion",
               "name": "Brain region",
               "description": "Brain Region of type brain parcellation scheme concept (ILXREPLACE:f0abc840e92a7e2872c8ee89827b6d23) defined in: https://raw.githubusercontent.com/SciCrunch/NIF-Ontology/master/ttl/generated/parcellation.ttl",
-              "node": "bbptlotsh:BrainRegionOntologyTermShape"
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/BrainRegionOntologyTermShape"
             },
             {
               "path": "prov:used",

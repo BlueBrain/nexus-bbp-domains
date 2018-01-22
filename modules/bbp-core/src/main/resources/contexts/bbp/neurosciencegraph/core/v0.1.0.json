@@ -1,6 +1,6 @@
 {
   "@context": {
-    "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
+    "nsg": "{{base}}/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
     "schema": "http://schema.org/",
     "brainRegion": {
       "@id": "nsg:brainRegion"
@@ -233,6 +233,44 @@
     "modelScript": {
       "@id": "nsg:modelScript",
       "@type": "@id"
+    },
+    "providerId": {
+      "@id": "nsg:providerId"
+    },
+    "boundingBox": {
+      "@id": "nsg:boundingBox",
+      "@type": "@id"
+    },
+    "orientation": {
+      "@id": "nsg:orientation",
+      "@type": "@id"
+    },
+    "parcellationVolume": {
+      "@id": "nsg:parcellationVolume",
+      "@type": "@id"
+    },
+    "origin": {
+      "@id": "nsg:origin",
+      "@type": "@id"
+    },
+    "releaseDate": {
+      "@id": "nsg:releaseDate"
+    },
+    "radius": {
+      "@id": "nsg:radius",
+      "@type": "@id"
+    },
+    "parcellationOntology": {
+      "@id": "nsg:parcellationOntology",
+      "@type": "@id"
+    },
+    "center": {
+      "@id": "nsg:center",
+      "@type": "@id"
+    },
+    "valueZ": {
+      "@id": "nsg:valueZ"
     }
+
   }
 }

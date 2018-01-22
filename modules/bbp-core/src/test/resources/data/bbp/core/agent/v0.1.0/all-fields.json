@@ -1,9 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
-    {
-      "name": "http://schema.org/name"
-    }
+    "{{base}}/contexts/bbp/core/entity/v0.1.0"
   ],
   "@type": "nsg:Agent"
 }

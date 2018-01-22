@@ -1,6 +1,0 @@
-{
-  "@context": {
-    "@vocab": "https://bbp-nexus.epfl.ch/vocabularies/core/v1.0.0/"
-  },
-  "@type": "NotARegionOfInterest"
-}

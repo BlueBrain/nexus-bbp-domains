@@ -1,9 +1,7 @@
 {
-  "@context": {
-    "@vocab": "http://www.w3.org/ns/prov#",
-    "prov": "http://www.w3.org/ns/prov#",
-    "role": "https://bbp-nexus.epfl.ch/voc/role_ontology/"
-  },
+  "@context": [
+    "{{base}}/contexts/bbp/core/entity/v0.1.0"
+  ],
   "@type": "prov:Activity",
   "@id": "{{base}}/data/bbp/core/activity/v0.1.0/77d572c8-4219-4bb5-b430-0a79bad93aa8",
   "used": [

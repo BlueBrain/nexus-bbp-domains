@@ -1,14 +1,8 @@
 {
-
   "@context": [
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
-    {
-      "@vocab":"https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/"
-    },
     "{{base}}/contexts/bbp/core/entity/v0.1.0"
-
   ],
-  "@type": "AtlasSpatialReferenceSystem",
+  "@type": "nsg:AtlasSpatialReferenceSystem",
   "@id": "{{base}}/data/bbp/atlas/atlasspatialreferencesystem/v0.1.0/98a9f04c-b7da-4acf-99ce-fb0acecaf8cb",
   "name": "Paxinos rat atlas spatial reference system",
   "description": "Paxinos rat atlas spatial reference system",
@@ -39,7 +33,7 @@
       "valueZ": 1
     }
   },
-  "boundingbox": {
+  "boundingBox": {
     "@type": "BoundingBox",
     "upperPoint": {
       "@type": "Vector3D",

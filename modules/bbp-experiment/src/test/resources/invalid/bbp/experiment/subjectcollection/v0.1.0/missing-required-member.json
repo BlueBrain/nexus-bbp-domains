@@ -1,9 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/core/entity/v0.1.0",
-    {
-      "hadMember": "prov:hadMember"
-    }
+    "{{base}}/contexts/bbp/core/entity/v0.1.0"
   ],
   "@type": "prov:Collection",
   "@id": "{{base}}/schemas/bbp/experiment/subjectcollection/v0.1.0/5fdad89d-bb70-40f3-a5ea-cd2555395b7d",

@@ -1,12 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/core/entity/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpentsh": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/",
-      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
-      "bbpqsh": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/electrophysiology/trace/v0.1.0/shapes/"
     }
   ],
@@ -25,7 +20,7 @@
       "nodeKind": "sh:BlankNodeOrIRI",
       "and": [
         {
-          "node": "bbpentsh:EntityShape"
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
         },
         {
           "property": [
@@ -67,7 +62,7 @@
                   "datatype": "xsd:string"
                 },
                 {
-                  "node": "bbptlotsh:UnitCodeOntologyTermShape"
+                  "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/UnitCodeOntologyTermShape"
                 }
               ],
               "maxCount": 1
@@ -76,7 +71,7 @@
               "path": "nsg:timeStep",
               "name": "Time step",
               "description": "Time step (inverted sampling frequency) of data",
-              "node": "bbpqsh:QuantitativeValueShape",
+              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
               "maxCount": 1
             },
             {

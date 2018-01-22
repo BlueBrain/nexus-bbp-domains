@@ -1,10 +1,6 @@
 {
     "@context": [
-        "{{base}}/contexts/nexus/core/standards/v0.1.0",
-        "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
-        {
-            "@vocab": "http://www.w3.org/ns/prov#"
-        }
+        "{{base}}/contexts/bbp/core/entity/v0.1.0"
     ],
 
     "@type": [

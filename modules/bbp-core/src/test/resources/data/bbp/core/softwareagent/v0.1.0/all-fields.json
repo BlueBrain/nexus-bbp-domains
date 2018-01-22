@@ -1,9 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/schemaorg/release-3-3/v0.1.0",
-    {
-      "prov": "http://www.w3.org/ns/prov#"
-    }
+    "{{base}}/contexts/bbp/core/entity/v0.1.0"
   ],
   "@type": "prov:SoftwareAgent",
   "@id": "{{base}}/schemas/bbp/core/softwareagent/v0.1.0/28e4034b-034e-4f53-9bc5-8cfe628b481d",

@@ -1,10 +1,7 @@
 {
   "@context": [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/neurosciencegraph/core/schema/v0.1.0",
     {
-      "bbpcolsh": "{{base}}/schemas/bbp/core/collection/v0.1.0/shapes/",
-      "bbptlotsh": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/",
       "this": "{{base}}/schemas/bbp/experiment/subjectcollection/0.1.0/shapes/"
     }
   ],
@@ -29,7 +26,7 @@
               "path": "nsg:species",
               "name": "Species",
               "description": "The species of this collection members",
-              "node": "bbptlotsh:SpeciesOntologyTermShape",
+              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/SpeciesOntologyTermShape",
               "maxCount": 1,
               "minCount": 1
             },
