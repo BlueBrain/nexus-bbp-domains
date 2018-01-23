@@ -16,6 +16,7 @@
       "@id": "this:EModelScriptShape",
       "@type": "sh:NodeShape",
       "label": "This shape is for...",
+      "targetClass": "nsg:ModelScript",
       "nodekind": "sh:BlankNodeOrIRI",
       "and": [
         {
@@ -61,6 +62,7 @@
       "@id": "this:SubCellularModelScriptShape",
       "@type": "sh:NodeShape",
       "label": "This shape is for...",
+      "targetClass": "nsg:ModelScript",
       "nodekind": "sh:BlankNodeOrIRI",
       "and": [
         {
