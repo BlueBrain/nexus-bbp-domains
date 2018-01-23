@@ -17,9 +17,9 @@
       "@id": "this:EModelShape",
       "@type": "sh:NodeShape",
       "label": "Emodel shape",
-      "comment": "An emodel can be queried by what is being modeled (values of modelOf)",
-      "comment": "Values of modelOf: cell type which encapsulates the following info:",
-      "comment": "brain region, etype,mtype, functional type, species",
+      "comment": [
+        "An emodel can be queried by what is being modeled (values of modelOf). Values of modelOf: cell type which encapsulates the following info:brain region, etype,mtype, functional type, species"
+      ],
       "targetClass": "nsg:EModel",
       "nodekind": "sh:BlankNodeOrIRI",
       "and": [
