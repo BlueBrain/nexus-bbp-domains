@@ -39,6 +39,10 @@
       "@type": "xsd:string",
       "@id": "schema:givenName"
     },
+    "familyName": {
+      "@id": "schema:familyName",
+      "@type": "xsd:string"
+    },
     "email": {
       "@type": "xsd:string",
       "@id": "schema:email"
