@@ -14,8 +14,9 @@
     {
       "@id": "this:ModelInstanceShape",
       "@type": "sh:NodeShape",
-      "label": "This shape is for...",
+      "label": "A model instance shape",
       "nodekind": "sh:BlankNodeOrIRI",
+      "targetClass": "nsg:Model",
       "and": [
         {
           "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
@@ -25,8 +26,8 @@
             {
               "path": "nsg:modelOf",
               "name": "Model of",
-              "description": "",
-              "class": "nsg:CellType"
+              "description": "Models of many things such as cells, ion channels, circuits, whole brains,...",
+              "editorialNote": "The value of this property should be constraint by a sh:class corresponding to what is being modeled."
             },
             {
               "path": "nsg:modelScript",

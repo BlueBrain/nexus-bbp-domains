@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    {
+      "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
+      "this": "{{base}}/schemas/hbphackaton/simulation/nodecollection/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:NodeCollectionShape",
+      "@type": "sh:NodeShape",
+      "label": "elements of the collection defined like this: ",
+      "targetClass": "nsg:NodeCollection",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:memodelRelease",
+              "name": "MEModel release",
+              "description": "MEModel release.",
+              "seeAlso": "{{base}}/schemas/bbp/simulation/memodelrelease/v0.0.1/shapes/MEModelReleaseShape",
+              "class": "nsg:MEModelRelease",
+              "minCount": 1,
+              "maxCount": 1
+            },
+            {
+              "path": "nsg:property",
+              "name": "Properties",
+              "description": "Entity holding the location of the properties data.",
+              "seeAlso": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape",
+              "class": "nsg:Entity",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

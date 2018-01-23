@@ -26,8 +26,8 @@
           "property": [
             {
               "path": "nsg:modelScript",
-              "name": "Cell type",
-              "description": "mod file",
+              "name": "Model script",
+              "description": "Model script as mod file.",
               "node": "{{base}}/schemas/hbphackaton/simulation/modelscript/v0.1.0/shapes/SubCellularModelScriptShape"
             }
           ]

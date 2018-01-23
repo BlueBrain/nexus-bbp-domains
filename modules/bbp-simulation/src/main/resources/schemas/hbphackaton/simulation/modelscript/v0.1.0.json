@@ -16,6 +16,7 @@
       "@id": "this:EModelScriptShape",
       "@type": "sh:NodeShape",
       "label": "This shape is for...",
+      "targetClass": "nsg:ModelScript",
       "nodekind": "sh:BlankNodeOrIRI",
       "and": [
         {
@@ -26,15 +27,8 @@
             {
               "path": "schema:distribution",
               "name": "Distribution",
-              "description": "",
+              "description": "Distribution.",
               "node": "this:EModelScriptDistributionShape"
-            },
-            {
-              "path": "nsg:modelScript",
-              "name": "Cell type",
-              "description": "mod file",
-              "class": "",
-              "node": ""
             }
           ]
         }
@@ -54,7 +48,7 @@
             {
               "path": "schema:mediaType",
               "name": "Media type",
-              "description": "",
+              "description": "Emodel script media types",
               "in": [
                 "application/neuron-hoc",
                 "application/neuroml"
@@ -68,6 +62,7 @@
       "@id": "this:SubCellularModelScriptShape",
       "@type": "sh:NodeShape",
       "label": "This shape is for...",
+      "targetClass": "nsg:ModelScript",
       "nodekind": "sh:BlankNodeOrIRI",
       "and": [
         {
@@ -78,7 +73,7 @@
             {
               "path": "schema:distribution",
               "name": "Distribution",
-              "description": "",
+              "description": "SubCellular modelScript distribution.",
               "node": "this:SubCellularModelScriptDistributionShape"
             }
           ]
@@ -99,7 +94,7 @@
             {
               "path": "schema:mediaType",
               "name": "Media type",
-              "description": "",
+              "description": "Subcellular model script media type(s)",
               "in": [
                 "application/neuron-mod"
               ]

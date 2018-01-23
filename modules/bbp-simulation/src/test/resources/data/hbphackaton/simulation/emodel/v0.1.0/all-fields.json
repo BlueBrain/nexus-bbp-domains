@@ -3,19 +3,21 @@
     "{{base}}/contexts/bbp/core/entity/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
   ],
-  "@type": "nsg:SubCellularModel",
-  "@id": "{{base}}/data/hbphackaton/simulation/subcellularmodel/v0.1.0/d4d5bebf-2777-481f-8623-fc3b36edba91",
-  "name": "Transient Sodium",
+  "@type": "nsg:EModel",
+  "name": "L5TPC emodel",
   "modelOf": {
-    "@id": "http://transient_sodium_ionChannel.uri.com",
-    "label": "Transient Sodium ion channel"
+    "@id": "http://L5TPC.uri.com",
+    "label": "Rat L5TPC"
+  },
+  "subCellularMechanism": {
+    "@id": "{{base}}/data/hbphackaton/simulation/subcellularmodel/v0.1.0/d4d5bebf-2777-481f-8623-fc3b36edba91",
+    "@type": "nsg:SubCellularModel",
+    "name": "a name"
   },
   "modelScript": {
-    "@id": "{{base}}/data/hbphackaton/simulation/modelscript/v0.1.0/cfd2ba87-ac84-4615-98d6-048b79d05c0e",
+    "@id": "{{base}}/data/hbphackaton/simulation/modelscript/v0.1.0/b627f305-fab1-4fbe-b3e5-25de5f617496",
     "@type": "nsg:ModelScript",
-    "name": "NaTg.mod",
-    "description": "Entity Description",
-    "providerId": "ProviderId",
+    "name": "cADpyr_L5TPC",
     "distribution": [
       {
         "@context": {
@@ -53,8 +55,8 @@
             "@id": "schema:algorithm"
           }
         },
-        "downloadURL": "file:///gpfs/bbp.cscs.ch/project/proj64/circuits/O1.v6a/20171206/source",
-        "mediaType": "application/neuron-mod"
+        "downloadURL": "file://gpfs/bbp.cscs.ch/project/proj64/home/vangeit/modelmanagement/prod.20171103/mm_runs/run/21d76b2/output/emodels_hoc/cADpyr_L5TPC.hoc",
+        "mediaType": "application/neuron-hoc"
       }
     ]
   }

@@ -21,6 +21,16 @@
       ]
     },
     {
+      "@id": "this:ModelSimulationStatusOntologyTermShape",
+      "@type": "sh:NodeShape",
+      "label": "The shape of an ontology term representing a model simulation status",
+      "and": [
+        {
+          "node": "bbplotsh:LabeledOntologyTermShape"
+        }
+      ]
+    },
+    {
       "@id": "this:SexOntologyTermShape",
       "@type": "sh:NodeShape",
       "label": "The shape of an ontology term representing a sex",

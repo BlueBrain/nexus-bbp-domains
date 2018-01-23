@@ -14,6 +14,12 @@
       "targetClass": "schema:Person",
       "property": [
         {
+          "path": "schema:identifier",
+          "name": "Person identifiers",
+          "description": "Person identifiers (e.g orcid)",
+          "node": "{{base}}/schemas/nexus/schemaorg/identifier/v0.1.0/shapes/IdentifierShape"
+        },
+        {
           "path": "schema:email",
           "name": "Email",
           "datatype": "xsd:string",
