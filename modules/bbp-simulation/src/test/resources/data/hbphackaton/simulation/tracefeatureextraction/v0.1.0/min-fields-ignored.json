@@ -1,0 +1,33 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
+  ],
+  "@type": ["nsg:TraceFeatureExtraction"],
+  "name": "Feature extraction activity",
+  "used": [
+  {
+    "@id": "{{base}}/dev/v0/data/bbp/simulation/tracecollection/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47e",
+    "@type": "nsg:TraceCollection"
+  },
+  {
+    "@id": "{{base}}/dev/v0/data/bbp/simulation/configuration/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47f",
+    "@type": "nsg:Configuration"
+  }
+  ],
+  "generated": [
+    {
+      "@id": "{{base}}/dev/v0/data/bbp/simulation/etypefeatureprotocol/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47g",
+      "@type": ["nsg:ETypeFeatureProtocol", "prov:Entity"]
+    },
+    {
+      "@id": "{{base}}/dev/v0/data/bbp/simulation/tracefeature/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47h",
+      "@type": ["nsg:TraceFeature", "prov:Entity"]
+    },
+    {
+      "@id": "{{base}}/dev/v0/data/bbp/simulation/threshold/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47i",
+      "@type": ["nsg:Threshold", "prov:Entity"]
+    }
+  ]
+
+}

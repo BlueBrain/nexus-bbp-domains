@@ -27,7 +27,7 @@
               "name": "Activity",
               "description": "Points at feature experiment activity that generated trace",
               "editorialNote": "The sh:node constraint can be added once the validator support node constraint.",
-              "class": "nsg:FeatureExtraction",
+              "class": "nsg:TraceFeatureExtraction",
               "minCount": 1,
               "maxCount": 1
             }

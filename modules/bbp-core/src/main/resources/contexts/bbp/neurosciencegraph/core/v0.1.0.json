@@ -278,6 +278,10 @@
     "subCellularMechanism": {
       "@id": "nsg:subCellularMechanism",
       "@type": "@id"
+    },
+    "distribution": {
+      "@id": "nsg:distribution",
+      "@type": "@id"
     }
   }
 }
