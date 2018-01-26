@@ -1,0 +1,15 @@
+{
+  "@context": [
+    "https://bbp-nexus.epfl.ch/dev/v0/contexts/bbp/core/entity/v0.1.0"
+  ],
+  "@id": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/simulation/cellplacement/v0.1.0/83e68e2d-47fe-47c1-bc5f-195d914d00ae",
+  "@type": [
+    "nsg:CellPlacement",
+    "nsg:Entity"
+  ],
+  "name": "Cell placement SSCx O1.v6a",
+  "distribution": {
+    "accessURL": "file:///gpfs/bbp.cscs.ch/project/proj64/circuits/O1.v6a/20171206/",
+    "originalFileName": "circuit.mvd3"
+  }
+}

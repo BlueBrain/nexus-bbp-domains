@@ -33,9 +33,9 @@
               "maxCount": 1
             },
             {
-              "path": "nsg:property",
+              "path": "nsg:cellPlacement",
               "name": "Properties",
-              "description": "Entity holding the location of the properties data.",
+              "description": "Location of circuit file containing general circuit geometry: cell placement, orientation, mvd3.",
               "seeAlso": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape",
               "class": "nsg:Entity",
               "minCount": 1,

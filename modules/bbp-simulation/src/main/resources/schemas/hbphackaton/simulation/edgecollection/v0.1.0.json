@@ -28,7 +28,7 @@
             {
               "path": "nsg:property",
               "name": "Properties",
-              "description": "Entity holding the location of the properties data.",
+              "description": "What is this ? Entity holding the location of the properties data.",
               "seeAlso": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape",
               "class": "nsg:Entity",
               "minCount": 1,

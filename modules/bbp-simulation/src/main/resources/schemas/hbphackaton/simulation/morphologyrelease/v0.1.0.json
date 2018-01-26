@@ -56,7 +56,7 @@
               "name": "Media type",
               "description": "",
               "in": [
-                "application/swc,application/neurolucida,application/neuroml"
+                "application/swc,application/neurolucida,application/h5,application/neuroml"
               ]
             }
           ]

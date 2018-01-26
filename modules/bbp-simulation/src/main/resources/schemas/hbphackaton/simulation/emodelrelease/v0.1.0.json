@@ -15,7 +15,7 @@
     {
       "@id": "this:EModelReleaseShape",
       "@type": "sh:NodeShape",
-      "label": "EModel release shape",
+      "label": "EModel release shape. Output of BLuePyOpt",
       "targetClass": "nsg:EModelRelease",
       "nodekind": "sh:BlankNodeOrIRI",
       "and": [
