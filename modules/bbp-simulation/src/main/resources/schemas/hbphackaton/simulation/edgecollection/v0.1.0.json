@@ -28,16 +28,17 @@
             {
               "path": "nsg:property",
               "name": "Properties",
-              "description": "Entity holding the location of the properties data.",
+              "description": "Collection of nrn files or syn2.",
+              "editorialNote": "Add media type constraint: application/nrn.",
               "seeAlso": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape",
               "class": "nsg:Entity",
-              "minCount": 1,
-              "maxCount": 1
+              "minCount": 1
             },
             {
               "path": "nsg:synapseRelease",
               "name": "Synapse release",
-              "description": "Collection of mod files identified by git hash.",
+              "description": "Collection of synapse mod files identified by git hash.",
+              "editorialNote": "Add media type constraint: application/neuron-mod.",
               "seeAlso": "{{base}}/schemas/bbp/simulation/synapserelease/v0.1.0/shapes/SynapseReleaseShape",
               "class": "nsg:SynapseRelease",
               "minCount": 1,

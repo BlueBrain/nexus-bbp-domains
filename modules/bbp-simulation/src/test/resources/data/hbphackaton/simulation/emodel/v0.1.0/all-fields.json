@@ -55,8 +55,8 @@
             "@id": "schema:algorithm"
           }
         },
-        "downloadURL": "file://gpfs/bbp.cscs.ch/project/proj64/home/vangeit/modelmanagement/prod.20171103/mm_runs/run/21d76b2/output/emodels_hoc/cADpyr_L5TPC.hoc",
-        "mediaType": "application/neuron-hoc"
+        "downloadURL": "file://projectpath/modelmanagement/prod.20171103/mm_runs/run/21d76b2/output/emodels_hoc/cADpyr_L5TPC.hoc",
+        "mediaType": "application/neuroml"
       }
     ]
   }

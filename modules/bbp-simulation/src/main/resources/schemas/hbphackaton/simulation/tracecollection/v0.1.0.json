@@ -8,7 +8,7 @@
   ],
   "@type": "nxv:Schema",
   "imports": [
-    "{{base}}/schemas/bbp/core/collection/v0.1.0"
+    "{{base}}/schemas/bbp/core/collection/v0.1.0/"
   ],
   "shapes": [
     {

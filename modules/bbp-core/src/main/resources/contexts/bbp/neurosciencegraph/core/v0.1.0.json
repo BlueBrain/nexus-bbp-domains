@@ -282,6 +282,14 @@
     "distribution": {
       "@id": "nsg:distribution",
       "@type": "@id"
+    },
+    "cellPlacement": {
+      "@id": "nsg:cellPlacement",
+      "@type": "@id"
+    },
+    "memodelRelease": {
+      "@id": "nsg:memodelRelease",
+      "@type": "@id"
     }
   }
 }

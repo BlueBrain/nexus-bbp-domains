@@ -38,6 +38,11 @@
               "editorialNote": "A node constraint should be added when it is supported: {{base}}/schemas/hbphackaton/simulation/morphology/v0.1.0/shapes/MorphologyShape",
               "seeAlso": "{{base}}/schemas/hbphackaton/simulation/morphology/v0.1.0/shapes/MorphologyShape",
               "class": "nsg:Morphology"
+            },
+            {
+              "path": "nsg:modelScript",
+              "name": "Model script",
+              "class": "nsg:ModelScript"
             }
           ]
         }

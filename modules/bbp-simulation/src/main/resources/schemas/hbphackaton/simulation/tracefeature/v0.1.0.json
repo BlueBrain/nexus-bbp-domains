@@ -38,14 +38,6 @@
               "editorialNote": "The node constraint should be added.",
               "class": "prov:Collection",
               "maxCount": 1
-            },
-            {
-              "path": "nsg:distribution",
-              "name": "Features json file",
-              "description": "Json file with the extracted features.",
-              "node": "{{base}}/schemas/nexus/core/distribution/v0.1.0/DistributionShape",
-              "minCount": 1,
-              "maxCount": 1
             }
           ]
         }
