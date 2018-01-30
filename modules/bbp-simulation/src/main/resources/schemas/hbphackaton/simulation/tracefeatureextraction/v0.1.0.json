@@ -35,8 +35,7 @@
               "name": "BluePyEfe configuration",
               "description": "The used BluePyEfe configuration file (s).",
               "class": "nsg:Configuration",
-              "minCount": 1,
-              "maxCount": 1
+              "minCount": 1
             },
             {
               "path": "prov:generated",
@@ -48,7 +47,7 @@
               "path": "prov:generated",
               "name": "Generated etype feature protocol",
               "description": "Generated etype feature protocol.",
-              "qualifiedValueShape": {
+              "http://www.w3.org/ns/shacl#qualifiedValueShape": {
                 "class": "nsg:ETypeFeatureProtocol"
               },
               "qualifiedValueShapesDisjoint": true,
@@ -59,7 +58,7 @@
               "path": "prov:generated",
               "name": "Generated etype feature protocol",
               "description": "Generated etype feature protocol.",
-              "qualifiedValueShape": {
+              "http://www.w3.org/ns/shacl#qualifiedValueShape": {
                 "class": "nsg:TraceFeature"
               },
               "qualifiedValueShapesDisjoint": true,
@@ -70,7 +69,7 @@
               "path": "prov:generated",
               "name": "Threshold",
               "description": "Generated threshold.",
-              "qualifiedValueShape": {
+              "http://www.w3.org/ns/shacl#qualifiedValueShape": {
                 "class": "nsg:Threshold"
               },
               "qualifiedValueShapesDisjoint": true,

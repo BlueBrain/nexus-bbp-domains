@@ -25,7 +25,7 @@
         {
           "property": [
             {
-              "path": "schema:distribution",
+              "path": "nsg:distribution",
               "name": "Distribution",
               "description": "Morphology release location.",
               "node": "this:MorphologyDistributionShape",
