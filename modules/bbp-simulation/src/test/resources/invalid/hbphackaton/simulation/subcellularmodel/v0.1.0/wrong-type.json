@@ -4,7 +4,7 @@
     "{{base}}/contexts/bbp/core/entity/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
   ],
-  "@type": "nsg:SubCellularModel",
+  "@type": "nsg:WrongType",
   "name": "Entity Name",
   "modelScript": {
     "@id": "{{base}}/data/hbphackaton/simulation/modelscript/v0.1.0/cfd2ba87-ac84-4615-98d6-048b79d05c0e",
@@ -49,7 +49,7 @@
             "@id": "schema:algorithm"
           }
         },
-        "downloadURL": "file:///gpfs/bbp.cscs.ch/project/proj64/circuits/O1.v6a/20171206/source",
+        "downloadURL": "file:///projectpath/circuits/O1.v6a/20171206/source",
         "mediaType": "application/neuron"
       }
     ]

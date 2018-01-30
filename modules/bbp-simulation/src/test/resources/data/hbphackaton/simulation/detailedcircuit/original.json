@@ -1,8 +1,8 @@
 {
   "@context": [
-    "https://bbp-nexus.epfl.ch/dev/v0/contexts/bbp/core/entity/v0.1.0"
+    "{{base}}/contexts/bbp/core/entity/v0.1.0"
   ],
-  "@id": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/simulation/circuit/v0.0.4/53e68e2d-47fe-47c1-bc5f-195d914d00ae",
+  "@id": "{{base}}/data/bbp/simulation/circuit/v0.0.4/53e68e2d-47fe-47c1-bc5f-195d914d00ae",
   "@type": [
     "nsg:Circuit",
     "nsg:Entity"
@@ -13,14 +13,14 @@
   },
   "builder": {
     "distribution": {
-      "downlo adURL": "file:///gpfs/bbp.cscs.ch/project/proj64/circuits/O1.v6a/20171206/source"
+      "downlo adURL": "file:///projectpath/circuits/O1.v6a/20171206/source"
     },
     "name": "SSCx circuit"
   },
   "circuit": {
     "cellLibraryFile": "circuit.mvd3",
     "distribution": {
-      "accessURL": "file:///gpfs/bbp.cscs.ch/project/proj64/circuits/O1.v6a/20171206/"
+      "accessURL": "file:///projectpath/circuits/O1.v6a/20171206/"
     },
     "name": "SSCx circuit"
   },
@@ -28,26 +28,26 @@
   "description": "Somatosensory cortex O1.v6a",
   "emodels": {
     "distribution": {
-      "accessURL": "file:///gpfs/bbp.cscs.ch/project/proj64/home/vangeit/modelmanagement/prod.20171103/mm_runs/run/1810912/output/emodels_hoc"
+      "accessURL": "file:///projectpath/modelmanagement/prod.20171103/mm_runs/run/1810912/output/emodels_hoc"
     },
     "name": "SSCx circuit"
   },
   "mecombos": {
     "distribution": {
-      "downloadURL": "file:///gpfs/bbp.cscs.ch/project/proj64/home/vangeit/modelmanagement/prod.20171103/megate_runs/run/6c6d611/output_select/mecombo_emodel.tsv"
+      "downloadURL": "file:///projectpath/modelmanagement/prod.20171103/megate_runs/run/6c6d611/output_select/mecombo_emodel.tsv"
     },
     "name": "SSCx circuit"
   },
   "morphologies": {
     "distribution": {
-      "accessURL": "file:///gpfs/bbp.cscs.ch/project/proj59/entities/morphologies/2017.10.31"
+      "accessURL": "file:///projectpath/entities/morphologies/2017.10.31"
     },
     "name": "SSCx circuit"
   },
   "name": "SSCx_O1.v6a",
   "projection": {
     "distribution": {
-      "accessURL": "file:///gpfs/bbp.cscs.ch/project/proj64/circuits/O1.v6a/20171206/proj_Thalamocortical_VPM/20171207-2"
+      "accessURL": "file:///projectpath/circuits/O1.v6a/20171206/proj_Thalamocortical_VPM/20171207-2"
     },
     "name": "Thalamocortical_input_VPM",
     "source": "proj_Thalamocortical_VPM_Source"
@@ -58,23 +58,23 @@
   },
   "synapses": {
     "distribution": {
-      "accessURL": "file:///gpfs/bbp.cscs.ch/project/proj64/circuits/O1.v6a/20171206/ncsFunctionalAllRecipePathways"
+      "accessURL": "file:///projectpath/circuits/O1.v6a/20171206/ncsFunctionalAllRecipePathways"
     },
     "name": "SSCx circuit"
   },
   "target": {
     "distribution": {
-      "downloadURL": "file:///gpfs/bbp.cscs.ch/project/proj64/circuits/O1.v6a/20171206/default_user.target"
+      "downloadURL": "file:///projectpath/circuits/O1.v6a/20171206/default_user.target"
     },
     "name": "SSCx circuit"
   },
   "nxv:rev": 1,
   "nxv:deprecated": false,
   "links": {
-    "@context": "https://bbp-nexus.epfl.ch/dev/v0/contexts/nexus/core/links/v0.1.0",
-    "incoming": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/simulation/circuit/v0.0.4/53e68e2d-47fe-47c1-bc5f-195d914d00ae/incoming",
-    "outgoing": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/simulation/circuit/v0.0.4/53e68e2d-47fe-47c1-bc5f-195d914d00ae/outgoing",
-    "schema": "https://bbp-nexus.epfl.ch/dev/v0/schemas/bbp/simulation/circuit/v0.0.4",
-    "self": "https://bbp-nexus.epfl.ch/dev/v0/data/bbp/simulation/circuit/v0.0.4/53e68e2d-47fe-47c1-bc5f-195d914d00ae"
+    "@context": "{{base}}/contexts/nexus/core/links/v0.1.0",
+    "incoming": "{{base}}/data/bbp/simulation/circuit/v0.0.4/53e68e2d-47fe-47c1-bc5f-195d914d00ae/incoming",
+    "outgoing": "{{base}}/data/bbp/simulation/circuit/v0.0.4/53e68e2d-47fe-47c1-bc5f-195d914d00ae/outgoing",
+    "schema": "{{base}}/schemas/bbp/simulation/circuit/v0.0.4",
+    "self": "{{base}}/data/bbp/simulation/circuit/v0.0.4/53e68e2d-47fe-47c1-bc5f-195d914d00ae"
   }
 }

@@ -28,7 +28,8 @@
               "path": "schema:distribution",
               "name": "Distribution",
               "description": "Morphology release location.",
-              "node": "this:MorphologyDistributionShape"
+              "node": "this:MorphologyDistributionShape",
+              "minCount": 1
             },
             {
               "path": "nsg:morphologyIndex",

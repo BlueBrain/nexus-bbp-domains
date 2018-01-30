@@ -43,7 +43,7 @@
               "path": "nsg:memodelIndex",
               "name": "Memodel index",
               "description": "Memodel release index file.",
-              "editorialNote": "The following node constraint can be add later: {{base}}/schemas/nexus/core/distribution/v0.1.0/shapes/DistributionShape.",
+              "editorialNote": "Check the files to attach to this entity .The following node constraint can be add later: {{base}}/schemas/nexus/core/distribution/v0.1.0/shapes/DistributionShape.",
               "class": "nsg:Index"
             }
           ]

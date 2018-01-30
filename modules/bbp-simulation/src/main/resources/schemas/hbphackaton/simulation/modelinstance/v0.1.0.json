@@ -28,11 +28,6 @@
               "name": "Model of",
               "description": "Models of many things such as cells, ion channels, circuits, whole brains,...",
               "editorialNote": "The value of this property should be constraint by a sh:class corresponding to what is being modeled."
-            },
-            {
-              "path": "nsg:modelScript",
-              "name": "Model script",
-              "description": "Model script"
             }
           ]
         }

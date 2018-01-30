@@ -53,7 +53,7 @@
             "@id": "schema:algorithm"
           }
         },
-        "downloadURL": "file:///gpfs/bbp.cscs.ch/project/proj64/circuits/O1.v6a/20171206/source",
+        "downloadURL": "file:///projectpath/circuits/O1.v6a/20171206/source",
         "mediaType": "application/neuron-mod"
       }
     ]

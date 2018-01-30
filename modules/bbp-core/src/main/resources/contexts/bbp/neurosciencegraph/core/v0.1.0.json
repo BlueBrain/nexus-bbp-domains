@@ -278,6 +278,14 @@
     "subCellularMechanism": {
       "@id": "nsg:subCellularMechanism",
       "@type": "@id"
+    },
+    "cellPlacement": {
+      "@id": "nsg:cellPlacement",
+      "@type": "@id"
+    },
+    "memodelRelease": {
+      "@id": "nsg:memodelRelease",
+      "@type": "@id"
     }
   }
 }
