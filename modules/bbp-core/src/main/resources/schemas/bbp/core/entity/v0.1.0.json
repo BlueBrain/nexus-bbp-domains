@@ -37,7 +37,7 @@
         {
           "path": "schema:citation",
           "name": "Citation",
-          "description": "Citation (s) of publication (s) that describe the dataset.",
+          "description": "Citation (s) of publication (s) that describe the entity.",
           "xone": [
             {
               "datatype": "xsd:anyURI"
@@ -55,6 +55,13 @@
           "name": "License",
           "description": "License.",
           "nodeKind": "sh:IRI",
+          "maxCount": 1
+        },
+        {
+          "path": "schema:dateCreated",
+          "name": "Creation date",
+          "description": "Date at which this entity created.",
+          "nodeKind": "xsd:dateTime",
           "maxCount": 1
         }
       ]

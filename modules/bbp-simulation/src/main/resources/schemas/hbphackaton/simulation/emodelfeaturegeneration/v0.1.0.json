@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "this": "{{base}}/schemas/bbp/electrophysiology/emodelfeaturegeneration/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "shapes": [
+    {
+      "@id": "this:EmodelFeatureGenerationShape",
+      "@type": "sh:NodeShape",
+      "label": "Trace generation shape definition",
+      "editorialNote": "What context information should be added in this generation ?",
+      "targetClass": "nsg:EmodelFeatureGeneration",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/nexus/prov/generation/v0.1.0/shapes/GenerationShape"
+        },
+        {
+          "property": [
+            {
+              "path": "prov:activity",
+              "name": "Activity",
+              "description": "Points at feature experiment activity that generated trace",
+              "editorialNote": "The sh:node constraint can be added once the validator support node constraint.",
+              "class": "nsg:FeatureExtraction",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

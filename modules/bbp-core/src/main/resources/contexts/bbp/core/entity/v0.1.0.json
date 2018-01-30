@@ -1,64 +1,90 @@
 {
   "@context": [
     "{{base}}/contexts/nexus/core/provo20130430/v0.1.0",
-    "{{base}}/contexts/nexus/core/standards/v0.1.0",
+    "{{base}}/contexts/nexus/core/resource/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
-    "label": {
-      "@id": "rdfs:label",
-      "@type": "xsd:string"
-    },
-    "comment": {
-      "@id": "rdfs:comment",
-      "@type": "xsd:string"
-    },
-    "editorialNote": {
-      "@id": "skos:editorialNote",
-      "@type": "xsd:string"
-    },
-    "name": {
-      "@type": "xsd:string",
-      "@id": "schema:name"
-    },
-    "value": {
-      "@id": "schema:value"
-    },
-    "unitText": {
-      "@id": "schema:unitText"
-    },
-    "unitCode": {
-      "@id": "schema:unitCode"
-    },
-    "size": {
-      "@id": "schema:size"
-    },
-    "description": {
+      "label": {
+        "@id": "rdfs:label",
+        "@type": "xsd:string"
+      },
+      "comment": {
+        "@id": "rdfs:comment",
+        "@type": "xsd:string"
+      },
+      "editorialNote": {
+        "@id": "skos:editorialNote",
+        "@type": "xsd:string"
+      },
+      "name": {
+        "@type": "xsd:string",
+        "@id": "schema:name"
+      },
+      "value": {
+        "@id": "schema:value"
+      },
+      "unitText": {
+        "@id": "schema:unitText"
+      },
+      "unitCode": {
+        "@id": "schema:unitCode"
+      },
+      "size": {
+        "@id": "schema:size"
+      },
+      "description": {
         "@id": "schema:description"
       },
-    "citation": {
-      "@id": "schema:citation",
-      "@type": "@id"
-    },
-    "license": {
-      "@id": "schema:license",
-      "@type": "@id"
-    },
-    "address": {
-      "@id": "schema:address"
-    },
-    "email": {
-      "@id": "schema:email"
-    },
-    "parentOrganization": {
-      "@id": "schema:parentOrganization"
-    },
-    "familyName": {
-      "@id": "schema:familyName"
-    },
-    "hasPart": {
-      "@id": "dcterms:hasPart",
-      "@type": "@id"
+      "citation": {
+        "@id": "schema:citation",
+        "@type": "@id"
+      },
+      "license": {
+        "@id": "schema:license",
+        "@type": "@id"
+      },
+      "address": {
+        "@id": "schema:address"
+      },
+      "email": {
+        "@id": "schema:email"
+      },
+      "parentOrganization": {
+        "@id": "schema:parentOrganization"
+      },
+      "familyName": {
+        "@id": "schema:familyName"
+      },
+      "hasPart": {
+        "@id": "dcterms:hasPart",
+        "@type": "@id"
+      },
+      "originalFileName": {
+        "@id": "nxv:originalFileName"
+      },
+      "downloadURL": {
+        "@id": "schema:downloadURL",
+        "@type": "@id"
+      },
+      "accessURL": {
+        "@id": "schema:accessURL",
+        "@type": "@id"
+      },
+      "contentSize": {
+        "@id": "schema:contentSize"
+      },
+      "digest": {
+        "@id": "nxv:digest"
+      },
+      "mediaType": {
+        "@id": "schema:mediaType"
+      },
+      "unit": {
+        "@id": "schema:unitCode"
+      },
+      "algorithm": {
+        "@id": "schema:algorithm"
+      }
     }
-  }
   ]
 }

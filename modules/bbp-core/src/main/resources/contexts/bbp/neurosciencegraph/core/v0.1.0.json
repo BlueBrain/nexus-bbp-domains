@@ -1,6 +1,6 @@
 {
   "@context": {
-    "nsg": "{{base}}/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
+    "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
     "schema": "http://schema.org/",
     "brainRegion": {
       "@id": "nsg:brainRegion"
@@ -270,7 +270,22 @@
     },
     "valueZ": {
       "@id": "nsg:valueZ"
+    },
+    "modelOf": {
+      "@id": "nsg:modelOf",
+      "@type": "@id"
+    },
+    "subCellularMechanism": {
+      "@id": "nsg:subCellularMechanism",
+      "@type": "@id"
+    },
+    "cellPlacement": {
+      "@id": "nsg:cellPlacement",
+      "@type": "@id"
+    },
+    "memodelRelease": {
+      "@id": "nsg:memodelRelease",
+      "@type": "@id"
     }
-
   }
 }
