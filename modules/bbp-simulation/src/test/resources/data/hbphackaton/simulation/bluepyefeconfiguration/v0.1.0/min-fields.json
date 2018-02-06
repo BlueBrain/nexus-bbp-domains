@@ -6,6 +6,6 @@
   "@type": "nsg:Configuration",
   "name": "BluePyEfe configuration of the thalamus",
   "distribution": {
-    "accessURL": "file:///gpfs/bbp.cscs.ch/project/proj55/singlecell/singlecell-features/"
+    "accessURL": "file:///projectpath/singlecell/singlecell-features/"
   }
 }

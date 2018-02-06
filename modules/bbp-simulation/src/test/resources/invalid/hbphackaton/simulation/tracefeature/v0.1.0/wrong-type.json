@@ -14,6 +14,6 @@
     "@type": "prov:Collection"
   },
   "distribution": {
-    "accessURL": "file:///gpfs/bbp.cscs.ch/project/proj55/singlecell/singlecell-features/TC/bAC_tonic/"
+    "accessURL": "file:///projectpath/singlecell/singlecell-features/TC/bAC_tonic/"
   }
 }
