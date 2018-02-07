@@ -37,8 +37,8 @@
               "name": "Properties",
               "description": "Location of circuit file containing general circuit geometry: cell placement, orientation, mvd3.",
               "editorialNote": "BluePyOpt needs to deal with the cell placement mvd3 file.",
-              "seeAlso": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape",
-              "class": "nsg:Entity",
+              "seeAlso": "{{base}}/schemas/bbp/simulation/cellplacement/v0.0.1/shapes/CellPlacementShape",
+              "class": "nsg:CellPlacement",
               "minCount": 1,
               "maxCount": 1
             }

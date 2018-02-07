@@ -1,0 +1,40 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    {
+      "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
+      "this": "{{base}}/schemas/hbphackaton/simulation/cellplacement/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0",
+    "{{base}}/schemas/nexus/core/distribution/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:CellPlacementShape",
+      "@type": "sh:NodeShape",
+      "label": "This shape is for cells placement file",
+      "targetClass": "nsg:CellPlacement",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
+        },
+        {
+          "property": [
+            {
+              "path": "schema:distribution",
+              "name": "Distribution",
+              "description": "Cell placement file location.",
+              "node": "{{base}}/schemas/nexus/core/distribution/v0.1.0/shapes/DistributionShape",
+              "minCount": 1,
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
