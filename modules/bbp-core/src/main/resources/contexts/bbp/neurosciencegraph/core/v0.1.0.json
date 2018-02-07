@@ -279,6 +279,10 @@
       "@id": "nsg:subCellularMechanism",
       "@type": "@id"
     },
+    "distribution": {
+      "@id": "nsg:distribution",
+      "@type": "@id"
+    },
     "cellPlacement": {
       "@id": "nsg:cellPlacement",
       "@type": "@id"
