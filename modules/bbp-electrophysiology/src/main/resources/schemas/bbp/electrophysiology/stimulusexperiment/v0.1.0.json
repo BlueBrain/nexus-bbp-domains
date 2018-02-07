@@ -24,20 +24,6 @@
         {
           "property": [
             {
-              "path": "nsg:providerExperimentId",
-              "name": "Provider experiment ID",
-              "description": "Laboratory identifier of the experiment",
-              "datatype": "xsd:string",
-              "maxCount": 1
-            },
-            {
-              "path": "nsg:providerExperimentName",
-              "name": "Provider experiment name",
-              "description": "Laboratory name of the experiment",
-              "datatype": "xsd:string",
-              "maxCount": 1
-            },
-            {
               "path": "nsg:stimulus",
               "name": "Stimulus",
               "description": "The shape of the stimulus",

@@ -53,13 +53,6 @@
               "maxCount": 1
             },
             {
-              "path": "nsg:holdingPotential",
-              "name": "Holding potential",
-              "description": "Holding potential of patched cell",
-              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
-              "maxCount": 1
-            },
-            {
               "path": "nsg:startMembranePotential",
               "name": "Start membrane potential",
               "description": "Membrane potential of patched cell at beginning",
@@ -88,38 +81,10 @@
               "maxCount": 1
             },
             {
-              "path": "nsg:inputResistance",
-              "name": "Input resistance",
-              "description": "Input resistance of patched cell",
-              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
-              "maxCount": 1
-            },
-            {
-              "path": "nsg:seriesResistance",
-              "name": "Series resistance",
-              "description": "Series resistance while patching cell",
-              "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
-              "maxCount": 1
-            },
-            {
               "path": "nsg:liquidJunctionPotential",
               "name": "Liquid junction potential",
               "description": "Liquid junction potential of patch",
               "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
-              "maxCount": 1
-            },
-            {
-              "path": "nsg:analogToDigitalConverter",
-              "name": "Analog-to-digital converter settings",
-              "description": "Settings of analog-to-digital converter",
-              "node": "this:ConverterShape",
-              "maxCount": 1
-            },
-            {
-              "path": "nsg:digitalToAnalogConverter",
-              "name": "Digital-to-analog converter settings",
-              "description": "Settings of digital-to-analog converter",
-              "node": "this:DigitalToAnalogConverterShape",
               "maxCount": 1
             },
             {
@@ -134,47 +99,21 @@
       ]
     },
     {
-      "@id": "this:DigitalToAnalogConverterShape",
-      "@type": "sh:NodeShape",
-      "and": [
-        {
-          "node": "this:ConverterShape"
-        },
-        {
-          "property": [
-            {
-              "path": "nsg:scale",
-              "name": "Scale",
-              "datatype": "xsd:float",
-              "minCount": 1,
-              "maxCount": 1
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "@id": "this:ConverterShape",
+      "@id": "this:MeasurementRepetitionShape",
       "@type": "sh:NodeShape",
       "property": [
         {
-          "path": "schema:unitCode",
-          "name": "Unit",
-          "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/UnitCodeOntologyTermShape",
-          "minCount": 1,
-          "maxCount": 1
-        },
-        {
-          "path": "nsg:gain",
-          "name": "Gain",
+          "path": "nsg:totalRepetitions",
+          "name": "Total repetitions",
           "datatype": "xsd:float",
           "minCount": 1,
           "maxCount": 1
         },
         {
-          "path": "schema:name",
-          "name": "Name",
-          "description": "Name of the converter",
+          "path": "schema:value",
+          "name": "Measured value",
+          "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
+          "minCount": 1,
           "maxCount": 1
         }
       ]
