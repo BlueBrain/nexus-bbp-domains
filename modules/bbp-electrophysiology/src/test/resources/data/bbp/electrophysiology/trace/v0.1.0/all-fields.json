@@ -12,7 +12,6 @@
     "providerId": "654363",
     "description": "Stimulation trace",
     "channel": "0",
-    "repetition": "2",
     "citation": "https://doi.org/10.1093/cercor/bhh092",
     "projectName": "Somatosensory cortex project",
     "retrievalDate": "2016-10-15T00:00:00",

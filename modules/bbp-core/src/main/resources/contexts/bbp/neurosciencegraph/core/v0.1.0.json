@@ -290,6 +290,129 @@
     "memodelRelease": {
       "@id": "nsg:memodelRelease",
       "@type": "@id"
+    },
+    "eType": {
+      "@id": "nsg:eType",
+      "@type": "@id"
+    },
+    "putativeEtype": {
+      "@id": "nsg:putativeEtype",
+      "@type": "@id"
+    },
+    "pipetteNumber": {
+      "@id": "nsg:pipetteNumber",
+      "@type": "@id"
+    },
+    "startMembranePotential": {
+      "@id": "nsg:startMembranePotential",
+      "@type": "@id"
+    },
+    "endMembranePotential": {
+      "@id": "nsg:endMembranePotential",
+      "@type": "@id"
+    },
+    "sealResistance": {
+      "@id": "nsg:sealResistance",
+      "@type": "@id"
+    },
+    "pipetteResistance": {
+      "@id": "nsg:pipetteResistance",
+      "@type": "@id"
+    },
+    "liquidJunctionPotential": {
+      "@id": "nsg:liquidJunctionPotential",
+      "@type": "@id"
+    },
+    "labelingCompound": {
+      "@id": "nsg:labelingCompound",
+      "@type": "@id"
+    },
+    "repetition": {
+      "@id": "nsg:repetition",
+      "@type": "@id"
+    },
+    "targetHoldingPotential": {
+      "@id": "nsg:targetHoldingPotential",
+      "@type": "@id"
+    },
+    "measuredHoldingPotential": {
+      "@id": "nsg:measuredHoldingPotential",
+      "@type": "@id"
+    },
+    "inputResistance": {
+      "@id": "nsg:inputResistance",
+      "@type": "@id"
+    },
+    "seriesResistance": {
+      "@id": "nsg:seriesResistance",
+      "@type": "@id"
+    },
+    "compensationCurrent": {
+      "@id": "nsg:compensationCurrent",
+      "@type": "@id"
+    },
+    "digitalToAnalogConverter": {
+      "@id": "nsg:digitalToAnalogConverter",
+      "@type": "@id"
+    },
+    "numberOfRepetition": {
+      "@id": "nsg:numberOfRepetition",
+      "@type": "@id"
+    },
+    "retrievalDate": {
+      "@id": "nsg:retrievalDate"
+    },
+    "timeStep": {
+      "@id": "nsg:timeStep",
+      "@type": "@id"
+    },
+    "slicingPlane": {
+      "@id": "nsg:slicingPlane",
+      "@type": "@id"
+    },
+    "slicingAngle": {
+      "@id": "nsg:slicingAngle",
+      "@type": "@id"
+    },
+    "cuttingThickness": {
+      "@id": "nsg:cuttingThickness",
+      "@type": "@id"
+    },
+    "hemisphere": {
+      "@id": "nsg:hemisphere",
+      "@type": "@id"
+    },
+    "solution": {
+      "@id": "nsg:solution",
+      "@type": "@id"
+    },
+    "materials": {
+      "@id": "nsg:materials",
+      "@type": "@id"
+    },
+    "vendor": {
+      "@id": "nsg:vendor",
+      "@type": "@id"
+    },
+    "steps": {
+      "@id": "nsg:steps",
+      "@type": "@id"
+    },
+    "warning": {
+      "@id": "nsg:warning",
+      "@type": "@id"
+    },
+    "reagentName": {
+      "@id": "nsg:reagentName",
+      "@type": "@id"
+    },
+    "reagentLinearFormula": {
+      "@id": "nsg:reagentLinearFormula",
+      "@type": "@id"
+    },
+    "reagentVendor": {
+      "@id": "nsg:reagentVendor",
+      "@type": "@id"
     }
   }
 }

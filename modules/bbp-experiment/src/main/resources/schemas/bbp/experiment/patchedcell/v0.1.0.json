@@ -97,26 +97,6 @@
           ]
         }
       ]
-    },
-    {
-      "@id": "this:MeasurementRepetitionShape",
-      "@type": "sh:NodeShape",
-      "property": [
-        {
-          "path": "nsg:totalRepetitions",
-          "name": "Total repetitions",
-          "datatype": "xsd:float",
-          "minCount": 1,
-          "maxCount": 1
-        },
-        {
-          "path": "schema:value",
-          "name": "Measured value",
-          "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
-          "minCount": 1,
-          "maxCount": 1
-        }
-      ]
     }
   ]
 }

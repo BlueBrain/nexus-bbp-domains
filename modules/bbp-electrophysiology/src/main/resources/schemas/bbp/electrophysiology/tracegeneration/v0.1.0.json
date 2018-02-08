@@ -67,7 +67,7 @@
               "path": "nsg:measuredHoldingPotential",
               "name": "Measured holding potential",
               "description": "Measured holding potential of patched cell.",
-              "node": "this:MeasurementRepetitionShape",
+              "node": "{{base}}/schemas/bbp/core/measurement/v0.1.0/shapes/RepeatedQuantitativeMeasurementShape",
               "maxCount": 1
             },
             {
@@ -151,26 +151,6 @@
           "path": "schema:name",
           "name": "Name",
           "description": "Name of the converter",
-          "maxCount": 1
-        }
-      ]
-    },
-    {
-      "@id": "this:MeasurementRepetitionShape",
-      "@type": "sh:NodeShape",
-      "property": [
-        {
-          "path": "nsg:totalRepetitions",
-          "name": "Total repetitions",
-          "datatype": "xsd:float",
-          "minCount": 1,
-          "maxCount": 1
-        },
-        {
-          "path": "schema:value",
-          "name": "Measured value",
-          "node": "{{base}}/schemas/bbp/core/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape",
-          "minCount": 1,
           "maxCount": 1
         }
       ]
