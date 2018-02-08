@@ -32,13 +32,6 @@
               "maxCount": 1
             },
             {
-              "path": "nsg:repetition",
-              "name": "Repetition",
-              "description": "Repetition number of trace",
-              "datatype": "xsd:integer",
-              "maxCount": 1
-            },
-            {
               "path": "nsg:channel",
               "name": "Channel",
               "description": "Channel number of trace",
