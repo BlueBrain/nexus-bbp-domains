@@ -1,6 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/core/entity/v0.1.0"
+    "{{base}}/contexts/bbp/core/instance/v0.1.0"
   ],
   "@type": ["nsg:Circuit"],
   "@id": "{{base}}/data/bbp/simulation/circuit/v0.0.1/35269d2c-9d21-4658-8aca-a46c96817f99",

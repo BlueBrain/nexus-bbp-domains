@@ -1,6 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/core/entity/v0.1.0"
+    "{{base}}/contexts/bbp/core/instance/v0.1.0"
   ],
   "@type": "prov:WrongType",
   "name": "Empty collection name",

@@ -1,6 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/core/entity/v0.1.0"
+    "{{base}}/contexts/bbp/core/instance/v0.1.0"
   ],
   "@type": "prov:Activity",
   "@id": "{{base}}/data/bbp/core/activity/v0.1.0/77d572c8-4219-4bb5-b430-0a79bad93aa8",
