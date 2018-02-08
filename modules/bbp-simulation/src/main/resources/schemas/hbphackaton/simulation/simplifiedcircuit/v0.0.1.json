@@ -3,7 +3,7 @@
     "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
-      "this": "{{base}}/schemas/bbp/simulation/simplifiedcircuit/v0.0.1/shapes/"
+      "this": "{{base}}/schemas/hbphackaton/simulation/simplifiedcircuit/v0.0.1/shapes/"
     }
   ],
   "@type": "nxv:Schema",
@@ -122,7 +122,7 @@
               "path": "nsg:synapseRelease",
               "name": "Synapse release",
               "description": "Collection of mod files identified by git hash.",
-              "node": "{{base}}/schemas/bbp/simulation/detailedcircuit/v0.1.0/shapes/SynapseReleaseDistributionShape",
+              "node": "{{base}}/schemas/hbphackaton/simulation/detailedcircuit/v0.1.0/shapes/SynapseReleaseDistributionShape",
               "minCount": 1,
               "maxCount": 1
             }

@@ -39,7 +39,7 @@
               "name": "Synapse release",
               "description": "Collection of synapse mod files identified by git hash.",
               "editorialNote": "Add media type constraint: application/neuron-mod.",
-              "seeAlso": "{{base}}/schemas/bbp/simulation/synapserelease/v0.1.0/shapes/SynapseReleaseShape",
+              "seeAlso": "{{base}}/schemas/hbphackaton/simulation/synapserelease/v0.1.0/shapes/SynapseReleaseShape",
               "class": "nsg:SynapseRelease",
               "minCount": 1,
               "maxCount": 1

@@ -27,7 +27,7 @@
         {
           "property": [
             {
-              "path": "nsg:distribution",
+              "path": "schema:distribution",
               "name": "Configuration file (s)",
               "description": "Link to the configuration files. Note that the minCount=1 constraint forces the config files not be necessarily stored in Nexus.",
               "node": "{{base}}/schemas/nexus/core/distribution/v0.1.0/DistributionShape",

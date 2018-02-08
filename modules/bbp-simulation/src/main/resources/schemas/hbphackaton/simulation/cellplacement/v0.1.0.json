@@ -1,0 +1,26 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "this": "{{base}}/schemas/hbphackaton/simulation/cellplacement/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/bbp/core/entity/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:SpatialIndexShape",
+      "@type": "sh:NodeShape",
+      "targetClass": "nsg:Entity",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape"
+        }
+      ]
+    }
+  ]
+}

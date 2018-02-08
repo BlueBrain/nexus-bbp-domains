@@ -3,7 +3,7 @@
     "{{base}}/contexts/nexus/core/schema/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
-      "this": "{{base}}/schemas/bbp/simulation/detailedcircuit/v0.0.1/shapes/"
+      "this": "{{base}}/schemas/hbphackaton/simulation/detailedcircuit/v0.1.0/shapes/"
     }
   ],
   "@type": "nxv:Schema",
@@ -26,7 +26,7 @@
               "path": "nsg:nodeCollection",
               "name": "Node collection",
               "description": "Node collection entity.",
-              "seeAlso": "{{base}}/schemas/bbp/simulation/nodecollection/v0.1.0/shapes/NodeCollectionShape",
+              "seeAlso": "{{base}}/schemas/hbphackaton/simulation/nodecollection/v0.1.0/shapes/NodeCollectionShape",
               "class": "nsg:NodeCollection",
               "minCount": 1
             },
@@ -34,7 +34,7 @@
               "path": "nsg:edgeCollection",
               "name": "nrnPath",
               "description": "Location of nrn synapse file and additional circuit description files: start.ncs and start.target",
-              "seeAlso": "{{base}}/schemas/bbp/simulation/edgecollection/v0.1.0/shapes/EdgeCollectionShape",
+              "seeAlso": "{{base}}/schemas/hbphackaton/simulation/edgecollection/v0.1.0/shapes/EdgeCollectionShape",
               "class": "nsg:EdgeCollection"
             },
             {
@@ -42,7 +42,7 @@
               "name": "TargetFile",
               "description": "Optional parameter giving location of predefined targets stored in the named file",
               "editorialNote": "constrain with application/bbp-target",
-              "seeAlso": "{{base}}/schemas/bbp/simulation/target/v0.1.0/shapes/TargetShape",
+              "seeAlso": "{{base}}/schemas/hbphackaton/simulation/target/v0.1.0/shapes/TargetShape",
               "class": "nsg:Target",
               "maxCount": 1
             }

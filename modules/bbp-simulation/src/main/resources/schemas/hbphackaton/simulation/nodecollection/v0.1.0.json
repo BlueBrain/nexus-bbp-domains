@@ -27,7 +27,7 @@
               "path": "nsg:memodelRelease",
               "name": "MEModel release",
               "description": "MEModel release.",
-              "seeAlso": "{{base}}/schemas/bbp/simulation/memodelrelease/v0.0.1/shapes/MEModelReleaseShape",
+              "seeAlso": "{{base}}/schemas/hbphackaton/simulation/memodelrelease/v0.0.1/shapes/MEModelReleaseShape",
               "class": "nsg:MEModelRelease",
               "minCount": 1,
               "maxCount": 1
