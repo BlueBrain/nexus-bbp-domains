@@ -1,0 +1,54 @@
+{
+  "@context": [
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "this": "{{base}}/schemas/hbphackathon/simulation/detailedcircuit/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/hbphackathon/simulation/modelinstance/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:DetailedCircuitShape",
+      "@type": "sh:NodeShape",
+      "targetClass": "nsg:DetailedCircuit",
+      "nodeKind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/hbphackathon/simulation/modelinstance/v0.1.0/shapes/ModelInstanceShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:nodeCollection",
+              "name": "Node collection",
+              "description": "Node collection entity.",
+              "seeAlso": "{{base}}/schemas/hbphackathon/simulation/nodecollection/v0.1.0/shapes/NodeCollectionShape",
+              "class": "nsg:NodeCollection",
+              "minCount": 1
+            },
+            {
+              "path": "nsg:edgeCollection",
+              "name": "nrnPath",
+              "description": "Location of nrn synapse file and additional circuit description files: start.ncs and start.target",
+              "seeAlso": "{{base}}/schemas/hbphackathon/simulation/edgecollection/v0.1.0/shapes/EdgeCollectionShape",
+              "class": "nsg:EdgeCollection"
+            },
+            {
+              "path": "nsg:target",
+              "name": "TargetFile",
+              "description": "Optional parameter giving location of predefined targets stored in the named file",
+              "editorialNote": "constrain with application/bbp-target",
+              "seeAlso": "{{base}}/schemas/hbphackathon/simulation/target/v0.1.0/shapes/TargetShape",
+              "class": "nsg:Target",
+              "maxCount": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

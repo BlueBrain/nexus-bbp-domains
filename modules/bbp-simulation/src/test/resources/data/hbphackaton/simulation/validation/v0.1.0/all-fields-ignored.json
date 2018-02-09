@@ -10,7 +10,7 @@
   ],
   "generated": [
     {
-      "@id": "{{base}}/data/bbp/simulation/validation/v0.0.1/9a5ddf06-4af3-4291-af2e-d287b8c92205",
+      "@id": "{{base}}/data/hbphackathon/simulation/validation/v0.0.1/9a5ddf06-4af3-4291-af2e-d287b8c92205",
       "@type": [
         "nsg:ValidationResult",
         "prov:Entity"
@@ -20,7 +20,7 @@
   "startedAtTime": "2018-01-15T10:00:01",
   "used": [
     {
-      "@id": "{{base}}/data/bbp/simulation/circuit/v0.0.4/53e68e2d-47fe-47c1-bc5f-195d914d00ae",
+      "@id": "{{base}}/data/hbphackathon/simulation/circuit/v0.0.4/53e68e2d-47fe-47c1-bc5f-195d914d00ae",
       "@type": [
         "nsg:Circuit",
         "prov:Entity"
