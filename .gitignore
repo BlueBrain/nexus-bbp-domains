@@ -1,6 +1,5 @@
 # Compiled source #
 ###################
-modules/bbp-simulation/src/main/resources/schemas/hbphackaton/simulation/BluePyEfeConfiguration/v0.1.0.json
 *.com
 *.class
 *.dll
