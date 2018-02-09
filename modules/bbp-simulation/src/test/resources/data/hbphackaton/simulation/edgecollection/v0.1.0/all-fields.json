@@ -6,7 +6,7 @@
     "nsg:EdgeCollection",
     "nsg:Entity"
   ],
-  "@id": "{{base}}/data/hbphackaton/simulation/edgecollection/v0.1.0/163e68e2d-47fe-47c1-bc5f-195d914d00ae",
+  "@id": "{{base}}/data/hbphackathon/simulation/edgecollection/v0.1.0/163e68e2d-47fe-47c1-bc5f-195d914d00ae",
   "name": "Edge collection SSCx O1.v6a",
   "property": {
     "@type": [
@@ -20,7 +20,7 @@
       "nsg:SynapseRelease",
       "nsg:Entity"
     ],
-    "@id": "{{base}}/data/hbphackaton/simulation/synapserelease/v0.1.0/18e68e2d-47fe-47c1-bc5f-195d914d00ae",
+    "@id": "{{base}}/data/hbphackathon/simulation/synapserelease/v0.1.0/18e68e2d-47fe-47c1-bc5f-195d914d00ae",
     "name": "Synapse release SSCx O1.v6a"
   }
 }

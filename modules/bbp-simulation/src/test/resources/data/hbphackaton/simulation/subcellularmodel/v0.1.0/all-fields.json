@@ -4,14 +4,14 @@
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
   ],
   "@type": "nsg:SubCellularModel",
-  "@id": "{{base}}/data/hbphackaton/simulation/subcellularmodel/v0.1.0/d4d5bebf-2777-481f-8623-fc3b36edba91",
+  "@id": "{{base}}/data/hbphackathon/simulation/subcellularmodel/v0.1.0/d4d5bebf-2777-481f-8623-fc3b36edba91",
   "name": "Transient Sodium",
   "modelOf": {
     "@id": "http://transient_sodium_ionChannel.uri.com",
     "label": "Transient Sodium ion channel"
   },
   "modelScript": {
-    "@id": "{{base}}/data/hbphackaton/simulation/modelscript/v0.1.0/cfd2ba87-ac84-4615-98d6-048b79d05c0e",
+    "@id": "{{base}}/data/hbphackathon/simulation/modelscript/v0.1.0/cfd2ba87-ac84-4615-98d6-048b79d05c0e",
     "@type": "nsg:ModelScript",
     "name": "NaTg.mod",
     "description": "Entity Description",

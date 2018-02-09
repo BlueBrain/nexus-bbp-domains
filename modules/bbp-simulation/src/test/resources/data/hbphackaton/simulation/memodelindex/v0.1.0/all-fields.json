@@ -2,7 +2,7 @@
   "@context": [
     "{{base}}/contexts/bbp/core/entity/v0.1.0"
   ],
-  "@id": "{{base}}/data/hbphackaton/simulation/memodelindex/v0.1.0/93e68e2d-47fe-47c1-bc5f-195d914d00ae",
+  "@id": "{{base}}/data/hbphackathon/simulation/memodelindex/v0.1.0/93e68e2d-47fe-47c1-bc5f-195d914d00ae",
   "@type": [
     "nsg:MEModelIndex",
     "nsg:Entity"

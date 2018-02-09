@@ -7,14 +7,14 @@
     "prov:Derivation",
     "nsg:SpatialIndexDerivation"
   ],
-  "@id": "{{base}}/schemas/hbphackaton/simulation/spatialindexderivation/v0.1.0/53e68e2d-47fe-47c1-bc5f-195d914d00ae",
+  "@id": "{{base}}/schemas/hbphackathon/simulation/spatialindexderivation/v0.1.0/53e68e2d-47fe-47c1-bc5f-195d914d00ae",
   "name": "Spatial index",
   "entity": {
     "@type": [
       "prov:Entity",
       "nsg:DetailedCircuit"
     ],
-    "@id": "{{base}}/data/hbphackaton/simulation/detailedcircuit/v0.1.0/153e68e2d-47fe-47c1-bc5f-195d914d00ae"
+    "@id": "{{base}}/data/hbphackathon/simulation/detailedcircuit/v0.1.0/153e68e2d-47fe-47c1-bc5f-195d914d00ae"
   },
   "hadActivity": {
     "@type": "prov:Activity",
@@ -25,7 +25,7 @@
       "prov:Entity",
       "nsg:SpatialIndex"
     ],
-    "@id": "{{base}}/data/hbphackaton/simulation/spatialindex/v0.1.0/43e68e2d-47fe-47c1-bc5f-195d914d00ae"
+    "@id": "{{base}}/data/hbphackathon/simulation/spatialindex/v0.1.0/43e68e2d-47fe-47c1-bc5f-195d914d00ae"
   }
 }
 
