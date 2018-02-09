@@ -423,8 +423,13 @@
       "@type": "@id"
     },
     "property": {
-      "@id": "nsg:property",
-      "@type": "@id"
+      "@id": "nsg:property"
+    },
+    "score": {
+      "@id": "nsg:score"
+    },
+    "normalizedScore": {
+      "@id": "nsg:normalizedScore"
     }
   }
 }
