@@ -35,7 +35,8 @@
               "path": "nsg:morphologyIndex",
               "name": "Morphology release index file",
               "description": "Morphology release index file.",
-              "node": "{{base}}/schemas/nexus/core/distribution/v0.1.0/shapes/DistributionShape"
+              "seeAlso": "{{base}}/schemas/bbp/core/entity/v0.1.0/shapes/EntityShape",
+              "class": "prov:Entity"
             }
           ]
         }
