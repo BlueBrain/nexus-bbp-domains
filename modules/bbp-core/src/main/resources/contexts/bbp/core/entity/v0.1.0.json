@@ -4,6 +4,9 @@
     "{{base}}/contexts/nexus/core/resource/v0.1.0",
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
+      "property": {
+        "@id": "nsg:property"
+      },
       "label": {
         "@id": "rdfs:label",
         "@type": "xsd:string"

@@ -10,12 +10,12 @@
     "label": "Rat L5TPC"
   },
   "subCellularMechanism": {
-    "@id": "{{base}}/data/hbphackaton/simulation/subcellularmodel/v0.1.0/d4d5bebf-2777-481f-8623-fc3b36edba91",
+    "@id": "{{base}}/data/hbphackathon/simulation/subcellularmodel/v0.1.0/d4d5bebf-2777-481f-8623-fc3b36edba91",
     "@type": "nsg:SubCellularModel",
     "name": "a name"
   },
   "modelScript": {
-    "@id": "{{base}}/data/hbphackaton/simulation/modelscript/v0.1.0/b627f305-fab1-4fbe-b3e5-25de5f617496",
+    "@id": "{{base}}/data/hbphackathon/simulation/modelscript/v0.1.0/b627f305-fab1-4fbe-b3e5-25de5f617496",
     "@type": "nsg:ModelScript",
     "name": "cADpyr_L5TPC",
     "distribution": [
