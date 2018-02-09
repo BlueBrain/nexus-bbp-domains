@@ -421,6 +421,10 @@
     "reagentVendor": {
       "@id": "nsg:reagentVendor",
       "@type": "@id"
+    },
+    "property": {
+      "@id": "nsg:property",
+      "@type": "@id"
     }
   }
 }
