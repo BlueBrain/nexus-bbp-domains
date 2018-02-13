@@ -44,7 +44,14 @@
           "path": "schema:author",
           "name": "Author",
           "description": "Author of the protocol",
-          "class": "nsg:Agent"
+          "xone": [
+            {
+              "node": "{{base}}/schemas/bbp/core/person/v0.1.0/shapes/PersonShape"
+            },
+            {
+              "node": "{{base}}/schemas/bbp/core/organization/v0.1.0/shapes/OrganizationShape"
+            }
+          ]
         },
         {
           "path": "nsg:vendor",
