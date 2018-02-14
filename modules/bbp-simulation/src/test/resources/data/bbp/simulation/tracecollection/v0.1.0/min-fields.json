@@ -1,7 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/core/instance/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
+    "{{base}}/contexts/bbp/core/instance/v0.1.0"
   ],
   "@type": ["prov:Collection", "prov:Entity"],
   "name": "Trace collection used for feature extraction",
