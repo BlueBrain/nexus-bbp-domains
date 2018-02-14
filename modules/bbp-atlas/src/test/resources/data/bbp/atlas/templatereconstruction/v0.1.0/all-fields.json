@@ -1,6 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/core/entity/v0.1.0"
+    "{{base}}/contexts/bbp/core/instance/v0.1.0"
   ],
   "@type": "nsg:TemplateReconstruction",
   "@id": "{{base}}/schemas/bbp/atlas/templatereconstruction/v0.1.0/2d187739-3d70-4d2e-9760-41d980e895ad",

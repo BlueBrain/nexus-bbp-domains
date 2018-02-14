@@ -1,12 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/core/entity/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
-    {
-      "accessURL": {
-        "@id": "schema:accessURL"
-      }
-    }
+    "{{base}}/contexts/bbp/core/instance/v0.1.0"
   ],
   "@type": [
     "nsg:MorphologyRelease",

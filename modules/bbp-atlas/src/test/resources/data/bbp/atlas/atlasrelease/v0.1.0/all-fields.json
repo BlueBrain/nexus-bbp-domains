@@ -1,6 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/core/entity/v0.1.0"
+    "{{base}}/contexts/bbp/core/instance/v0.1.0"
   ],
   "@id": "{{base}}/data/bbp/atlas/atlasrelease/v0.1.0/11987133-0e46-4247-9004-33d5dac2100b",
   "@type": "nsg:AtlasRelease",

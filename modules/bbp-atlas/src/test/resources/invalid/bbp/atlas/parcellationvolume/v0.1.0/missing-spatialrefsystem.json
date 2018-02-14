@@ -1,6 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/core/entity/v0.1.0"
+    "{{base}}/contexts/bbp/core/instance/v0.1.0"
   ],
 
   "@id": "{{base}}/data/bbp/atlas/parcellationvolume/v0.1.1/ce14d082-e005-4515-af97-72f73a97334d",

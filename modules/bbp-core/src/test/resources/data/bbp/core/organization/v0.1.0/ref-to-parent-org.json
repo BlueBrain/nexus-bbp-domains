@@ -1,6 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/core/entity/v0.1.0"
+    "{{base}}/contexts/bbp/core/instance/v0.1.0"
   ],
   "@type": "schema:Organization",
   "@id": "{{base}}/schemas/bbp/core/organization/v0.1.0/5cb48794-1af3-4dcc-9271-540bc82361c2",

@@ -1,7 +1,6 @@
 {
   "@context": [
-    "{{base}}/contexts/bbp/core/entity/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
+    "{{base}}/contexts/bbp/core/instance/v0.1.0"
   ],
   "@type": "nsg:SubCellularModel",
   "@id": "{{base}}/data/bbp/simulation/subcellularmodel/v0.1.0/d4d5bebf-2777-481f-8623-fc3b36edba91",
