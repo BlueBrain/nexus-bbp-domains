@@ -6,6 +6,9 @@
     }
   ],
   "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/nexus/core/distribution/v0.1.0"
+  ],
   "shapes": [
     {
       "@id": "this:EntityShape",
@@ -63,6 +66,19 @@
           "description": "Date at which this entity created.",
           "nodeKind": "xsd:dateTime",
           "maxCount": 1
+        },
+        {
+          "path": "prov:wasRevisionOf",
+          "name": "Revision of",
+          "description": "The entity for which this entity is a revision of.",
+          "nodeKind": "xsd:dateTime",
+          "maxCount": 1
+        },
+        {
+          "path": "schema:distribution",
+          "name": "Distribution",
+          "description": "Where the data attached to the entity is published.",
+          "node": "{{base}}/schemas/nexus/core/distribution/v0.1.0/shapes/DistributionShape"
         }
       ]
     }

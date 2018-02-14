@@ -24,10 +24,10 @@
         {
           "property": [
             {
-              "path": "nsg:brainRegion",
-              "name": "Brain region",
-              "description": "Brain region patched.",
-              "node": "{{base}}/schemas/bbp/core/typedlabeledontologyterm/v0.1.0/shapes/BrainRegionOntologyTermShape"
+              "path": "nsg:brainLocation",
+              "name": "Brain location",
+              "description": "Brain location information of the patchedcell",
+              "node": "{{base}}/schemas/bbp/core/brainlocation/v0.1.0/shapes/BrainLocationShape"
             },
             {
               "path": "dcterms:hasPart",

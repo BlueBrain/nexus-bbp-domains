@@ -1,5 +1,5 @@
 val commonsVersion = "0.5.30"
-val provVersion    = "0.1.5"
+val provVersion    = "0.1.6"
 val kgVersion      = "0.8.8"
 
 lazy val prov           = "ch.epfl.bluebrain.nexus" %% "nexus-prov"      % provVersion

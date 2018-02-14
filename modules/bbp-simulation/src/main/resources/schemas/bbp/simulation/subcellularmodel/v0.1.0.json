@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    "{{base}}/contexts/nexus/core/schema/v0.1.0",
+    {
+      "this": "{{base}}/schemas/bbp/simulation/subcellularmodel/v0.1.0/shapes/"
+    }
+  ],
+  "@type": "nxv:Schema",
+  "imports": [
+    "{{base}}/schemas/bbp/simulation/modelinstance/v0.1.0",
+    "{{base}}/schemas/bbp/simulation/modelscript/v0.1.0"
+  ],
+  "shapes": [
+    {
+      "@id": "this:SubCellularModelShape",
+      "@type": "sh:NodeShape",
+      "label": "This shape is for...",
+      "targetClass": "nsg:SubCellularModel",
+      "nodekind": "sh:BlankNodeOrIRI",
+      "and": [
+        {
+          "node": "{{base}}/schemas/bbp/simulation/modelinstance/v0.1.0/shapes/ModelInstanceShape"
+        },
+        {
+          "property": [
+            {
+              "path": "nsg:modelScript",
+              "name": "Model script",
+              "description": "Model script as mod file.",
+              "seeAlso": "{{base}}/schemas/bbp/simulation/modelscript/v0.1.0/shapes/SubCellularModelScriptShape",
+              "class": "nsg:ModelScript"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

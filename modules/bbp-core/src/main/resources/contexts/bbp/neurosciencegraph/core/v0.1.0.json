@@ -280,7 +280,7 @@
       "@type": "@id"
     },
     "distribution": {
-      "@id": "nsg:distribution",
+      "@id": "schema:distribution",
       "@type": "@id"
     },
     "cellPlacement": {
@@ -289,6 +289,14 @@
     },
     "memodelRelease": {
       "@id": "nsg:memodelRelease",
+      "@type": "@id"
+    },
+    "synapseRelease": {
+      "@id": "nsg:synapseRelease",
+      "@type": "@id"
+    },
+    "nodeCollection": {
+      "@id": "nsg:nodeCollection",
       "@type": "@id"
     },
     "eType": {
@@ -413,6 +421,12 @@
     "reagentVendor": {
       "@id": "nsg:reagentVendor",
       "@type": "@id"
+    },
+    "score": {
+      "@id": "nsg:score"
+    },
+    "normalizedScore": {
+      "@id": "nsg:normalizedScore"
     }
   }
 }
