@@ -46,7 +46,7 @@
       },
       "hadPlan": {
         "@type": "prov:Plan",
-        "@id": "{{base}}/dat  a/bbp/experiment/protocol/v0.1.0/735a4af3-8528-461b-958c-fd062fe40ff5"
+        "@id": "{{base}}/data/bbp/experiment/protocol/v0.1.0/735a4af3-8528-461b-958c-fd062fe40ff5"
       }
     }
   ],
