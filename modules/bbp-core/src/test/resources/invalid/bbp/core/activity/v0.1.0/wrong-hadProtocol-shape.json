@@ -2,9 +2,10 @@
   "@context": [
     "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
     {
-    "@vocab": "http://www.w3.org/ns/prov#",
-    "prov": "http://www.w3.org/ns/prov#"
-  }],
+      "@vocab": "http://www.w3.org/ns/prov#",
+      "prov": "http://www.w3.org/ns/prov#"
+    }
+  ],
   "@type": "prov:Activity",
   "@id": "{{base}}/data/bbp/core/activity/v0.1.0/77d572c8-4219-4bb5-b430-0a79bad93aa8",
   "used": [
