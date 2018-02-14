@@ -24,20 +24,13 @@
           "property": [
             {
               "path": "nsg:hadProtocol",
-              "class": "nsg:Protocol",
-              "node": "this:HadProtocolValueShape",
-              "maxCount": 1
+              "label": "The value of nsg:hadProtocol should be of type nsg:Protocol.",
+              "seeAlso": "{{base}}/schemas/bbp/experiment/protocol/v0.1.0/shapes/ProtocolShape",
+              "class": "nsg:Protocol"
             }
           ]
         }
       ]
-    },
-    {
-      "@id": "this:HadProtocolValueShape",
-      "@type": "sh:NodeShape",
-      "targetObjectsOf": "nsg:hadProtocol",
-      "label": "The value of nsg:hadProtocol should be of type nsg:Protocol.",
-      "class": "nsg:Protocol"
     }
   ]
 }
