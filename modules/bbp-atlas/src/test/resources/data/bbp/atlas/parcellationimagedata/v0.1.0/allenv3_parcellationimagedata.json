@@ -1,0 +1,310 @@
+{
+  "@context": {
+    "nsg": "https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/",
+    "imageVolume": "nsg:imageVolume",
+    "distribution": "nxv:distribution",
+    "accessURL" : "nxcv:accessURL",
+    "brainRegion": {
+      "@id": "nsg:brainRegion"
+    },
+    "geometry": {
+      "@id": "nsg:geometry"
+    },
+    "location": {
+      "@id": "nsg:location"
+    },
+    "geometryParameter": {
+      "@id": "nsg:geometryParameter"
+    },
+    "spatialReferenceSystem": {
+      "@id": "nsg:spatialReferenceSystem"
+    },
+    "hadProtocol": {
+      "@id": "nsg:hadProtocol"
+    },
+    "atlasVersion": {
+      "@id": "nsg:atlasVersion"
+    },
+    "sweep": {
+      "@id": "nsg:sweep"
+    },
+    "channel": {
+      "@id": "nsg:channel"
+    },
+    "putativeMType": {
+      "@id": "nsg:putativeMType"
+    },
+    "projectName": {
+      "@id": "nsg:projectName"
+    },
+    "spatialCellName": {
+      "@id": "nsg:spatialCellName"
+    },
+    "reconstructionRequested": {
+      "@id": "nsg:reconstructionRequested"
+    },
+    "reconstructable": {
+      "@id": "nsg:reconstructable"
+    },
+    "labeledCell": {
+      "@id": "nsg:labeledCell"
+    },
+    "objectiveMagnification": {
+      "@id": "nsg:objectiveMagnification"
+    },
+    "objectiveType": {
+      "@id": "nsg:objectiveType"
+    },
+    "brainLocationCoordinates": {
+      "@id": "nsg:brainLocationCoordinates"
+    },
+    "sliceLocationCoordinates": {
+      "@id": "nsg:sliceLocationCoordinates"
+    },
+    "valueX": {
+      "@id": "nsg:valueX"
+    },
+    "valueY": {
+      "@id": "nsg:valueY"
+    },
+    "valueZ ": {
+      "@id": "nsg:valueZ"
+    },
+    "species": {
+      "@id": "nsg:species"
+    },
+    "strain": {
+      "@id": "nsg:strain"
+    },
+    "transgenic": {
+      "@id": "nsg:transgenic"
+    },
+    "sex": {
+      "@id": "nsg:sex"
+    },
+    "age": {
+      "@id": "nsg:age"
+    },
+    "dateOfSurgery": {
+      "@id": "nsg:dateOfSurgery"
+    },
+    "diseaseModel": {
+      "@id": "nsg:diseaseModel"
+    },
+    "disease": {
+      "@id": "nsg:disease"
+    },
+    "treatment": {
+      "@id": "nsg:treatment"
+    },
+    "period": {
+      "@id": "nsg:period"
+    },
+    "fixationMethod": {
+      "@id": "nsg:fixationMethod"
+    },
+    "stain": {
+      "@id": "nsg:stain"
+    },
+    "mountingMedia": {
+      "@id": "nsg:mountingMedia"
+    },
+    "annotationAngle": {
+      "@id": "nsg:annotationAngle"
+    },
+    "annotatorComment": {
+      "@id": "nsg:annotatorComment"
+    },
+    "axonProjection": {
+      "@id": "nsg:axonProjection"
+    },
+    "distanceToBoundary": {
+      "@id": "nsg:distanceToBoundary"
+    },
+    "mType": {
+      "@id": "nsg:mType"
+    },
+    "mSubType": {
+      "@id": "nsg:mSubType"
+    },
+    "subRegion": {
+      "@id": "nsg:subRegion"
+    },
+    "positionInLayer": {
+      "@id": "nsg:positionInLayer"
+    },
+    "longitudinalAxis": {
+      "@id": "nsg:longitudinalAxis"
+    },
+    "layer": {
+      "@id": "nsg:layer"
+    },
+    "integrity": {
+      "@id": "nsg:integrity"
+    },
+    "somaType": {
+      "@id": "nsg:somaType"
+    },
+    "apicalDendrite": {
+      "@id": "nsg:apicalDendrite"
+    },
+    "basalDendrite": {
+      "@id": "nsg:basalDendrite"
+    },
+    "axon": {
+      "@id": "nsg:axon"
+    },
+    "soma": {
+      "@id": "nsg:soma"
+    },
+    "orientationOfReconstruction": {
+      "@id": "nsg:orientationOfReconstruction"
+    },
+    "reconstructionCompressionCorrected": {
+      "@id": "nsg:reconstructionCompressionCorrected"
+    },
+    "reconstructionCompleted": {
+      "@id": "nsg:reconstructionCompleted"
+    },
+    "reconstructionCorrected": {
+      "@id": "nsg:reconstructionCorrected"
+    },
+    "reconstructionComment": {
+      "@id": "nsg:reconstructionComment"
+    },
+    "clusterReconstructionRequested": {
+      "@id": "nsg:clusterReconstructionRequested"
+    },
+    "reconstructionRequester": {
+      "@id": "nsg:reconstructionRequester"
+    },
+    "reconstructionSentDate": {
+      "@id": "nsg:reconstructionSentDate"
+    },
+    "reconstructionDate": {
+      "@id": "nsg:reconstructionDate"
+    },
+    "reconstructionLocation": {
+      "@id": "nsg:reconstructionLocation"
+    },
+    "comment": {
+      "@id": "nsg:comment"
+    },
+    "stimulus": {
+      "@id": "nsg:stimulus"
+    },
+    "stimulusType": {
+      "@id": "nsg:stimulusType"
+    },
+    "providerExperimentId": {
+      "@id": "nsg:providerExperimentId"
+    },
+    "providerExperimentName": {
+      "@id": "nsg:providerExperimentName"
+    },
+    "eCode": {
+      "@id": "nsg:eCode"
+    },
+    "prov": "http://www.w3.org/ns/prov#",
+    "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "label": {
+      "@id": "rdfs:label",
+      "@type": "xsd:string"
+    },
+    "editorialNote": {
+      "@id": "skos:editorialNote",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@type": "xsd:string",
+      "@id": "schema:name"
+    },
+    "value": {
+      "@id": "schema:value"
+    },
+    "unitText": {
+      "@id": "schema:unitText"
+    },
+    "unitCode": {
+      "@id": "schema:unitCode"
+    },
+    "size": {
+      "@id": "schema:size"
+    },
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "description": "schema:description",
+    "providerId": "nsg:providerId",
+    "nxcv": "https://bbp-nexus.epfl.ch/vocabs/nexus/core/v0.0.1/",
+    "citation": {
+      "@id": "schema:citation",
+      "@type": "@id"
+    },
+    "license": {
+      "@id": "schema:license",
+      "@type": "@id"
+    },
+    "hasPart": {
+      "@id": "dcterms:hasPart",
+      "@type": "@id"
+    },
+    "activity": {
+      "@id": "prov:activity",
+      "@type": "@id"
+    }
+  },
+  "@type": "nsg:ParcellationImageData",
+  "name": "Allen CCFv3 mouse atlas parcellation image data",
+  "imageVolume": {
+    "@type": "ImageVolume",
+    "name": "Image volume of Allen CCFv3",
+    "voxelType": "uint8",
+    "volumeDimension": {
+      "@type": "Vector3D",
+      "valueX": 1320,
+      "valueY": 800,
+      "valueZ": 1140
+    },
+    "imageOrigin": {
+      "@type": "Vector3D",
+      "valueX": 0,
+      "valueY": 0,
+      "valueZ": 0
+    },
+    "imageDirection": {
+      "@type": "RotationalMatrix",
+      "firstRow": {
+        "@type": "Vector3D",
+        "valueX": 1,
+        "valueY": 0,
+        "valueZ": 0
+      },
+      "secondRow": {
+        "@type": "Vector3D",
+        "valueX": 0,
+        "valueY": 1,
+        "valueZ": 0
+      },
+      "thirdRow": {
+        "@type": "Vector3D",
+        "valueX": 0,
+        "valueY": 0,
+        "valueZ": 1
+      }
+    },
+    "voxelResolution": {
+      "voxelResolutionValue": {
+        "@type": "Vector3D",
+        "valueX": 10,
+        "valueY": 10,
+        "valueZ": 10
+      },
+      "unitText": "micron"
+    },
+    "distribution": {
+      "accessURL": "/gpfs/bbp.cscs.ch/project/proj39/template/mouse/allen_ccfv3/raw/annotation_10.nrrd"
+    }
+  }
+}
