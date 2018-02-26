@@ -1,3 +1,6 @@
+[![Join the chat at https://gitter.im/BlueBrain/nexus-schemas](https://badges.gitter.im/BlueBrain/nexus-schemas.svg)](https://gitter.im/BlueBrain/nexus-schemas?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://bbpcode.epfl.ch/ci/buildStatus/icon?job=nexus.sbt.nexus-bbp-domains)](https://bbpcode.epfl.ch/ci/job/nexus.sbt.nexus-bbp-domains)
+
 # nexus-bbp-domains
 
 
