@@ -25,17 +25,31 @@
           "property": [
             {
               "path": "prov:used",
+              "name": "Feature extraction used entities",
+              "description": "Feature extraction used entities.",
+              "maxCount": 2
+            },
+            {
+              "path": "prov:used",
               "name": "Trace collection",
-              "description": "Used trace collections.",
-              "class": "nsg:TraceCollection",
-              "minCount": 1
+              "description": "Used trace collection.",
+              "http://www.w3.org/ns/shacl#qualifiedValueShape": {
+                "class": "nsg:TraceCollection"
+              },
+              "qualifiedValueShapesDisjoint": true,
+              "qualifiedMinCount": 1,
+              "qualifiedMaxCount": 1
             },
             {
               "path": "prov:used",
               "name": "BluePyEfe configuration",
               "description": "The used BluePyEfe configuration file (s).",
-              "class": "nsg:Configuration",
-              "minCount": 1
+              "http://www.w3.org/ns/shacl#qualifiedValueShape": {
+                "class": "nsg:Configuration"
+              },
+              "qualifiedValueShapesDisjoint": true,
+              "qualifiedMinCount": 1,
+              "qualifiedMaxCount": 1
             },
             {
               "path": "prov:generated",

@@ -7,16 +7,26 @@
   ],
   "generated": [
     {
-      "@id": "{{base}}/dev/v0/data/bbp/simulation/etypefeatureprotocol/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47g",
+      "@id": "{{base}}/data/bbp/simulation/etypefeatureprotocol/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47g",
       "@type": "nsg:ETypeFeatureProtocol"
     },
     {
-      "@id": "{{base}}/dev/v0/data/bbp/simulation/tracefeature/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47h",
+      "@id": "{{base}}//data/bbp/simulation/tracefeature/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47h",
       "@type": "nsg:TraceFeature"
     },
     {
-      "@id": "{{base}}/dev/v0/data/bbp/simulation/threshold/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47i",
+      "@id": "{{base}}/data/bbp/simulation/threshold/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47i",
       "@type": "nsg:Threshold"
+    }
+  ],
+  "used": [
+    {
+      "@id": "{{base}}/data/bbp/simulation/tracecollection/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47g",
+      "@type": "nsg:TraceCollection"
+    },
+    {
+      "@id": "{{base}}/data/bbp/simulation/configuration/v0.1.0/87a00313-e95b-4282-8a84-94afc639d47h",
+      "@type": "nsg:Configuration"
     }
   ]
 }
