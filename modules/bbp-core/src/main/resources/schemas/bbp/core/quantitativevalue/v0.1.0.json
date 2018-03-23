@@ -6,7 +6,7 @@
     }
   ],
   "imports": [
-    "{{base}}/schemas/nexus/schemaorg/quantitativevalue/v0.1.0"
+    "{{base}}/schemas/nexus/schemaorgsh/quantitativevalue/v0.1.0"
   ],
   "@type": "nxv:Schema",
   "shapes": [
@@ -16,7 +16,7 @@
       "targetClass": "schema:QuantitativeValue",
       "and": [
         {
-          "node": "{{base}}/schemas/nexus/schemaorg/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape"
+          "node": "{{base}}/schemas/nexus/schemaorgsh/quantitativevalue/v0.1.0/shapes/QuantitativeValueShape"
         },
         {
           "xone": [
