@@ -1,3 +1,5 @@
+import com.typesafe.sbt.packager.MappingsHelper
+
 val commonsVersion = "0.10.8"
 val provVersion    = "0.1.6"
 val kgVersion      = "0.9.9"
@@ -8,17 +10,15 @@ lazy val kgSchemas      = "ch.epfl.bluebrain.nexus" %% "kg-schemas"      % kgVer
 
 lazy val docs = project
   .in(file("docs"))
-  .enablePlugins(ParadoxPlugin)
+  .enablePlugins(ParadoxPlugin, UniversalPlugin)
   .settings(
-    name                         := "bbp-domains-docs",
-    moduleName                   := "bbp-domains-docs",
-    paradoxTheme                 := Some(builtinParadoxTheme("generic")),
-    target in (Compile, paradox) := (resourceManaged in Compile).value / "docs",
-    resourceGenerators in Compile += {
-      (paradox in Compile).map { parent =>
-        (parent ** "*").get
-      }.taskValue
-    }
+    name                           := "bbp-domains-docs",
+    moduleName                     := "bbp-domains-docs",
+    paradoxTheme                   := Some(builtinParadoxTheme("generic")),
+    target in (Compile, paradox)   := (resourceManaged in Compile).value / "docs",
+    topLevelDirectory in Universal := None,
+    packageName in Universal       := name.value,
+    mappings in Universal          := MappingsHelper.contentOf((paradox in Compile).value)
   )
 
 lazy val core = project
@@ -103,6 +103,12 @@ lazy val root = project
   .settings(noPublish)
   .aggregate(docs, core, experiment, atlas, morphology, electrophysiology, simulation, kgbbpschemas)
 
+lazy val noPublish = Seq(
+  publishLocal    := {},
+  publish         := {},
+  publishArtifact := false
+)
+
 inThisBuild(
   Seq(
     resolvers          += Resolver.bintrayRepo("bogdanromanx", "maven"),
@@ -121,7 +127,5 @@ inThisBuild(
     releaseEarlyEnableSyncToMaven := false
   )
 )
-
-lazy val noPublish = Seq(publishLocal := {}, publish := {})
 
 addCommandAlias("review", ";clean;test")
