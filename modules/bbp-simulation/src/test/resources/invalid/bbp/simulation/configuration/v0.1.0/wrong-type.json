@@ -1,0 +1,12 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/core/instance/v0.1.0"
+  ],
+  "@type": [
+    "nsg:WrongType"
+  ],
+  "name": "Configuration",
+  "distribution": {
+    "accessURL": "file:///projectpath/neurondb.xml"
+  }
+}
