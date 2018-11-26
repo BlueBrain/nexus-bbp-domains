@@ -20,7 +20,7 @@ scalafmt: {
     { code = "<-", owner = "Enumerator.Generator" }
     { code = "?", owner = "Enumerator.Generator" }
     { code = "=", owner = "(Enumerator.Val|Defn.(Va(l|r)|Def|Type))" }
-  ] 
+  ]
 }
  */
 val nshVersion = "0.3.13"
