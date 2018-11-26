@@ -1,8 +1,0 @@
-{
-  "@context": [
-    "{{base}}/contexts/bbp/core/instance/v0.1.0"
-  ],
-  "@type": "prov:EmptyCollection",
-  "name": "Empty collection name",
-  "size": 2
-}
