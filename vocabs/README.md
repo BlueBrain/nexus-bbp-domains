@@ -1,3 +1,0 @@
-# Vocabularies
-
-Blue Brain vocabularies

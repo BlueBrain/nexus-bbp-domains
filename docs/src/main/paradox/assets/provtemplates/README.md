@@ -1,2 +1,0 @@
-# Provenance Templates
-

@@ -1,9 +1,0 @@
-{
-  "@context": [
-    "{{base}}/contexts/bbp/core/instance/v0.1.0"
-  ],
-  "@type": "nsg:WrongType",
-  "valueX": 409,
-  "valueY": 608,
-  "valueZ": 286
-}

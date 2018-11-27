@@ -1,7 +1,0 @@
-{
-  "@context":
-  [
-    "{{base}}/contexts/nexus/core/schema/v0.1.0",
-    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0"
-  ]
-}
