@@ -23,13 +23,12 @@ scalafmt: {
   ]
 }
  */
-val nshVersion = "1.0.1"
+val nshVersion = "1.0.3"
 
 lazy val neuroshapes = "ch.epfl.bluebrain.nexus" %% "neuroshapes" % nshVersion
 
 lazy val bbpschemas = project
   .in(file("."))
-  .enablePlugins(WorkbenchPlugin)
   .settings(
     name       := "bbp-schemas",
     moduleName := "bbp-schemas",
@@ -43,7 +42,6 @@ lazy val bbpschemas = project
 
 inThisBuild(
   Seq(
-    workbenchVersion   := "0.3.2",
     bintrayOmitLicense := true,
     homepage           := Some(url("https://incf.github.io/neuroshapes")),
     licenses           := Seq("Attribution" -> url("https://github.com/BlueBrain/nexus-bbp-domains/blob/master/LICENSE")),
