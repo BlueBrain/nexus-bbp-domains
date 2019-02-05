@@ -25,7 +25,7 @@ scalafmt: {
  */
 val nshVersion = "1.0.1"
 
-lazy val neuroshapes              = "ch.epfl.bluebrain.nexus"         %% "neuroshapes"                   % nshVersion
+lazy val neuroshapes = "ch.epfl.bluebrain.nexus" %% "neuroshapes" % nshVersion
 
 lazy val bbpschemas = project
   .in(file("."))
