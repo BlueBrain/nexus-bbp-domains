@@ -23,15 +23,9 @@ scalafmt: {
   ]
 }
  */
-val nshVersion = "0.3.13"
+val nshVersion = "1.0.1"
 
-lazy val commonsSchemas           = "ch.epfl.bluebrain.nexus" %% "nsg-commons-schemas"           % nshVersion
-lazy val simulationSchemas        = "ch.epfl.bluebrain.nexus" %% "nsg-simulation-schemas"        % nshVersion
-lazy val morphologySchemas        = "ch.epfl.bluebrain.nexus" %% "nsg-morphology-schemas"        % nshVersion
-lazy val atlasSchemas             = "ch.epfl.bluebrain.nexus" %% "nsg-atlas-schemas"             % nshVersion
-lazy val experimentSchemas        = "ch.epfl.bluebrain.nexus" %% "nsg-experiment-schemas"        % nshVersion
-lazy val coreSchemas              = "ch.epfl.bluebrain.nexus" %% "nsg-core-schemas"              % nshVersion
-lazy val electrophysiologySchemas = "ch.epfl.bluebrain.nexus" %% "nsg-electrophysiology-schemas" % nshVersion
+lazy val neuroshapes              = "ch.epfl.bluebrain.nexus"         %% "neuroshapes"                   % nshVersion
 
 lazy val bbpschemas = project
   .in(file("."))
@@ -43,13 +37,7 @@ lazy val bbpschemas = project
     resolvers  += Resolver.bintrayRepo("bbp", "nexus-releases"),
     resolvers  += Resolver.bintrayRepo("bogdanromanx", "maven"),
     libraryDependencies ++= Seq(
-      commonsSchemas,
-      simulationSchemas,
-      morphologySchemas,
-      atlasSchemas,
-      experimentSchemas,
-      coreSchemas,
-      electrophysiologySchemas
+      neuroshapes
     )
   )
 
