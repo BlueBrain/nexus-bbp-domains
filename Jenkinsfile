@@ -1,10 +1,14 @@
+String version = env.BRANCH_NAME
+Boolean isRelease = version ==~ /v\d+\.\d+\.\d+.*/
+Boolean isPR = env.CHANGE_ID != null
+
 pipeline {
     agent none
 
     stages {
         stage("Review") {
             when {
-                expression { env.CHANGE_ID != null }
+                expression { isPR }
             }
             steps {
                 node("slave-sbt") {
@@ -15,7 +19,7 @@ pipeline {
         }
         stage("Release") {
             when {
-                expression { env.CHANGE_ID == null }
+                expression { isRelease }
             }
             steps {
                 node("slave-sbt") {
