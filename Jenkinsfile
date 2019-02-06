@@ -12,8 +12,12 @@ pipeline {
             }
             steps {
                 node("slave-sbt") {
-                    checkout scm
-                    sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
+                    withEnv(['PYTHONPATH=/opt/rh/rh-python36/root/bin/python']) {
+                        sh  'python -V'
+                        checkout scm
+                        sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
+                    }
+
                 }
             }
         }
