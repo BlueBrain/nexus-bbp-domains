@@ -12,7 +12,7 @@ pipeline {
             }
             steps {
                 node("slave-sbt") {
-                    withEnv(['PYTHONPATH=/opt/rh/rh-python36/root/bin/python']) {
+                    withEnv(['PYTHONPATH=/opt/rh/rh-python36/root/bin']) {
                         sh  '$PYTHONPATH/python -V'
                         checkout scm
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
