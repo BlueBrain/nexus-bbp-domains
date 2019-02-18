@@ -19,6 +19,7 @@ pipeline {
                         sh '$PYTHONPATH/python -m venv bbpdomains'
                         sh 'source bbpdomains/bin/activate'
                         sh 'bbpdomains/bin/pip3 install git+https://github.com/BlueBrain/nexus-cli'
+                        sh 'env | grep LC_ALL'
                         sh 'export LC_ALL=en_US.utf-8'
                         sh 'export LANG=en_US.utf-8'
                         sh 'ls -al bbpdomains/bin'
