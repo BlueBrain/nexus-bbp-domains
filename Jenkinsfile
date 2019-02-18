@@ -12,7 +12,7 @@ pipeline {
             }
             steps {
                 node("slave-sbt") {
-                    withEnv(['PYTHONPATH=/opt/rh/rh-python36/root/bin','PYTHONIOENCODING=UTF-8']) {
+                    withEnv(['PYTHONPATH=/opt/rh/rh-python36/root/bin','PYTHONIOENCODING=UTF-8','LC_CTYPE=en_US.UTF-8']) {
                         sh 'export LC_ALL=en_US.utf-8'
                         sh 'export LANG=en_US.utf-8'
                         sh  '$PYTHONPATH/python -V'
@@ -23,6 +23,7 @@ pipeline {
                         sh 'bbpdomains/bin/pip3 install git+https://github.com/BlueBrain/nexus-cli'
                         sh 'ls -al bbpdomains/bin'
                         sh 'echo $PYTHONIOENCODING'
+                        sh 'echo $LC_CTYPE'
                         sh ' bbpdomains/bin/nexus --help'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
                     }
