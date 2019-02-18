@@ -22,6 +22,8 @@ pipeline {
                         sh 'source bbpdomains/bin/activate'
                         sh 'bbpdomains/bin/pip3 install git+https://github.com/BlueBrain/nexus-cli'
                         sh 'ls -al bbpdomains/bin'
+                        sh 'echo $LC_ALL'
+                        sh 'echo $LANG'
                         sh ' bbpdomains/bin/nexus --help'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
                     }
