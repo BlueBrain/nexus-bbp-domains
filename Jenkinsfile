@@ -16,6 +16,7 @@ pipeline {
                         sh  '$PYTHONPATH/python -V'
                         checkout scm
                         sh 'pwd'
+                        sh 'pip --version'
                         sh 'pip install git+https://github.com/BlueBrain/nexus-cli'
                         sh 'nexus --help'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
