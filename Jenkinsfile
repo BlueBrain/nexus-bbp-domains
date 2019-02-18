@@ -16,8 +16,8 @@ pipeline {
                         sh  '$PYTHONPATH/python -V'
                         checkout scm
                         sh 'pwd'
-                        sh 'pip3 --version'
-                        sh 'pip install git+https://github.com/BlueBrain/nexus-cli'
+                        sh 'git clone https://github.com/BlueBrain/nexus-bbp-domains.git'
+                        sh 'python setup.py install'
                         sh 'nexus --help'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
                     }
