@@ -13,15 +13,14 @@ pipeline {
             steps {
                 node("slave-sbt") {
                     withEnv(['PYTHONPATH=/opt/rh/rh-python36/root/bin']) {
+                        sh 'export LC_ALL=C.UTF-8'
+                        sh 'export LANG=C.UTF-8'
                         sh  '$PYTHONPATH/python -V'
                         checkout scm
                         sh 'pwd'
                         sh '$PYTHONPATH/python -m venv bbpdomains'
                         sh 'source bbpdomains/bin/activate'
                         sh 'bbpdomains/bin/pip3 install git+https://github.com/BlueBrain/nexus-cli'
-                        sh 'env | grep LC_ALL'
-                        sh 'export LC_ALL=en_US.utf-8'
-                        sh 'export LANG=en_US.utf-8'
                         sh 'ls -al bbpdomains/bin'
                         sh ' bbpdomains/bin/nexus --help'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
