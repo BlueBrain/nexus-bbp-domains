@@ -19,6 +19,7 @@ pipeline {
                         sh '$PYTHONPATH/python -m venv bbpdomains'
                         sh 'source bbpdomains/bin/activate'
                         sh 'bbpdomains/bin/pip3 install git+https://github.com/BlueBrain/nexus-cli'
+                        sh 'echo $LC_ALL'
                         sh 'ls -al bbpdomains/bin'
                         sh ' bbpdomains/bin/nexus --help'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
