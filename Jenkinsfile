@@ -17,8 +17,7 @@ pipeline {
                         checkout scm
                         sh 'pwd'
                         sh 'ls -al /opt/rh/rh-python36/root/bin'
-                        sh 'git clone https://github.com/BlueBrain/nexus-bbp-domains.git'
-                        sh '$PYTHONPATH/python setup.py install'
+                        sh '$PYTHONPATH/python -m pip install git+https://github.com/BlueBrain/nexus-cli'
                         sh 'nexus --help'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
                     }
