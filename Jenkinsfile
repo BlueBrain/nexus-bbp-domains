@@ -15,6 +15,9 @@ pipeline {
                     withEnv(['PYTHONPATH=/opt/rh/rh-python36/root/bin']) {
                         sh  '$PYTHONPATH/python -V'
                         checkout scm
+                        sh 'pwd'
+                        sh 'pip install git+https://github.com/BlueBrain/nexus-cli'
+                        sh 'nexus --help'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
                     }
 
