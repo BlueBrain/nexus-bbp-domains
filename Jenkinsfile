@@ -13,8 +13,8 @@ pipeline {
             steps {
                 node("slave-sbt") {
                     withEnv(['PYTHONPATH=/opt/rh/rh-python36/root/bin']) {
-                        sh 'export LC_ALL=C.UTF-8'
-                        sh 'export LANG=C.UTF-8'
+                        sh 'export LC_ALL=en_US.utf-8'
+                        sh 'export LANG=en_US.utf-8'
                         sh  '$PYTHONPATH/python -V'
                         checkout scm
                         sh 'pwd'
