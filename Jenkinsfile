@@ -20,6 +20,7 @@ pipeline {
                         sh 'bbpdomains/bin/pip3 install git+https://github.com/BlueBrain/nexus-cli'
                         sh 'bbpdomains/bin/nexus --help'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
+                        sh 'copyResourcesFromJar'
                     }
 
                 }

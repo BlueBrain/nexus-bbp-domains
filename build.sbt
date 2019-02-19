@@ -58,6 +58,39 @@ inThisBuild(
   )
 )
 
+
+//from https://stackoverflow.com/questions/31406471/get-resource-file-from-dependency-in-sbt
+
+val copyResourcesFromJar = TaskKey[Unit]("copyResourcesFromJar", "Copy resources from jar dependencies")
+copyResourcesFromJar := {
+  import scala.io.Source
+  import sbt.Keys._
+
+  def copyResourceFromJar(classpathEntry: Attributed[File], jarName: String) = {
+    classpathEntry.get(artifact.key) match {
+      case Some(entryArtifact) => {
+        // searching artifact
+        if (entryArtifact.name.startsWith(jarName)) {
+          // unpack artifact's jar to tmp directory
+          val jarFile = classpathEntry.data
+          IO.withTemporaryDirectory { tmpDir =>
+            IO.unzip(jarFile, tmpDir)
+            // copy to project's target directory
+            tmpDir.listFiles.filter(_.isDirectory).toList.map(domainDir => IO.copyDirectory(
+              tmpDir / domainDir.name,
+              target.value / domainDir.name
+            ))
+          }
+        }
+      }
+      case _ =>
+    }
+  }
+  for(entry <- (dependencyClasspath in Compile).value) yield {
+    copyResourceFromJar(entry, "neuroshapes")
+  }
+}
+
 lazy val noPublish = Seq(
   publishLocal    := {},
   publish         := {},
