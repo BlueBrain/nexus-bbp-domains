@@ -31,6 +31,7 @@ pipeline {
                         sh 'bbpdomains/bin/pip3 install git+https://github.com/BlueBrain/nexus-cli'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
                         sh 'sbt copyResourcesFromJar'
+                        sh 'ls -al target'
                         sh 'bbpdomains/bin/nexus --help'
                         sh 'bbpdomains/bin/nexus profiles create ${params.env} ${params.env}"
                         sh 'bbpdomains/bin/nexus profiles select ${params.env}"
