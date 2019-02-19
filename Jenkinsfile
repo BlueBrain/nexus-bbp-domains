@@ -21,6 +21,7 @@ pipeline {
                         sh 'bbpdomains/bin/nexus --help'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
                         sh 'sbt copyResourcesFromJar'
+                        sh 'ls -al target'
                     }
 
                 }
