@@ -33,9 +33,9 @@ pipeline {
                         sh 'sbt copyResourcesFromJar'
                         sh 'ls -al target'
                         sh 'bbpdomains/bin/nexus --help'
-                        sh 'bbpdomains/bin/nexus profiles create ${params.env} ${params.env}"
-                        sh 'bbpdomains/bin/nexus profiles select ${params.env}"
-                        sh 'bbpdomains/bin/auth  set-token select ${params.token}"
+                        sh 'bbpdomains/bin/nexus profiles create ${params.env} ${params.env}'
+                        sh 'bbpdomains/bin/nexus profiles select ${params.env}'
+                        sh 'bbpdomains/bin/auth  set-token select ${params.token}'
                         sh 'bbpdomains/bin/nexus schemas create --org ${params.org} --project ${params.project} --dir target/shapes/neurosciencegraph/datashapes -n https://neuroshapes.org/dash --strategy ${params.strategy} -b '{"https://provshapes.org/dash": "target/shapes/prov/datashapes","https://provshapes.org/commons": "target/shapes/prov/commons","https://neuroshapes.org/dash": "target/shapes/neurosciencegraph/datashapes","https://neuroshapes.org/commons": "target/shapes/neurosciencegraph/commons"}'
                     }
                 }
