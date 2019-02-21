@@ -17,13 +17,13 @@ pipeline {
                     string(name: 'org', defaultValue: 'neurosciencegraph', description: 'organization')
                     string(name: 'project', defaultValue: 'datamodels', description: 'project')
                     string(name: 'strategy', defaultValue: 'UPDATE_IF_DIFFERENT', description: 'Schema import strategy')
-                    string(name: 'env',, defaultValue: 'env', description: 'Env')
+                    string(name: 'nexusenv',, defaultValue: 'nexusenv', description: 'Env')
                     string(name: 'token', defaultValue: 'token', description: 'Token')
                 }
             }
             steps {
                 node("slave-sbt") {
-                    withEnv(['PYTHONPATH=/opt/rh/rh-python36/root/bin','LC_CTYPE=en_US.UTF-8',"strategy=${params.strategy}" ,"env=${params.env}", "token=${params.token}", "org=${params.org}", "project=${params.project}"]) {
+                    withEnv(['PYTHONPATH=/opt/rh/rh-python36/root/bin','LC_CTYPE=en_US.UTF-8',"strategy=${params.strategy}" ,"nexusenv=${params.nexusenv}", "token=${params.token}", "org=${params.org}", "project=${params.project}"]) {
                         sh  '$PYTHONPATH/python -V'
                         checkout scm
                         sh '$PYTHONPATH/python -m venv bbpdomains'
@@ -33,8 +33,8 @@ pipeline {
                         sh 'sbt copyResourcesFromJar'
                         sh 'ls -al target'
                         sh 'bbpdomains/bin/nexus --help'
-                        sh "bbpdomains/bin/nexus profiles create $env $env"
-                        sh "bbpdomains/bin/nexus profiles select $env"
+                        sh "bbpdomains/bin/nexus profiles create $nexusenv $nexusenv"
+                        sh "bbpdomains/bin/nexus profiles select $nexusenv"
                         sh "bbpdomains/bin/auth  set-token $token"
                         sh "bbpdomains/bin/nexus schemas create --org $org --project $project --dir target/shapes/neurosciencegraph/datashapes -n https://neuroshapes.org/dash --strategy $strategy -b \"{\"https://provshapes.org/dash\": \"target/shapes/prov/datashapes\",\"https://provshapes.org/commons\": \"target/shapes/prov/commons\",\"https://neuroshapes.org/dash\": \"target/shapes/neurosciencegraph/datashapes\",\"https://neuroshapes.org/commons\": \"target/shapes/neurosciencegraph/commons\"}"
                     }
