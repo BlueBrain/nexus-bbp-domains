@@ -11,7 +11,8 @@ pipeline {
                 expression { isPR }
             }
             input {
-                
+                message "Continue ?"
+                ok "Yes."
                 parameters {
                     string(name: 'org', defaultValue: 'neurosciencegraph', description: 'organization')
                     string(name: 'project', defaultValue: 'datamodels', description: 'project')
