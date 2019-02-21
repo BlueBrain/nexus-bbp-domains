@@ -35,6 +35,8 @@ pipeline {
                         sh 'sbt copyResourcesFromJar'
                         sh 'ls -al target'
                         sh 'ls -al .'
+                        sh 'ls -al ..'
+                        sh 'pwd'
                         sh 'bbpdomains/bin/nexus --help'
                         sh "bbpdomains/bin/nexus profiles create ${nexusenv} ${nexusenv}"
                         sh "bbpdomains/bin/nexus profiles select ${nexusenv}"
