@@ -17,7 +17,7 @@ pipeline {
                     string(name: 'org', defaultValue: 'neurosciencegraph', description: 'organization')
                     string(name: 'project', defaultValue: 'datamodels', description: 'project')
                     string(name: 'strategy', defaultValue: 'UPDATE_IF_DIFFERENT', description: 'Schema import strategy')
-                    string(name: 'env',, defaultValue: '', description: 'Schema import strategy')
+                    string(name: 'env',, defaultValue: '', description: 'Env')
                     string(name: 'token', defaultValue: '', description: 'Token')
                 }
             }
