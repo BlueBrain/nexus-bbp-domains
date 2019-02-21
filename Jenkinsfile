@@ -18,13 +18,13 @@ pipeline {
                         checkout scm
                         script {
                             inputvalue = input message: 'Continue ?', ok: 'Yes!',
-                                    parameters: [
+                                parameters: {
                                         string(name: 'org', defaultValue: 'neurosciencegraph', description: 'organization')
                                         string(name: 'project', defaultValue: 'datamodels', description: 'project')
                                         string(name: 'strategy', defaultValue: 'UPDATE_IF_DIFFERENT', description: 'Schema import strategy')
                                         string(name: 'nexusenv',, defaultValue: 'nexusenv', description: 'Env')
                                         string(name: 'token', defaultValue: 'token', description: 'Token')
-                                   ]
+                                }
                         }
                         echo "$inputvalue[nexusenv]"
                         
