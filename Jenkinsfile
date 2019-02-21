@@ -10,16 +10,12 @@ pipeline {
             when {
                 expression { isPR }
             }
-            input {
-                message "Continue ?"
-                ok "Yes."
-                parameters {
+            parameters {
                     string(name: 'org', defaultValue: 'neurosciencegraph', description: 'organization')
                     string(name: 'project', defaultValue: 'datamodels', description: 'project')
                     string(name: 'strategy', defaultValue: 'UPDATE_IF_DIFFERENT', description: 'Schema import strategy')
                     string(name: 'env',, defaultValue: 'env', description: 'Env')
                     string(name: 'token', defaultValue: 'token', description: 'Token')
-                }
             }
             
             steps {
