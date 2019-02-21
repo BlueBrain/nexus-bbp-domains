@@ -30,7 +30,7 @@ pipeline {
                         
                         sh '$PYTHONPATH/python -m venv bbpdomains'
                         sh 'source bbpdomains/bin/activate'
-                        sh 'bbpdomains/bin/pip3 install git+https://github.com/BlueBrain/nexus-cli'
+                        sh 'bbpdomains/bin/pip3 install git+https://github.com/BlueBrain/nexus-cli --upgrade'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
                         sh 'sbt copyResourcesFromJar'
                         sh 'ls -al target'
