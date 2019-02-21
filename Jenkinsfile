@@ -34,6 +34,7 @@ pipeline {
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
                         sh 'sbt copyResourcesFromJar'
                         sh 'ls -al target'
+                        sh 'ls -al .'
                         sh 'bbpdomains/bin/nexus --help'
                         sh "bbpdomains/bin/nexus profiles create ${nexusenv} ${nexusenv}"
                         sh "bbpdomains/bin/nexus profiles select ${nexusenv}"
