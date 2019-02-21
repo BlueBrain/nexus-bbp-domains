@@ -4,19 +4,22 @@ Boolean isPR = env.CHANGE_ID != null
 
 pipeline {
     agent none
-    parameters {
-                    string(name: 'org', defaultValue: 'neurosciencegraph', description: 'organization')
-                    string(name: 'project', defaultValue: 'datamodels', description: 'project')
-                    string(name: 'strategy', defaultValue: 'UPDATE_IF_DIFFERENT', description: 'Schema import strategy')
-                    string(name: 'env',, defaultValue: 'env', description: 'Env')
-                    string(name: 'token', defaultValue: 'token', description: 'Token')
-    }
+    
     stages {
         stage("Review") {
             when {
                 expression { isPR }
             }
-            
+            input {
+                
+                parameters {
+                    string(name: 'org', defaultValue: 'neurosciencegraph', description: 'organization')
+                    string(name: 'project', defaultValue: 'datamodels', description: 'project')
+                    string(name: 'strategy', defaultValue: 'UPDATE_IF_DIFFERENT', description: 'Schema import strategy')
+                    string(name: 'env',, defaultValue: 'env', description: 'Env')
+                    string(name: 'token', defaultValue: 'token', description: 'Token')
+                }
+            }
             
             steps {
                 node("slave-sbt") {
