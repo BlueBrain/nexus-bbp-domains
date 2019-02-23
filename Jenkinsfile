@@ -40,7 +40,9 @@ pipeline {
                         sh "bbpdomains/bin/nexus profiles create ${nexusenv} ${nexusenv}"
                         sh "bbpdomains/bin/nexus profiles select ${nexusenv}"
                         sh "bbpdomains/bin/nexus auth  set-token ${token}"
-                        sh "bbpdomains/bin/nexus schemas create --org ${org} --project ${project} --dir target/shapes/neurosciencegraph/datashapes -n https://neuroshapes.org/dash --strategy ${strategy} -b '{\"https://provshapes.org/dash\": \"target/shapes/prov/datashapes\",\"https://provshapes.org/commons\": \"target/shapes/prov/commons\",\"https://neuroshapes.org/dash\": \"target/shapes/neurosciencegraph/datashapes\",\"https://neuroshapes.org/commons\": \"target/shapes/neurosciencegraph/commons\"}'"
+                        sh "bbpdomains/bin/nexus orgs select ${org}"
+                        sh "bbpdomains/bin/nexus projects select ${project}"
+                        sh "bbpdomains/bin/nexus schemas create --dir target/shapes/neurosciencegraph/datashapes -n https://neuroshapes.org/dash --strategy ${strategy} -b '{\"https://provshapes.org/dash\": \"target/shapes/prov/datashapes\",\"https://provshapes.org/commons\": \"target/shapes/prov/commons\",\"https://neuroshapes.org/dash\": \"target/shapes/neurosciencegraph/datashapes\",\"https://neuroshapes.org/commons\": \"target/shapes/neurosciencegraph/commons\"}'"
                     }
                 }
             }
