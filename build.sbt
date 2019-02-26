@@ -23,7 +23,7 @@ scalafmt: {
   ]
 }
  */
-val nshVersion = "1.0.3"
+val nshVersion = "1.0.5-RC"
 
 lazy val neuroshapes = "ch.epfl.bluebrain.nexus" %% "neuroshapes" % nshVersion
 
