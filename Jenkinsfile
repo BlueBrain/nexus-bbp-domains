@@ -4,24 +4,46 @@ Boolean isPR = env.CHANGE_ID != null
 
 pipeline {
     agent none
-
+    
     stages {
         stage("Review") {
             when {
                 expression { isPR }
+            }
+           input {
+                message "Proceed ?"
+                ok "Ok"
+                parameters {
+                    string(name: 'org', defaultValue: 'neurosciencegraph', description: 'organization')
+                    string(name: 'project', defaultValue: 'datamodels', description: 'project')
+                    string(name: 'strategy', defaultValue: 'UPDATE_IF_DIFFERENT', description: 'Schema import strategy')
+                    string(name: 'nexusenv',, defaultValue: 'nexusenv', description: 'nexusenv')
+                    string(name: 'token', defaultValue: 'token', description: 'Token')
+                }
             }
             steps {
                 node("slave-sbt") {
                     withEnv(['PYTHONPATH=/opt/rh/rh-python36/root/bin','LC_CTYPE=en_US.UTF-8']) {
                         sh  '$PYTHONPATH/python -V'
                         checkout scm
+                        
+                        
                         sh '$PYTHONPATH/python -m venv bbpdomains'
                         sh 'source bbpdomains/bin/activate'
-                        sh 'bbpdomains/bin/pip3 install git+https://github.com/BlueBrain/nexus-cli'
-                        sh 'bbpdomains/bin/nexus --help'
+                        sh 'bbpdomains/bin/pip3 install git+https://github.com/BlueBrain/nexus-cli --upgrade'
                         sh 'sbt clean scalafmtCheck scalafmtSbtCheck scapegoat test'
+                        sh 'sbt copyResourcesFromJar'
+                        sh 'ls -al target'
+                        sh "ls -al $HOME"
+                        sh "rm -f $HOME/.nexus-cli/config.json"
+                        sh 'bbpdomains/bin/nexus schemas create --help'
+                        sh "bbpdomains/bin/nexus profiles create ${nexusenv} ${nexusenv}"
+                        sh "bbpdomains/bin/nexus profiles select ${nexusenv}"
+                        sh "bbpdomains/bin/nexus auth  set-token ${token}"
+                        sh "bbpdomains/bin/nexus orgs select ${org}"
+                        sh "bbpdomains/bin/nexus projects select ${project}"
+                        sh "bbpdomains/bin/nexus schemas create --dir target/shapes/neurosciencegraph/datashapes -n https://neuroshapes.org/dash --strategy ${strategy} -b '{\"https://provshapes.org/dash\": \"target/shapes/prov/datashapes\",\"https://provshapes.org/commons\": \"target/shapes/prov/commons\",\"https://neuroshapes.org/dash\": \"target/shapes/neurosciencegraph/datashapes\",\"https://neuroshapes.org/commons\": \"target/shapes/neurosciencegraph/commons\"}'"
                     }
-
                 }
             }
         }
