@@ -1,0 +1,1 @@
+nexus profiles create tutorial https://bbp.epfl.ch/nexus/v1 && nexus profiles select tutorial && nexus profiles list
