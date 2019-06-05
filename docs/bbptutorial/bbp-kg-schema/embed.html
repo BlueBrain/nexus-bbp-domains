@@ -20,7 +20,7 @@
 
 <meta name="description" content="bbp-schema-docs">
 <link rel="shortcut icon" href="../../.././assets/img/favicon-32x32.png">
-<title>Build a little knowledge Graph · Blue Brain Nexus workshop</title>
+<title>Add structured data to your web pages · Blue Brain Nexus workshop</title>
 <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
 <meta name="theme-color" content="#03a9f4" />
@@ -61,7 +61,7 @@ data-md-color-accent="cyan"
 Blue Brain Nexus workshop
 </span>
 <span class="md-header-nav__topic">
-Build a little knowledge Graph
+Add structured data to your web pages
 </span>
 </div>
 </div>
@@ -150,24 +150,23 @@ BlueBrain/nexus-bbp-domains
   <ul>
     <li><a href="../../../docs/bbptutorial/knowledge-graph/thinking-in-graph.html" class="page">Thinking in graph</a></li>
     <li><a href="../../../docs/bbptutorial/knowledge-graph/understanding-jsonld.html" class="page">Understanding JSON-LD</a></li>
-    <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html" class="active page">Build a little knowledge Graph</a></li>
+    <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html" class="page">Build a little knowledge Graph</a></li>
   </ul></li>
   <li><a href="../../../docs/bbptutorial/building-a-data-pipeline/index.html" class="page">Building a data pipeline</a></li>
   <li><a href="../../../docs/bbptutorial/bbp-kg-schema/index.html" class="page">Web scale data publishing</a>
   <ul>
-    <li><a href="../../../docs/bbptutorial/bbp-kg-schema/embed.html" class="page">Add structured data to your web pages</a></li>
+    <li><a href="../../../docs/bbptutorial/bbp-kg-schema/embed.html" class="active page">Add structured data to your web pages</a></li>
   </ul></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html#build-a-little-knowledge-graph" class="header">Build a little knowledge Graph</a>
+  <li><a href="../../../docs/bbptutorial/bbp-kg-schema/embed.html#add-structured-data-to-your-web-pages" class="header">Add structured data to your web pages</a>
   <ul>
-    <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html#overview" class="header">Overview</a></li>
-    <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html#what-youll-build" class="header">What you&rsquo;ll build</a></li>
-    <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html#what-youll-learn" class="header">What you&rsquo;ll learn</a></li>
-    <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html#what-youll-need" class="header">What you&rsquo;ll need</a></li>
-    <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html#get-the-tutorial-code" class="header">Get the tutorial code</a></li>
+    <li><a href="../../../docs/bbptutorial/bbp-kg-schema/embed.html#let-create-a-web-page" class="header">Let create a web page</a></li>
+    <li><a href="../../../docs/bbptutorial/bbp-kg-schema/embed.html#where-to-add-the-structured-data-in-a-web-page-" class="header">Where to add the structured data in a web page?</a></li>
+    <li><a href="../../../docs/bbptutorial/bbp-kg-schema/embed.html#add-the-scholarly-article-structured-data" class="header">Add the scholarly article structured data</a></li>
+    <li><a href="../../../docs/bbptutorial/bbp-kg-schema/embed.html#validate-the-added-structured-data" class="header">Validate the added structured data</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -189,13 +188,12 @@ BlueBrain/nexus-bbp-domains
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html#build-a-little-knowledge-graph" class="header">Build a little knowledge Graph</a>
+  <li><a href="../../../docs/bbptutorial/bbp-kg-schema/embed.html#add-structured-data-to-your-web-pages" class="header">Add structured data to your web pages</a>
   <ul>
-    <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html#overview" class="header">Overview</a></li>
-    <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html#what-youll-build" class="header">What you&rsquo;ll build</a></li>
-    <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html#what-youll-learn" class="header">What you&rsquo;ll learn</a></li>
-    <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html#what-youll-need" class="header">What you&rsquo;ll need</a></li>
-    <li><a href="../../../docs/bbptutorial/knowledge-graph/create-knowledge-graph.html#get-the-tutorial-code" class="header">Get the tutorial code</a></li>
+    <li><a href="../../../docs/bbptutorial/bbp-kg-schema/embed.html#let-create-a-web-page" class="header">Let create a web page</a></li>
+    <li><a href="../../../docs/bbptutorial/bbp-kg-schema/embed.html#where-to-add-the-structured-data-in-a-web-page-" class="header">Where to add the structured data in a web page?</a></li>
+    <li><a href="../../../docs/bbptutorial/bbp-kg-schema/embed.html#add-the-scholarly-article-structured-data" class="header">Add the scholarly article structured data</a></li>
+    <li><a href="../../../docs/bbptutorial/bbp-kg-schema/embed.html#validate-the-added-structured-data" class="header">Validate the added structured data</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -206,31 +204,49 @@ BlueBrain/nexus-bbp-domains
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#build-a-little-knowledge-graph" name="build-a-little-knowledge-graph" class="anchor"><span class="anchor-link"></span></a>Build a little knowledge Graph</h1>
-<h2><a href="#overview" name="overview" class="anchor"><span class="anchor-link"></span></a>Overview</h2>
-<p>This tutorial demonstrates how to step by step create a little knowledge graph. </p>
-<h2><a href="#what-youll-build" name="what-youll-build" class="anchor"><span class="anchor-link"></span></a>What you&rsquo;ll build</h2>
-<ul>
-  <li>A simple knowledge graph</li>
-</ul>
-<h2><a href="#what-youll-learn" name="what-youll-learn" class="anchor"><span class="anchor-link"></span></a>What you&rsquo;ll learn</h2>
-<ul>
-  <li>Basics of knowledge graph and json-ld</li>
-  <li>How to build a knowledge graph from csv and json data</li>
-</ul>
-<h2><a href="#what-youll-need" name="what-youll-need" class="anchor"><span class="anchor-link"></span></a>What you&rsquo;ll need</h2>
-<ul>
-  <li>A Python 3.5 or higher with support of Jupyter notebook</li>
-</ul>
-<h2><a href="#get-the-tutorial-code" name="get-the-tutorial-code" class="anchor"><span class="anchor-link"></span></a>Get the tutorial code</h2>
-<p>This tutorial code is available:</p>
-<ul>
-  <li>at <a href="https://github.com/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bbptutorial/notebooks/step-by-step-kg-creation.ipynb">Github</a></li>
-  <li>on <a href="https://colab.research.google.com/github/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bbptutorial/notebooks/step-by-step-kg-creation.ipynb">Google Colab</a></li>
-</ul>
+<h1><a href="#add-structured-data-to-your-web-pages" name="add-structured-data-to-your-web-pages" class="anchor"><span class="anchor-link"></span></a>Add structured data to your web pages</h1>
+<h2><a href="#let-create-a-web-page" name="let-create-a-web-page" class="anchor"><span class="anchor-link"></span></a>Let create a web page</h2>
+<p>GO to <a href="https://glitch.com/">glitch</a> and create a hello-webpage project as shown below.</p>
+<p><img src="./assets/glitch.png" alt="glitch" /></p>
+<h2><a href="#where-to-add-the-structured-data-in-a-web-page-" name="where-to-add-the-structured-data-in-a-web-page-" class="anchor"><span class="anchor-link"></span></a>Where to add the structured data in a web page?</h2>
+<p>The JSON-LD paylod should be inside a &lt;script &gt; element in either the &lt;head&gt; or &lt;body&gt; of the index.html page.</p>
+<pre class="prettyprint"><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+...
+&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;/html&gt;
+</code></pre>
+<h2><a href="#add-the-scholarly-article-structured-data" name="add-the-scholarly-article-structured-data" class="anchor"><span class="anchor-link"></span></a>Add the scholarly article structured data</h2>
+<pre class="prettyprint"><code class="language-html">&lt;html&gt;
+&lt;head&gt;
+...
+&lt;script type=&quot;application/ld+json&quot;&gt;
+{
+    &quot;@context&quot;:&quot;http://schema.org&quot;,
+    &quot;@id&quot;: &quot;https://doi.org/10.1016/j.cell.2015.09.029&quot;,
+    &quot;@type&quot;: &quot;ScholarlyArticle&quot;,
+    &quot;author&quot;: &quot;http://your/id/here&quot;,
+    &quot;datePublished&quot;: &quot;2015-10&quot;,
+    &quot;name&quot;: &quot;Reconstruction and Simulation of Neocortical Microcircuitry&quot;
+}
+
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;/html&gt;
+</code></pre>
+<h2><a href="#validate-the-added-structured-data" name="validate-the-added-structured-data" class="anchor"><span class="anchor-link"></span></a>Validate the added structured data</h2>
+<p>Get the web site url as shown in the figure below.</p>
+<p><img src="./assets/glitch_url.png" alt="glitch_url" /></p>
+<p>Go to <a href="https://search.google.com/structured-data/testing-tool?hl=fr">Google structure data testing tool</a> and paste the web page URL as shown below.</p>
+<p><img src="./assets/gtest.png" alt="gtest" /></p>
 </div>
 <div>
-<a href="https://github.com/BlueBrain/nexus-bbp-domains/tree/master/src/main/paradox/docs/bbptutorial/knowledge-graph/create-knowledge-graph.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/BlueBrain/nexus-bbp-domains/tree/master/src/main/paradox/docs/bbptutorial/bbp-kg-schema/embed.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -246,7 +262,7 @@ Edit this page
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav class="md-footer-nav__inner md-grid">
-<a href="../../../docs/bbptutorial/knowledge-graph/understanding-jsonld.html" title="Understanding JSON-LD" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+<a href="../../../docs/bbptutorial/bbp-kg-schema/index.html" title="Web scale data publishing" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
 <div class="md-flex__cell md-flex__cell--shrink">
 <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
 </div>
@@ -255,21 +271,8 @@ Edit this page
 <span class="md-footer-nav__direction">
 Previous
 </span>
-Understanding JSON-LD
+Web scale data publishing
 </span>
-</div>
-</a>
-<a href="../../../docs/bbptutorial/building-a-data-pipeline/index.html" title="Building a data pipeline" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-Next
-</span>
-Building a data pipeline
-</span>
-</div>
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
 </div>
 </a>
 </nav>
