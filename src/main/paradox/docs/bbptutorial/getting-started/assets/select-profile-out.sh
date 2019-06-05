@@ -2,5 +2,5 @@ Selected profile: tutorial
 +------------+----------+-------------------------------------+-------+
 | Profile    | Selected | URL                                 | Token |
 +------------+----------+-------------------------------------+-------+
-| tutorial   |   Yes    | https://bbp.epfl.ch/nexus/v1         |  None |
+| tutorial   |   Yes    | https://sandbox.bluebrainnexus.io/v1         |  None |
 +------------+----------+-------------------------------------+-------+

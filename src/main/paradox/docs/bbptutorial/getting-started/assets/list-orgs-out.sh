@@ -1,4 +1,4 @@
 +----------------+-------------------+-------------------------------------------------+------------+
 | Name           | Description       | Id                                              | Deprecated |
 +----------------+-------------------+-----------------------------------------------------+--------+
-| demo  | Nexus sandbox     | https://bbp.epfl.ch/nexus/v1/demo     | False      |
+| demo  | Nexus sandbox     | https://sandbox.bluebrainnexus.io/v1/demo     | False      |

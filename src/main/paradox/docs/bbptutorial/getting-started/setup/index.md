@@ -7,13 +7,13 @@
 This tutorial explains how to install and set up the Blue Brain Nexus CLI to connect to a Blue Brain Nexus deployment.
 
 @@@ note
-* This tutorial makes use of the BBP production deployment of Blue Brain Nexus available at https://bbp.epfl.ch/nexus/v1.
+* This tutorial makes use of an AWS deployment of Blue Brain Nexus available at https://sandbox.bluebrainnexus.io/v1.
 * We will be using [Nexus CLI](https://github.com/BlueBrain/nexus-cli), a python client,  to interact with the deployment.
 @@@
 
 Let's get started.
 
-## Install the Nexus CLI
+## Install the CLI
 
 Since the CLI is written in python, you may want to create a virtual environment for a clean set up. To do so, Conda can be used. If you don't have it installed follow the instructions [here](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
 
@@ -41,9 +41,9 @@ Output
 
 ### Login
 
-A bearer token is needed to authenticate to Nexus. For the purpose of this tutorial, you'll login using your gaspar account.
+A bearer token is needed to authenticate to Nexus. For the purpose of this tutorial, you'll login using your github account.
 
-The following command will open (after pressing enter button) a browser window from where you can login using your gaspar account.
+The following command will open (after pressing enter button) a browser window from where you can login using your github account.
 
 
 Command

@@ -12,7 +12,7 @@ The goal is to go over some capabilities of Blue Brain Nexus enabling:
 * Querying a dataset to retrieve various information
 * Sharing a dataset by making it public
 
-For that we will work with the small version of the [Global Research Identifier Database (GRID) dataset](./dataset/index.html) containing a set of:
+For that we will work with the small version of the [Global Research Identifier Database (GRID) dataset](../dataset/index.html) containing a set of:
 
 * institutes (institutes.csv)
 * their acronyms (acronyms.csv)
@@ -43,7 +43,7 @@ A **project** is always created within an **organization** just like a git repos
 ### Select an organization
 
 @@@ note
-A public organization named **demo** is already created for the purpose of this tutorial. All projects will be created under this organization.
+A public organization named **[demo](https://sandbox.bluebrainnexus.io/web/demo)** is already created for the purpose of this tutorial. All projects will be created under this organization.
 @@@
 
 The following command should list the organizations you have access to. The **demo** organization should be listed and tagged as non-deprecated in the output.
@@ -69,7 +69,7 @@ Output
 A project is created with a label and within an organization. The label should be made of alphanumerical characters and its length should be between 3 and 32 (it should match the regex: [a-zA-Z0-9-_]{3,32}).
 
 Pick a label (hereafter referred to as $PROJECTLABEL) and create a project using the following command.
-It is recommended to use your gaspar username to avoid collision of projects labels within an organization.
+It is recommended to use your github username to avoid collision of projects labels within an organization.
 
 Command
 :   @@snip [create-project-cmd.sh](../assets/create-project-cmd.sh)
@@ -104,7 +104,7 @@ Output
 
 
 The data to be ingested come in 5 csv files (see the output of the above command) containing each a partial description of the organizations. A single command allows
-to load the organisations within the institutes.csv file and merge it with all the other csv files. Checkout the [dataset description page](../dataset/index.html#From-csv-to-entity) to learn more about how csv data is ingested in Nexus. 
+to load the organisations within the institutes.csv file and merge it with all the other csv files.
 
 ```shell
 nexus resources create --file institutes.csv --type Organization --format csv \
@@ -120,7 +120,7 @@ nexus resources create --file institutes.csv --type Organization --format csv \
 ### View data in Nexus Web
 
 Nexus is deployed with a developer oriented web application allowing to browse organizations, projects, data and schemas you have access to.
-You can go to the address https://bbp.epfl.ch/nexus/web and browse the data you just loaded.
+You can go to the address https://sandbox.bluebrainnexus.io/web/demo and browse the data you just loaded.
 
 ### List data
 
@@ -130,8 +130,6 @@ The simplest way to accessed data within Nexus is by listing them. The following
 Command
 :   @@snip [list-res-cmd.sh](../assets/list-res-cmd.sh)
 
-Output
-:   @@snip [list-res-out.sh](../assets/list-res-out.sh)
 
 The full payload of the resources are not retrieved when listing them: only identifier, type as well as Nexus added metadata are.
 But the result list can be scrolled and each resource fetched by identifier. 
@@ -177,7 +175,7 @@ SparqlView        | Exposes data as a [graph](../../knowledge-graph/thinking-in-
 
 #### Query data using the ElasticSearchView
 
-The ElasticSearchView URL is available at the address https://bbp.epfl.ch/nexus/v1/views/demo/$PROJECTLABEL/documents/_search.
+The ElasticSearchView URL is available at the address https://sandbox.bluebrainnexus.io/v1/views/demo/$PROJECTLABEL/documents/_search.
 
 The query below selects 5 organizations sorted by creation date in descending order.
 
@@ -185,14 +183,11 @@ The query below selects 5 organizations sorted by creation date in descending or
 Select queries
 :   @@snip [select_elastic.sh](../assets/select_elastic.sh)
 
-Graph navigation queries
-:   @@snip [resource.sh](../assets/graph_elastic.sh)
-
 
 
 #### Query data using the SparqlView
 
-The SparqlView is available at the address [https://bbp.epfl.ch/nexus/v1/views/demo/$PROJECTLABEL/graph/sparql].
+The SparqlView is available at the address [https://sandbox.bluebrainnexus.io/v1/views/demo/$PROJECTLABEL/graph/sparql].
 The following diagram shows how the MovieLens data is structured in the default Nexus SparqlView. Note that the ratings, tags and movies are joined by the movieId property.
 
 The query below selects 5 organizations sorted by creation date in descending order.
@@ -200,8 +195,6 @@ The query below selects 5 organizations sorted by creation date in descending or
 Select queries
 :   @@snip [select_sparql.sh](../assets/select_sparql.sh)
 
-Graph navigation queries
-:   @@snip [analytics_sparql.sh](../assets/analytics_sparql.sh)
 
 ## Share data
 
@@ -214,7 +207,7 @@ $ nexus acls make-public
 To check that the dataset is now public:
 
 * Ask the person next to you to list resources in your project.
-* Or create and select another profile named public-tutorial (following the instructions in the [Set up](#set-up).
+* Or create and select another profile named public-tutorial (following the instructions in the [Set up](../setup/index.html).
 You should see the that the public-tutorial is selected and its corresponding token column is None.
 
 Output

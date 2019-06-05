@@ -1,8 +1,8 @@
 @@@ index
 
 * [Set up](setup/index.md)
-* [The GRID Dataset](dataset/index.md)
 * [Quick Start](quick-start/index.md)
+* [The GRID Dataset](dataset/index.md)
 
 @@@
 

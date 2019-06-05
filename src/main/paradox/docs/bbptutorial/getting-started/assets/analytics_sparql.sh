@@ -1,7 +1,7 @@
 # Average rating score for movies tagged as funny
 nexus views query-sparql --data \
 '
-PREFIX vocab: <https://bbp.epfl.ch/nexus/v1/vocabs/demo/$PROJECTLABEL/>
+PREFIX vocab: <https://sandbox.bluebrainnexus.io/v1/vocabs/demo/$PROJECTLABEL/>
 PREFIX nxv: <https://bluebrain.github.io/nexus/vocabulary/>
 
 Select (AVG(?ratingvalue) AS ?score)
