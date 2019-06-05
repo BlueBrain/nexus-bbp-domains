@@ -4,6 +4,7 @@ from pygments import highlight
 from pygments.formatters import TerminalFormatter
 import os
 import requests
+from nexussdk.utils import http as nexussdk_http
 
 def get_at_id(data_type:str, allen_id:str) -> str:
     """
@@ -296,6 +297,16 @@ def neuronmorphology(cell_metadata: dict, allen_grid:str, file_meta:dict) -> dic
 def create_resource(nexus, json_payload, org, project):
     try:
         response = nexus.resources.create(org_label=org, project_label=project, data=json_payload)
+        return response
+    except nexus.HTTPError as ne:
+        return ne.response.json()
+
+def create_resolver(nexus, json_payload, org, project):
+    try:
+        full_url = nexussdk_http._full_url(path=[nexus.resolvers.SEGMENT, org, project], use_base=False)
+        response = nexus.resolvers.create_(path=full_url, payload=json_payload)
+
+    #response = nexus.resolvers.create(org_label=org, project_label=project, data=json_payload)
         return response
     except nexus.HTTPError as ne:
         return ne.response.json()
