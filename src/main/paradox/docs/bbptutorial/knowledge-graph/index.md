@@ -4,7 +4,6 @@
 * [Thinking in Graph](thinking-in-graph.md)
 * [RDF and JSON-LD](understanding-jsonld.md)
 * [Step by Step Knowledge Graph creation](create-knowledge-graph.md)
-* [Querying KG](querying-knowledge-graph.md)
 @@@
 
 # Understanding knowledge graphs
