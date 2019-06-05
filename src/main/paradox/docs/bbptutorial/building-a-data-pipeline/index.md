@@ -26,3 +26,10 @@
 ## What you'll need
 
 * A Python 3.5 or higher with support of Jupyter notebook
+
+## Get the tutorial code
+
+This tutorial code is available:
+
+* at [Github](https://github.com/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bbptutorial/notebooks/BBPworkshop_datapipeline_nexus.ipynb)
+* on [Google Colab](https://colab.research.google.com/github/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bbptutorial/notebooks/BBPworkshop_datapipeline_nexus.ipynb)
