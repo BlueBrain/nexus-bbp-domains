@@ -7,7 +7,7 @@
 * [Structured markup](bbp-kg-schema/index.md)
 @@@
 
-# BBP wide workshop
+# Blue Brain Nexus workshop
 
 
 ## Overview

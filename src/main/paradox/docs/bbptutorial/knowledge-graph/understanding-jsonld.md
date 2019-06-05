@@ -12,9 +12,6 @@
 
 [JSON-LD](https://json-ld.org/) stands for JSON for Linking Data.
 
-
-### More than a JSON format
-
 A simple json example:
 
 ```json
