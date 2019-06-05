@@ -39,6 +39,7 @@ Output
 
 
 
+
 ### Login
 
 A bearer token is needed to authenticate to Nexus. For the purpose of this tutorial, you'll login using your github account.
@@ -71,3 +72,14 @@ Output
 
 
 That's it!
+
+
+## Clone the tutorial github project
+
+```shell
+cd ~
+git clone https://github.com/BlueBrain/nexus-bbp-domains.git
+cd ~/nexus-bbp-domains
+git checkout docs
+cd src/main/paradox/docs/bbptutorial
+```shell

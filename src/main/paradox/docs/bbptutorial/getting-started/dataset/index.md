@@ -4,7 +4,7 @@
 ## Overview
 
 
-![Dataset](../assets/grid-dataset.svg)
+![Dataset](../assets/grid-dataset.png)
 
 
 In this tutorial, we'll use a small version of the GRID dataset. GRID is an open dataset of research organizations 
