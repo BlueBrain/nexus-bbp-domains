@@ -1,4 +1,10 @@
 
+@@@ index
+
+* [Add structured data to your web pages](embed.md)
+
+@@@
+
 # Web scale data publishing
 
 
