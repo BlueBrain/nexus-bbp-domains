@@ -12,7 +12,7 @@ GO to [glitch](https://glitch.com/) and create a hello-webpage project as shown 
 
 ## Where to add the structured data in a web page?
 
-The JSON-LD paylod should be inside a &lt;script &gt; element in either the &lt;head&gt; or &lt;body&gt; of the index.html page.
+The JSON-LD payload should be inside a &lt;script &gt; element in either the &lt;head&gt; or &lt;body&gt; of the index.html page.
 
 ```html
 <html>

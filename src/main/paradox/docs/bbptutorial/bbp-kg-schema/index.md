@@ -18,14 +18,13 @@ The goal of this tutorial is to demonstrate how to embed metadata from a knowled
 
 ## What you'll build
 
-* A simple python pipeline to retrieve datasets metadata from nexus and embed it in a web page
+* A simple web page and embed in it JSONLD metadata from Nexus
 
 ## What you'll learn
 
 * Why you should markup your scientific data portals with structured data ?
 * How to embed structured data within a web page ?
 * How to validate structured data ?
-* How to parse the structure data from such pages ?
 
 ## What you'll need
 
