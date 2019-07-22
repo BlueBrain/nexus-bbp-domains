@@ -1,0 +1,41 @@
+{
+  "@id": "nexus_api_mappings",
+  "apiMappings": [
+    {
+      "namespace": "https://neuroshapes.org/dash/ontology",
+      "prefix": "ontologies"
+    },
+    {
+      "namespace": "https://neuroshapes.org/dash/",
+      "prefix": "datashapes"
+    },
+    {
+      "namespace": "https://neuroshapes.org/dash/taxonomy",
+      "prefix": "taxonomies"
+    },
+    {
+      "namespace": "https://provshapes.org/commons/",
+      "prefix": "provcommonshapes"
+    },
+    {
+      "namespace": "http://schema.org/",
+      "prefix": "schemaorg"
+    },
+    {
+      "namespace": "https://incf.github.io/neuroshapes/contexts/",
+      "prefix": "context"
+    },
+    {
+      "namespace": "https://neuroshapes.org/commons/",
+      "prefix": "commonshapes"
+    },
+    {
+      "namespace": "https://provshapes.org/datashapes/",
+      "prefix": "provdatashapes"
+    },
+    {
+      "namespace": "http://www.w3.org/ns/prov#",
+      "prefix": "prov"
+    }
+  ]
+}
