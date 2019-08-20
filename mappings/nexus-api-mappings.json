@@ -4,6 +4,12 @@
     {
       "namespace": "https://neuroshapes.org/dash/ontology",
       "prefix": "ontologies"
+    },{
+      "namespace": "https://neuroshapes.org/dash/ontologyentity",
+      "prefix": "ontologyentities"
+    },{
+      "namespace": "http://api.brain-map.org/api/v2/data/Structure/",
+      "prefix": "mba"
     },
     {
       "namespace": "https://neuroshapes.org/dash/",
