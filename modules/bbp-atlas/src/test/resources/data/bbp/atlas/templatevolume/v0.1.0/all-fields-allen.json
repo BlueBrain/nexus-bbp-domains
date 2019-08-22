@@ -1,0 +1,62 @@
+{
+  "@context": [
+    "{{base}}/contexts/bbp/core/entity/v0.1.0",
+    "{{base}}/contexts/bbp/neurosciencegraph/core/v0.1.0",
+    {
+      "@vocab":"https://bbp-nexus.epfl.ch/vocabs/bbp/neurosciencegraph/core/v0.1.0/"
+    }],
+
+  "@type": "nsg:TemplateVolume",
+  "name": "Allen mouse CCFv3 atlas template volume",
+  "description": "Allen mouse CCFv3 atlas template volume",
+  "imageVolume": {
+    "@type": "ImageVolume",
+    "voxelType": "uint8",
+    "volumeDimension": {
+      "@type": "Vector3D",
+      "valueX": 1320,
+      "valueY": 8000,
+      "valueZ": 1140
+    },
+    "imageOrigin": {
+      "@type": "Vector3D",
+      "valueX": 0,
+      "valueY": 0,
+      "valueZ": 0
+    },
+    "imageDirection": {
+      "@type": "RotationalMatrix",
+      "firstRow": {
+        "@type": "Vector3D",
+        "valueX": 1,
+        "valueY": 0,
+        "valueZ": 0
+      },
+      "secondRow": {
+        "@type": "Vector3D",
+        "valueX": 0,
+        "valueY": 1,
+        "valueZ": 0
+      },
+      "thirdRow": {
+        "@type": "Vector3D",
+        "valueX": 0,
+        "valueY": 0,
+        "valueZ": 1
+      }
+    },
+    "voxelResolution": {
+      "voxelResolutionValue": {
+        "@type": "Vector3D",
+        "valueX": 10,
+        "valueY": 10,
+        "valueZ": 10
+      },
+      "unitText": "micron"
+    }
+  },
+  "isRegisteredIn": {
+    "@type": "AtlasSpatialReferenceSystem",
+    "@id": "{{base}}/data/bbp/atlas/atlasspatialreferencesystem/v0.1.0/98a9f04c-b7da-4acf-99ce-fb0acecaf8cb"
+  }
+}
