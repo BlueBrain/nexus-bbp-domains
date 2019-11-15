@@ -1,0 +1,20 @@
+{
+  "subject_name":  "",
+  "subject_age":  0,
+  "subject_strain":  "",
+
+  "image_name":  "",
+  "slice_direction":  "",
+  "slice_width":  0,
+  "slice_height":  0,
+  "number_of_slices":  0,
+  "slice_resolution":  0,
+  "slice_interval":  0,
+
+  "morphology_name":  "",
+  "identifier":  "",
+  "brain_region_label":  "",
+  "mtype_label":  "",
+  "file_path":  "",
+
+}
