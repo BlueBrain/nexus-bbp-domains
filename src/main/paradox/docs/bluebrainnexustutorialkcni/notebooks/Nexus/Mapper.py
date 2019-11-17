@@ -1,4 +1,5 @@
 import Nexus.Payload as nsp
+import Nexus.Utils as nsu
 import requests
 import json
 
@@ -6,27 +7,16 @@ class Mapper:
 
     def __init__(self, base="https://neuroshapes.org/workshop/", context="https://bbp.neuroshapes.org"):
 
+        self.base = base
         self.context = context
 
-    def allencelltypesdb2neuroshapes(self, neuron_morphologies:list, vocabulary:dict) -> dict:
+    def allencelltypesdb2neuroshapes(self, neuron_morphologies:list) -> dict:
         experiment = nsp.Experiment()
         graph = dict()
-
-        organization_at_id = "https://www.grid.ac/institutes/grid.417881.3"
-        organization = experiment.organization(at_id=organization_at_id,
-                                               name="Allen Institute for Brain Science",
-                                               address="615 Westlake Ave N, Seattle, WA 98109, USA")
-        graph[organization_at_id] = organization
-
-        experimentalprotocol_at_id = "http://help.brain-map.org/display/celltypes/Documentation"
-        experimentalprotocol = experiment.experimentalprotocol(
-            name="Technical White Paper: Cell Morphology and Histology",
-            at_id=experimentalprotocol_at_id,
-            author_id=organization_at_id,
-            date_published="2017-10-00T00:00:00",
-            description="Protocol used to generate Allen Cell Types Database",
-            identifier="http://help.brain-map.org/display/celltypes/Documentation?preview=/8323525/10813530/CellTypes_Morph_Overview.pdf")
-        graph[experimentalprotocol_at_id] = experimentalprotocol
+        vocabulary = nsu.load_json("./vocabulary.json")
+        ephys_protocol_at_id = "http://help.brain-map.org/download/attachments/8323525/CellTypes_Ephys_Overview.pdf?version=2&modificationDate=1508180425883&api=v2"
+        reconstruction_protocol_at_id = "http://help.brain-map.org/download/attachments/8323525/CellTypes_Morph_Overview.pdf?version=4&modificationDate=1528310097913&api=v2"
+        aibs_grid_identifier = "https://www.grid.ac/institutes/grid.417881.3"
 
         for morph in neuron_morphologies:
             subject_name = morph["donor__name"]
@@ -73,8 +63,6 @@ class Mapper:
                 brainslicing_at_id = f"{self.base}brainslicing_{subject_id}"
                 brainslicing = experiment.brainslicing(at_id=brainslicing_at_id, used_id=subject_at_id,
                                                        generated_id=slicecollection_at_id,
-                                                       was_associated_with_ids=[organization_at_id],
-                                                       had_protocol_ids=[experimentalprotocol_at_id],
                                                        cutting_thickness_value="350", cutting_thickness_unit="µm")
 
                 slicecollection_has_part_at_id = f"{self.base}collection_{subject_id}"
@@ -85,14 +73,17 @@ class Mapper:
                 wholecellpatchclamp = experiment.wholecellpatchclamp(at_id=wholecellpatchclamp_at_id,
                                                                      used_id=slicecollection_at_id,
                                                                      generated_id=slicecollection_has_part_at_id,
-                                                                     was_associated_with_ids=[organization_at_id],
-                                                                     had_protocol_ids=[experimentalprotocol_at_id])
+                                                                     had_protocol_ids=[ephys_protocol_at_id],
+                                                                     was_associated_with_ids=[aibs_grid_identifier])
 
                 subject["donor__race"] = morph["donor__race"]
                 subject["donor__years_of_seizure_history"] = morph["donor__years_of_seizure_history"]
-                for key,value in subject.items():
-                    if value == "":
-                        del subject[key]
+                to_delete = list()
+                for key, value in subject.items():
+                        if value == "":
+                            to_delete.append(key)
+                for key in to_delete:
+                    del subject[key]
                 
                 graph[subject_at_id] = subject
                 graph[slicecollection_at_id] = slicecollection
@@ -136,77 +127,88 @@ class Mapper:
             neuronmorphology_at_id = f"{self.base}neuronmorphology_{cell_id}"
             reconstruction_at_id = f"{self.base}reconstruction_{cell_id}"
             tracecollection_at_id = f"{self.base}tracecollection_{cell_id}"
-            neuronmorphology = experiment.neuronmorphology(name=f"{cell_name} Neuron Morphology", at_id=neuronmorphology_at_id,
+            neuronmorphology = experiment.reconstructedneuronmorphology(name=f"{cell_name} Neuron Morphology", at_id=neuronmorphology_at_id,
+                                                           identifier=cell_id,
                                                            brain_region_id=brain_region_id,
                                                            brain_region_label=brain_region_label,
                                                            coordinate_value_x=morph["csl__x"],
                                                            coordinate_value_y=morph["csl__y"],
                                                            coordinate_value_z=morph["csl__z"],
                                                            layer_id=layer_id, layer_label=layer_label,
-                                                           distribution_url=neuronmorphology_identifier,
-                                                           contribution_id=organization_at_id,
                                                            subject_id=subject_at_id,
                                                            license_id="https://alleninstitute.org/legal/terms-use/",
                                                            generation_id=reconstruction_at_id,
                                                            derivation_ids=[subject_at_id, slicecollection_at_id,
                                                                             slicecollection_has_part_at_id, patchedcell_at_id,
-                                                                            labeledcell_at_id])
+                                                                            labeledcell_at_id],
+                                                           contribution_id=[aibs_grid_identifier])
 
 
             reconstruction = experiment.reconstruction(generated_id=neuronmorphology_at_id,
                                                        used_id=labeledcell_at_id, at_id=reconstruction_at_id,
-                                                       had_protocol_ids=[experimentalprotocol_at_id],
-                                                       was_associated_with_ids=[organization_at_id])
+                                                       had_protocol_ids=[reconstruction_protocol_at_id],
+                                                       was_associated_with_ids=[aibs_grid_identifier])
 
             
             tracecollection = experiment.tracecollection(name=f"{cell_name} Trace Collection", at_id=tracecollection_at_id,
+                                                           identifier=cell_id,
                                                            brain_region_id=brain_region_id,
                                                            brain_region_label=brain_region_label,
-                                                           contribution_id=organization_at_id,
                                                            subject_id=subject_at_id,
                                                            license_id="https://alleninstitute.org/legal/terms-use/",
                                                            derivation_ids=[subject_at_id, slicecollection_at_id,
-                                                                            slicecollection_has_part_at_id, patchedcell_at_id])
+                                                                            slicecollection_has_part_at_id, patchedcell_at_id],
+                                                           contribution_id=[aibs_grid_identifier])
 
-           
-            neuronmorphology["csl__normalized_depth"] = morph["csl__normalized_depth"]
-            neuronmorphology["m__biophys"] = morph["m__biophys"]
-            neuronmorphology["m__biophys_all_active"] = morph["m__biophys_all_active"]
-            neuronmorphology["m__biophys_perisomatic"] = morph["m__biophys_perisomatic"]
-            neuronmorphology["m__glif"] = morph["m__glif"]
-            neuronmorphology["morph_thumb_path"] = morph["morph_thumb_path"]
-            neuronmorphology["nr__average_contraction"] = morph["nr__average_contraction"]
-            neuronmorphology["nr__average_parent_daughter_ratio"] = morph["nr__average_parent_daughter_ratio"]
-            neuronmorphology["nr__max_euclidean_distance"] = morph["nr__max_euclidean_distance"]
-            neuronmorphology["nr__number_bifurcations"] = morph["nr__number_bifurcations"]
-            neuronmorphology["nr__number_stems"] = morph["nr__number_stems"]
-            neuronmorphology["nr__reconstruction_type"] = morph["nr__reconstruction_type"]
-            neuronmorphology["nrwkf__id"] = morph["nrwkf__id"]
-            for key,value in neuronmorphology.items():
-                    if value == "":
-                        del neuronmorphology[key]
+            for key in ["csl__normalized_depth",
+                        "m__biophys",
+                        "m__biophys_all_active",
+                        "m__biophys_perisomatic",
+                        "m__glif",
+                        "morph_thumb_path",
+                        "nr__average_contraction",
+                        "nr__average_parent_daughter_ratio",
+                        "nr__max_euclidean_distance",
+                        "nr__number_bifurcations",
+                        "nr__number_stems",
+                        "nr__reconstruction_type",
+                        "nrwkf__id"]:
+                neuronmorphology[key] = morph[key]
             
-            tracecollection["ef__adaptation"] = morph["ef__adaptation"]
-            tracecollection["ef__avg_firing_rate"] = morph["ef__avg_firing_rate"]
-            tracecollection["ef__avg_isi"] = morph["ef__avg_isi"]
-            tracecollection["ef__f_i_curve_slope"] = morph["ef__f_i_curve_slope"]
-            tracecollection["ef__fast_trough_v_long_square"] = morph["ef__fast_trough_v_long_square"]
-            tracecollection["ef__peak_t_ramp"] = morph["ef__peak_t_ramp"]
-            tracecollection["ef__ri"] = morph["ef__ri"]
-            tracecollection["ef__tau"] = morph["ef__tau"]
-            tracecollection["ef__threshold_i_long_square"] = morph["ef__threshold_i_long_square"]
-            tracecollection["ef__upstroke_downstroke_ratio_long_square"] = morph["ef__upstroke_downstroke_ratio_long_square"]
-            tracecollection["ef__vrest"] = morph["ef__vrest"]
-            tracecollection["ephys_inst_thresh_thumb_path"] = morph["ephys_inst_thresh_thumb_path"]
-            tracecollection["ephys_thumb_path"] = morph["ephys_thumb_path"]
-            tracecollection["erwkf__id"] = morph["erwkf__id"]
-            tracecollection["si__height"] = morph["si__height"]
-            tracecollection["si__path"] = morph["si__path"]
-            tracecollection["si__width"] = morph["si__width"]
-            tracecollection["si__height"] = morph["si__height"]
-            for key,value in tracecollection.items():
+            to_delete = list()
+            for key, value in neuronmorphology.items():
                     if value == "":
-                        del tracecollection[key]
+                        to_delete.append(key)
+            for key in to_delete:
+                del neuronmorphology[key]
+            
+            for key in ["ef__adaptation", 
+                        "ef__avg_firing_rate", 
+                        "ef__avg_isi", 
+                        "ef__f_i_curve_slope",
+                        "ef__fast_trough_v_long_square",
+                        "ef__peak_t_ramp",
+                        "ef__ri",
+                        "ef__tau",
+                        "ef__threshold_i_long_square",
+                        "ef__upstroke_downstroke_ratio_long_square",
+                        "ef__vrest",
+                        "ephys_inst_thresh_thumb_path",
+                       "ef__vrest",
+                       "ephys_inst_thresh_thumb_path",
+                       "ephys_thumb_path",
+                       "erwkf__id",
+                       "si__height",
+                       "si__path",
+                       "si__width",
+                       "si__height"]:
+                tracecollection[key] = morph[key]
+            to_delete = list()
+            for key, value in tracecollection.items():
+                    if value == "":
+                        to_delete.append(key)
+            for key in to_delete:
+                del tracecollection[key]
             
             
             graph[patchedcell_at_id] = patchedcell
@@ -215,13 +217,10 @@ class Mapper:
             graph[reconstruction_at_id] = reconstruction
             graph[tracecollection_at_id] = tracecollection
 
-   
-        
         at_graph = dict()
         at_graph["@context"] = self.context
-        at_graph["@id"] = "https://neuroshapes.org/graph/allen"
+        at_graph["@id"] = "https://neuroshapes.org/graph/allen_cell_types_database"
         at_graph["@graph"] = list()
         for key,value in graph.items():
             at_graph["@graph"].append(value)
-
         return at_graph

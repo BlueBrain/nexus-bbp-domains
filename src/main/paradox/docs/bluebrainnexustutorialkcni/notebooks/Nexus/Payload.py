@@ -42,7 +42,7 @@ class Experiment:
         if email:
             person_payload["email"] = email
         if affiliation_id:
-            person_payload["affiliation"] = {"@id": affiliation_id, "@type": ["prov:Agent", "schema:Organization"]}
+            person_payload["affiliation"] = {"@id": affiliation_id, "@type": ["prov:Agent", "Organization"]}
         return person_payload
 
 
@@ -65,7 +65,7 @@ class Experiment:
         experimentalprotocol_payload["name"] = name
         if author_id:
             experimentalprotocol_payload["author"] = {"@id": author_id,
-                                                      "@type": ["prov:Agent", "schema:Person"]}
+                                                      "@type": ["Agent", "Person"]}
         if date_published:
             experimentalprotocol_payload["datePublished"] = date_published
         if description:
@@ -197,8 +197,8 @@ class Experiment:
 
         brainslicing_payload["@type"] = "BrainSlicing"
         brainslicing_payload["@id"] = at_id
-        brainslicing_payload["used"] = {"@id": used_id, "@type": ["prov:Entity", "nsg:Subject"]}
-        brainslicing_payload["generated"] = {"@id": generated_id, "@type": ["prov:Entity", "nsg:SliceCollection"]}
+        brainslicing_payload["used"] = {"@id": used_id, "@type": ["prov:Entity", "Subject"]}
+        brainslicing_payload["generated"] = {"@id": generated_id, "@type": ["prov:Entity", "SliceCollection"]}
         if started_at_time:
             brainslicing_payload["startedAtTime"] = {"@value": started_at_time,
                                            "@type": "xsd:dateTime"}
@@ -210,8 +210,8 @@ class Experiment:
                 brainslicing_payload["wasAssociatedWith"].append({"@id": agent_id, "@type": "prov:Agent"})
         if had_protocol_ids:
             for protocol_id in had_protocol_ids:
-                brainslicing_payload["hadProtocol"].append({"@id": protocol_id, "@type": ["nsg:Protocol", "prov:Entity",
-                                                                                  "nsg:ExperimentalProtocol"]})
+                brainslicing_payload["hadProtocol"].append({"@id": protocol_id, "@type": ["Protocol", "prov:Entity",
+                                                                                  "ExperimentalProtocol"]})
         if brain_region_id:
             brainslicing_payload["brainLocation"] = {"brainRegion": {"@id": brain_region_id, "label": brain_region_label}}
         if slicing_plane:
@@ -246,8 +246,8 @@ class Experiment:
 
         wholecellpatchclamp_payload["@type"] = "WholeCellPatchClamp"
         wholecellpatchclamp_payload["@id"] = at_id
-        wholecellpatchclamp_payload["used"] = {"@id": used_id, "@type": ["prov:Entity", "nsg:SliceCollection"]}
-        wholecellpatchclamp_payload["generated"] = {"@id": generated_id, "@type": ["prov:Entity", "nsg:SliceCollection"]}
+        wholecellpatchclamp_payload["used"] = {"@id": used_id, "@type": ["prov:Entity", "SliceCollection"]}
+        wholecellpatchclamp_payload["generated"] = {"@id": generated_id, "@type": ["prov:Entity", "SliceCollection"]}
         if started_at_time:
             wholecellpatchclamp_payload["startedAtTime"] = {
                 "@value": started_at_time,
@@ -263,7 +263,7 @@ class Experiment:
                 wholecellpatchclamp_payload["wasAssociatedWith"].append({"@id": agent_id, "@type": "prov:Agent"})
         if had_protocol_ids:
             for protocol_id in had_protocol_ids:
-                wholecellpatchclamp_payload["hadProtocol"].append({"@id": protocol_id, "@type": ["nsg:Protocol",
+                wholecellpatchclamp_payload["hadProtocol"].append({"@id": protocol_id, "@type": ["Protocol",
                                                                                                  "prov:Entity"]})
 
         return wholecellpatchclamp_payload
@@ -274,7 +274,7 @@ class Experiment:
                          layer_label:str = None, m_type_label:str=None,
                                  m_type_pref_label:str=None, m_type_id:str=None, identifier:str = None, distribution_url:str =None,
                          contribution_id:str =None, subject_id:str =None, license_id:str =None, generation_id:str =None,
-                         derivation_ids:list =None, source_data:dict =None) -> dict:
+                         derivation_ids:list =None) -> dict:
         """
         
         :param name: The name of the reconstructed neuron morphology
@@ -299,11 +299,11 @@ class Experiment:
         reconstructedneuronmorphology_payload["@id"] = at_id
         reconstructedneuronmorphology_payload["name"] = name
         reconstructedneuronmorphology_payload["objectOfStudy"] = {
-            "@type": "nsg:ObjectOfStudy",
+            "@type": "ObjectOfStudy",
             "@id": "http://bbp.epfl.ch/neurosciencegraph/taxonomies/objectsofstudy/singlecells",
             "label": "Single Cell"}
         reconstructedneuronmorphology_payload["brainLocation"] = {
-            "@type": "nsg:BrainLocation",
+            "@type": "BrainLocation",
             "brainRegion": {
             "@id": brain_region_id,
             "label": brain_region_label}}
@@ -330,20 +330,20 @@ class Experiment:
                                 "url": distribution_url}
         if license_id:
             reconstructedneuronmorphology_payload["license"] = {
-                "@type": "nsg:License",
+                "@type": "License",
                 "@id": license_id
             }
         if contribution_id:
             reconstructedneuronmorphology_payload["contribution"] = {
-                "@type": "nsg:Contribution",
+                "@type": "Contribution",
                 "agent": {
                     "@id": contribution_id,
-                    "@type": "prov:Agent"
+                    "@type": "Agent"
                 }
             }
         if subject_id:
             reconstructedneuronmorphology_payload["subject"] = {
-                "@type": "nsg:Subject",
+                "@type": "Subject",
                 "@id": subject_id
             }
         if derivation_ids:
@@ -357,8 +357,6 @@ class Experiment:
                     "@id": generation_id,
                     "@type": "Activity"
                 }}
-        if source_data:
-            reconstructedneuronmorphology_payload["sourceData"] = source_data
 
         return reconstructedneuronmorphology_payload
 
@@ -389,7 +387,7 @@ class Experiment:
         if was_derived_from_id:
             labeledcell_payload["wasDerivedFrom"] = {
             "@id": was_derived_from_id,
-            "@type": ["prov:Entity", "nsg:PatchedCell"]
+            "@type": ["Entity", "PatchedCell"]
         }
         return labeledcell_payload
 
@@ -414,27 +412,27 @@ class Experiment:
         reconstruction_payload["@type"] = "Reconstruction"
         reconstruction_payload["generated"] = {
             "@id": generated_id,
-            "@type": ["prov:Entity",
-                      "nsg:ReconstructedCell"]
+            "@type": ["Entity",
+                      "ReconstructedCell"]
         }
         reconstruction_payload["used"] = {
                 "@id": used_id,
                 "@type": [
-                    "prov:Entity",
-                    "nsg:LabeledCell"]
+                    "Entity",
+                    "LabeledCell"]
             }
         if had_protocol_ids:
             for protocol_id in had_protocol_ids:
-                reconstruction_payload["hadProtocol"].append({"@id": protocol_id, "@type": ["nsg:Protocol",
-                                                                                  "prov:Entity",
-                                                                                  "nsg:ExperimentalProtocol"]})
+                reconstruction_payload["hadProtocol"].append({"@id": protocol_id, "@type": ["Protocol",
+                                                                                  "Entity",
+                                                                                  "ExperimentalProtocol"]})
         if started_at_time:
             reconstruction_payload["startedAtTime"]: started_at_time
         if ended_at_time:
             reconstruction_payload["endedAtTime"] = ended_at_time
         if was_associated_with_ids:
             for agent_id in was_associated_with_ids:
-                reconstruction_payload["wasAssociatedWith"].append({"@id": agent_id, "@type": "prov:Agent"})
+                reconstruction_payload["wasAssociatedWith"].append({"@id": agent_id, "@type": "Agent"})
 
         return reconstruction_payload
 
@@ -471,14 +469,16 @@ class Experiment:
         if was_derived_from_id:
             patchedcell_payload["wasDerivedFrom"] = {
             "@id": was_derived_from_id,
-            "@type": ["prov:Entity", "nsg:Subject"]
+            "@type": ["Entity", "Subject"]
         }
         if dendrite_morphology:
             patchedcell_payload["dendriteMorphology"] = dendrite_morphology
         return patchedcell_payload
     
     def tracecollection(self, name:str, at_id:str, brain_region_id:str =None, brain_region_label:str =None,
-                        was_derived_from_id:str=None) -> (dict, str):
+                        was_derived_from_id:str=None, identifier:str = None, distribution_url:str =None,
+                         contribution_id:str =None, subject_id:str =None, license_id:str =None, generation_id:str =None,
+                         derivation_ids:list =None) -> (dict, str):
         """
         
         :param name: 
@@ -486,12 +486,23 @@ class Experiment:
         :param brain_region_id: 
         :param brain_region_label: 
         :param was_derived_from_id: 
+        :param identifier: 
+        :param distribution_url: 
+        :param contribution_id: 
+        :param subject_id: 
+        :param license_id: 
+        :param generation_id: 
+        :param derivation_ids: 
         :return: 
         """
-        tracecollection_payload = dict()
+        tracecollection_payload = defaultdict(list)
         tracecollection_payload["@id"] = at_id
         tracecollection_payload["@type"] = "TraceCollection"
         tracecollection_payload["name"] = name
+        tracecollection_payload["objectOfStudy"] = {
+            "@type": "ObjectOfStudy",
+            "@id": "http://bbp.epfl.ch/neurosciencegraph/taxonomies/objectsofstudy/singlecells",
+            "label": "Single Cell"}
         if brain_region_id:
             tracecollection_payload["brainLocation"] = {"brainRegion": {
                 "@id": brain_region_id,
@@ -500,6 +511,41 @@ class Experiment:
         if was_derived_from_id:
             tracecollection_payload["wasDerivedFrom"] = {
             "@id": was_derived_from_id,
-            "@type": ["prov:Entity", "nsg:PatchedCell"]
+            "@type": ["Entity", "PatchedCell"]
         }
+        if identifier:
+            tracecollection_payload["identifier"] = identifier
+
+        if distribution_url:
+            tracecollection_payload["distribution"] = {"@type": "DataDownload",
+                                "url": distribution_url}
+        if license_id:
+            tracecollection_payload["license"] = {
+                "@type": "License",
+                "@id": license_id
+            }
+        if contribution_id:
+            tracecollection_payload["contribution"] = {
+                "@type": "Contribution",
+                "agent": {
+                    "@id": contribution_id,
+                    "@type": "Agent"
+                }
+            }
+        if subject_id:
+            tracecollection_payload["subject"] = {
+                "@type": "Subject",
+                "@id": subject_id
+            }
+        if derivation_ids:
+            for derivation_id in derivation_ids:
+                tracecollection_payload["derivation"].append({"@type": "Derivation",
+                                                               "entity": {"@id": derivation_id, "@type": "Entity"}})
+        if generation_id:
+            tracecollection_payload["generation"] = {
+                "@type": "Generation",
+                "activity": {
+                    "@id": generation_id,
+                    "@type": "Activity"
+                }}
         return tracecollection_payload
