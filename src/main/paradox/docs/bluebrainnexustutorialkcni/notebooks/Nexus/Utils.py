@@ -105,28 +105,32 @@ def query_sparql(query, sparql_client):
         return result_object._convertJSON()
     return result_object.convert()
 
-def query_data(sparqlview_endpoint:str, data_type:str, brain_region_layer:str, apical_dendrite:str, token:str):
+def query_data(sparqlview_endpoint:str, data_type:str, brain_region_layer:str, strain:str, token:str):
     page_size = 5000
     offset = 0
     nexus_df=None
     count = 0
-    sparqlview_wrapper = utils.create_sparql_client(sparql_endpoint=sparqlview_endpoint, token=token)
+    sparqlview_wrapper = create_sparql_client(sparql_endpoint=sparqlview_endpoint, token=token)
     while (count <= 200000): 
         select_query = """
+            PREFIX nxv: <https://bluebrain.github.io/nexus/vocabulary/>
+            PREFIX nsg: <https://neuroshapes.org/>
+            PREFIX schema: <http://schema.org/>
+            PREFIX prov: <http://www.w3.org/ns/prov#>
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             SELECT *
             WHERE
             {
-                BIND (%s as ?type).
-                ?id a nsg:ReconstructedNeuronMorphology;
-                  nsg:brainLocation / nsg:layer / rdfs:label %s;
-                  nsg:apicalDendrite %s;
-                  schema:distribution/schema:url ?downloadUrl;
-                  schema:name ?name
+                ?id a %s ;
+                  nsg:brainLocation / nsg:layer / rdfs:label %s ;
+                  nsg:subject / nsg:strain / rdfs:label %s ;
+                  schema:distribution / schema:url ?downloadUrl ;
+                  schema:name ?name .
             }
             LIMIT 1000
-            """ % (data_type, brain_region_layer, apical_dendrite)
-        nexus_results = utils.query_sparql(select_query, sparqlview_wrapper)
-        result_df = utils.sparql2dataframe(nexus_results)
+            """ % (data_type, brain_region_layer, strain)
+        nexus_results = query_sparql(select_query, sparqlview_wrapper)
+        result_df = sparql2dataframe(nexus_results)
         if len(result_df.index) > 0:
             if nexus_df is None:
                 nexus_df = pd.DataFrame(result_df)
