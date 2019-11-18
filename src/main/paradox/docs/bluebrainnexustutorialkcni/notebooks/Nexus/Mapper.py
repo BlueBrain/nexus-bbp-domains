@@ -1,18 +1,17 @@
-import Nexus.Payload as nsp
+import Nexus.Neuroshapes as nsp
 import Nexus.Utils as nsu
 import requests
 import json
 
-class Mapper:
+class Mapper():
 
-    def __init__(self, base="https://neuroshapes.org/workshop/", context="https://bbp.neuroshapes.org"):
+    def __init__(self, deployment, org_label, project_label):
 
-        self.base = base
-        self.context = context
+        self.base = f"{deployment}/resources/{org_label}/{project_label}/_/"
 
-    def allencelltypesdb2neuroshapes(self, neuron_morphologies:list) -> dict:
-        experiment = nsp.Experiment()
-        graph = dict()
+    def allencelltypesdb2neuroshapes(self, project_label, neuron_morphologies:list) -> dict:
+        experiment = nsp.Experiment(project_label)
+        entity_dict = dict()
         vocabulary = nsu.load_json("./vocabulary.json")
         ephys_protocol_at_id = "http://help.brain-map.org/download/attachments/8323525/CellTypes_Ephys_Overview.pdf?version=2&modificationDate=1508180425883&api=v2"
         reconstruction_protocol_at_id = "http://help.brain-map.org/download/attachments/8323525/CellTypes_Morph_Overview.pdf?version=4&modificationDate=1528310097913&api=v2"
@@ -23,7 +22,7 @@ class Mapper:
             subject_id = morph["donor__id"]
             subject_at_id = f"{self.base}subject_{subject_id}"
             subject_identifier = morph["donor__id"]
-            if subject_at_id not in graph.keys():
+            if subject_at_id not in entity_dict.keys():
                 species_label = vocabulary[morph["donor__species"]]["label"]
                 species_id = vocabulary[morph["donor__species"]]["@id"]
                 age_period = "Post-natal"
@@ -85,11 +84,11 @@ class Mapper:
                 for key in to_delete:
                     del subject[key]
                 
-                graph[subject_at_id] = subject
-                graph[slicecollection_at_id] = slicecollection
-                graph[brainslicing_at_id] = brainslicing
-                graph[slicecollection_has_part_at_id] = slicecollection_has_part
-                graph[wholecellpatchclamp_at_id] = wholecellpatchclamp
+                entity_dict[subject_at_id] = subject
+                entity_dict[slicecollection_at_id] = slicecollection
+                entity_dict[brainslicing_at_id] = brainslicing
+                entity_dict[slicecollection_has_part_at_id] = slicecollection_has_part
+                entity_dict[wholecellpatchclamp_at_id] = wholecellpatchclamp
 
             else:
                 slicecollection_has_part_at_id = f"{self.base}collection_{subject_id}"
@@ -115,7 +114,7 @@ class Mapper:
                                                  dendrite_morphology=morph["tag__dendrite_type"])
             patchedcell["tag__apical"] = morph["tag__apical"]
 
-            graph[slicecollection_has_part_at_id]["hasPart"].append(
+            entity_dict[slicecollection_has_part_at_id]["hasPart"].append(
                 {"@id": patchedcell_at_id, "@type": ["prov:Entity", "nsg:PatchedCell"]})
 
             labeledcell_at_id = f"{self.base}labeledcell_{cell_id}"
@@ -141,7 +140,7 @@ class Mapper:
                                                            derivation_ids=[subject_at_id, slicecollection_at_id,
                                                                             slicecollection_has_part_at_id, patchedcell_at_id,
                                                                             labeledcell_at_id],
-                                                           contribution_id=[aibs_grid_identifier])
+                                                           contribution_id=aibs_grid_identifier)
 
 
             reconstruction = experiment.reconstruction(generated_id=neuronmorphology_at_id,
@@ -158,7 +157,7 @@ class Mapper:
                                                            license_id="https://alleninstitute.org/legal/terms-use/",
                                                            derivation_ids=[subject_at_id, slicecollection_at_id,
                                                                             slicecollection_has_part_at_id, patchedcell_at_id],
-                                                           contribution_id=[aibs_grid_identifier])
+                                                           contribution_id=aibs_grid_identifier)
 
             for key in ["csl__normalized_depth",
                         "m__biophys",
@@ -211,16 +210,13 @@ class Mapper:
                 del tracecollection[key]
             
             
-            graph[patchedcell_at_id] = patchedcell
-            graph[labeledcell_at_id] = labeledcell
-            graph[neuronmorphology_at_id] = neuronmorphology
-            graph[reconstruction_at_id] = reconstruction
-            graph[tracecollection_at_id] = tracecollection
+            entity_dict[patchedcell_at_id] = patchedcell
+            entity_dict[labeledcell_at_id] = labeledcell
+            entity_dict[neuronmorphology_at_id] = neuronmorphology
+            entity_dict[reconstruction_at_id] = reconstruction
+            entity_dict[tracecollection_at_id] = tracecollection
 
-        at_graph = dict()
-        at_graph["@context"] = self.context
-        at_graph["@id"] = "https://neuroshapes.org/graph/allen_cell_types_database"
-        at_graph["@graph"] = list()
-        for key,value in graph.items():
-            at_graph["@graph"].append(value)
-        return at_graph
+        entitiy_list = list()
+        for key,value in entity_dict.items():
+            entitiy_list.append(value)
+        return entitiy_list

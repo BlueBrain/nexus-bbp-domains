@@ -5,7 +5,11 @@ class Experiment:
     """
     Entities of an experiment 
     """
+    
+    def __init__(self, project_label):
 
+        self.context = f"https://{project_label}.neuroshapes.org"
+    
     def organization(self, at_id: str, name: str, address: str = None) -> dict:
         """
         
@@ -16,6 +20,7 @@ class Experiment:
         """
         organization_payload = dict()
         organization_payload["@type"] = "Organization"
+        organization_payload["@context"] = self.context
         organization_payload["@id"] = at_id
         organization_payload["name"] = name
         if address:
@@ -36,6 +41,7 @@ class Experiment:
         person_payload = dict()
 
         person_payload["@type"] = "Person"
+        person_payload["@context"] = self.context
         person_payload["@id"] = at_id
         person_payload["familyName"] = family_name
         person_payload["givenName"] = given_name
@@ -46,7 +52,7 @@ class Experiment:
         return person_payload
 
 
-    def experimentalprotocol(self, name: str, at_id: str, author_id:str = None, date_published:str = None, description:str = None,
+    def experimentalprotocol(self, name: str, at_id: str, author_type:str, author_id:str = None, date_published:str = None, description:str = None,
                              identifier:str = None) -> dict:
         """
         
@@ -59,13 +65,14 @@ class Experiment:
         :return: The experimental protocol as dict object
         """
         experimentalprotocol_payload = dict()
-
+        experimentalprotocol_payload["@context"] = self.context
         experimentalprotocol_payload["@type"] = "ExperimentalProtocol"
+
         experimentalprotocol_payload["@id"] = at_id
         experimentalprotocol_payload["name"] = name
         if author_id:
             experimentalprotocol_payload["author"] = {"@id": author_id,
-                                                      "@type": ["Agent", "Person"]}
+                                                      "@type": author_type}
         if date_published:
             experimentalprotocol_payload["datePublished"] = date_published
         if description:
@@ -111,39 +118,40 @@ class Experiment:
         :return: The subject as dict object
         """
 
-        subject = dict()
+        subject_payload = dict()
 
-        subject["@type"] = "Subject"
-        subject["@id"] = at_id
-        subject["name"] = name
-        subject["species"] = {"@id": species_id, "label": species_label}
+        subject_payload["@type"] = "Subject"
+        subject_payload["@context"] = self.context
+        subject_payload["@id"] = at_id
+        subject_payload["name"] = name
+        subject_payload["species"] = {"@id": species_id, "label": species_label}
 
         if identifier:
-            subject["identifier"] = identifier
+            subject_payload["identifier"] = identifier
         if age_value:
-            subject["age"] = {"period": age_period, "unitCode": age_unit, "value": {"@value": age_value, "@type": "xsd:integer"}}
+            subject_payload["age"] = {"period": age_period, "unitCode": age_unit, "value": {"@value": age_value, "@type": "xsd:integer"}}
         if strain_id:
-            subject["strain"] = {"@id": strain_id, "label": strain_label}
+            subject_payload["strain"] = {"@id": strain_id, "label": strain_label}
         if sex_id:
-            subject["sex"] = {"@id": sex_id, "label": sex_label}
+            subject_payload["sex"] = {"@id": sex_id, "label": sex_label}
         if transgenic_id:
-            subject["transgenic"] = {"@id": transgenic_id, "label": transgenic_label}
+            subject_payload["transgenic"] = {"@id": transgenic_id, "label": transgenic_label}
         if birth_date:
-            subject["birthDate"] = birth_date
+            subject_payload["birthDate"] = birth_date
         if death_date:
-            subject["deathDate"] = death_date
+            subject_payload["deathDate"] = death_date
         if date_of_surgery:
-            subject["dateOfSurgery"] = date_of_surgery
+            subject_payload["dateOfSurgery"] = date_of_surgery
         if disease_model_id:
-            subject["diseaseModel"] = {"@id": disease_model_id, "label": disease_model_label}
+            subject_payload["diseaseModel"] = {"@id": disease_model_id, "label": disease_model_label}
         if disease_id:
-            subject["disease"] = {"@id": disease_id, "label": disease_label}
+            subject_payload["disease"] = {"@id": disease_id, "label": disease_label}
         if treatment_id:
-            subject["treatment"] = {"@id": treatment_id, "label": treatment_label}
+            subject_payload["treatment"] = {"@id": treatment_id, "label": treatment_label}
         if weight_value:
-            subject["weight"] = {"value": weight_value, "unitCode": weight_unit}
+            subject_payload["weight"] = {"value": weight_value, "unitCode": weight_unit}
 
-        return subject
+        return subject_payload
 
     def slicecollection(self, name: str, at_id: str, identifier: str = None, has_part_ids:list =None) -> (dict, str):
         """
@@ -155,18 +163,19 @@ class Experiment:
         :return: The slicecollection as dict object
         """
 
-        slicecollection = defaultdict(list)
+        slicecollection_payload = defaultdict(list)
 
-        slicecollection["@type"] = "SliceCollection"
-        slicecollection["@id"] = at_id
-        slicecollection["name"] = name
+        slicecollection_payload["@type"] = "SliceCollection"
+        slicecollection_payload["@context"] = self.context
+        slicecollection_payload["@id"] = at_id
+        slicecollection_payload["name"] = name
         if identifier:
-            slicecollection["identifier"] = identifier
+            slicecollection_payload["identifier"] = identifier
         if has_part_ids:
             for has_part_id in has_part_ids:
-                slicecollection["hasPart"].append(
+                slicecollection_payload["hasPart"].append(
                     {"@id": has_part_id, "@type": ["prov:Entity"]})
-        return slicecollection
+        return slicecollection_payload
 
     def brainslicing(self, at_id:str, used_id: str, generated_id: str, started_at_time: str=None, ended_at_time: str=None,
                      was_associated_with_ids: list=None, had_protocol_ids: list=None, brain_region_id: str=None,
@@ -196,6 +205,7 @@ class Experiment:
         brainslicing_payload = defaultdict(list)
 
         brainslicing_payload["@type"] = "BrainSlicing"
+        brainslicing_payload["@context"] = self.context
         brainslicing_payload["@id"] = at_id
         brainslicing_payload["used"] = {"@id": used_id, "@type": ["prov:Entity", "Subject"]}
         brainslicing_payload["generated"] = {"@id": generated_id, "@type": ["prov:Entity", "SliceCollection"]}
@@ -245,6 +255,7 @@ class Experiment:
         wholecellpatchclamp_payload = defaultdict(list)
 
         wholecellpatchclamp_payload["@type"] = "WholeCellPatchClamp"
+        wholecellpatchclamp_payload["@context"] = self.context
         wholecellpatchclamp_payload["@id"] = at_id
         wholecellpatchclamp_payload["used"] = {"@id": used_id, "@type": ["prov:Entity", "SliceCollection"]}
         wholecellpatchclamp_payload["generated"] = {"@id": generated_id, "@type": ["prov:Entity", "SliceCollection"]}
@@ -296,6 +307,7 @@ class Experiment:
 
         reconstructedneuronmorphology_payload = defaultdict(list)
         reconstructedneuronmorphology_payload["@type"] = "ReconstructedNeuronMorphology"
+        reconstructedneuronmorphology_payload["@context"] = self.context
         reconstructedneuronmorphology_payload["@id"] = at_id
         reconstructedneuronmorphology_payload["name"] = name
         reconstructedneuronmorphology_payload["objectOfStudy"] = {
@@ -309,9 +321,18 @@ class Experiment:
             "label": brain_region_label}}
         if coordinate_value_x:
             reconstructedneuronmorphology_payload["brainLocation"]["coordinatesInBrainAtlas"] = {
-                    "valueX": coordinate_value_x,
-                    "valueY": coordinate_value_y,
-                    "valueZ": coordinate_value_z}
+                    "valueX": {
+                        "@value": coordinate_value_x,
+                        "@type": "xsd:float"
+                    },
+                    "valueY": {
+                        "@value": coordinate_value_y,
+                        "@type": "xsd:float"
+                    },
+                    "valueZ": {
+                        "@value": coordinate_value_z,
+                        "@type": "xsd:float"
+                    }}
         if layer_id:
             reconstructedneuronmorphology_payload["brainLocation"]["layer"] = {
                 "@id": layer_id,
@@ -330,7 +351,7 @@ class Experiment:
                                 "url": distribution_url}
         if license_id:
             reconstructedneuronmorphology_payload["license"] = {
-                "@type": "License",
+                "@type": "nsg:License",
                 "@id": license_id
             }
         if contribution_id:
@@ -377,6 +398,7 @@ class Experiment:
         """
         labeledcell_payload = dict()
         labeledcell_payload["@type"] = "LabeledCell"
+        labeledcell_payload["@context"] = self.context        
         labeledcell_payload["@id"] = at_id
         labeledcell_payload["name"] = name
         if brain_region_id:
@@ -410,6 +432,7 @@ class Experiment:
         reconstruction_payload = defaultdict(list)
         reconstruction_payload["@id"] = at_id
         reconstruction_payload["@type"] = "Reconstruction"
+        reconstruction_payload["@context"] = self.context        
         reconstruction_payload["generated"] = {
             "@id": generated_id,
             "@type": ["Entity",
@@ -455,6 +478,7 @@ class Experiment:
         patchedcell_payload = dict()
         patchedcell_payload["@id"] = at_id
         patchedcell_payload["@type"] = "PatchedCell"
+        patchedcell_payload["@context"] = self.context
         patchedcell_payload["name"] = name
         if brain_region_id:
             patchedcell_payload["brainLocation"] = {"brainRegion": {
@@ -498,6 +522,7 @@ class Experiment:
         tracecollection_payload = defaultdict(list)
         tracecollection_payload["@id"] = at_id
         tracecollection_payload["@type"] = "TraceCollection"
+        tracecollection_payload["@context"] = self.context
         tracecollection_payload["name"] = name
         tracecollection_payload["objectOfStudy"] = {
             "@type": "ObjectOfStudy",
@@ -521,7 +546,7 @@ class Experiment:
                                 "url": distribution_url}
         if license_id:
             tracecollection_payload["license"] = {
-                "@type": "License",
+                "@type": "nsg:License",
                 "@id": license_id
             }
         if contribution_id:

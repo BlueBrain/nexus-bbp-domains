@@ -28,23 +28,24 @@ def store_allen_files(nexus, cell_id:str, data_type:str, metadata_dict:dict, org
         content_type = "application/nwb"
     file_path = f"./allen_cell_types_db/specimen_{cell_id}/{data_type}.{file_extension}"
     try:
-        response = nxs.files.create(org_label=org_label, project_label=project_label, filepath=file_path, content_type=content_type, filename=f"{cell_id}.{file_extension}")
-        metadata_dict[cell_id] = {
-           "@type": "DataDownload",
-           "url": response["@id"],
-            "contentSize": {
-                "unitCode": "bytes",
-                "value": response["_bytes"]
-            },
-            "digest": {
-                "algorithm": "SHA-256",
-                "value": response["_digest"]["_value"],
-            },
-            "encodingFormat": f"application/{file_extension}",
-            "name": response["_filename"]
-        }
-        at_id = response["@id"]
-        print(f"{cell_id} {data_type} stored with @id {at_id}")
+        if cell_id not in metadata_dict.keys():
+            response = nxs.files.create(org_label=org_label, project_label=project_label, filepath=file_path, content_type=content_type, filename=f"{cell_id}.{file_extension}")
+            metadata_dict[cell_id] = {
+               "@type": "DataDownload",
+               "url": response["@id"],
+                "contentSize": {
+                    "unitCode": "bytes",
+                    "value": response["_bytes"]
+                },
+                "digest": {
+                    "algorithm": "SHA-256",
+                    "value": response["_digest"]["_value"],
+                },
+                "encodingFormat": f"application/{file_extension}",
+                "name": response["_filename"]
+            }
+            at_id = response["@id"]
+            print(f"{cell_id} {data_type} stored with @id {at_id}")
     except nxs.HTTPError as e:
         print(e)
         print("---")
@@ -53,22 +54,22 @@ def store_allen_files(nexus, cell_id:str, data_type:str, metadata_dict:dict, org
         
         
 def store_allen_metadata(nexus, org_label, project_label, metadata_entities, morph_files_meta, ephys_files_meta):
-    entities = metadata_entities["@graph"]
-    context = metadata_entities["@context"]
+    entities = metadata_entities
+    context = metadata_entities
     for entity in entities:
-        entity["@context"] = context
         entity_type = entity["@type"]
         schema = entity_type.lower()
         if "ReconstructedNeuronMorphology" == entity_type:
-            distribution = morph_files_meta[int(entity["identifier"])] # TODO: use the identifier
+            distribution = morph_files_meta[str(entity["identifier"])] # TODO: use the identifier
             entity["distribution"] = distribution
             schema = "reconstructedpatchedcell"
         elif "TraceCollection" == entity_type:
-            distribution = ephys_files_meta[int(entity["identifier"])] # TODO: use the identifier
+            distribution = ephys_files_meta[str(entity["identifier"])] # TODO: use the identifier
             entity["distribution"] = distribution
         try:
             nxs.resources.create(org_label=org_label, project_label=project_label, data=entity, schema_id=f"datashapes:{schema}")
         except nxs.HTTPError as e:
+            nxs.tools.pretty_print(entity)
             print(e)
             print("---")
             nxs.tools.pretty_print(e.response.json()) 
@@ -136,3 +137,58 @@ def query_data(sparqlview_endpoint:str, data_type:str, brain_region_layer:str, a
         else:
             break;
     return nexus_df
+
+
+def configure_project(nexus, deployment, org_label, project_label):
+    vocab = f"{deployment}/vocabs/{org_label}/{project_label}/_/"
+    neuroshapes_org = "neurosciencegraph"
+    neuroshapes_project = "datamodels"
+    try:
+        api_mappings_datamodels = nxs.resources.fetch(org_label=neuroshapes_org,
+                                       project_label=neuroshapes_project,
+                                       resource_id=f"{deployment}/resources/neurosciencegraph/datamodels/_/nexus_api_mappings")
+        api_mappings = api_mappings_datamodels["apiMappings"]
+    
+    except nxs.HTTPError as e:
+        print(e)
+        print("---")
+        nxs.tools.pretty_print(e.response.json())
+    
+    try:
+        project = nxs.projects.fetch(org_label, project_label)
+        project["apiMappings"] = api_mappings
+        nxs.projects.update(project)
+    except nxs.HTTPError as e:
+        print(e)
+        print("---")
+        nxs.tools.pretty_print(e.response.json())    
+    
+    IDENTITY_resolver = {
+        "realm": "github"}
+
+    try:
+        nxs.resolvers.create(org_label=org_label,
+                         project_label=project_label,
+                         projects=[f"{neuroshapes_org}/{neuroshapes_project}"],
+                         identities=[IDENTITY_resolver], priority=50)
+    except nxs.HTTPError as e:
+        print(e)
+        print("---")
+        nxs.tools.pretty_print(e.response.json())
+
+    context = {
+        "@context":[
+            "https://neuroshapes.org",
+            {
+                "@vocab":vocab
+            }
+        ],
+        "@id":f"https://{project_label}.neuroshapes.org"
+    }
+
+    try:
+        response = nxs.resources.create(org_label=org_label, project_label=project_label, data=context)
+    except nxs.HTTPError as e:
+        print(e)
+        print("---")
+        nxs.tools.pretty_print(e.response.json())
