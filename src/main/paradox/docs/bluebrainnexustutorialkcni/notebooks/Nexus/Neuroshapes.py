@@ -3,20 +3,20 @@ from collections import defaultdict
 
 class Experiment:
     """
-    Entities of an experiment 
+    Neuroshapes entities of the Allen Cell Types Database data 
     """
     
     def __init__(self, project_label):
 
         self.context = f"https://{project_label}.neuroshapes.org"
     
-    def organization(self, at_id: str, name: str, address: str = None) -> dict:
+    def organization(self, at_id: str, name: str, address: str=None) -> dict:
         """
         
         :param at_id: @id of the organization (e.g. GRID identifier)
         :param name: Name of the organization
         :param address: Address of the organization
-        :return: The organization as dict object
+        :return: The organization payload as dict object
         """
         organization_payload = dict()
         organization_payload["@type"] = "Organization"
@@ -27,8 +27,8 @@ class Experiment:
             organization_payload["address"] = address
         return organization_payload
 
-    def person(self, at_id: str, family_name:str =None, given_name:str =None, email:str =None,
-               affiliation_id:str = None) -> dict:
+    def person(self, at_id: str, family_name: str=None, given_name: str=None, email: str=None,
+               affiliation_id: str=None) -> dict:
         """
         
         :param at_id: @id of the person
@@ -36,10 +36,9 @@ class Experiment:
         :param given_name: Given name of the person
         :param email: Email address of the person
         :param affiliation_id: @id of the institute with which the person is affiliated (e.g. GRID identifier)
-        :return: The person as dict object
+        :return: The person payload as dict object
         """
         person_payload = dict()
-
         person_payload["@type"] = "Person"
         person_payload["@context"] = self.context
         person_payload["@id"] = at_id
@@ -48,26 +47,25 @@ class Experiment:
         if email:
             person_payload["email"] = email
         if affiliation_id:
-            person_payload["affiliation"] = {"@id": affiliation_id, "@type": ["prov:Agent", "Organization"]}
+            person_payload["affiliation"] = {"@id": affiliation_id, "@type": "Organization"}
         return person_payload
 
-
-    def experimentalprotocol(self, name: str, at_id: str, author_type:str, author_id:str = None, date_published:str = None, description:str = None,
-                             identifier:str = None) -> dict:
+    def experimentalprotocol(self, at_id: str, name: str, author_type: str, author_id: str=None,
+                             date_published: str=None, description: str=None, identifier: str=None) -> dict:
         """
         
-        :param name: Name of the experimental protocol
         :param at_id: @id of the experimental protocol
+        :param name: Name of the experimental protocol
+        :param author_type: Data type of the author (Organization or Person)
         :param author_id: The Nexus identifier of the author of the experimental protocol
         :param date_published: The publishing date of the experimental protocol
         :param description: The description of the experimental protocol
         :param identifier: The identifier (e.g. DOI) of the experimental protocol
-        :return: The experimental protocol as dict object
+        :return: The experimental protocol payload as dict object
         """
         experimentalprotocol_payload = dict()
         experimentalprotocol_payload["@context"] = self.context
         experimentalprotocol_payload["@type"] = "ExperimentalProtocol"
-
         experimentalprotocol_payload["@id"] = at_id
         experimentalprotocol_payload["name"] = name
         if author_id:
@@ -79,23 +77,23 @@ class Experiment:
             experimentalprotocol_payload["description"] = description
         if identifier:
             experimentalprotocol_payload["identifier"] = identifier
-
         return experimentalprotocol_payload
 
-    def subject(self, name: str, at_id:str, species_label: str, species_id: str, identifier: str=None, age_period: str=None,
-                age_unit: str=None, age_value: int=None, strain_id: str=None, strain_label: str=None, sex_id: str=None,
-                sex_label: str=None, transgenic_id: str=None, transgenic_label: str=None, birth_date: str=None,
-                death_date: str=None, date_of_surgery: str=None, disease_model_id: str=None,
-                disease_model_label: str=None, disease_id: str=None, disease_label: str=None, treatment_id: str=None,
-                treatment_label: str=None, weight_value: str=None, weight_unit: str=None) -> dict:
+    def subject(self, at_id: str, name: str, species_label: str, species_id: str, identifier: str=None,
+                age_period: str=None, age_unit: str=None, age_value: int =None, strain_id: str=None,
+                strain_label: str=None, sex_id: str=None, sex_label: str=None, transgenic_id: str=None,
+                transgenic_label: str=None, birth_date: str=None, death_date: str=None, date_of_surgery: str=None,
+                disease_model_id: str=None, disease_model_label: str=None, disease_id: str=None,
+                disease_label: str=None, treatment_id: str=None, treatment_label: str=None, weight_value: str=None,
+                weight_unit: str=None) -> dict:
         """
-    
-        :param name: provider name of the subject
-        :param at_id: @id of the subject
-        :param identifier: provider ID of the subject
+        
+        :param at_id: @id of the subject    
+        :param name: name of the subject
         :param species_id: URI of species
         :param species_label: corresponding label
-        :param age_period: age period (post-natal, pre-natal)
+        :param identifier: provider ID of the subject
+        :param age_period: age period (Post-natal, Pre-natal)
         :param age_unit: age unit (e.g. days, months, years)
         :param age_value: numerical value of age
         :param strain_id: URI of strain
@@ -115,21 +113,20 @@ class Experiment:
         :param treatment_label: corresponding label
         :param weight_value: numerical value of weight
         :param weight_unit: weight unit (e.g. grams)
-        :return: The subject as dict object
+        :return: The subject payload as dict object
         """
 
         subject_payload = dict()
-
         subject_payload["@type"] = "Subject"
         subject_payload["@context"] = self.context
         subject_payload["@id"] = at_id
         subject_payload["name"] = name
         subject_payload["species"] = {"@id": species_id, "label": species_label}
-
         if identifier:
             subject_payload["identifier"] = identifier
         if age_value:
-            subject_payload["age"] = {"period": age_period, "unitCode": age_unit, "value": {"@value": age_value, "@type": "xsd:integer"}}
+            subject_payload["age"] = {"period": age_period, "unitCode": age_unit, "value": {"@value": age_value,
+                                                                                            "@type": "xsd:integer"}}
         if strain_id:
             subject_payload["strain"] = {"@id": strain_id, "label": strain_label}
         if sex_id:
@@ -153,18 +150,17 @@ class Experiment:
 
         return subject_payload
 
-    def slicecollection(self, name: str, at_id: str, identifier: str = None, has_part_ids:list =None) -> (dict, str):
+    def slicecollection(self, at_id: str, name: str, identifier: str=None, has_part_ids: list=None) -> dict:
         """
 
         :param name: provider name of the slicecollection
         :param at_id: @id of the slicecollection
         :param identifier: provider ID of the slicecollection
         :param has_part_ids: The list of @id values of slices which are part of this collection 
-        :return: The slicecollection as dict object
+        :return: The slicecollection payload as dict object
         """
 
         slicecollection_payload = defaultdict(list)
-
         slicecollection_payload["@type"] = "SliceCollection"
         slicecollection_payload["@context"] = self.context
         slicecollection_payload["@id"] = at_id
@@ -174,23 +170,23 @@ class Experiment:
         if has_part_ids:
             for has_part_id in has_part_ids:
                 slicecollection_payload["hasPart"].append(
-                    {"@id": has_part_id, "@type": ["prov:Entity"]})
+                    {"@id": has_part_id, "@type": "Entity"})
         return slicecollection_payload
 
-    def brainslicing(self, at_id:str, used_id: str, generated_id: str, started_at_time: str=None, ended_at_time: str=None,
-                     was_associated_with_ids: list=None, had_protocol_ids: list=None, brain_region_id: str=None,
-                     brain_region_label: str=None, slicing_plane: str=None, slicing_angle: str=None,
-                     cutting_thickness_value: str=None, cutting_thickness_unit: str=None, hemisphere: str=None,
-                     solution: str=None) -> dict:
+    def brainslicing(self, at_id: str, used_id: str, generated_id: str, started_at_time: str=None,
+                     ended_at_time: str=None, was_associated_with_ids: list=None, had_protocol_ids: list=None,
+                     brain_region_id: str=None, brain_region_label: str=None, slicing_plane: str=None,
+                     slicing_angle: str=None, cutting_thickness_value: str=None, cutting_thickness_unit: str=None,
+                     hemisphere: str=None, solution: str=None) -> dict:
         """
         
+        :param at_id: The @id of the brain slicing activity
         :param used_id: The identifier of the subject which was used in the brain slicing activity
         :param generated_id: The identifier of the brain slice collection which was generated by the brain slicing 
         activity
-        :param: at_id: @id of the brainslicing
         :param started_at_time: Date time at which the activity started
         :param ended_at_time: Date time at which the activity ended
-        :param was_associated_with_id: The identifier of the agent which was associated with the activity
+        :param was_associated_with_ids: The identifiers of the agents which were associated with the activity
         :param had_protocol_ids: The identifier of the protocol of this activity
         :param brain_region_id: The identifier of the brain region which was sliced
         :param brain_region_label: The label of the brain region which was sliced 
@@ -200,46 +196,44 @@ class Experiment:
         :param cutting_thickness_unit: The unit of the cutting thickness (e.g. μm)
         :param hemisphere: The brain hemisphere (i.e. Left, Right)
         :param solution: The cutting solution used in the brain slicing
-        :return: The brain slicing as dict object
+        :return: The brain slicing payload as dict object
         """
         brainslicing_payload = defaultdict(list)
-
         brainslicing_payload["@type"] = "BrainSlicing"
         brainslicing_payload["@context"] = self.context
         brainslicing_payload["@id"] = at_id
-        brainslicing_payload["used"] = {"@id": used_id, "@type": ["prov:Entity", "Subject"]}
-        brainslicing_payload["generated"] = {"@id": generated_id, "@type": ["prov:Entity", "SliceCollection"]}
+        brainslicing_payload["used"] = {"@id": used_id, "@type": "Subject"}
+        brainslicing_payload["generated"] = {"@id": generated_id, "@type": "SliceCollection"}
         if started_at_time:
-            brainslicing_payload["startedAtTime"] = {"@value": started_at_time,
-                                           "@type": "xsd:dateTime"}
+            brainslicing_payload["startedAtTime"] = {"@value": started_at_time, "@type": "xsd:dateTime"}
         if ended_at_time:
-            brainslicing_payload["endedAtTime"] = {"@value": ended_at_time,
-                                           "@type": "xsd:dateTime"}
+            brainslicing_payload["endedAtTime"] = {"@value": ended_at_time, "@type": "xsd:dateTime"}
         if was_associated_with_ids:
             for agent_id in was_associated_with_ids:
-                brainslicing_payload["wasAssociatedWith"].append({"@id": agent_id, "@type": "prov:Agent"})
+                brainslicing_payload["wasAssociatedWith"].append({"@id": agent_id, "@type": "Agent"})
         if had_protocol_ids:
             for protocol_id in had_protocol_ids:
-                brainslicing_payload["hadProtocol"].append({"@id": protocol_id, "@type": ["Protocol", "prov:Entity",
-                                                                                  "ExperimentalProtocol"]})
+                brainslicing_payload["hadProtocol"].append({"@id": protocol_id, "@type": "ExperimentalProtocol"})
         if brain_region_id:
-            brainslicing_payload["brainLocation"] = {"brainRegion": {"@id": brain_region_id, "label": brain_region_label}}
+            brainslicing_payload["brainLocation"] = {"brainRegion": {"@id": brain_region_id,
+                                                                     "label": brain_region_label}}
         if slicing_plane:
             brainslicing_payload["slicingPlane"] = slicing_plane
         if slicing_angle:
             brainslicing_payload["slicingAngle"] = slicing_angle
         if cutting_thickness_value:
-            brainslicing_payload["cuttingThickness"] = {"value": {"@value": cutting_thickness_value, "@type": "xsd:integer"}, "unitCode": cutting_thickness_unit}
+            brainslicing_payload["cuttingThickness"] = {"value": {"@value": cutting_thickness_value,
+                                                                  "@type": "xsd:integer"},
+                                                        "unitCode": cutting_thickness_unit}
         if hemisphere:
             brainslicing_payload["hemisphere"] = hemisphere
         if solution:
             brainslicing_payload["solution"] = solution
-
         return brainslicing_payload
 
-    def wholecellpatchclamp(self, at_id:str, used_id: str, generated_id: str, started_at_time: str=None,
-                                    ended_at_time: str=None, was_associated_with_ids: list=None,
-                                    had_protocol_ids: list=None) -> dict:
+    def wholecellpatchclamp(self, at_id: str, used_id: str, generated_id: str, started_at_time: str=None,
+                            ended_at_time: str=None, was_associated_with_ids: list=None,
+                            had_protocol_ids: list=None) -> dict:
         """
         
         :param used_id: The identifier of the slice which was used in the whole cell patch-clamp activity
@@ -250,15 +244,14 @@ class Experiment:
         :param ended_at_time: Date time at which the activity ended
         :param was_associated_with_ids: The @id values of the agents which were associated with the activity
         :param had_protocol_ids: The @id values of the protocols of this activity
-        :return: The whole cell patch-clamp as dict object
+        :return: The whole cell patch-clamp payload as dict object
         """
         wholecellpatchclamp_payload = defaultdict(list)
-
         wholecellpatchclamp_payload["@type"] = "WholeCellPatchClamp"
         wholecellpatchclamp_payload["@context"] = self.context
         wholecellpatchclamp_payload["@id"] = at_id
-        wholecellpatchclamp_payload["used"] = {"@id": used_id, "@type": ["prov:Entity", "SliceCollection"]}
-        wholecellpatchclamp_payload["generated"] = {"@id": generated_id, "@type": ["prov:Entity", "SliceCollection"]}
+        wholecellpatchclamp_payload["used"] = {"@id": used_id, "@type": "SliceCollection"}
+        wholecellpatchclamp_payload["generated"] = {"@id": generated_id, "@type": "SliceCollection"}
         if started_at_time:
             wholecellpatchclamp_payload["startedAtTime"] = {
                 "@value": started_at_time,
@@ -271,25 +264,23 @@ class Experiment:
                 }
         if was_associated_with_ids:
             for agent_id in was_associated_with_ids:
-                wholecellpatchclamp_payload["wasAssociatedWith"].append({"@id": agent_id, "@type": "prov:Agent"})
+                wholecellpatchclamp_payload["wasAssociatedWith"].append({"@id": agent_id, "@type": "Agent"})
         if had_protocol_ids:
             for protocol_id in had_protocol_ids:
-                wholecellpatchclamp_payload["hadProtocol"].append({"@id": protocol_id, "@type": ["Protocol",
-                                                                                                 "prov:Entity"]})
-
+                wholecellpatchclamp_payload["hadProtocol"].append({"@id": protocol_id, "@type": "ExperimentalProtocol"})
         return wholecellpatchclamp_payload
 
-
-    def reconstructedneuronmorphology(self, name:str, at_id:str, brain_region_id:str, brain_region_label:str, coordinate_value_x:float = None,
-                         coordinate_value_y:float = None, coordinate_value_z:float = None, layer_id:str =None,
-                         layer_label:str = None, m_type_label:str=None,
-                                 m_type_pref_label:str=None, m_type_id:str=None, identifier:str = None, distribution_url:str =None,
-                         contribution_id:str =None, subject_id:str =None, license_id:str =None, generation_id:str =None,
-                         derivation_ids:list =None) -> dict:
+    def reconstructedneuronmorphology(self, at_id: str, name: str, brain_region_id: str, brain_region_label: str,
+                                      coordinate_value_x: float =None, coordinate_value_y: float =None,
+                                      coordinate_value_z: float =None, layer_id: str=None, layer_label: str=None,
+                                      m_type_label: str=None, m_type_pref_label: str=None, m_type_id: str=None,
+                                      identifier: str=None, distribution_url: str=None, contribution_id: str=None,
+                                      subject_id: str=None, license_id: str=None, generation_id: str=None,
+                                      derivation_ids: list=None) -> dict:
         """
         
+        :param at_id: The @id value of the neuron morphology        
         :param name: The name of the reconstructed neuron morphology
-        :param at_id: The @id value of the neuron morphology
         :param brain_region_id: The @id value of the brain region in which the soma of the neuron morphology is located
         :param brain_region_label: The label of the brain region in which the soma of the neuron morphology is located
         :param coordinate_value_x: The x value of the brain atlas coordinate
@@ -302,7 +293,12 @@ class Experiment:
         :param m_type_id: The @id value of the morphological type of the neuron morphology
         :param identifier: The identifier of the neuron morphology (e.g. from the provider)
         :param distribution_url: The url to downlooad the neuron morphology
-        :return: The neuron morphology as dict object
+        :param contribution_id: The @id of the contributor
+        :param subject_id: The @id of the subject
+        :param license_id: The @id of the license of the data
+        :param generation_id: The @id of the generation of the data
+        :param derivation_ids: The @id values of entities from which the data was derived
+        :return: The neuron morphology payload as dict object
         """
 
         reconstructedneuronmorphology_payload = defaultdict(list)
@@ -316,9 +312,7 @@ class Experiment:
             "label": "Single Cell"}
         reconstructedneuronmorphology_payload["brainLocation"] = {
             "@type": "BrainLocation",
-            "brainRegion": {
-            "@id": brain_region_id,
-            "label": brain_region_label}}
+            "brainRegion": {"@id": brain_region_id, "label": brain_region_label}}
         if coordinate_value_x:
             reconstructedneuronmorphology_payload["brainLocation"]["coordinatesInBrainAtlas"] = {
                     "valueX": {
@@ -348,7 +342,7 @@ class Experiment:
 
         if distribution_url:
             reconstructedneuronmorphology_payload["distribution"] = {"@type": "DataDownload",
-                                "url": distribution_url}
+                                                                     "url": distribution_url}
         if license_id:
             reconstructedneuronmorphology_payload["license"] = {
                 "@type": "nsg:License",
@@ -370,31 +364,24 @@ class Experiment:
         if derivation_ids:
             for derivation_id in derivation_ids:
                 reconstructedneuronmorphology_payload["derivation"].append({"@type": "Derivation",
-                                                               "entity": {"@id": derivation_id, "@type": "Entity"}})
+                                                                            "entity": {"@id": derivation_id,
+                                                                                       "@type": "Entity"}})
         if generation_id:
             reconstructedneuronmorphology_payload["generation"] = {
                 "@type": "Generation",
-                "activity": {
-                    "@id": generation_id,
-                    "@type": "Activity"
-                }}
-
+                "activity": {"@id": generation_id, "@type": "Activity"}}
         return reconstructedneuronmorphology_payload
 
-
-
-
-
-    def labeledcell(self, name:str, at_id:str,  brain_region_id:str =None, brain_region_label:str =None,
-                    was_derived_from_id:str = None) -> dict:
+    def labeledcell(self, at_id: str, name: str, brain_region_id: str=None, brain_region_label: str=None,
+                    was_derived_from_id: str=None) -> dict:
         """
         
+        :param at_id: The @id of the labeled cell        
         :param name: The name of the labeled cell
-        :param at_id: The @id of the labeled cell
         :param brain_region_id: The @id of the brain region in which the soma of the neuron morphology is locoated
         :param brain_region_label: The label of the brain region in which the soma of the neuron morphology is locoated
         :param was_derived_from_id: The patched cell from which the labeled cell was derived
-        :return: The labeled cell as dict object
+        :return: The labeled cell payload as dict object
         """
         labeledcell_payload = dict()
         labeledcell_payload["@type"] = "LabeledCell"
@@ -402,22 +389,16 @@ class Experiment:
         labeledcell_payload["@id"] = at_id
         labeledcell_payload["name"] = name
         if brain_region_id:
-            labeledcell_payload["brainLocation"] = {"brainRegion": {
-                "@id": brain_region_id,
-                "label": brain_region_label
-        }}
+            labeledcell_payload["brainLocation"] = {"brainRegion": {"@id": brain_region_id,
+                                                                    "label": brain_region_label}}
         if was_derived_from_id:
-            labeledcell_payload["wasDerivedFrom"] = {
-            "@id": was_derived_from_id,
-            "@type": ["Entity", "PatchedCell"]
-        }
+            labeledcell_payload["wasDerivedFrom"] = {"@id": was_derived_from_id,
+                                                     "@type": ["Entity", "PatchedCell"]}
         return labeledcell_payload
 
-
-
-    def reconstruction(self, generated_id:str, used_id:str, at_id:str = None, had_protocol_ids:list =None,
-                       ended_at_time:str =None, started_at_time:str=None,
-                       was_associated_with_ids:list =None) -> (dict, str):
+    def reconstruction(self, generated_id: str, used_id: str, at_id: str=None, had_protocol_ids: list=None,
+                       ended_at_time: str=None, started_at_time: str=None,
+                       was_associated_with_ids: list=None) -> dict:
         """
         
         :param generated_id: The @id of the reconstructed cell which was generated by the reconstruction activity
@@ -427,28 +408,17 @@ class Experiment:
         :param ended_at_time: Date time at which the activity ended 
         :param started_at_time: Date time at which the activity started
         :param was_associated_with_ids: The @id values of the agents which were associated with the activity
-        :return: The reconstruction as dict object
+        :return: The reconstruction payload as dict object
         """
         reconstruction_payload = defaultdict(list)
         reconstruction_payload["@id"] = at_id
         reconstruction_payload["@type"] = "Reconstruction"
         reconstruction_payload["@context"] = self.context        
-        reconstruction_payload["generated"] = {
-            "@id": generated_id,
-            "@type": ["Entity",
-                      "ReconstructedCell"]
-        }
-        reconstruction_payload["used"] = {
-                "@id": used_id,
-                "@type": [
-                    "Entity",
-                    "LabeledCell"]
-            }
+        reconstruction_payload["generated"] = {"@id": generated_id, "@type": "ReconstructedCell"}
+        reconstruction_payload["used"] = {"@id": used_id, "@type": "LabeledCell"}
         if had_protocol_ids:
             for protocol_id in had_protocol_ids:
-                reconstruction_payload["hadProtocol"].append({"@id": protocol_id, "@type": ["Protocol",
-                                                                                  "Entity",
-                                                                                  "ExperimentalProtocol"]})
+                reconstruction_payload["hadProtocol"].append({"@id": protocol_id, "@type": "ExperimentalProtocol"})
         if started_at_time:
             reconstruction_payload["startedAtTime"]: started_at_time
         if ended_at_time:
@@ -456,13 +426,11 @@ class Experiment:
         if was_associated_with_ids:
             for agent_id in was_associated_with_ids:
                 reconstruction_payload["wasAssociatedWith"].append({"@id": agent_id, "@type": "Agent"})
-
         return reconstruction_payload
 
-
-    def patchedcell(self, name:str, at_id:str, brain_region_id:str =None, brain_region_label:str =None,
-                    cell_type_id:str= None, cell_type_label:str= None, was_derived_from_id:str=None,
-                    dendrite_morphology:str = None)-> (dict, str):
+    def patchedcell(self, name: str, at_id: str, brain_region_id: str=None, brain_region_label: str=None,
+                    cell_type_id: str=None, cell_type_label: str=None, was_derived_from_id: str=None,
+                    dendrite_morphology: str=None)-> dict:
         """
         
         :param name: The name of the patched cell
@@ -483,41 +451,35 @@ class Experiment:
         if brain_region_id:
             patchedcell_payload["brainLocation"] = {"brainRegion": {
                 "@id": brain_region_id,
-                "label": brain_region_label }
+                "label": brain_region_label}
             }
         if cell_type_id:
-            patchedcell_payload["cellType"] = {
-            "@id": cell_type_id,
-            "label": cell_type_label
-        }
+            patchedcell_payload["cellType"] = {"@id": cell_type_id, "label": cell_type_label}
         if was_derived_from_id:
-            patchedcell_payload["wasDerivedFrom"] = {
-            "@id": was_derived_from_id,
-            "@type": ["Entity", "Subject"]
-        }
+            patchedcell_payload["wasDerivedFrom"] = {"@id": was_derived_from_id, "@type": "Subject"}
         if dendrite_morphology:
             patchedcell_payload["dendriteMorphology"] = dendrite_morphology
         return patchedcell_payload
     
-    def tracecollection(self, name:str, at_id:str, brain_region_id:str =None, brain_region_label:str =None,
-                        was_derived_from_id:str=None, identifier:str = None, distribution_url:str =None,
-                         contribution_id:str =None, subject_id:str =None, license_id:str =None, generation_id:str =None,
-                         derivation_ids:list =None) -> (dict, str):
+    def tracecollection(self, at_id: str, name: str, brain_region_id: str=None, brain_region_label: str=None,
+                        was_derived_from_id: str=None, identifier: str=None, distribution_url: str=None,
+                        contribution_id: str=None, subject_id: str=None, license_id: str=None, generation_id: str=None,
+                        derivation_ids: list=None) -> dict:
         """
         
-        :param name: 
-        :param at_id: 
-        :param brain_region_id: 
-        :param brain_region_label: 
-        :param was_derived_from_id: 
-        :param identifier: 
-        :param distribution_url: 
-        :param contribution_id: 
-        :param subject_id: 
-        :param license_id: 
-        :param generation_id: 
-        :param derivation_ids: 
-        :return: 
+        :param at_id: The @id of the trace collection        
+        :param name: The name of the trace collection
+        :param brain_region_id: The identifier of the brain region
+        :param brain_region_label: The label of the brain region
+        :param was_derived_from_id: The @id of the entity from which the trace collection was derived
+        :param identifier: The provider ID of the trace collection
+        :param distribution_url: The url of the distribution of the trace collection
+        :param contribution_id: The @id of the contributor
+        :param subject_id: The @id of the subject
+        :param license_id: The identifier of the license of the data
+        :param generation_id: The @id of the entity which generated the trace collection
+        :param derivation_ids: The @id values of the entities from which the trace collection was derived
+        :return: The trace collection payload as dict object
         """
         tracecollection_payload = defaultdict(list)
         tracecollection_payload["@id"] = at_id
@@ -531,31 +493,24 @@ class Experiment:
         if brain_region_id:
             tracecollection_payload["brainLocation"] = {"brainRegion": {
                 "@id": brain_region_id,
-                "label": brain_region_label }
+                "label": brain_region_label}
             }
         if was_derived_from_id:
-            tracecollection_payload["wasDerivedFrom"] = {
-            "@id": was_derived_from_id,
-            "@type": ["Entity", "PatchedCell"]
-        }
+            tracecollection_payload["wasDerivedFrom"] = {"@id": was_derived_from_id, "@type": "PatchedCell"}
         if identifier:
             tracecollection_payload["identifier"] = identifier
-
         if distribution_url:
-            tracecollection_payload["distribution"] = {"@type": "DataDownload",
-                                "url": distribution_url}
+            tracecollection_payload["distribution"] = {"@type": "DataDownload", "url": distribution_url}
         if license_id:
             tracecollection_payload["license"] = {
                 "@type": "nsg:License",
-                "@id": license_id
-            }
+                "@id": license_id}
         if contribution_id:
             tracecollection_payload["contribution"] = {
                 "@type": "Contribution",
                 "agent": {
                     "@id": contribution_id,
-                    "@type": "Organization"
-                }
+                    "@type": "Organization"}
             }
         if subject_id:
             tracecollection_payload["subject"] = {
@@ -564,8 +519,8 @@ class Experiment:
             }
         if derivation_ids:
             for derivation_id in derivation_ids:
-                tracecollection_payload["derivation"].append({"@type": "Derivation",
-                                                               "entity": {"@id": derivation_id, "@type": "Entity"}})
+                tracecollection_payload["derivation"].append({"@type": "Derivation", "entity": {"@id": derivation_id,
+                                                                                                "@type": "Entity"}})
         if generation_id:
             tracecollection_payload["generation"] = {
                 "@type": "Generation",
