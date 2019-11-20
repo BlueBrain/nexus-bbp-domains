@@ -1,0 +1,1 @@
+cd getting-started/dataset/grid-small && ls

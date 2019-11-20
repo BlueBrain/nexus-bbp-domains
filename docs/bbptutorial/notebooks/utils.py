@@ -12,7 +12,7 @@ def get_at_id(data_type:str, allen_id:str) -> str:
     :param allen_id: The identifier provided by the allen institute
     :return: An identifier string to be used in the @id field of the payload for Blue Brain Nexus
     """
-    at_id = f"https://bbp.epfl.ch/neurosciencegraph/data/{data_type}_{allen_id}"
+    at_id = "https://bbp.epfl.ch/neurosciencegraph/data/{}_{}".format(data_type, allen_id)
     return at_id
 
 def get_json(filename:str) -> dict:
@@ -173,7 +173,7 @@ def patchedcell(cell_metadata: dict, allen_grid:str) -> dict:
         payload["identifier"] = allen_id
         brainregion_label = cell_metadata["structure__acronym"]
         structure_area_id = cell_metadata["structure__id"]
-        brainregion_id = f"http://api.brain-map.org/api/v2/data/Structure/{structure_area_id}"
+        brainregion_id = "http://api.brain-map.org/api/v2/data/Structure/{}".format(structure_area_id)
         payload["brainLocation"] = {
             "@type": "BrainLocation",
             "brainRegion": {
@@ -226,7 +226,7 @@ def neuronmorphology(cell_metadata: dict, allen_grid:str, file_meta:dict) -> dic
         payload["apicalDendrite"] = cell_metadata["tag__apical"]
         brainregion_label = cell_metadata["structure__acronym"]
         structure_area_id = cell_metadata["structure__id"]
-        brainregion_id = f"http://api.brain-map.org/api/v2/data/Structure/{structure_area_id}"
+        brainregion_id = "http://api.brain-map.org/api/v2/data/Structure/{}".format(structure_area_id)
         payload["brainLocation"] = {
             "@type": "BrainLocation",
             "brainRegion": {

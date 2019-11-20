@@ -1,0 +1,23 @@
+grid_id,line_1,line_2,line_3,lat,lng,postcode,primary,city,state,state_code,country,country_code,geonames_city_id
+grid.1001.0,,,,-35.2778,149.1205,,False,Canberra,Australian Capital Territory,AU-ACT,Australia,AU,2172517
+grid.1002.3,,,,-37.9083,145.138,,False,Melbourne,Victoria,AU-VIC,Australia,AU,2158177
+grid.1003.2,,,,-27.495964,153.009627,,False,Brisbane,Queensland,AU-QLD,Australia,AU,2174003
+grid.1004.5,,,,-33.775259,151.112915,,False,Sydney,New South Wales,AU-NSW,Australia,AU,2147714
+grid.1005.4,,,,-33.917731,151.230964,,False,Sydney,New South Wales,AU-NSW,Australia,AU,2147714
+grid.1006.7,,,,54.978,-1.615,,False,Newcastle upon Tyne,,,United Kingdom,GB,2641673
+grid.1007.6,,,,-34.405147,150.878387,,False,Wollongong,New South Wales,AU-NSW,Australia,AU,2171507
+grid.1008.9,,,,-37.797115,144.959972,,False,Melbourne,Victoria,AU-VIC,Australia,AU,2158177
+grid.1009.8,,,,-42.902093,147.332497,,False,Hobart,Tasmania,AU-TAS,Australia,AU,2163355
+grid.1010.0,,,,-34.920656,138.605756,,False,Adelaide,South Australia,AU-SA,Australia,AU,2078025
+grid.1011.1,,,,-19.327778,146.758333,,False,Townsville,Queensland,AU-QLD,Australia,AU,2146142
+grid.1012.2,,,,-31.980915,115.819878,,False,Perth,Western Australia,AU-WA,Australia,AU,2063523
+grid.1013.3,,,,-33.88858,151.187304,,False,Sydney,New South Wales,AU-NSW,Australia,AU,2147714
+grid.1014.4,,,,-35.024038,138.572615,,False,Adelaide,South Australia,AU-SA,Australia,AU,2078025
+grid.1016.6,,,,-35.27627,149.146114,,False,Canberra,Australian Capital Territory,AU-ACT,Australia,AU,2172517
+grid.1017.7,,,,-37.806748,144.962573,,False,Melbourne,Victoria,AU-VIC,Australia,AU,2158177
+grid.1018.8,,,,-37.72179,145.047909,,False,Melbourne,Victoria,AU-VIC,Australia,AU,2158177
+grid.1019.9,,,,-37.794167,144.9,,False,Melbourne,Victoria,AU-VIC,Australia,AU,2158177
+grid.1020.3,,,,-30.489949,151.641018,,False,Armidale,New South Wales,AU-NSW,Australia,AU,2177671
+grid.1021.2,,,,-38.1979,144.2973,,False,Geelong,Victoria,AU-VIC,Australia,AU,2165798
+grid.5333.6,,,,46.519082,6.566747,,False,Lausanne,,,Switzerland,CH,2659994
+grid.417881.3,,,,47.649493,-122.352164,,False,Seattle,Washington,US-WA,United States,US,5809844
