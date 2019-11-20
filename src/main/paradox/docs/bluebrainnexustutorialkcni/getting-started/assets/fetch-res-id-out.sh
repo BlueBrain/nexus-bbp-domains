@@ -1,8 +1,8 @@
 {
   "@context": [
     {
-      "@base": "https://sandbox.bluebrainnexus.io/v1/resources/demo/$PROJECTLABEL/_/",
-      "@vocab": "https://sandbox.bluebrainnexus.io/v1/vocabs/demo/$PROJECTLABEL/"
+      "@base": "https://sandbox.bluebrainnexus.io/v1/resources/tutorialnexus/$PROJECTLABEL/_/",
+      "@vocab": "https://sandbox.bluebrainnexus.io/v1/vocabs/tutorialnexus/$PROJECTLABEL/"
     },
     "https://bluebrain.github.io/nexus/contexts/resource.json"
   ],
@@ -30,9 +30,9 @@
   "state": "",
   "state_code": "",
   "wikipedia_url": "http://en.wikipedia.org/wiki/%C3%89cole_Polytechnique_F%C3%A9d%C3%A9rale_de_Lausanne",
-  "_self": "https://sandbox.bluebrainnexus.io/v1/resources/demo/testdemo/_/http%3A%2F%2Fwww.grid.ac%2Finstitutes%2Fgrid.5333.6",
+  "_self": "https://sandbox.bluebrainnexus.io/v1/resources/tutorialnexus/testtutorialnexus/_/http%3A%2F%2Fwww.grid.ac%2Finstitutes%2Fgrid.5333.6",
   "_constrainedBy": "https://bluebrain.github.io/nexus/schemas/unconstrained.json",
-  "_project": "https://sandbox.bluebrainnexus.io/v1/projects/demo/testdemo",
+  "_project": "https://sandbox.bluebrainnexus.io/v1/projects/tutorialnexus/testtutorialnexus",
   "_rev": 1,
   "_deprecated": false,
   "_createdAt": "2019-06-04T08:42:26.433Z",

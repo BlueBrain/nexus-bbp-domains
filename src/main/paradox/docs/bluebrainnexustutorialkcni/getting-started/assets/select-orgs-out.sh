@@ -1,1 +1,1 @@
-demo organization selected.
+tutorialnexus organization selected.

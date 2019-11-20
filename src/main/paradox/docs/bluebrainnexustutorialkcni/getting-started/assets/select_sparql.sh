@@ -1,6 +1,6 @@
 nexus views query-sparql --data \
 '
-PREFIX vocab: <https://sandbox.bluebrainnexus.io/v1/vocabs/demo/$PROJECTLABEL/>
+PREFIX vocab: <https://sandbox.bluebrainnexus.io/v1/vocabs/tutorialnexus/$PROJECTLABEL/>
 PREFIX nxv: <https://bluebrain.github.io/nexus/vocabulary/>
 Select ?org ?name ?createdAt
  WHERE  {

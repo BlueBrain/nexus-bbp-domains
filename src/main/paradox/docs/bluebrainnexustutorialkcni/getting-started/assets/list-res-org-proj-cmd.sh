@@ -1,1 +1,1 @@
-nexus resources list --size 5 -o demo -p $PROJECTLABEL
+nexus resources list --size 5 -o tutorialnexus -p $PROJECTLABEL

@@ -18,7 +18,7 @@ Let's get started.
 Since the CLI is written in python, you may want to create a virtual environment for a clean set up. To do so, Conda can be used. If you don't have it installed follow the instructions [here](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
 
 ```shell
-conda create -n nexus-cli python=3.5
+conda create -n nexus-cli python=3.6
 conda activate nexus-cli
 pip install git+https://github.com/BlueBrain/nexus-cli
 ```
@@ -26,7 +26,7 @@ pip install git+https://github.com/BlueBrain/nexus-cli
 
 ## Connect to a Nexus deployment
 
-### Configure the CLI to point to a specific Blue Brain Nexus deployment 
+### Configure the CLI to point to a specific Blue Brain Nexus deployment
 
 To ease the usage of the CLI, we will create a profile named 'tutorial' storing locally various configurations such as the Nexus deployment url.
 
@@ -74,7 +74,9 @@ Output
 That's it!
 
 
-## Clone the tutorial github project
+## Running locally the Jupyter notebooks
+
+If the Jupyter notebooks in the tutorial are ran locally then they need to be cloned from the github project: https://github.com/BlueBrain/nexus-bbp-domains.git.
 
 ```shell
 cd ~

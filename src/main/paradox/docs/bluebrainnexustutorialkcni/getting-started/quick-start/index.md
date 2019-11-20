@@ -12,7 +12,7 @@ The goal is to go over some capabilities of Blue Brain Nexus enabling:
 * Querying a dataset to retrieve various information
 * Sharing a dataset by making it public
 
-For that we will work with the small version of the [Global Research Identifier Database (GRID) dataset](../dataset/index.html) containing a set of:
+For that we will work with the small version of the [Global Research Identifier Database (GRID) dataset](https://www.grid.ac/) containing a set of:
 
 * institutes (institutes.csv)
 * their acronyms (acronyms.csv)
@@ -23,8 +23,8 @@ For that we will work with the small version of the [Global Research Identifier 
 An overview of this dataset can be found [here](../dataset/index.html).
 
 @@@ note
-* We will be using [Blue Brain Nexus CLI](https://github.com/BlueBrain/nexus-cli), a python client throughout this quick start tutorial. 
-* This tutorial assumes you've installed and configured the CLI. If not, please follow the set up instructions.
+* We will be using [Blue Brain Nexus CLI](https://github.com/BlueBrain/nexus-cli), a python client throughout this quick start tutorial.
+* This tutorial assumes you've installed and configured the CLI. If not, please follow the [Set up](../setup/index.html) instructions.
 @@@
 
 Let's get started.
@@ -43,10 +43,10 @@ A **project** is always created within an **organization** just like a git repos
 ### Select an organization
 
 @@@ note
-A public organization named **[demo](https://sandbox.bluebrainnexus.io/web/demo)** is already created for the purpose of this tutorial. All projects will be created under this organization.
+A public organization named **[tutorialnexus](https://sandbox.bluebrainnexus.io/web/tutorialnexus)** is already created for the purpose of this tutorial. All projects will be created under this organization.
 @@@
 
-The following command should list the organizations you have access to. The **demo** organization should be listed and tagged as non-deprecated in the output.
+The following command should list the organizations you have access to. The **tutorialnexus** organization should be listed and tagged as non-deprecated in the output.
 
 Command
 :   @@snip [list-orgs-cmd.sh](../assets/list-orgs-cmd.sh)
@@ -55,7 +55,7 @@ Output
 :   @@snip [list-orgs-out.sh](../assets/list-orgs-out.sh)
 
 
-Let select the **demo** organization.
+Let select the **tutorialnexus** organization.
 
 Command
 :   @@snip [select-orgs-cmd.sh](../assets/select-orgs-cmd.sh)
@@ -95,7 +95,7 @@ We are all set to bring some data within the project we just created.
 ### Load the dataset
 
 Let first list the files that made the small version of the GRID dataset.
-  
+
 Command
 :   @@snip [downloadmovielens-cmd.sh](../assets/downloadmovielens-cmd.sh)
 
@@ -120,48 +120,9 @@ nexus resources create --file institutes.csv --type Organization --format csv \
 ### View data in Nexus Web
 
 Nexus is deployed with a developer oriented web application allowing to browse organizations, projects, data and schemas you have access to.
-You can go to the address https://sandbox.bluebrainnexus.io/web/demo and browse the data you just loaded.
+You can go to the address https://sandbox.bluebrainnexus.io/web/tutorialnexus and search for your project and browse the data you just loaded. The following panel should be visible with the loaded organizations. They can be filtered by type and a simple full text search can be performed.
 
-### List data
-
-The simplest way to accessed data within Nexus is by listing them. The following command lists 5 resources:
-
-
-Command
-:   @@snip [list-res-cmd.sh](../assets/list-res-cmd.sh)
-
-
-The full payload of the resources are not retrieved when listing them: only identifier, type as well as Nexus added metadata are.
-But the result list can be scrolled and each resource fetched by identifier. 
-
-Let fetch the EPFL organization identified by http://www.grid.ac/institutes/grid.5333.6
-
-Command
-:   @@snip [fetch-res-id-cmd.sh](../assets/fetch-res-id-cmd.sh)
-
-Output
-:   @@snip [fetch-res-id-out.sh](../assets/fetch-res-id-out.sh)
-
-Whenever a resource is created, Nexus injects some useful metadata. The table below details some of them:
-
-| Metadata | Description                                                                                                                          | Value Type |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------------|------------|
-| @id                  | Generated resource identifier. The user can provide its own identifier.                                                              | URI        |
-| @type                | The type of the resource if provided by the user.                                                                                    | URI        |
-| \_self               | The resource address within Nexus. It contains the resource management details such as the organization, the project and the schema. | URI        |
-| \_createdAt          | The resource creation date.                                                                                                          | DateTime   |
-| \_createdBy          | The resource creator.                                                                                                                | DateTime   |
-
-Note that Nexus uses [JSON-LD](../../knowledge-graph/understanding-jsonld.html) as data exchange format.
-
-Filters are available to list specific resources. For example a list of resources of type Organization can be retrieved by running the following command:
-
-Command
-:   @@snip [list-res-filter-cmd.sh](../assets/list-res-filter-cmd.sh)
-
-Output
-:   @@snip [list-res-filter-out.sh](../assets/list-res-filter-out.sh)
-
+![organization-list](../assets/organization_list.png)
 
 
 ### Query data
@@ -175,26 +136,52 @@ SparqlView        | Exposes data as a [graph](../../knowledge-graph/thinking-in-
 
 #### Query data using the ElasticSearchView
 
-The ElasticSearchView URL is available at the address https://sandbox.bluebrainnexus.io/v1/views/demo/$PROJECTLABEL/documents/_search.
+The ElasticSearchView view is available in Nexus web at the address https://sandbox.bluebrainnexus.io/web/tutorialnexus/$PROJECTLABEL/nxv:defaultElasticSearchIndex/_search.
+The following query selects 5 organizations (entities of types Organization) sorted by creation date in descending order. Note that the type is a generated HTTP based URI.
 
-The query below selects 5 organizations sorted by creation date in descending order.
+```
+{
+     "size":5,
+     "sort" : [
+       {
+        "_createdAt" : {"order" : "desc"}
+       }
+     ],
+     "query": {
+     	"terms" : {"@type":["https://sandbox.bluebrainnexus.io/v1/vocabs/tutorialnexus/$PROJECTLABEL/Organization"]}
+     }
+ }
 
+```
 
-Select queries
-:   @@snip [select_elastic.sh](../assets/select_elastic.sh)
+Copy and past the query (change $PROJECTLABEL to your own project) in Nexus web as shown in the following figure.
 
+![elasticsearch_view](../assets/elasticsearch_view.png)
 
 
 #### Query data using the SparqlView
 
-The SparqlView is available at the address [https://sandbox.bluebrainnexus.io/v1/views/demo/$PROJECTLABEL/graph/sparql].
-The following diagram shows how the MovieLens data is structured in the default Nexus SparqlView. Note that the ratings, tags and movies are joined by the movieId property.
+The SparqlView is available at the address https://sandbox.bluebrainnexus.io/web/tutorialnexus/$PROJECTLABEL/nxv:defaultSparqlIndex/sparql.
 
-The query below selects 5 organizations sorted by creation date in descending order.
+The following query selects 5 organizations (entities of types Organization) sorted by creation date in descending order.
 
-Select queries
-:   @@snip [select_sparql.sh](../assets/select_sparql.sh)
+```
+PREFIX vocab: <https://sandbox.bluebrainnexus.io/v1/vocabs/tutorialnexus/$PROJECTLABEL/>
+PREFIX nxv: <https://bluebrain.github.io/nexus/vocabulary/>
+Select ?org ?name ?createdAt
+ WHERE  {
 
+    ?org a vocab:Organization.
+    ?org vocab:name  ?name.
+    ?org nxv:createdAt ?createdAt
+}
+ORDER BY DESC (?createdAt)
+LIMIT 5
+```
+
+Copy and past the query (change $PROJECTLABEL to your own project) in Nexus web as shown in the following figure.
+
+![sparql_view](../assets/sparql_view.png)
 
 ## Share data
 
