@@ -83,5 +83,5 @@ cd ~
 git clone https://github.com/BlueBrain/nexus-bbp-domains.git
 cd ~/nexus-bbp-domains
 git checkout docs
-cd src/main/paradox/docs/bbptutorial
+cd src/main/paradox/docs/bluebrainnexustutorialkcni
 ```shell
