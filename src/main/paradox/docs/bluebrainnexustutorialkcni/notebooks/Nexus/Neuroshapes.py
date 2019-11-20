@@ -202,8 +202,8 @@ class Experiment:
         brainslicing_payload["@type"] = "BrainSlicing"
         brainslicing_payload["@context"] = self.context
         brainslicing_payload["@id"] = at_id
-        brainslicing_payload["used"] = {"@id": used_id, "@type": "Subject"}
-        brainslicing_payload["generated"] = {"@id": generated_id, "@type": "SliceCollection"}
+        brainslicing_payload["used"] = {"@id": used_id, "@type": ["Subject", "Entity"]}
+        brainslicing_payload["generated"] = {"@id": generated_id, "@type": ["SliceCollection", "Entity"]}
         if started_at_time:
             brainslicing_payload["startedAtTime"] = {"@value": started_at_time, "@type": "xsd:dateTime"}
         if ended_at_time:
@@ -213,7 +213,8 @@ class Experiment:
                 brainslicing_payload["wasAssociatedWith"].append({"@id": agent_id, "@type": "Agent"})
         if had_protocol_ids:
             for protocol_id in had_protocol_ids:
-                brainslicing_payload["hadProtocol"].append({"@id": protocol_id, "@type": "ExperimentalProtocol"})
+                brainslicing_payload["hadProtocol"].append({"@id": protocol_id, "@type": ["ExperimentalProtocol",
+                                                                                          "Protocol"]})
         if brain_region_id:
             brainslicing_payload["brainLocation"] = {"brainRegion": {"@id": brain_region_id,
                                                                      "label": brain_region_label}}
@@ -250,8 +251,8 @@ class Experiment:
         wholecellpatchclamp_payload["@type"] = "WholeCellPatchClamp"
         wholecellpatchclamp_payload["@context"] = self.context
         wholecellpatchclamp_payload["@id"] = at_id
-        wholecellpatchclamp_payload["used"] = {"@id": used_id, "@type": "SliceCollection"}
-        wholecellpatchclamp_payload["generated"] = {"@id": generated_id, "@type": "SliceCollection"}
+        wholecellpatchclamp_payload["used"] = {"@id": used_id, "@type": ["SliceCollection", "Entity"]}
+        wholecellpatchclamp_payload["generated"] = {"@id": generated_id, "@type": ["SliceCollection", "Entity"]}
         if started_at_time:
             wholecellpatchclamp_payload["startedAtTime"] = {
                 "@value": started_at_time,
@@ -267,7 +268,8 @@ class Experiment:
                 wholecellpatchclamp_payload["wasAssociatedWith"].append({"@id": agent_id, "@type": "Agent"})
         if had_protocol_ids:
             for protocol_id in had_protocol_ids:
-                wholecellpatchclamp_payload["hadProtocol"].append({"@id": protocol_id, "@type": "ExperimentalProtocol"})
+                wholecellpatchclamp_payload["hadProtocol"].append({"@id": protocol_id, "@type": ["ExperimentalProtocol",
+                                                                                          "Protocol"]})
         return wholecellpatchclamp_payload
 
     def reconstructedneuronmorphology(self, at_id: str, name: str, brain_region_id: str, brain_region_label: str,
@@ -414,11 +416,12 @@ class Experiment:
         reconstruction_payload["@id"] = at_id
         reconstruction_payload["@type"] = "Reconstruction"
         reconstruction_payload["@context"] = self.context        
-        reconstruction_payload["generated"] = {"@id": generated_id, "@type": "ReconstructedCell"}
-        reconstruction_payload["used"] = {"@id": used_id, "@type": "LabeledCell"}
+        reconstruction_payload["generated"] = {"@id": generated_id, "@type": ["ReconstructedCell", "Entity"]}
+        reconstruction_payload["used"] = {"@id": used_id, "@type": ["LabeledCell", "Entity"]}
         if had_protocol_ids:
             for protocol_id in had_protocol_ids:
-                reconstruction_payload["hadProtocol"].append({"@id": protocol_id, "@type": "ExperimentalProtocol"})
+                reconstruction_payload["hadProtocol"].append({"@id": protocol_id, "@type": ["ExperimentalProtocol",
+                                                                                          "Protocol"]})
         if started_at_time:
             reconstruction_payload["startedAtTime"]: started_at_time
         if ended_at_time:

@@ -165,5 +165,13 @@
 "6": {
 	"label": "layer 6",
 	"@id": "http://purl.obolibrary.org/obo/UBERON_0005395"
+},
+"epilepsy": {
+	"@id": "https://meshb.nlm.nih.gov/record/ui?ui=D004827",
+	"label": "Epilepsy"
+},
+"tumor": {
+	"@id": "https://meshb.nlm.nih.gov/record/ui?ui=D001932",
+	"label": "Brain Neoplasms"
 }
 }
