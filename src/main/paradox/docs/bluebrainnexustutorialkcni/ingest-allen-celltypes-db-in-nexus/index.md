@@ -29,5 +29,5 @@
 
 This tutorial code is available:
 
-* at [Github](https://github.com/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/BBPworkshop_datapipeline_nexus.ipynb)
-* on [Google Colab](https://colab.research.google.com/github/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/BBPworkshop_datapipeline_nexus.ipynb)
+* at [Github](https://github.com/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/blue_brain_nexus_allencelltypesdb_collect_ingest_find.ipynb)
+* on [Google Colab](https://colab.research.google.com/github/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/blue_brain_nexus_allencelltypesdb_collect_ingest_find.ipynb)
