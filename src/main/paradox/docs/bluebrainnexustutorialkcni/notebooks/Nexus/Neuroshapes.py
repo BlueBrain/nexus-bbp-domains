@@ -359,7 +359,7 @@ class Experiment:
                 "@type": "Contribution",
                 "agent": {
                     "@id": contribution_id,
-                    "@type": "Agent"
+                    "@type": "Organization"
                 }
             }
         if subject_id:
@@ -554,7 +554,7 @@ class Experiment:
                 "@type": "Contribution",
                 "agent": {
                     "@id": contribution_id,
-                    "@type": "Agent"
+                    "@type": "Organization"
                 }
             }
         if subject_id:
