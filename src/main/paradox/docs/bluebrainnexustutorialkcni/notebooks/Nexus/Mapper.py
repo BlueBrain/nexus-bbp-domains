@@ -5,10 +5,23 @@ import Nexus.Utils as nsu
 class Mapper:
 
     def __init__(self, deployment, org_label, project_label):
+        """
+        
+        :param deployment: Blue Brain Nexus deployment url
+        :param org_label: Blue Brain Nexus organization label
+        :param project_label: Blue Brain Nexus project label
+        """
 
         self.base = f"{deployment}/resources/{org_label}/{project_label}/_/"
 
     def allencelltypesdb2neuroshapes(self, project_label, neuron_morphologies:list) -> list:
+
+        """
+        
+        :param project_label: The label of the Blue Brain Nexus project which will be used for the entities
+        :param neuron_morphologies: A list of neuron morphology metadata from the Allen Cell Types Database
+        :return: A list of Neuroshapes entities
+        """
         experiment = nsp.Experiment(project_label)
         entity_dict = dict()
         vocabulary = nsu.load_json("./vocabulary.json")
