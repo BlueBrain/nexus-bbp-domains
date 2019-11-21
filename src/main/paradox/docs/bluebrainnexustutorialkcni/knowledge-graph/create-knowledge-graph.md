@@ -2,7 +2,7 @@
 
 ## Overview
 
-This tutorial demonstrates how to step by step create a little knowledge graph. 
+This tutorial demonstrates how to step by step create a little knowledge graph.
 
 
 ## What you'll build
@@ -23,5 +23,5 @@ This tutorial demonstrates how to step by step create a little knowledge graph.
 
 This tutorial code is available:
 
-* at [Github](https://github.com/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bbptutorial/notebooks/step-by-step-kg-creation.ipynb)
-* on [Google Colab](https://colab.research.google.com/github/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bbptutorial/notebooks/step-by-step-kg-creation.ipynb)
+* at [Github](https://github.com/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/step-by-step-kg-creation.ipynb)
+* on [Google Colab](https://colab.research.google.com/github/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/step-by-step-kg-creation.ipynb)
