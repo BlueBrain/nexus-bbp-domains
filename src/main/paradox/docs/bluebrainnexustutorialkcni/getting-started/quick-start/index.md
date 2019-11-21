@@ -109,7 +109,7 @@ to load the organisations within the institutes.csv file and merge it with all t
 ```shell
 nexus resources create --file institutes.csv --type Organization --format csv \
  --idcolumn grid_id --idnamespace http://www.grid.ac/institutes/ \
- --mergewith links.csv --mergewith addresses.csv --mergewith relationships.csv --mergewith acronyms.csv \
+ --mergewith links.csv --mergewith addresses.csv --mergewith acronyms.csv \
  --mergeon grid_id \
  --max-connections 4
 ```
