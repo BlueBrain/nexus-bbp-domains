@@ -18,7 +18,6 @@ For that we will work with the small version of the [Global Research Identifier 
 * their acronyms (acronyms.csv)
 * their addresses (addresses.csv)
 * their urls  (links.csv)
-* and their relationships (relationships.csv)
 
 An overview of this dataset can be found [here](../dataset/index.html).
 
@@ -104,7 +103,7 @@ Output
 
 
 The data to be ingested come in 5 csv files (see the output of the above command) containing each a partial description of the organizations. A single command allows
-to load the organisations within the institutes.csv file and merge it with all the other csv files.
+to load the organisations within the institutes.csv file and merge it with links.csv, addresses.csv and acronyms.csv.
 
 ```shell
 nexus resources create --file institutes.csv --type Organization --format csv \
