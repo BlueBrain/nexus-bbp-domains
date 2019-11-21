@@ -1,15 +1,27 @@
 import Nexus.Neuroshapes as nsp
 import Nexus.Utils as nsu
-import requests
-import json
 
-class Mapper():
+
+class Mapper:
 
     def __init__(self, deployment, org_label, project_label):
+        """
+        
+        :param deployment: Blue Brain Nexus deployment url
+        :param org_label: Blue Brain Nexus organization label
+        :param project_label: Blue Brain Nexus project label
+        """
 
         self.base = f"{deployment}/resources/{org_label}/{project_label}/_/"
 
-    def allencelltypesdb2neuroshapes(self, project_label, neuron_morphologies:list) -> dict:
+    def allencelltypesdb2neuroshapes(self, project_label, neuron_morphologies:list) -> list:
+
+        """
+        
+        :param project_label: The label of the Blue Brain Nexus project which will be used for the entities
+        :param neuron_morphologies: A list of neuron morphology metadata from the Allen Cell Types Database
+        :return: A list of Neuroshapes entities
+        """
         experiment = nsp.Experiment(project_label)
         entity_dict = dict()
         vocabulary = nsu.load_json("./vocabulary.json")
@@ -106,7 +118,6 @@ class Mapper():
                 layer_id = None
                 layer_label = None
             patchedcell_at_id = f"{self.base}patchedcell_{cell_id}"
-            neuronmorphology_identifier = f"http://celltypes.brain-map.org/experiment/morphology/{cell_id}"
 
             patchedcell = experiment.patchedcell(name=f"{cell_name} Patched Cell", at_id=patchedcell_at_id,
                                                  brain_region_id=brain_region_id,
@@ -126,38 +137,43 @@ class Mapper():
             neuronmorphology_at_id = f"{self.base}neuronmorphology_{cell_id}"
             reconstruction_at_id = f"{self.base}reconstruction_{cell_id}"
             tracecollection_at_id = f"{self.base}tracecollection_{cell_id}"
-            neuronmorphology = experiment.reconstructedneuronmorphology(name=f"{cell_name} Neuron Morphology", at_id=neuronmorphology_at_id,
-                                                           identifier=cell_id,
-                                                           brain_region_id=brain_region_id,
-                                                           brain_region_label=brain_region_label,
-                                                           coordinate_value_x=morph["csl__x"],
-                                                           coordinate_value_y=morph["csl__y"],
-                                                           coordinate_value_z=morph["csl__z"],
-                                                           layer_id=layer_id, layer_label=layer_label,
-                                                           subject_id=subject_at_id,
-                                                           license_id="https://alleninstitute.org/legal/terms-use/",
-                                                           generation_id=reconstruction_at_id,
-                                                           derivation_ids=[subject_at_id, slicecollection_at_id,
-                                                                            slicecollection_has_part_at_id, patchedcell_at_id,
-                                                                            labeledcell_at_id],
-                                                           contribution_id=aibs_grid_identifier)
-
+            neuronmorphology = experiment.reconstructedneuronmorphology(name=f"{cell_name} Neuron Morphology",
+                                                                        at_id=neuronmorphology_at_id,
+                                                                        identifier=cell_id,
+                                                                        brain_region_id=brain_region_id,
+                                                                        brain_region_label=brain_region_label,
+                                                                        coordinate_value_x=morph["csl__x"],
+                                                                        coordinate_value_y=morph["csl__y"],
+                                                                        coordinate_value_z=morph["csl__z"],
+                                                                        layer_id=layer_id,
+                                                                        layer_label=layer_label,
+                                                                        subject_id=subject_at_id,
+                                                            license_id="https://alleninstitute.org/legal/terms-use/",
+                                                                        generation_id=reconstruction_at_id,
+                                                                        derivation_ids=[subject_at_id,
+                                                                                        slicecollection_at_id,
+                                                                                        slicecollection_has_part_at_id,
+                                                                                        patchedcell_at_id,
+                                                                                        labeledcell_at_id],
+                                                                        contribution_id=aibs_grid_identifier)
 
             reconstruction = experiment.reconstruction(generated_id=neuronmorphology_at_id,
                                                        used_id=labeledcell_at_id, at_id=reconstruction_at_id,
                                                        had_protocol_ids=[reconstruction_protocol_at_id],
                                                        was_associated_with_ids=[aibs_grid_identifier])
 
-            
-            tracecollection = experiment.tracecollection(name=f"{cell_name} Trace Collection", at_id=tracecollection_at_id,
-                                                           identifier=cell_id,
-                                                           brain_region_id=brain_region_id,
-                                                           brain_region_label=brain_region_label,
-                                                           subject_id=subject_at_id,
-                                                           license_id="https://alleninstitute.org/legal/terms-use/",
-                                                           derivation_ids=[subject_at_id, slicecollection_at_id,
-                                                                            slicecollection_has_part_at_id, patchedcell_at_id],
-                                                           contribution_id=aibs_grid_identifier)
+            tracecollection = experiment.tracecollection(name=f"{cell_name} Trace Collection",
+                                                         at_id=tracecollection_at_id,
+                                                         identifier=cell_id,
+                                                         brain_region_id=brain_region_id,
+                                                         brain_region_label=brain_region_label,
+                                                         subject_id=subject_at_id,
+                                                         license_id="https://alleninstitute.org/legal/terms-use/",
+                                                         derivation_ids=[subject_at_id,
+                                                                         slicecollection_at_id,
+                                                                         slicecollection_has_part_at_id,
+                                                                         patchedcell_at_id],
+                                                         contribution_id=aibs_grid_identifier)
 
             for key in ["csl__normalized_depth",
                         "m__biophys",
@@ -193,14 +209,14 @@ class Mapper():
                         "ef__upstroke_downstroke_ratio_long_square",
                         "ef__vrest",
                         "ephys_inst_thresh_thumb_path",
-                       "ef__vrest",
-                       "ephys_inst_thresh_thumb_path",
-                       "ephys_thumb_path",
-                       "erwkf__id",
-                       "si__height",
-                       "si__path",
-                       "si__width",
-                       "si__height"]:
+                        "ef__vrest",
+                        "ephys_inst_thresh_thumb_path",
+                        "ephys_thumb_path",
+                        "erwkf__id",
+                        "si__height",
+                        "si__path",
+                        "si__width",
+                        "si__height"]:
                 tracecollection[key] = morph[key]
             to_delete = list()
             for key, value in tracecollection.items():
@@ -209,7 +225,6 @@ class Mapper():
             for key in to_delete:
                 del tracecollection[key]
             
-            
             entity_dict[patchedcell_at_id] = patchedcell
             entity_dict[labeledcell_at_id] = labeledcell
             entity_dict[neuronmorphology_at_id] = neuronmorphology
@@ -217,6 +232,6 @@ class Mapper():
             entity_dict[tracecollection_at_id] = tracecollection
 
         entitiy_list = list()
-        for key,value in entity_dict.items():
+        for key, value in entity_dict.items():
             entitiy_list.append(value)
         return entitiy_list

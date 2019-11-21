@@ -20,7 +20,7 @@
 
 <meta name="description" content="bbp-schema-docs">
 <link rel="shortcut icon" href="../../.././assets/img/favicon-32x32.png">
-<title>Ingest Allen Cell Types Database in Nexus · Blue Brain Nexus Workshop</title>
+<title>Building a data pipeline</title>
 <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
 <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
 <meta name="theme-color" content="#03a9f4" />
@@ -48,7 +48,7 @@ data-md-color-accent="cyan"
 <nav class="md-header-nav md-grid">
 <div class="md-flex">
 <div class="md-flex__cell md-flex__cell--shrink">
-<a href="../../../docs/bluebrainnexustutorialkcni/index.html" title="Blue Brain Nexus Workshop" class="md-header-nav__button md-logo">
+<a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html" title="Building a data pipeline" class="md-header-nav__button md-logo">
 <img src="../../.././assets/img/logo.png" width="24" height="24">
 </a>
 </div>
@@ -57,12 +57,7 @@ data-md-color-accent="cyan"
 </div>
 <div class="md-flex__cell md-flex__cell--stretch">
 <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-<span class="md-header-nav__topic">
-Blue Brain Nexus Workshop
-</span>
-<span class="md-header-nav__topic">
-Ingest Allen Cell Types Database in Nexus
-</span>
+Building a data pipeline
 </div>
 </div>
 <div class="md-flex__cell md-flex__cell--shrink">
@@ -117,12 +112,12 @@ BlueBrain/nexus-bbp-domains
 <div class="md-sidebar__inner">
 <nav class="md-nav md-nav--primary" data-md-level="0" style="visibility: hidden">
 <label class="md-nav__title md-nav__title--site" for="drawer">
-<a href="../../../docs/bluebrainnexustutorialkcni/index.html" title="Blue Brain Nexus Workshop" class="md-nav__button md-logo">
+<a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html" title="Building a data pipeline" class="md-nav__button md-logo">
 <span class="md-nav__button md-logo">
 <img src="../../.././assets/img/logo.png" width="24" height="24">
 </a>
-<a href="../../../docs/bluebrainnexustutorialkcni/index.html" title="Blue Brain Nexus Workshop">
-Blue Brain Nexus Workshop
+<a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html" title="Building a data pipeline">
+Building a data pipeline
 </a>
 </label>
 <div class="md-nav__source">
@@ -140,34 +135,17 @@ BlueBrain/nexus-bbp-domains
 
 </div>
 <ul>
-  <li><a href="../../../docs/bluebrainnexustutorialkcni/getting-started/index.html" class="page">Quick Start Tutorial</a>
-  <ul>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/getting-started/setup/index.html" class="page">Set up</a></li>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/getting-started/quick-start/index.html" class="page">Quick Start</a></li>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/getting-started/dataset/index.html" class="page">The GRID Dataset</a></li>
-  </ul></li>
-  <li><a href="../../../docs/bluebrainnexustutorialkcni/knowledge-graph/index.html" class="page">Understanding knowledge graphs</a>
-  <ul>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/knowledge-graph/thinking-in-graph.html" class="page">Thinking in graph</a></li>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/knowledge-graph/understanding-jsonld.html" class="page">Understanding JSON-LD</a></li>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/knowledge-graph/create-knowledge-graph.html" class="page">Build a little knowledge Graph</a></li>
-  </ul></li>
-  <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html" class="active page">Ingest Allen Cell Types Database in Nexus</a></li>
-  <li><a href="../../../docs/bluebrainnexustutorialkcni/bbp-kg-schema/index.html" class="page">Web scale data publishing</a>
-  <ul>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/bbp-kg-schema/embed.html" class="page">Add structured data to your web pages</a></li>
-  </ul></li>
 </ul>
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html#ingest-allen-cell-types-database-in-nexus" class="header">Ingest Allen Cell Types Database in Nexus</a>
+  <li><a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html#building-a-data-pipeline" class="header">Building a data pipeline</a>
   <ul>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html#overview" class="header">Overview</a></li>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html#what-youll-build" class="header">What you&rsquo;ll build</a></li>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html#what-youll-learn" class="header">What you&rsquo;ll learn</a></li>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html#what-youll-need" class="header">What you&rsquo;ll need</a></li>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html#get-the-tutorial-code" class="header">Get the tutorial code</a></li>
+    <li><a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html#overview" class="header">Overview</a></li>
+    <li><a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html#what-youll-build" class="header">What you&rsquo;ll build</a></li>
+    <li><a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html#what-youll-learn" class="header">What you&rsquo;ll learn</a></li>
+    <li><a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html#what-youll-need" class="header">What you&rsquo;ll need</a></li>
+    <li><a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html#get-the-tutorial-code" class="header">Get the tutorial code</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -189,13 +167,13 @@ BlueBrain/nexus-bbp-domains
 <nav class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">Table of contents</label>
 <ul>
-  <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html#ingest-allen-cell-types-database-in-nexus" class="header">Ingest Allen Cell Types Database in Nexus</a>
+  <li><a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html#building-a-data-pipeline" class="header">Building a data pipeline</a>
   <ul>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html#overview" class="header">Overview</a></li>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html#what-youll-build" class="header">What you&rsquo;ll build</a></li>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html#what-youll-learn" class="header">What you&rsquo;ll learn</a></li>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html#what-youll-need" class="header">What you&rsquo;ll need</a></li>
-    <li><a href="../../../docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.html#get-the-tutorial-code" class="header">Get the tutorial code</a></li>
+    <li><a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html#overview" class="header">Overview</a></li>
+    <li><a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html#what-youll-build" class="header">What you&rsquo;ll build</a></li>
+    <li><a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html#what-youll-learn" class="header">What you&rsquo;ll learn</a></li>
+    <li><a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html#what-youll-need" class="header">What you&rsquo;ll need</a></li>
+    <li><a href="../../../docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.html#get-the-tutorial-code" class="header">Get the tutorial code</a></li>
   </ul></li>
 </ul>
 </nav>
@@ -206,39 +184,39 @@ BlueBrain/nexus-bbp-domains
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <div class="md-content__searchable">
-<h1><a href="#ingest-allen-cell-types-database-in-nexus" name="ingest-allen-cell-types-database-in-nexus" class="anchor"><span class="anchor-link"></span></a>Ingest Allen Cell Types Database in Nexus</h1>
+<h1><a href="#building-a-data-pipeline" name="building-a-data-pipeline" class="anchor"><span class="anchor-link"></span></a>Building a data pipeline</h1>
 <h2><a href="#overview" name="overview" class="anchor"><span class="anchor-link"></span></a>Overview</h2>
-<p><img src="./assets/nexus_workshop_data_pipeline.png" alt="Ingest Allen Cell Types Database in Blue Brain Nexus" /></p>
+<p><img src="./assets/bbp_workshop_data_pipeline.png" alt="Data pipeline" /></p>
 <h2><a href="#what-youll-build" name="what-youll-build" class="anchor"><span class="anchor-link"></span></a>What you&rsquo;ll build</h2>
 <ul>
   <li>A pipeline demonstrating how to:
     <ul>
-      <li>collect data from a remote source: <a href="https://celltypes.brain-map.org/">Allen Cell Types Database</a></li>
-      <li>ingest the collected file data in a knowledge graph within Blue Brain Nexus</li>
-      <li>map the collected metadata to the Neuroshapes data model</li>
-      <li>ingest the mapped metadata in a knowledge graph within Blue Brain Nexus</li>
-      <li>find ingested data in the knowledge graph</li>
-      <li>download filtered subsets of data from the knowledge graph</li>
+      <li>download data (e.g. morphologies) from a remote source (e.g. <a href="https://celltypes.brain-map.org/">Allen Cell Types Database</a>)</li>
+      <li>register the downloaded data in a knowledge graph within Blue Brain Nexus</li>
+      <li>register the dataset provenance in the knowledge graph</li>
+      <li>build a dataset made of entities of interest (e.g. a set of morphologies from a given species, brain region) and register it in Blue Brain Nexus with an immutable identifier</li>
+      <li>Run analysis on the build dataset (e.g. topological analysis of neuronal morphologies using <a href="https://github.com/BlueBrain/TMD">Topological Morphology Descriptor</a> )</li>
+      <li>Register the analysis results (plots, figures) in the Knowledge graph and record their provenance</li>
     </ul>
   </li>
 </ul>
 <h2><a href="#what-youll-learn" name="what-youll-learn" class="anchor"><span class="anchor-link"></span></a>What you&rsquo;ll learn</h2>
 <ul>
-  <li>How to leverage a knowledge graph as part of a data pipeline to ingest and manage (meta)data, search for data and record data provenance</li>
+  <li>How to leverage a knowledge graph as part of a data anaylis pipeline to store and manage (meta)data, search for data and record data provenance</li>
 </ul>
 <h2><a href="#what-youll-need" name="what-youll-need" class="anchor"><span class="anchor-link"></span></a>What you&rsquo;ll need</h2>
 <ul>
-  <li>Python 3.5 or higher with support of Jupyter notebook</li>
+  <li>A Python 3.5 or higher with support of Jupyter notebook</li>
 </ul>
 <h2><a href="#get-the-tutorial-code" name="get-the-tutorial-code" class="anchor"><span class="anchor-link"></span></a>Get the tutorial code</h2>
 <p>This tutorial code is available:</p>
 <ul>
-  <li>at <a href="https://github.com/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/blue_brain_nexus_allencelltypesdb_collect_ingest_find.ipynb">Github</a></li>
-  <li>on <a href="https://colab.research.google.com/github/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/blue_brain_nexus_allencelltypesdb_collect_ingest_find.ipynb">Google Colab</a></li>
+  <li>at <a href="https://github.com/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/BBPworkshop_datapipeline_nexus.ipynb">Github</a></li>
+  <li>on <a href="https://colab.research.google.com/github/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/BBPworkshop_datapipeline_nexus.ipynb">Google Colab</a></li>
 </ul>
 </div>
 <div>
-<a href="https://github.com/BlueBrain/nexus-bbp-domains/tree/master/src/main/paradox/docs/bluebrainnexustutorialkcni/ingest-allen-celltypes-db-in-nexus/index.md" title="Edit this page" class="md-source-file md-edit">
+<a href="https://github.com/BlueBrain/nexus-bbp-domains/tree/master/src/main/paradox/docs/bluebrainnexustutorialkcni/building-a-data-pipeline/index.md" title="Edit this page" class="md-source-file md-edit">
 Edit this page
 </a>
 </div>
@@ -252,36 +230,6 @@ Edit this page
 </div>
 </main>
 <footer class="md-footer">
-<div class="md-footer-nav">
-<nav class="md-footer-nav__inner md-grid">
-<a href="../../../docs/bluebrainnexustutorialkcni/knowledge-graph/create-knowledge-graph.html" title="Build a little knowledge Graph" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-</div>
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-Previous
-</span>
-Build a little knowledge Graph
-</span>
-</div>
-</a>
-<a href="../../../docs/bluebrainnexustutorialkcni/bbp-kg-schema/index.html" title="Web scale data publishing" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-<div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-<span class="md-flex__ellipsis">
-<span class="md-footer-nav__direction">
-Next
-</span>
-Web scale data publishing
-</span>
-</div>
-<div class="md-flex__cell md-flex__cell--shrink">
-<i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-</div>
-</a>
-</nav>
-</div>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">

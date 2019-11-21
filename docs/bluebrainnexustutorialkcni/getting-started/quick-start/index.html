@@ -191,7 +191,7 @@ BlueBrain/nexus-bbp-domains
 <ul style="display: none">
 <li class="md-nav__item md-version" id="project.version">
 <label class="md-nav__link" for="__version">
-<i class="md-icon" title="Version">label_outline</i> 0.2.0+35-d43b750c+20191120-0931
+<i class="md-icon" title="Version">label_outline</i> 0.2.0+50-110fd2c6
 </label>
 </li>
 </ul>
@@ -336,7 +336,7 @@ BlueBrain/nexus-bbp-domains
 <p>The data to be ingested come in 5 csv files (see the output of the above command) containing each a partial description of the organizations. A single command allows to load the organisations within the institutes.csv file and merge it with all the other csv files.</p>
 <pre class="prettyprint"><code class="language-shell">nexus resources create --file institutes.csv --type Organization --format csv \
  --idcolumn grid_id --idnamespace http://www.grid.ac/institutes/ \
- --mergewith links.csv --mergewith addresses.csv --mergewith relationships.csv --mergewith acronyms.csv \
+ --mergewith links.csv --mergewith addresses.csv --mergewith acronyms.csv \
  --mergeon grid_id \
  --max-connections 4
 </code></pre>
@@ -434,7 +434,7 @@ Edit this page
 </div>
 <div class="print-only">
 <span class="md-source-file md-version">
-0.2.0+35-d43b750c+20191120-0931
+0.2.0+50-110fd2c6
 </span>
 </div>
 </article>
