@@ -47,7 +47,7 @@ DATAFRAME = "DATAFRAME"
 class SparqlViewHelper(object):
 
     def __init__(self, sparql_endpoint, environment=None,org=None, project=None, token=None):
-        
+
         super(SparqlViewHelper, self).__init__()
         self.sparql_endpoint = sparql_endpoint
         self.sparqlview_wrapper = self.create_sparqlview_wrapper(sparql_endpoint=self.sparql_endpoint, token=token,http_query_method= POST, result_format=JSON)
@@ -59,7 +59,7 @@ class SparqlViewHelper(object):
 
     def load_context(self):
         context_dict = {}
-        #context_json = json.load("/Users/mfsy/dev/apps/forked/nexus/src/main/paradox/docs/bbptutorial/notebooks/context.json")
+        #context_json = json.load("/Users/mfsy/dev/apps/forked/nexus/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/context.json")
         with open('./context.json') as json_file:
             context_json = json.load(json_file)
             if context_json:
@@ -87,15 +87,15 @@ class SparqlViewHelper(object):
                     return self.sparql2dataframe(result_object._convertJSON())
                 else:
                     self.sparqlview_wrapper.setReturnFormat(result_format)
-            
+
             if self.sparqlview_wrapper.returnFormat == JSON:
                 return result_object._convertJSON()
             return result_object.convert()
-            
+
         except Exception as e:
             raise SparqlQueryException("""Failed to execute the query %s.""" % (sparql_query)) from e
-    
-    
+
+
     def create_sparqlview_wrapper(self, sparql_endpoint, http_query_method=POST, result_format= JSON, token=None):
         sparql_client = SPARQLWrapper(sparql_endpoint)
         if token:
@@ -135,14 +135,14 @@ class SparqlViewHelper(object):
         """ Retrieve entities by type
         """
         sparlq_query= """Select DISTINCT * WHERE {
-                   { 
+                   {
                    BIND (<%s> as ?dataset).
                    <%s> a schema:Dataset.
                      OPTIONAL {
                         <%s> schema:hasPart ?part.
                         ?part schema:distribution / schema:contentUrl ?partcontentUrl.
                         ?part schema:name ?name
-                        
+
                      }
                      OPTIONAL {
                         <%s> schema:distribution / schema:contentUrl ?maincontentUrl.
@@ -195,17 +195,17 @@ class SparqlViewHelper(object):
                      ?s %s %s.
                      %s.
                      %s
-                     
+
                }
                """ % (self.get_prefix_mapping(path), self.get_prefix_mapping(value), type_filter, retrieve_properties_filter)
         return self.query_sparql(sparlq_query,result_format)
-    
+
     def _build_type_filter(self, _type):
         type_filter= ""
         if _type:
             type_filter = """?s a <%s>""" % (self.get_prefix_mapping(_type))
         return type_filter
-    
+
     def _build_retrieve_properties(self, retrieve_properties):
         retrieve_properties_filter= ""
         if retrieve_properties:
@@ -214,8 +214,8 @@ class SparqlViewHelper(object):
             for prop in retrieve_properties:
                 retrieve_properties_filter += """?s %s ?%s_value . \n""" % (self.get_prefix_mapping(prop),prop)
         return retrieve_properties_filter
-            
-    
+
+
 
 class SparqlQueryException(Exception):
     pass

@@ -7,7 +7,6 @@ nexus views query-es --data \
        }
      ],
      "query": {
-     	"terms" : {"@type":["https://sandbox.bluebrainnexus.io/v1/vocabs/demo/$PROJECTLABEL/Organization"]}
+     	"terms" : {"@type":["https://sandbox.bluebrainnexus.io/v1/vocabs/tutorialnexus/$PROJECTLABEL/Organization"]}
      }
  }'
-

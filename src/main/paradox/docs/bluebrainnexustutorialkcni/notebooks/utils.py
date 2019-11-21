@@ -5,6 +5,7 @@ from pygments.formatters import TerminalFormatter
 import os
 import requests
 from nexussdk.utils import http as nexussdk_http
+from collections import OrderedDict
 
 def get_at_id(data_type:str, allen_id:str) -> str:
     """
@@ -299,6 +300,7 @@ def create_resource(nexus, json_payload, org, project):
         response = nexus.resources.create(org_label=org, project_label=project, data=json_payload)
         return response
     except nexus.HTTPError as ne:
+
         return ne.response.json()
 
 def create_resolver(nexus, json_payload, org, project):
@@ -325,6 +327,9 @@ def update_resource(nexus,identifier, updated_json_payload, org, project):
         resource = nexus.resources.fetch(org_label=org,project_label=project,resource_id=identifier)
         resource_current_revision = resource["_rev"]
         updated_json_payload["_self"]= resource["_self"]
+        if type(resource_current_revision) is OrderedDict:
+            resource_current_revision_json = json.loads(json.dumps(resource_current_revision))
+            resource_current_revision = resource_current_revision_json["@value"]
         response = nexus.resources.update(resource=updated_json_payload, rev=resource_current_revision)
         return response
     except nexus.HTTPError as e:

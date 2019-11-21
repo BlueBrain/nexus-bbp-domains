@@ -1,4 +1,4 @@
 +----------------+-------------------+-------------------------------------------------+------------+
 | Name           | Description       | Id                                              | Deprecated |
 +----------------+-------------------+-----------------------------------------------------+--------+
-| demo  | Nexus sandbox     | https://sandbox.bluebrainnexus.io/v1/demo     | False      |
+| tutorialnexus  | Nexus sandbox     | https://sandbox.bluebrainnexus.io/v1/tutorialnexus     | False      |
