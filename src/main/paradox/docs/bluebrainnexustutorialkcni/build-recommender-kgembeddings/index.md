@@ -23,3 +23,10 @@ You will use a Jupyter notebook to build a pipeline to train embeddings for know
 * Blue Brain Nexus data projection and indexing
 * ElasticSearch view creation and update in Blue Brain Nexus
 * Content-based recommendation using Blue Brain Nexus
+
+
+## Get the tutorial code
+
+This tutorial code is available:
+
+* on [Google Colab](https://colab.research.google.com/github/BlueBrain/nexus-bbp-domains/blob/docs/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/src/main/paradox/docs/bluebrainnexustutorialkcni/notebooks/Building_a_Content_based_Recommender_System_using_Blue_Brain_Nexus.ipynb)
