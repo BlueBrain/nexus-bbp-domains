@@ -1,0 +1,254 @@
+import json
+from SPARQLWrapper import SPARQLWrapper, JSON, POST, POSTDIRECTLY
+import pandas as pd
+import nexussdk as nxs
+
+pd.set_option('display.max_colwidth', -1)
+
+
+def load_json(filename: str) -> dict:
+
+    """
+    
+    :param filename: File name of the JSON file to be loaded
+    :return: The JSON file as dict object
+    """
+    with open(filename) as json_file:
+        json_data = json.load(json_file)
+        return json_data
+
+
+def save_json(payload: dict, filename: str):
+    """
+    
+    :param payload: The dict payload to be saved as JSON
+    :param filename: The output filename of the payload
+    """
+    with open(filename, 'w') as filehandle:
+        json.dump(payload, filehandle, sort_keys=True, indent=4)
+
+
+def store_allen_files(nexus, cell_id: str, data_type: str, metadata_dict: dict, org_label: str, project_label: str) \
+        -> dict:
+    """
+    
+    :param cell_id: The Allen Cell Types database identifier of the cell 
+    :param data_type: The data type ("reconstruction", or "ephys")
+    :param metadata_dict: The dictionary object for the metadata of the files
+    :param org_label: The Blue Brain Nexus organization label
+    :param project_label: The Blue Brain Nexus project label
+    :return: The dictionary object with the metadata of the files
+    """
+    if data_type == "reconstruction":
+        file_extension = "swc"
+        content_type = "application/swc"
+    elif data_type == "ephys":
+        file_extension = "nwb"
+        content_type = "application/nwb"
+    file_path = f"./allen_cell_types_db/specimen_{cell_id}/{data_type}.{file_extension}"
+    try:
+        if cell_id not in metadata_dict.keys():
+            response = nxs.files.create(org_label=org_label,
+                                        project_label=project_label,
+                                        filepath=file_path,
+                                        content_type=content_type,
+                                        filename=f"{cell_id}.{file_extension}")
+            metadata_dict[cell_id] = {
+               "@type": "DataDownload",
+               "url": response["@id"],
+               "contentSize": {
+                    "unitCode": "bytes",
+                    "value": response["_bytes"]
+                },
+               "digest": {
+                    "algorithm": "SHA-256",
+                    "value": response["_digest"]["_value"],
+                },
+               "encodingFormat": f"application/{file_extension}",
+               "name": response["_filename"]
+            }
+            at_id = response["@id"]
+            print(f"{cell_id} {data_type} stored with @id {at_id}")
+    except nxs.HTTPError as e:
+        print(e)
+        print("---")
+        nxs.tools.pretty_print(e.response.json())
+    return metadata_dict
+        
+        
+def store_allen_metadata(nexus, org_label: str, project_label:str, metadata_entities: list, morph_files_meta :dict,
+                         ephys_files_meta: dict):
+    """
+
+    :param org_label: The Blue Brain Nexus organization label
+    :param project_label: The Blue Brain Nexus project label
+    :param metadata_entities: The list of metadata entities to be stored
+    :param morph_files_meta: The dictionary object with the files metadata of the neuron morphology files
+    :param ephys_files_meta: The dictionary object with the files metadata of the electrophysiology files
+    """
+    entities = metadata_entities
+    for entity in entities:
+        entity_type = entity["@type"]
+        schema = entity_type.lower()
+        if "ReconstructedNeuronMorphology" == entity_type:
+            distribution = morph_files_meta[str(entity["identifier"])]
+            entity["distribution"] = distribution
+            schema = "reconstructedpatchedcell"
+        elif "TraceCollection" == entity_type:
+            distribution = ephys_files_meta[str(entity["identifier"])]
+            entity["distribution"] = distribution
+        try:
+            nxs.resources.create(org_label=org_label,
+                                 project_label=project_label,
+                                 data=entity,
+                                 schema_id=f"datashapes:{schema}")
+        except nxs.HTTPError as e:
+            nxs.tools.pretty_print(entity)
+            print(e)
+            print("---")
+            nxs.tools.pretty_print(e.response.json()) 
+
+
+def create_sparql_client(sparql_endpoint, http_query_method=POST, result_format=JSON, token=None):
+    """
+    
+    :param sparql_endpoint: The SPARQL endpoint 
+    :param http_query_method: The HTTP verb
+    :param result_format: The format of the result (e.g. JSON)
+    :param token: The Blue Brain Nexus access token
+    :return: The SPARQL client
+    """
+    sparql_client = SPARQLWrapper(sparql_endpoint)
+    if token:
+        sparql_client.addCustomHttpHeader("Authorization", "Bearer {}".format(token))
+    sparql_client.setMethod(http_query_method)
+    sparql_client.setReturnFormat(result_format)
+    if http_query_method == POST:
+        sparql_client.setRequestMethod(POSTDIRECTLY)
+    
+    return sparql_client
+
+
+# Convert SPARQL results into a Pandas data frame
+def sparql2dataframe(json_sparql_results):
+    """
+    
+    :param json_sparql_results: The JSON SPARQL results
+    :return: Results data frame
+    """
+    cols = json_sparql_results['head']['vars']
+    out = []
+    for row in json_sparql_results['results']['bindings']:
+        item = []
+        for c in cols:
+            item.append(row.get(c, {}).get('value'))
+        out.append(item)
+    return pd.DataFrame(out, columns=cols)
+
+
+# Send a query using a sparql wrapper 
+def query_sparql(query, sparql_client):
+    """
+    
+    :param query: The SPARQL query
+    :param sparql_client: The SPARQL client
+    """
+    sparql_client.setQuery(query)
+    result_object = sparql_client.query()
+    if sparql_client.returnFormat == JSON:
+        return result_object._convertJSON()
+    return result_object.convert()
+
+
+def query_data(sparqlview_endpoint: str, data_type: str, brain_region_layer: str, strain: str, token: str):
+    page_size = 5000
+    offset = 0
+    nexus_df = None
+    count = 0
+    sparqlview_wrapper = create_sparql_client(sparql_endpoint=sparqlview_endpoint, token=token)
+    while (count <= 200000):
+        select_query = """
+            PREFIX nxv: <https://bluebrain.github.io/nexus/vocabulary/>
+            PREFIX nsg: <https://neuroshapes.org/>
+            PREFIX schema: <http://schema.org/>
+            PREFIX prov: <http://www.w3.org/ns/prov#>
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            SELECT *
+            WHERE
+            {
+                ?id a %s ;
+                  nsg:brainLocation / nsg:layer / rdfs:label %s ;
+                  nsg:subject / nsg:strain / rdfs:label %s ;
+                  schema:distribution / schema:url ?downloadUrl ;
+                  schema:name ?name .
+            }
+            LIMIT 1000
+            """ % (data_type, brain_region_layer, strain)
+        nexus_results = query_sparql(select_query, sparqlview_wrapper)
+        result_df = sparql2dataframe(nexus_results)
+        if len(result_df.index) > 0:
+            if nexus_df is None:
+                nexus_df = pd.DataFrame(result_df)
+            else:
+                nexus_df = pd.concat([nexus_df, result_df], ignore_index=True)
+            count = count + page_size
+            offset = offset + page_size
+        else:
+            break;
+    return nexus_df
+
+
+def configure_project(nexus, deployment, org_label, project_label):
+    vocab = f"{deployment}/vocabs/{org_label}/{project_label}/_/"
+    neuroshapes_org = "neurosciencegraph"
+    neuroshapes_project = "datamodels"
+    try:
+        api_mappings_datamodels = nxs.resources.fetch(org_label=neuroshapes_org,
+                                                      project_label=neuroshapes_project,
+                                resource_id=f"{deployment}/resources/neurosciencegraph/datamodels/_/nexus_api_mappings")
+        api_mappings = api_mappings_datamodels["apiMappings"]
+    
+    except nxs.HTTPError as e:
+        print(e)
+        print("---")
+        nxs.tools.pretty_print(e.response.json())
+    
+    try:
+        project = nxs.projects.fetch(org_label, project_label)
+        project["apiMappings"] = api_mappings
+        nxs.projects.update(project)
+    except nxs.HTTPError as e:
+        print(e)
+        print("---")
+        nxs.tools.pretty_print(e.response.json())    
+    
+    identity_resolver = {
+        "realm": "github"}
+
+    try:
+        nxs.resolvers.create(org_label=org_label,
+                             project_label=project_label,
+                             projects=[f"{neuroshapes_org}/{neuroshapes_project}"],
+                             identities=[identity_resolver],
+                             priority=50)
+    except nxs.HTTPError as e:
+        print(e)
+        print("---")
+        nxs.tools.pretty_print(e.response.json())
+
+    context = {
+        "@context": [
+            "https://neuroshapes.org",
+            {
+                "@vocab": vocab
+            }
+        ],
+        "@id": f"https://{project_label}.neuroshapes.org"
+    }
+
+    try:
+        nxs.resources.create(org_label=org_label, project_label=project_label, data=context)
+    except nxs.HTTPError as e:
+        print(e)
+        print("---")
+        nxs.tools.pretty_print(e.response.json())

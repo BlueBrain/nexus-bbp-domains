@@ -23,45 +23,36 @@ scalafmt: {
   ]
 }
  */
-val nshVersion = "1.0.3"
 
-lazy val neuroshapes = "ch.epfl.bluebrain.nexus" %% "neuroshapes" % nshVersion
-
-lazy val bbpschemas = project
+lazy val root = project
   .in(file("."))
+  .enablePlugins(ParadoxMaterialThemePlugin, ParadoxSitePlugin, GhpagesPlugin)
   .settings(
-    name       := "bbp-schemas",
-    moduleName := "bbp-schemas",
-    resolvers  += Resolver.bintrayRepo("neuroshapes", "maven"),
-    resolvers  += Resolver.bintrayRepo("bbp", "nexus-releases"),
-    resolvers  += Resolver.bintrayRepo("bogdanromanx", "maven"),
-    libraryDependencies ++= Seq(
-      neuroshapes
-    )
+    name       := "bbp-schema-docs",
+    moduleName := "bbp-schema-docs",
+    // paradox settings
+    sourceDirectory in Paradox := sourceDirectory.value / "main" / "paradox",
+    ParadoxMaterialThemePlugin.paradoxMaterialThemeSettings(Paradox),
+    paradoxMaterialTheme in Paradox := {
+      ParadoxMaterialTheme()
+        .withColor("light-blue", "cyan")
+        .withFavicon("./assets/img/favicon-32x32.png")
+        .withLogo("./assets/img/logo.png")
+        .withCustomStylesheet("./assets/css/docs.css")
+        .withRepository(uri("https://github.com/BlueBrain/nexus-bbp-domains"))
+        .withSocial(
+          uri("https://github.com/BlueBrain"),
+          uri("https://gitter.im/INCF/neuroshapes"),
+          uri("https://gitter.im/BlueBrain/nexus")
+        )
+        .withCopyright("""The data models are Open Source and available under the CC-BY-4.0 License.<br/>|""".stripMargin)
+    },
+    paradoxNavigationDepth in Paradox := 4,
+    paradoxProperties in Paradox      += ("github.base_url" -> "https://github.com/BlueBrain/nexus-bbp-domains/tree/master"),
+    // gh pages settings
+    git.remoteRepo  := "git@github.com:BlueBrain/nexus-bbp-domains.git",
+    ghpagesNoJekyll := true,
+    ghpagesBranch   := "gh-pages",
   )
 
-inThisBuild(
-  Seq(
-    bintrayOmitLicense := true,
-    homepage           := Some(url("https://incf.github.io/neuroshapes")),
-    licenses           := Seq("Attribution" -> url("https://github.com/BlueBrain/nexus-bbp-domains/blob/master/LICENSE")),
-    developers := List(
-      Developer("MFSY", "Mohameth François Sy", "noreply@epfl.ch", url("https://incf.github.io/neuroshapes/")),
-      Developer("annakristinkaufmann", "Anna-Kristin Kaufmann", "noreply@epfl.ch", url("https://incf.github.io/neuroshapes/")),
-      Developer("huanxiang", "Lu Huanxiang", "noreply@epfl.ch", url("https://incf.github.io/neuroshapes/"))
-    ),
-    scmInfo := Some(ScmInfo(url("https://github.com/BlueBrain/nexus-bbp-domains"), "scm:git:git@github.com:BlueBrain/nexus-bbp-domains.git")),
-    // These are the sbt-release-early settings to configure
-    releaseEarlyWith              := BintrayPublisher,
-    releaseEarlyNoGpg             := true,
-    releaseEarlyEnableSyncToMaven := false
-  )
-)
-
-lazy val noPublish = Seq(
-  publishLocal    := {},
-  publish         := {},
-  publishArtifact := false
-)
-
-addCommandAlias("review", ";clean;test")
+addCommandAlias("review", ";clean;paradox")

@@ -1,0 +1,177 @@
+{"Homo Sapiens": {
+    "@id": "https://www.ncbi.nlm.nih.gov/taxonomy/9606",
+    "label": "Homo sapiens"
+},
+"Mus musculus": {
+	"@id": "https://www.ncbi.nlm.nih.gov/taxonomy/10090",
+	"label": "Mus musculus"
+},
+"Rorb-Cre-1": {
+	"@id": "https://www.jax.org/strain/023526",
+	"label": "Rorb-IRES2-Cre"
+},
+"Rorb-IRES2-Cre": {
+	"@id": "https://www.jax.org/strain/023526",
+	"label": "Rorb-IRES2-Cre"
+},
+"Scnn1a-Tg2-Cre": {
+	"@id": "https://www.jax.org/strain/009112",
+	"label": "Scnna1-Tg2-Cre"
+},
+"Scnn1a-Tg3-Cre": {
+	"@id": "https://www.jax.org/strain/009613",
+	"label": "Scnn1a-Tg3-Cre"
+},
+"Nr5a1-Cre": {
+	"@id": "https://www.jax.org/strain/006364",
+	"label": "Nr5a1-Cre"
+},
+"Rbp4-Cre_KL100": {
+	"@id": "https://www.mmrrc.org/catalog/sds.php?mmrrc_id=31125",
+	"label": "Rbp4-Cre_KL100"
+},
+"Ntsr1-Cre": {
+	"@id": "https://www.mmrrc.org/catalog/sds.php?mmrrc_id=030648",
+	"label": "Ntsr1-Cre"
+},
+"Sst-IRES-Cre": {
+	"@id": "https://www.jax.org/strain/013044",
+	"label": "Sst-IRES-Cre"
+},
+"Pvalb-IRES-Cre": {
+	"@id": "https://www.jax.org/strain/008069",
+	"label": "Pvalb-IRES-Cre"
+},
+"Htr3a-Cre_NO152": {
+	"@id": "https://www.mmrrc.org/catalog/sds.php?mmrrc_id=036680",
+	"label": "Htr3a-Cre_NO152"
+},
+"Htr3a-Cre_NO152|Pvalb-T2A-Dre": {
+	"@id": "https://www.mmrrc.org/catalog/sds.php?mmrrc_id=036680",
+	"label": "Htr3a-Cre_NO152"
+},
+"Gad2-IRES-Cre": {
+	"@id": "https://www.jax.org/strain/010802",
+	"label": "Gad2-IRES-Cre"
+},
+"Oxtr-T2A-Cre": {
+	"@id": "https://www.jax.org/strain/31303",
+	"label": "Oxtr-T2A-Cre"
+},
+"Cux2-CreERT2": {
+	"@id": "https://www.mmrrc.org/catalog/sds.php?mmrrc_id=032779",
+	"label": "Cux2-CreERT2"
+},
+"Ctgf-T2A-dgCre": {
+	"@id": "https://www.jax.org/strain/28535",
+	"label": "Ctgf-T2A-dgCre"	
+},
+"Chrna2-Cre_OE25": {
+	"@id": "https://www.jax.org/strain/036502",
+	"label": "Chrna2-Cre_OE25"	
+},
+"Chrna2-Cre_OE25|Pvalb-T2A-Dre": {
+	"@id": "https://www.jax.org/strain/036502",
+	"label": "Chrna2-Cre_OE25"	
+},
+"Nos1-CreERT2": {
+	"@id": "https://www.jax.org/strain/014541",
+	"label": "Nos1-CreERT2"	
+},
+"Nos1-CreERT2|Sst-IRES-FlpO": {
+	"@id": "https://www.jax.org/strain/014541",
+	"label": "Nos1-CreERT2"	
+},
+"Slc17a6-IRES-Cre": {
+	"@id": "https://www.jax.org/strain/016963",
+	"label": "Slc17a6-IRES-Cre"	
+},
+"Ntsr1-Cre_GN220": {
+	"@id": "https://www.mmrrc.org/catalog/sds.php?mmrrc_id=030648",
+	"label": "Ntsr1-Cre_GN220"	
+},
+"Sim1-Cre_KJ18": {
+	"@id": "https://www.mmrrc.org/catalog/sds.php?mmrrc_id=031742",
+	"label": "Sim1-Cre_KJ18"	
+},
+"Vipr2-IRES2-Cre": {
+	"@id": "https://www.jax.org/strain/031332",
+	"label": "Vipr2-IRES2-Cre"	
+},
+"Slc32a1-T2A-FlpO|Vipr2-IRES2-Cre": {
+	"@id": "https://www.jax.org/strain/031332",
+	"label": "Vipr2-IRES2-Cre"	
+},
+"Pvalb-T2A-FlpO|Vipr2-IRES2-Cre": {
+	"@id": "https://www.jax.org/strain/031332",
+	"label": "Vipr2-IRES2-Cre"	
+},
+"Vip-IRES-Cre": {
+	"@id": "https://www.jax.org/strain/010908",
+	"label": "Vip-IRES-Cre"	
+},
+"Ndnf-IRES2-dgCre": {
+	"@id": "https://www.jax.org/strain/28536",
+	"label": "Ndnf-IRES2-dgCre"	
+},
+"Chat-IRES-Cre-neo": {
+	"@id": "https://www.jax.org/strain/006410",
+	"label": "Chat-IRES-Cre-neo"	
+},
+"Nkx2-1-CreERT2": {
+	"@id": "https://www.jax.org/strain/014552",
+	"label": "Nkx2-1-CreERT2"	
+},
+"Tlx3-Cre_PL56": {
+	"@id": "https://www.mmrrc.org/catalog/sds.php?mmrrc_id=41158",
+	"label": "Tlx3-Cre_PL56"	
+},
+"Penk-IRES2-Cre-neo": {
+	"@id": "https://www.jax.org/strain/025112",
+	"label": "Penk-IRES2-Cre-neo"	
+},
+"Esr2-IRES2-Cre": {
+	"@id": "https://www.jax.org/strain/030158",
+	"label": "Esr2-IRES2-Cre"	
+},
+"Male": {
+	"@id": "male",
+	"label": "http://purl.obolibrary.org/obo/PATO_0000384"
+},
+"Female": {
+	"@id": "http://purl.obolibrary.org/obo/PATO_0000383",
+	"label": "female"
+},
+"1": {
+	"label": "layer 1",
+	"@id": "http://purl.obolibrary.org/obo/UBERON_0005390"
+},
+"2": {
+	"label": "layer 2",
+	"@id": "http://purl.obolibrary.org/obo/UBERON_0005391"
+},
+"3": {
+	"label": "layer 3",
+	"@id": "http://purl.obolibrary.org/obo/UBERON_0005392"
+},
+"4": {
+	"label": "layer 4",
+	"@id": "http://purl.obolibrary.org/obo/UBERON_0005393"
+},
+"5": {
+	"label": "layer 5",
+	"@id": "http://purl.obolibrary.org/obo/UBERON_0005394"
+},
+"6": {
+	"label": "layer 6",
+	"@id": "http://purl.obolibrary.org/obo/UBERON_0005395"
+},
+"epilepsy": {
+	"@id": "https://meshb.nlm.nih.gov/record/ui?ui=D004827",
+	"label": "Epilepsy"
+},
+"tumor": {
+	"@id": "https://meshb.nlm.nih.gov/record/ui?ui=D001932",
+	"label": "Brain Neoplasms"
+}
+}

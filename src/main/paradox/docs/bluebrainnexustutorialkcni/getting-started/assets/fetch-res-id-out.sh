@@ -1,0 +1,42 @@
+{
+  "@context": [
+    {
+      "@base": "https://sandbox.bluebrainnexus.io/v1/resources/tutorialnexus/$PROJECTLABEL/_/",
+      "@vocab": "https://sandbox.bluebrainnexus.io/v1/vocabs/tutorialnexus/$PROJECTLABEL/"
+    },
+    "https://bluebrain.github.io/nexus/contexts/resource.json"
+  ],
+  "@id": "http://www.grid.ac/institutes/grid.5333.6",
+  "@type": "Organization",
+  "acronym": "EPFL",
+  "city": "Lausanne",
+  "country": "Switzerland",
+  "country_code": "CH",
+  "email_address": "",
+  "established": 1853,
+  "geonames_city_id": 2659994,
+  "grid_id": "grid.5333.6",
+  "lat": 46.519082,
+  "line_1": "",
+  "line_2": "",
+  "line_3": "",
+  "link": "http://www.epfl.ch/index.en.html",
+  "lng": 6.566747,
+  "name": "\u00c9cole Polytechnique F\u00e9d\u00e9rale de Lausanne",
+  "postcode": "",
+  "primary": false,
+  "related_grid_id": "grid.482253.a",
+  "relationship_type": "Related",
+  "state": "",
+  "state_code": "",
+  "wikipedia_url": "http://en.wikipedia.org/wiki/%C3%89cole_Polytechnique_F%C3%A9d%C3%A9rale_de_Lausanne",
+  "_self": "https://sandbox.bluebrainnexus.io/v1/resources/tutorialnexus/testtutorialnexus/_/http%3A%2F%2Fwww.grid.ac%2Finstitutes%2Fgrid.5333.6",
+  "_constrainedBy": "https://bluebrain.github.io/nexus/schemas/unconstrained.json",
+  "_project": "https://sandbox.bluebrainnexus.io/v1/projects/tutorialnexus/testtutorialnexus",
+  "_rev": 1,
+  "_deprecated": false,
+  "_createdAt": "2019-06-04T08:42:26.433Z",
+  "_createdBy": "https://sandbox.bluebrainnexus.io/v1/realms/github/users/mfsy",
+  "_updatedAt": "2019-06-04T08:42:26.433Z",
+  "_updatedBy": "https://sandbox.bluebrainnexus.io/v1/realms/github/users/mfsy"
+}

@@ -1,0 +1,85 @@
+
+# Set up
+
+
+## Overview
+
+This tutorial explains how to install and set up the Blue Brain Nexus CLI to connect to a Blue Brain Nexus deployment.
+
+@@@ note
+* This tutorial makes use of an AWS deployment of Blue Brain Nexus available at https://sandbox.bluebrainnexus.io/v1.
+* We will be using [Nexus CLI](https://github.com/BlueBrain/nexus-cli), a python client,  to interact with the deployment.
+@@@
+
+Let's get started.
+
+## Install the CLI
+
+Since the CLI is written in python, you may want to create a virtual environment for a clean set up. To do so, Conda can be used. If you don't have it installed follow the instructions [here](https://conda.io/projects/conda/en/latest/user-guide/install/index.html).
+
+```shell
+conda create -n nexus-cli python=3.5
+conda activate nexus-cli
+pip install git+https://github.com/BlueBrain/nexus-cli
+```
+
+
+## Connect to a Nexus deployment
+
+### Configure the CLI to point to a specific Blue Brain Nexus deployment 
+
+To ease the usage of the CLI, we will create a profile named 'tutorial' storing locally various configurations such as the Nexus deployment url.
+
+Command
+:   @@snip [create-profile-cmd.sh](../assets/create-profile-cmd.sh)
+
+Output
+:   @@snip [create-profile-out.sh](../assets/create-profile-out.sh)
+
+
+
+
+
+### Login
+
+A bearer token is needed to authenticate to Nexus. For the purpose of this tutorial, you'll login using your github account.
+
+The following command will open (after pressing enter button) a browser window from where you can login using your github account.
+
+
+Command
+:   @@snip [login-auth-cmd.sh](../assets/login-auth-cmd.sh)
+
+Output
+:   @@snip [login-auth-out.sh](../assets/login-auth-out.sh)
+
+From the opened web page, click on the login button on the right corner and follow the instructions.
+
+
+![login-ui](../assets/login-ui.png)
+
+At the end you'll see a token button on the right corner. Click on it to copy the token.
+
+![login-ui](../assets/copy-token.png)
+
+The token can now be added to the tutorial profile. In the output of the following command you should see that the token column has now an expiry date.
+
+Command
+:   @@snip [settoken-auth-cmd.sh](../assets/settoken-auth-cmd.sh)
+
+Output
+:   @@snip [settoken-auth-out.sh](../assets/settoken-auth-out.sh)
+
+
+That's it!
+
+
+## Clone the tutorial github project
+
+```shell
+cd ~
+git clone https://github.com/BlueBrain/nexus-bbp-domains.git
+cd ~/nexus-bbp-domains
+git checkout docs
+cd src/main/paradox/docs/bbptutorial
+```shell
